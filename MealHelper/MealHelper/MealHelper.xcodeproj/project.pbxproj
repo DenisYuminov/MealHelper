@@ -7,29 +7,29 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
-		9226DB6E29D47DF50078A630 /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9226DB6D29D47DF50078A630 /* AppDelegate.swift */; };
-		9226DB7029D47DF50078A630 /* SceneDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9226DB6F29D47DF50078A630 /* SceneDelegate.swift */; };
-		9226DB7229D47DF50078A630 /* ViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9226DB7129D47DF50078A630 /* ViewController.swift */; };
-		9226DB7529D47DF50078A630 /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 9226DB7329D47DF50078A630 /* Main.storyboard */; };
-		9226DB7829D47DF50078A630 /* MealHelper.xcdatamodeld in Sources */ = {isa = PBXBuildFile; fileRef = 9226DB7629D47DF50078A630 /* MealHelper.xcdatamodeld */; };
-		9226DB7A29D47DF50078A630 /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 9226DB7929D47DF50078A630 /* Assets.xcassets */; };
-		9226DB7D29D47DF50078A630 /* LaunchScreen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 9226DB7B29D47DF50078A630 /* LaunchScreen.storyboard */; };
+		9226DB9129D4CCD50078A630 /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9226DB9029D4CCD50078A630 /* AppDelegate.swift */; };
+		9226DB9329D4CCD50078A630 /* SceneDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9226DB9229D4CCD50078A630 /* SceneDelegate.swift */; };
+		9226DB9529D4CCD50078A630 /* ViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9226DB9429D4CCD50078A630 /* ViewController.swift */; };
+		9226DB9829D4CCD50078A630 /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 9226DB9629D4CCD50078A630 /* Main.storyboard */; };
+		9226DB9B29D4CCD50078A630 /* MealHelper.xcdatamodeld in Sources */ = {isa = PBXBuildFile; fileRef = 9226DB9929D4CCD50078A630 /* MealHelper.xcdatamodeld */; };
+		9226DB9D29D4CCD50078A630 /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 9226DB9C29D4CCD50078A630 /* Assets.xcassets */; };
+		9226DBA029D4CCD50078A630 /* LaunchScreen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 9226DB9E29D4CCD50078A630 /* LaunchScreen.storyboard */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
-		9226DB6A29D47DF50078A630 /* MealHelper.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = MealHelper.app; sourceTree = BUILT_PRODUCTS_DIR; };
-		9226DB6D29D47DF50078A630 /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
-		9226DB6F29D47DF50078A630 /* SceneDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SceneDelegate.swift; sourceTree = "<group>"; };
-		9226DB7129D47DF50078A630 /* ViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ViewController.swift; sourceTree = "<group>"; };
-		9226DB7429D47DF50078A630 /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/Main.storyboard; sourceTree = "<group>"; };
-		9226DB7729D47DF50078A630 /* MealHelper.xcdatamodel */ = {isa = PBXFileReference; lastKnownFileType = wrapper.xcdatamodel; path = MealHelper.xcdatamodel; sourceTree = "<group>"; };
-		9226DB7929D47DF50078A630 /* Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Assets.xcassets; sourceTree = "<group>"; };
-		9226DB7C29D47DF50078A630 /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/LaunchScreen.storyboard; sourceTree = "<group>"; };
-		9226DB7E29D47DF50078A630 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
+		9226DB8D29D4CCD50078A630 /* MealHelper.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = MealHelper.app; sourceTree = BUILT_PRODUCTS_DIR; };
+		9226DB9029D4CCD50078A630 /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
+		9226DB9229D4CCD50078A630 /* SceneDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SceneDelegate.swift; sourceTree = "<group>"; };
+		9226DB9429D4CCD50078A630 /* ViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ViewController.swift; sourceTree = "<group>"; };
+		9226DB9729D4CCD50078A630 /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/Main.storyboard; sourceTree = "<group>"; };
+		9226DB9A29D4CCD50078A630 /* MealHelper.xcdatamodel */ = {isa = PBXFileReference; lastKnownFileType = wrapper.xcdatamodel; path = MealHelper.xcdatamodel; sourceTree = "<group>"; };
+		9226DB9C29D4CCD50078A630 /* Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Assets.xcassets; sourceTree = "<group>"; };
+		9226DB9F29D4CCD50078A630 /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/LaunchScreen.storyboard; sourceTree = "<group>"; };
+		9226DBA129D4CCD50078A630 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
-		9226DB6729D47DF50078A630 /* Frameworks */ = {
+		9226DB8A29D4CCD50078A630 /* Frameworks */ = {
 			isa = PBXFrameworksBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
@@ -39,33 +39,33 @@
 /* End PBXFrameworksBuildPhase section */
 
 /* Begin PBXGroup section */
-		9226DB6129D47DF50078A630 = {
+		9226DB8429D4CCD50078A630 = {
 			isa = PBXGroup;
 			children = (
-				9226DB6C29D47DF50078A630 /* MealHelper */,
-				9226DB6B29D47DF50078A630 /* Products */,
+				9226DB8F29D4CCD50078A630 /* MealHelper */,
+				9226DB8E29D4CCD50078A630 /* Products */,
 			);
 			sourceTree = "<group>";
 		};
-		9226DB6B29D47DF50078A630 /* Products */ = {
+		9226DB8E29D4CCD50078A630 /* Products */ = {
 			isa = PBXGroup;
 			children = (
-				9226DB6A29D47DF50078A630 /* MealHelper.app */,
+				9226DB8D29D4CCD50078A630 /* MealHelper.app */,
 			);
 			name = Products;
 			sourceTree = "<group>";
 		};
-		9226DB6C29D47DF50078A630 /* MealHelper */ = {
+		9226DB8F29D4CCD50078A630 /* MealHelper */ = {
 			isa = PBXGroup;
 			children = (
-				9226DB6D29D47DF50078A630 /* AppDelegate.swift */,
-				9226DB6F29D47DF50078A630 /* SceneDelegate.swift */,
-				9226DB7129D47DF50078A630 /* ViewController.swift */,
-				9226DB7329D47DF50078A630 /* Main.storyboard */,
-				9226DB7929D47DF50078A630 /* Assets.xcassets */,
-				9226DB7B29D47DF50078A630 /* LaunchScreen.storyboard */,
-				9226DB7E29D47DF50078A630 /* Info.plist */,
-				9226DB7629D47DF50078A630 /* MealHelper.xcdatamodeld */,
+				9226DB9029D4CCD50078A630 /* AppDelegate.swift */,
+				9226DB9229D4CCD50078A630 /* SceneDelegate.swift */,
+				9226DB9429D4CCD50078A630 /* ViewController.swift */,
+				9226DB9629D4CCD50078A630 /* Main.storyboard */,
+				9226DB9C29D4CCD50078A630 /* Assets.xcassets */,
+				9226DB9E29D4CCD50078A630 /* LaunchScreen.storyboard */,
+				9226DBA129D4CCD50078A630 /* Info.plist */,
+				9226DB9929D4CCD50078A630 /* MealHelper.xcdatamodeld */,
 			);
 			path = MealHelper;
 			sourceTree = "<group>";
@@ -73,13 +73,13 @@
 /* End PBXGroup section */
 
 /* Begin PBXNativeTarget section */
-		9226DB6929D47DF50078A630 /* MealHelper */ = {
+		9226DB8C29D4CCD50078A630 /* MealHelper */ = {
 			isa = PBXNativeTarget;
-			buildConfigurationList = 9226DB8129D47DF50078A630 /* Build configuration list for PBXNativeTarget "MealHelper" */;
+			buildConfigurationList = 9226DBA429D4CCD50078A630 /* Build configuration list for PBXNativeTarget "MealHelper" */;
 			buildPhases = (
-				9226DB6629D47DF50078A630 /* Sources */,
-				9226DB6729D47DF50078A630 /* Frameworks */,
-				9226DB6829D47DF50078A630 /* Resources */,
+				9226DB8929D4CCD50078A630 /* Sources */,
+				9226DB8A29D4CCD50078A630 /* Frameworks */,
+				9226DB8B29D4CCD50078A630 /* Resources */,
 			);
 			buildRules = (
 			);
@@ -87,25 +87,25 @@
 			);
 			name = MealHelper;
 			productName = MealHelper;
-			productReference = 9226DB6A29D47DF50078A630 /* MealHelper.app */;
+			productReference = 9226DB8D29D4CCD50078A630 /* MealHelper.app */;
 			productType = "com.apple.product-type.application";
 		};
 /* End PBXNativeTarget section */
 
 /* Begin PBXProject section */
-		9226DB6229D47DF50078A630 /* Project object */ = {
+		9226DB8529D4CCD50078A630 /* Project object */ = {
 			isa = PBXProject;
 			attributes = {
 				BuildIndependentTargetsInParallel = 1;
 				LastSwiftUpdateCheck = 1400;
 				LastUpgradeCheck = 1400;
 				TargetAttributes = {
-					9226DB6929D47DF50078A630 = {
+					9226DB8C29D4CCD50078A630 = {
 						CreatedOnToolsVersion = 14.0.1;
 					};
 				};
 			};
-			buildConfigurationList = 9226DB6529D47DF50078A630 /* Build configuration list for PBXProject "MealHelper" */;
+			buildConfigurationList = 9226DB8829D4CCD50078A630 /* Build configuration list for PBXProject "MealHelper" */;
 			compatibilityVersion = "Xcode 14.0";
 			developmentRegion = en;
 			hasScannedForEncodings = 0;
@@ -113,56 +113,56 @@
 				en,
 				Base,
 			);
-			mainGroup = 9226DB6129D47DF50078A630;
-			productRefGroup = 9226DB6B29D47DF50078A630 /* Products */;
+			mainGroup = 9226DB8429D4CCD50078A630;
+			productRefGroup = 9226DB8E29D4CCD50078A630 /* Products */;
 			projectDirPath = "";
 			projectRoot = "";
 			targets = (
-				9226DB6929D47DF50078A630 /* MealHelper */,
+				9226DB8C29D4CCD50078A630 /* MealHelper */,
 			);
 		};
 /* End PBXProject section */
 
 /* Begin PBXResourcesBuildPhase section */
-		9226DB6829D47DF50078A630 /* Resources */ = {
+		9226DB8B29D4CCD50078A630 /* Resources */ = {
 			isa = PBXResourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
-				9226DB7D29D47DF50078A630 /* LaunchScreen.storyboard in Resources */,
-				9226DB7A29D47DF50078A630 /* Assets.xcassets in Resources */,
-				9226DB7529D47DF50078A630 /* Main.storyboard in Resources */,
+				9226DBA029D4CCD50078A630 /* LaunchScreen.storyboard in Resources */,
+				9226DB9D29D4CCD50078A630 /* Assets.xcassets in Resources */,
+				9226DB9829D4CCD50078A630 /* Main.storyboard in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
 /* End PBXResourcesBuildPhase section */
 
 /* Begin PBXSourcesBuildPhase section */
-		9226DB6629D47DF50078A630 /* Sources */ = {
+		9226DB8929D4CCD50078A630 /* Sources */ = {
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
-				9226DB7229D47DF50078A630 /* ViewController.swift in Sources */,
-				9226DB6E29D47DF50078A630 /* AppDelegate.swift in Sources */,
-				9226DB7829D47DF50078A630 /* MealHelper.xcdatamodeld in Sources */,
-				9226DB7029D47DF50078A630 /* SceneDelegate.swift in Sources */,
+				9226DB9529D4CCD50078A630 /* ViewController.swift in Sources */,
+				9226DB9129D4CCD50078A630 /* AppDelegate.swift in Sources */,
+				9226DB9B29D4CCD50078A630 /* MealHelper.xcdatamodeld in Sources */,
+				9226DB9329D4CCD50078A630 /* SceneDelegate.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
 /* End PBXSourcesBuildPhase section */
 
 /* Begin PBXVariantGroup section */
-		9226DB7329D47DF50078A630 /* Main.storyboard */ = {
+		9226DB9629D4CCD50078A630 /* Main.storyboard */ = {
 			isa = PBXVariantGroup;
 			children = (
-				9226DB7429D47DF50078A630 /* Base */,
+				9226DB9729D4CCD50078A630 /* Base */,
 			);
 			name = Main.storyboard;
 			sourceTree = "<group>";
 		};
-		9226DB7B29D47DF50078A630 /* LaunchScreen.storyboard */ = {
+		9226DB9E29D4CCD50078A630 /* LaunchScreen.storyboard */ = {
 			isa = PBXVariantGroup;
 			children = (
-				9226DB7C29D47DF50078A630 /* Base */,
+				9226DB9F29D4CCD50078A630 /* Base */,
 			);
 			name = LaunchScreen.storyboard;
 			sourceTree = "<group>";
@@ -170,7 +170,7 @@
 /* End PBXVariantGroup section */
 
 /* Begin XCBuildConfiguration section */
-		9226DB7F29D47DF50078A630 /* Debug */ = {
+		9226DBA229D4CCD50078A630 /* Debug */ = {
 			isa = XCBuildConfiguration;
 			buildSettings = {
 				ALWAYS_SEARCH_USER_PATHS = NO;
@@ -230,7 +230,7 @@
 			};
 			name = Debug;
 		};
-		9226DB8029D47DF50078A630 /* Release */ = {
+		9226DBA329D4CCD50078A630 /* Release */ = {
 			isa = XCBuildConfiguration;
 			buildSettings = {
 				ALWAYS_SEARCH_USER_PATHS = NO;
@@ -284,7 +284,7 @@
 			};
 			name = Release;
 		};
-		9226DB8229D47DF50078A630 /* Debug */ = {
+		9226DBA529D4CCD50078A630 /* Debug */ = {
 			isa = XCBuildConfiguration;
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
@@ -298,7 +298,6 @@
 				INFOPLIST_KEY_UIMainStoryboardFile = Main;
 				INFOPLIST_KEY_UISupportedInterfaceOrientations_iPad = "UIInterfaceOrientationPortrait UIInterfaceOrientationPortraitUpsideDown UIInterfaceOrientationLandscapeLeft UIInterfaceOrientationLandscapeRight";
 				INFOPLIST_KEY_UISupportedInterfaceOrientations_iPhone = "UIInterfaceOrientationPortrait UIInterfaceOrientationLandscapeLeft UIInterfaceOrientationLandscapeRight";
-				IPHONEOS_DEPLOYMENT_TARGET = 14.0;
 				LD_RUNPATH_SEARCH_PATHS = (
 					"$(inherited)",
 					"@executable_path/Frameworks",
@@ -312,7 +311,7 @@
 			};
 			name = Debug;
 		};
-		9226DB8329D47DF50078A630 /* Release */ = {
+		9226DBA629D4CCD50078A630 /* Release */ = {
 			isa = XCBuildConfiguration;
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
@@ -326,7 +325,6 @@
 				INFOPLIST_KEY_UIMainStoryboardFile = Main;
 				INFOPLIST_KEY_UISupportedInterfaceOrientations_iPad = "UIInterfaceOrientationPortrait UIInterfaceOrientationPortraitUpsideDown UIInterfaceOrientationLandscapeLeft UIInterfaceOrientationLandscapeRight";
 				INFOPLIST_KEY_UISupportedInterfaceOrientations_iPhone = "UIInterfaceOrientationPortrait UIInterfaceOrientationLandscapeLeft UIInterfaceOrientationLandscapeRight";
-				IPHONEOS_DEPLOYMENT_TARGET = 14.0;
 				LD_RUNPATH_SEARCH_PATHS = (
 					"$(inherited)",
 					"@executable_path/Frameworks",
@@ -343,20 +341,20 @@
 /* End XCBuildConfiguration section */
 
 /* Begin XCConfigurationList section */
-		9226DB6529D47DF50078A630 /* Build configuration list for PBXProject "MealHelper" */ = {
+		9226DB8829D4CCD50078A630 /* Build configuration list for PBXProject "MealHelper" */ = {
 			isa = XCConfigurationList;
 			buildConfigurations = (
-				9226DB7F29D47DF50078A630 /* Debug */,
-				9226DB8029D47DF50078A630 /* Release */,
+				9226DBA229D4CCD50078A630 /* Debug */,
+				9226DBA329D4CCD50078A630 /* Release */,
 			);
 			defaultConfigurationIsVisible = 0;
 			defaultConfigurationName = Release;
 		};
-		9226DB8129D47DF50078A630 /* Build configuration list for PBXNativeTarget "MealHelper" */ = {
+		9226DBA429D4CCD50078A630 /* Build configuration list for PBXNativeTarget "MealHelper" */ = {
 			isa = XCConfigurationList;
 			buildConfigurations = (
-				9226DB8229D47DF50078A630 /* Debug */,
-				9226DB8329D47DF50078A630 /* Release */,
+				9226DBA529D4CCD50078A630 /* Debug */,
+				9226DBA629D4CCD50078A630 /* Release */,
 			);
 			defaultConfigurationIsVisible = 0;
 			defaultConfigurationName = Release;
@@ -364,17 +362,17 @@
 /* End XCConfigurationList section */
 
 /* Begin XCVersionGroup section */
-		9226DB7629D47DF50078A630 /* MealHelper.xcdatamodeld */ = {
+		9226DB9929D4CCD50078A630 /* MealHelper.xcdatamodeld */ = {
 			isa = XCVersionGroup;
 			children = (
-				9226DB7729D47DF50078A630 /* MealHelper.xcdatamodel */,
+				9226DB9A29D4CCD50078A630 /* MealHelper.xcdatamodel */,
 			);
-			currentVersion = 9226DB7729D47DF50078A630 /* MealHelper.xcdatamodel */;
+			currentVersion = 9226DB9A29D4CCD50078A630 /* MealHelper.xcdatamodel */;
 			path = MealHelper.xcdatamodeld;
 			sourceTree = "<group>";
 			versionGroupType = wrapper.xcdatamodel;
 		};
 /* End XCVersionGroup section */
 	};
-	rootObject = 9226DB6229D47DF50078A630 /* Project object */;
+	rootObject = 9226DB8529D4CCD50078A630 /* Project object */;
 }
