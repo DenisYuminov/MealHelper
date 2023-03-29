@@ -83,7 +83,6 @@
 				2762A795EE51ADDD3B7DC5E4 /* Pods-MealHelper.debug.xcconfig */,
 				AB0815BA243AB13F0EE039C6 /* Pods-MealHelper.release.xcconfig */,
 			);
-			name = Pods;
 			path = Pods;
 			sourceTree = "<group>";
 		};
@@ -107,6 +106,7 @@
 				9226DB8A29D4CCD50078A630 /* Frameworks */,
 				9226DB8B29D4CCD50078A630 /* Resources */,
 				42E39E45678ECB25611FEEF0 /* [CP] Embed Pods Frameworks */,
+				9226DBA729D4D6800078A630 /* SwiftLint */,
 			);
 			buildRules = (
 			);
@@ -202,6 +202,24 @@
 			shellPath = /bin/sh;
 			shellScript = "\"${PODS_ROOT}/Target Support Files/Pods-MealHelper/Pods-MealHelper-frameworks.sh\"\n";
 			showEnvVarsInLog = 0;
+		};
+		9226DBA729D4D6800078A630 /* SwiftLint */ = {
+			isa = PBXShellScriptBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			inputFileListPaths = (
+			);
+			inputPaths = (
+			);
+			name = SwiftLint;
+			outputFileListPaths = (
+			);
+			outputPaths = (
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+			shellPath = /bin/sh;
+			shellScript = "${PODS_ROOT}/SwiftLint/swiftlint\n";
 		};
 /* End PBXShellScriptBuildPhase section */
 
