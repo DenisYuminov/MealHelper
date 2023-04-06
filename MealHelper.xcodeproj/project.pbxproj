@@ -9,9 +9,14 @@
 /* Begin PBXBuildFile section */
 		9226DB9129D4CCD50078A630 /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9226DB9029D4CCD50078A630 /* AppDelegate.swift */; };
 		9226DB9329D4CCD50078A630 /* SceneDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9226DB9229D4CCD50078A630 /* SceneDelegate.swift */; };
-		9226DB9529D4CCD50078A630 /* ViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9226DB9429D4CCD50078A630 /* ViewController.swift */; };
+		9226DB9529D4CCD50078A630 /* StartViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9226DB9429D4CCD50078A630 /* StartViewController.swift */; };
 		9226DB9B29D4CCD50078A630 /* MealHelper.xcdatamodeld in Sources */ = {isa = PBXBuildFile; fileRef = 9226DB9929D4CCD50078A630 /* MealHelper.xcdatamodeld */; };
 		9226DBA029D4CCD50078A630 /* LaunchScreen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 9226DB9E29D4CCD50078A630 /* LaunchScreen.storyboard */; };
+		9226DBCD29DECDB80078A630 /* StartPresenter.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9226DBCC29DECDB80078A630 /* StartPresenter.swift */; };
+		9226DBCF29DECE370078A630 /* StartViewIO.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9226DBCE29DECE370078A630 /* StartViewIO.swift */; };
+		9226DBD129DECFF40078A630 /* AppCoordinator.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9226DBD029DECFF40078A630 /* AppCoordinator.swift */; };
+		9226DBD429DEDAAB0078A630 /* StartBuilder.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9226DBD329DEDAAB0078A630 /* StartBuilder.swift */; };
+		9226DBD729DEE1220078A630 /* LoginViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9226DBD629DEE1220078A630 /* LoginViewController.swift */; };
 		FFAB29900A5B6730141499D4 /* Pods_MealHelper.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 9B5FB2DED421FF16007E9CB5 /* Pods_MealHelper.framework */; };
 /* End PBXBuildFile section */
 
@@ -20,10 +25,15 @@
 		9226DB8D29D4CCD50078A630 /* MealHelper.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = MealHelper.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		9226DB9029D4CCD50078A630 /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
 		9226DB9229D4CCD50078A630 /* SceneDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SceneDelegate.swift; sourceTree = "<group>"; };
-		9226DB9429D4CCD50078A630 /* ViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ViewController.swift; sourceTree = "<group>"; };
+		9226DB9429D4CCD50078A630 /* StartViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = StartViewController.swift; sourceTree = "<group>"; };
 		9226DB9A29D4CCD50078A630 /* MealHelper.xcdatamodel */ = {isa = PBXFileReference; lastKnownFileType = wrapper.xcdatamodel; path = MealHelper.xcdatamodel; sourceTree = "<group>"; };
 		9226DB9F29D4CCD50078A630 /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/LaunchScreen.storyboard; sourceTree = "<group>"; };
 		9226DBA129D4CCD50078A630 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
+		9226DBCC29DECDB80078A630 /* StartPresenter.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = StartPresenter.swift; sourceTree = "<group>"; };
+		9226DBCE29DECE370078A630 /* StartViewIO.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = StartViewIO.swift; sourceTree = "<group>"; };
+		9226DBD029DECFF40078A630 /* AppCoordinator.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppCoordinator.swift; sourceTree = "<group>"; };
+		9226DBD329DEDAAB0078A630 /* StartBuilder.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = StartBuilder.swift; sourceTree = "<group>"; };
+		9226DBD629DEE1220078A630 /* LoginViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LoginViewController.swift; sourceTree = "<group>"; };
 		9B5FB2DED421FF16007E9CB5 /* Pods_MealHelper.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Pods_MealHelper.framework; sourceTree = BUILT_PRODUCTS_DIR; };
 		AB0815BA243AB13F0EE039C6 /* Pods-MealHelper.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-MealHelper.release.xcconfig"; path = "Target Support Files/Pods-MealHelper/Pods-MealHelper.release.xcconfig"; sourceTree = "<group>"; };
 /* End PBXFileReference section */
@@ -61,14 +71,67 @@
 		9226DB8F29D4CCD50078A630 /* MealHelper */ = {
 			isa = PBXGroup;
 			children = (
+				9226DBD229DED0BE0078A630 /* Services */,
+				9226DBC829DECD640078A630 /* Modules */,
 				9226DB9029D4CCD50078A630 /* AppDelegate.swift */,
 				9226DB9229D4CCD50078A630 /* SceneDelegate.swift */,
-				9226DB9429D4CCD50078A630 /* ViewController.swift */,
 				9226DB9E29D4CCD50078A630 /* LaunchScreen.storyboard */,
 				9226DBA129D4CCD50078A630 /* Info.plist */,
 				9226DB9929D4CCD50078A630 /* MealHelper.xcdatamodeld */,
 			);
 			path = MealHelper;
+			sourceTree = "<group>";
+		};
+		9226DBC829DECD640078A630 /* Modules */ = {
+			isa = PBXGroup;
+			children = (
+				9226DBD029DECFF40078A630 /* AppCoordinator.swift */,
+				9226DBD529DEE10C0078A630 /* Login */,
+				9226DBC929DECD7A0078A630 /* Start */,
+			);
+			path = Modules;
+			sourceTree = "<group>";
+		};
+		9226DBC929DECD7A0078A630 /* Start */ = {
+			isa = PBXGroup;
+			children = (
+				9226DBCA29DECD8D0078A630 /* Presenter */,
+				9226DBCB29DECD960078A630 /* View */,
+				9226DBD329DEDAAB0078A630 /* StartBuilder.swift */,
+			);
+			path = Start;
+			sourceTree = "<group>";
+		};
+		9226DBCA29DECD8D0078A630 /* Presenter */ = {
+			isa = PBXGroup;
+			children = (
+				9226DBCC29DECDB80078A630 /* StartPresenter.swift */,
+			);
+			path = Presenter;
+			sourceTree = "<group>";
+		};
+		9226DBCB29DECD960078A630 /* View */ = {
+			isa = PBXGroup;
+			children = (
+				9226DB9429D4CCD50078A630 /* StartViewController.swift */,
+				9226DBCE29DECE370078A630 /* StartViewIO.swift */,
+			);
+			path = View;
+			sourceTree = "<group>";
+		};
+		9226DBD229DED0BE0078A630 /* Services */ = {
+			isa = PBXGroup;
+			children = (
+			);
+			path = Services;
+			sourceTree = "<group>";
+		};
+		9226DBD529DEE10C0078A630 /* Login */ = {
+			isa = PBXGroup;
+			children = (
+				9226DBD629DEE1220078A630 /* LoginViewController.swift */,
+			);
+			path = Login;
 			sourceTree = "<group>";
 		};
 		C46966EB99460B295C702B6D /* Pods */ = {
@@ -220,10 +283,15 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
-				9226DB9529D4CCD50078A630 /* ViewController.swift in Sources */,
+				9226DBD729DEE1220078A630 /* LoginViewController.swift in Sources */,
+				9226DB9529D4CCD50078A630 /* StartViewController.swift in Sources */,
+				9226DBCD29DECDB80078A630 /* StartPresenter.swift in Sources */,
+				9226DBD429DEDAAB0078A630 /* StartBuilder.swift in Sources */,
 				9226DB9129D4CCD50078A630 /* AppDelegate.swift in Sources */,
+				9226DBCF29DECE370078A630 /* StartViewIO.swift in Sources */,
 				9226DB9B29D4CCD50078A630 /* MealHelper.xcdatamodeld in Sources */,
 				9226DB9329D4CCD50078A630 /* SceneDelegate.swift in Sources */,
+				9226DBD129DECFF40078A630 /* AppCoordinator.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -367,7 +435,6 @@
 				INFOPLIST_FILE = MealHelper/Info.plist;
 				INFOPLIST_KEY_UIApplicationSupportsIndirectInputEvents = YES;
 				INFOPLIST_KEY_UILaunchStoryboardName = LaunchScreen;
-				INFOPLIST_KEY_UIMainStoryboardFile = Main;
 				INFOPLIST_KEY_UISupportedInterfaceOrientations_iPad = "UIInterfaceOrientationPortrait UIInterfaceOrientationPortraitUpsideDown UIInterfaceOrientationLandscapeLeft UIInterfaceOrientationLandscapeRight";
 				INFOPLIST_KEY_UISupportedInterfaceOrientations_iPhone = "UIInterfaceOrientationPortrait UIInterfaceOrientationLandscapeLeft UIInterfaceOrientationLandscapeRight";
 				IPHONEOS_DEPLOYMENT_TARGET = 14.0;
@@ -396,7 +463,6 @@
 				INFOPLIST_FILE = MealHelper/Info.plist;
 				INFOPLIST_KEY_UIApplicationSupportsIndirectInputEvents = YES;
 				INFOPLIST_KEY_UILaunchStoryboardName = LaunchScreen;
-				INFOPLIST_KEY_UIMainStoryboardFile = Main;
 				INFOPLIST_KEY_UISupportedInterfaceOrientations_iPad = "UIInterfaceOrientationPortrait UIInterfaceOrientationPortraitUpsideDown UIInterfaceOrientationLandscapeLeft UIInterfaceOrientationLandscapeRight";
 				INFOPLIST_KEY_UISupportedInterfaceOrientations_iPhone = "UIInterfaceOrientationPortrait UIInterfaceOrientationLandscapeLeft UIInterfaceOrientationLandscapeRight";
 				IPHONEOS_DEPLOYMENT_TARGET = 14.0;
