@@ -15,8 +15,15 @@
 		9226DBCD29DECDB80078A630 /* StartPresenter.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9226DBCC29DECDB80078A630 /* StartPresenter.swift */; };
 		9226DBCF29DECE370078A630 /* StartViewIO.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9226DBCE29DECE370078A630 /* StartViewIO.swift */; };
 		9226DBD129DECFF40078A630 /* AppCoordinator.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9226DBD029DECFF40078A630 /* AppCoordinator.swift */; };
-		9226DBD429DEDAAB0078A630 /* StartBuilder.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9226DBD329DEDAAB0078A630 /* StartBuilder.swift */; };
+		9226DBD429DEDAAB0078A630 /* StartModuleBuilder.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9226DBD329DEDAAB0078A630 /* StartModuleBuilder.swift */; };
 		9226DBD729DEE1220078A630 /* LoginViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9226DBD629DEE1220078A630 /* LoginViewController.swift */; };
+		975375C729DF25DC004A0EC8 /* UIStackView+Extensions.swift in Sources */ = {isa = PBXBuildFile; fileRef = 975375C629DF25DC004A0EC8 /* UIStackView+Extensions.swift */; };
+		975375C929DF2BD2004A0EC8 /* StartCoordinator.swift in Sources */ = {isa = PBXBuildFile; fileRef = 975375C829DF2BD2004A0EC8 /* StartCoordinator.swift */; };
+		975375CB29DF2E16004A0EC8 /* LoginCoordinator.swift in Sources */ = {isa = PBXBuildFile; fileRef = 975375CA29DF2E16004A0EC8 /* LoginCoordinator.swift */; };
+		975375CF29DF339B004A0EC8 /* AuthService.swift in Sources */ = {isa = PBXBuildFile; fileRef = 975375CE29DF339B004A0EC8 /* AuthService.swift */; };
+		975375D129DF3585004A0EC8 /* AppPresentationAssembly.swift in Sources */ = {isa = PBXBuildFile; fileRef = 975375D029DF3585004A0EC8 /* AppPresentationAssembly.swift */; };
+		975375D329DF3628004A0EC8 /* AppServicesAssembly.swift in Sources */ = {isa = PBXBuildFile; fileRef = 975375D229DF3628004A0EC8 /* AppServicesAssembly.swift */; };
+		975375D829E01773004A0EC8 /* BlueCommonButton.swift in Sources */ = {isa = PBXBuildFile; fileRef = 975375D729E01773004A0EC8 /* BlueCommonButton.swift */; };
 		FFAB29900A5B6730141499D4 /* Pods_MealHelper.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 9B5FB2DED421FF16007E9CB5 /* Pods_MealHelper.framework */; };
 /* End PBXBuildFile section */
 
@@ -32,8 +39,15 @@
 		9226DBCC29DECDB80078A630 /* StartPresenter.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = StartPresenter.swift; sourceTree = "<group>"; };
 		9226DBCE29DECE370078A630 /* StartViewIO.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = StartViewIO.swift; sourceTree = "<group>"; };
 		9226DBD029DECFF40078A630 /* AppCoordinator.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppCoordinator.swift; sourceTree = "<group>"; };
-		9226DBD329DEDAAB0078A630 /* StartBuilder.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = StartBuilder.swift; sourceTree = "<group>"; };
+		9226DBD329DEDAAB0078A630 /* StartModuleBuilder.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = StartModuleBuilder.swift; sourceTree = "<group>"; };
 		9226DBD629DEE1220078A630 /* LoginViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LoginViewController.swift; sourceTree = "<group>"; };
+		975375C629DF25DC004A0EC8 /* UIStackView+Extensions.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "UIStackView+Extensions.swift"; sourceTree = "<group>"; };
+		975375C829DF2BD2004A0EC8 /* StartCoordinator.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = StartCoordinator.swift; sourceTree = "<group>"; };
+		975375CA29DF2E16004A0EC8 /* LoginCoordinator.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LoginCoordinator.swift; sourceTree = "<group>"; };
+		975375CE29DF339B004A0EC8 /* AuthService.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AuthService.swift; sourceTree = "<group>"; };
+		975375D029DF3585004A0EC8 /* AppPresentationAssembly.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppPresentationAssembly.swift; sourceTree = "<group>"; };
+		975375D229DF3628004A0EC8 /* AppServicesAssembly.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppServicesAssembly.swift; sourceTree = "<group>"; };
+		975375D729E01773004A0EC8 /* BlueCommonButton.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = BlueCommonButton.swift; sourceTree = "<group>"; };
 		9B5FB2DED421FF16007E9CB5 /* Pods_MealHelper.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Pods_MealHelper.framework; sourceTree = BUILT_PRODUCTS_DIR; };
 		AB0815BA243AB13F0EE039C6 /* Pods-MealHelper.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-MealHelper.release.xcconfig"; path = "Target Support Files/Pods-MealHelper/Pods-MealHelper.release.xcconfig"; sourceTree = "<group>"; };
 /* End PBXFileReference section */
@@ -71,9 +85,14 @@
 		9226DB8F29D4CCD50078A630 /* MealHelper */ = {
 			isa = PBXGroup;
 			children = (
-				9226DBD229DED0BE0078A630 /* Services */,
+				975375D529E01757004A0EC8 /* Components */,
+				975375C529DF25B1004A0EC8 /* Extensions */,
+				975375CC29DF3377004A0EC8 /* Services */,
 				9226DBC829DECD640078A630 /* Modules */,
 				9226DB9029D4CCD50078A630 /* AppDelegate.swift */,
+				9226DBD029DECFF40078A630 /* AppCoordinator.swift */,
+				975375D229DF3628004A0EC8 /* AppServicesAssembly.swift */,
+				975375D029DF3585004A0EC8 /* AppPresentationAssembly.swift */,
 				9226DB9229D4CCD50078A630 /* SceneDelegate.swift */,
 				9226DB9E29D4CCD50078A630 /* LaunchScreen.storyboard */,
 				9226DBA129D4CCD50078A630 /* Info.plist */,
@@ -85,7 +104,6 @@
 		9226DBC829DECD640078A630 /* Modules */ = {
 			isa = PBXGroup;
 			children = (
-				9226DBD029DECFF40078A630 /* AppCoordinator.swift */,
 				9226DBD529DEE10C0078A630 /* Login */,
 				9226DBC929DECD7A0078A630 /* Start */,
 			);
@@ -95,9 +113,10 @@
 		9226DBC929DECD7A0078A630 /* Start */ = {
 			isa = PBXGroup;
 			children = (
+				975375D429E00F01004A0EC8 /* Coordinator */,
 				9226DBCA29DECD8D0078A630 /* Presenter */,
 				9226DBCB29DECD960078A630 /* View */,
-				9226DBD329DEDAAB0078A630 /* StartBuilder.swift */,
+				9226DBD329DEDAAB0078A630 /* StartModuleBuilder.swift */,
 			);
 			path = Start;
 			sourceTree = "<group>";
@@ -119,19 +138,61 @@
 			path = View;
 			sourceTree = "<group>";
 		};
-		9226DBD229DED0BE0078A630 /* Services */ = {
-			isa = PBXGroup;
-			children = (
-			);
-			path = Services;
-			sourceTree = "<group>";
-		};
 		9226DBD529DEE10C0078A630 /* Login */ = {
 			isa = PBXGroup;
 			children = (
 				9226DBD629DEE1220078A630 /* LoginViewController.swift */,
+				975375CA29DF2E16004A0EC8 /* LoginCoordinator.swift */,
 			);
 			path = Login;
+			sourceTree = "<group>";
+		};
+		975375C529DF25B1004A0EC8 /* Extensions */ = {
+			isa = PBXGroup;
+			children = (
+				975375C629DF25DC004A0EC8 /* UIStackView+Extensions.swift */,
+			);
+			path = Extensions;
+			sourceTree = "<group>";
+		};
+		975375CC29DF3377004A0EC8 /* Services */ = {
+			isa = PBXGroup;
+			children = (
+				975375CD29DF338A004A0EC8 /* AuthService */,
+			);
+			path = Services;
+			sourceTree = "<group>";
+		};
+		975375CD29DF338A004A0EC8 /* AuthService */ = {
+			isa = PBXGroup;
+			children = (
+				975375CE29DF339B004A0EC8 /* AuthService.swift */,
+			);
+			path = AuthService;
+			sourceTree = "<group>";
+		};
+		975375D429E00F01004A0EC8 /* Coordinator */ = {
+			isa = PBXGroup;
+			children = (
+				975375C829DF2BD2004A0EC8 /* StartCoordinator.swift */,
+			);
+			path = Coordinator;
+			sourceTree = "<group>";
+		};
+		975375D529E01757004A0EC8 /* Components */ = {
+			isa = PBXGroup;
+			children = (
+				975375D629E01764004A0EC8 /* Buttons */,
+			);
+			path = Components;
+			sourceTree = "<group>";
+		};
+		975375D629E01764004A0EC8 /* Buttons */ = {
+			isa = PBXGroup;
+			children = (
+				975375D729E01773004A0EC8 /* BlueCommonButton.swift */,
+			);
+			path = Buttons;
 			sourceTree = "<group>";
 		};
 		C46966EB99460B295C702B6D /* Pods */ = {
@@ -260,6 +321,7 @@
 		};
 		9226DBA729D4D6800078A630 /* SwiftLint */ = {
 			isa = PBXShellScriptBuildPhase;
+			alwaysOutOfDate = 1;
 			buildActionMask = 2147483647;
 			files = (
 			);
@@ -284,13 +346,20 @@
 			buildActionMask = 2147483647;
 			files = (
 				9226DBD729DEE1220078A630 /* LoginViewController.swift in Sources */,
+				975375C729DF25DC004A0EC8 /* UIStackView+Extensions.swift in Sources */,
 				9226DB9529D4CCD50078A630 /* StartViewController.swift in Sources */,
+				975375D129DF3585004A0EC8 /* AppPresentationAssembly.swift in Sources */,
+				975375C929DF2BD2004A0EC8 /* StartCoordinator.swift in Sources */,
 				9226DBCD29DECDB80078A630 /* StartPresenter.swift in Sources */,
-				9226DBD429DEDAAB0078A630 /* StartBuilder.swift in Sources */,
+				9226DBD429DEDAAB0078A630 /* StartModuleBuilder.swift in Sources */,
+				975375CF29DF339B004A0EC8 /* AuthService.swift in Sources */,
+				975375CB29DF2E16004A0EC8 /* LoginCoordinator.swift in Sources */,
 				9226DB9129D4CCD50078A630 /* AppDelegate.swift in Sources */,
 				9226DBCF29DECE370078A630 /* StartViewIO.swift in Sources */,
+				975375D329DF3628004A0EC8 /* AppServicesAssembly.swift in Sources */,
 				9226DB9B29D4CCD50078A630 /* MealHelper.xcdatamodeld in Sources */,
 				9226DB9329D4CCD50078A630 /* SceneDelegate.swift in Sources */,
+				975375D829E01773004A0EC8 /* BlueCommonButton.swift in Sources */,
 				9226DBD129DECFF40078A630 /* AppCoordinator.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;

@@ -1,7 +1,38 @@
 import UIKit
 import SnapKit
-class StartViewController: UIViewController {
+
+final class StartViewController: UIViewController {
+    // Dependencies
     private let output: StartViewOutput
+    
+    // UI
+    private lazy var buttonStackView: UIStackView = {
+        let container = UIStackView()
+        container.backgroundColor = .white
+        container.layer.cornerRadius = 10
+        container.axis = .vertical
+        container.spacing = 20
+        return container
+    }()
+    private lazy var loginButton: UIButton = {
+        let button = BlueCommonButton(title: "Sign in")
+        button.addTarget(self, action: #selector(onLoginButtonClicked), for: .touchUpInside)
+        return button
+    }()
+    private lazy var signupButton: UIButton = {
+        let button = BlueCommonButton(title: "Create account")
+        button.addTarget(self, action: #selector(onSignupButtonClicked), for: .touchUpInside)
+        return button
+    }()
+    private lazy var continueButton: UIButton = {
+        let button = UIButton()
+        button.setTitle("Continue without profile", for: .normal)
+        button.setTitleColor(.systemBlue, for: .normal)
+        button.addTarget(self, action: #selector(onContinueButtonClicked), for: .touchUpInside)
+        return button
+    }()
+    
+    // MARK: Init
     
     init(output: StartViewOutput) {
         self.output = output
@@ -12,81 +43,50 @@ class StartViewController: UIViewController {
         fatalError("init(coder:) has not been implemented")
     }
     
+    // MARK: Lifecycle
+    
     override func viewDidLoad() {
         super.viewDidLoad()
-        setup()
+        setupUI()
     }
     
-    private func setup() {
+    // MARK: Private
+    
+    private func setupUI() {
         view.backgroundColor = .white
-        let buttonContainer = UIView()
-        buttonContainer.backgroundColor = .white
-        buttonContainer.layer.cornerRadius = 10
+        
+        buttonStackView.addArrangedSubviews([loginButton, signupButton, continueButton])
 
-        let loginButton = UIButton()
-        loginButton.setTitle("Log In", for: .normal)
-        loginButton.setTitleColor(.white, for: .normal)
-        loginButton.backgroundColor = .blue
-        loginButton.layer.cornerRadius = 10
+        view.addSubview(buttonStackView)
 
-        let signupButton = UIButton()
-        signupButton.setTitle("Sign Up", for: .normal)
-        signupButton.setTitleColor(.white, for: .normal)
-        signupButton.backgroundColor = .blue
-        signupButton.layer.cornerRadius = 10
-
-        let continueButton = UIButton()
-        continueButton.setTitle("Continue without auth", for: .normal)
-        continueButton.setTitleColor(.blue, for: .normal)
-
-        buttonContainer.addSubview(loginButton)
-        buttonContainer.addSubview(signupButton)
-        buttonContainer.addSubview(continueButton)
-
-        view.addSubview(buttonContainer)
-
-        buttonContainer.snp.makeConstraints { (make) in
+        buttonStackView.snp.makeConstraints { make in
             make.centerX.equalToSuperview()
-            make.centerY.equalToSuperview().offset(50)
-            make.width.equalToSuperview().multipliedBy(0.8)
+            make.centerY.equalToSuperview().offset(150)
+            make.width.equalToSuperview().multipliedBy(0.75)
         }
-
-        loginButton.snp.makeConstraints { (make) in
-            make.top.equalToSuperview().offset(20)
-            make.left.right.equalToSuperview().inset(20)
-            make.height.equalTo(50)
+        [loginButton, signupButton, continueButton].forEach { button in
+            button.snp.makeConstraints { make in
+                make.height.equalTo(50)
+            }
         }
-
-        signupButton.snp.makeConstraints { (make) in
-            make.top.equalTo(loginButton.snp.bottom).offset(20)
-            make.left.right.equalToSuperview().inset(20)
-            make.height.equalTo(50)
-        }
-
-        continueButton.snp.makeConstraints { (make) in
-            make.top.equalTo(signupButton.snp.bottom).offset(20)
-            make.left.right.equalToSuperview().inset(20)
-            make.height.equalTo(50)
-        }
-
-
-        loginButton.addTarget(self, action: #selector(onLoginButtonClicked), for: .touchUpInside)
-        signupButton.addTarget(self, action: #selector(onSignupButtonClicked), for: .touchUpInside)
-        continueButton.addTarget(self, action: #selector(onContinueButtonClicked), for: .touchUpInside)
     }
-
-}
-
-extension StartViewController: StartViewInput {
-    @objc func onSignupButtonClicked() {
+    
+    // MARK: Actions
+    
+    @objc private func onSignupButtonClicked() {
         output.onSignupButtonClicked()
     }
     
-    @objc func onLoginButtonClicked() {
+    @objc private func onLoginButtonClicked() {
         output.onLoginButtonClicked()
     }
 
-    @objc func onContinueButtonClicked() {
+    @objc private func onContinueButtonClicked() {
         output.onContinueButtonClicked()
     }
+}
+
+// MARK: - StartViewInput
+
+extension StartViewController: StartViewInput {
 }
