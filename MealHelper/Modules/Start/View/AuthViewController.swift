@@ -1,9 +1,15 @@
+//
+//  AuthViewController.swift
+//  MealHelper
+//
+//  Created by macbook Denis on 3/29/23.
+//
 import UIKit
 import SnapKit
 
-final class StartViewController: UIViewController {
+final class AuthViewController: UIViewController {
     // Dependencies
-    private let output: StartViewOutput
+    private let output: AuthViewOutput
     
     // UI
     private lazy var buttonStackView: UIStackView = {
@@ -34,7 +40,7 @@ final class StartViewController: UIViewController {
     
     // MARK: Init
     
-    init(output: StartViewOutput) {
+    init(output: AuthViewOutput) {
         self.output = output
         super.init(nibName: nil, bundle: nil)
     }
@@ -48,6 +54,7 @@ final class StartViewController: UIViewController {
     override func viewDidLoad() {
         super.viewDidLoad()
         setupUI()
+        self.title = "Start"
     }
     
     // MARK: Private
@@ -88,5 +95,5 @@ final class StartViewController: UIViewController {
 
 // MARK: - StartViewInput
 
-extension StartViewController: StartViewInput {
+extension AuthViewController: AuthViewInput {
 }

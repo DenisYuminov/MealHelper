@@ -2,7 +2,7 @@
 //  BlueCommonButton.swift
 //  MealHelper
 //
-//  Created by r.a.gazizov on 07.04.2023.
+//  Created by macbook Denis on 3/29/23.
 //
 
 import UIKit
@@ -12,8 +12,8 @@ final class BlueCommonButton: UIButton {
         super.init(frame: .zero)
         setTitle(title, for: .normal)
         setTitleColor(.white, for: .normal)
-        backgroundColor = .blue
-        layer.cornerRadius = 10
+        backgroundColor = .systemBlue
+        layer.cornerRadius = 15
     }
     
     required init?(coder: NSCoder) {

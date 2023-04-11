@@ -1,19 +1,18 @@
 //
-//  StartCoordinator.swift
+//  AuthCoordinator.swift
 //  MealHelper
 //
-//  Created by r.a.gazizov on 06.04.2023.
+//  Created by macbook Denis on 3/29/23.
 //
-
 import UIKit
 
-protocol IStartCoordinator: AnyObject {
+protocol IAuthCoordinator: AnyObject {
     func createFlow() -> UIViewController
 }
 
-final class StartCoordinator: IStartCoordinator, StartPresenterOutput {
+final class AuthCoordinator: IAuthCoordinator, AuthPresenterOutput {
     // Dependencies
-    private let moduleBuilder: IStartModuleBuilder
+    private let moduleBuilder: IAuthModuleBuilder
     private let loginCoordinator: ILoginCoordinator
     
     // Properties
@@ -21,21 +20,22 @@ final class StartCoordinator: IStartCoordinator, StartPresenterOutput {
     
     // MARK: Init
     
-    init(moduleBuilder: IStartModuleBuilder, loginCoordinator: ILoginCoordinator) {
+    init(moduleBuilder: IAuthModuleBuilder, loginCoordinator: ILoginCoordinator) {
         self.moduleBuilder = moduleBuilder
         self.loginCoordinator = loginCoordinator
     }
     
-    // MARK: IStartCoordinator
+    // MARK: IAuthCoordinator
     
     func createFlow() -> UIViewController {
         let viewController = moduleBuilder.build(output: self)
         let navigationController = UINavigationController(rootViewController: viewController)
-        transitionHandler = navigationController
+        self.transitionHandler = navigationController
+        loginCoordinator.transitionHandler = navigationController
         return navigationController
     }
     
-    // MARK: StartPresenterOutput
+    // MARK: AuthPresenterOutput
     
     func openLoginScreen() {
         let viewController = loginCoordinator.createFlow()

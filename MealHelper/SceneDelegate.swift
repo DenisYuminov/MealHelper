@@ -1,3 +1,9 @@
+//
+//  SceneDelegate.swift
+//  MealHelper
+//
+//  Created by macbook Denis on 3/29/23.
+//
 import UIKit
 
 final class SceneDelegate: UIResponder, UIWindowSceneDelegate {

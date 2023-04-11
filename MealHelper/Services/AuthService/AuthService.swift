@@ -2,7 +2,7 @@
 //  AuthService.swift
 //  MealHelper
 //
-//  Created by r.a.gazizov on 06.04.2023.
+//  Created by macbook Denis on 3/29/23.
 //
 
 import Foundation

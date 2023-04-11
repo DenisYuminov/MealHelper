@@ -2,17 +2,19 @@
 //  AppPresentationAssembly.swift
 //  MealHelper
 //
-//  Created by r.a.gazizov on 06.04.2023.
+//  Created by macbook Denis on 3/29/23.
 //
 
 import Foundation
 
 protocol IAppPresentationAssembly: AnyObject {
     // Coordinators
-    var startCoordinator: IStartCoordinator { get }
+    var authCoordinator: IAuthCoordinator { get }
     var loginCoordinator: ILoginCoordinator { get }
+    var forgotPasswordCoordinator: IForgotPasswordCoordinator { get }
     // ModuleBuilders
-    var startModuleBuilder: IStartModuleBuilder { get }
+    var startModuleBuilder: IAuthModuleBuilder { get }
+    var loginModuleBuilder: ILoginModuleBuilder { get }
 }
 
 final class AppPresentationAssembly: IAppPresentationAssembly {
@@ -26,18 +28,26 @@ final class AppPresentationAssembly: IAppPresentationAssembly {
     }
     
     // MARK: Coordinators
-    
-    var startCoordinator: IStartCoordinator {
-        StartCoordinator(moduleBuilder: startModuleBuilder, loginCoordinator: loginCoordinator)
+        
+    var authCoordinator: IAuthCoordinator {
+        AuthCoordinator(moduleBuilder: startModuleBuilder, loginCoordinator: loginCoordinator)
     }
     
     var loginCoordinator: ILoginCoordinator {
-        LoginCoordinator()
+        LoginCoordinator(moduleBuilder: loginModuleBuilder, forgotPasswordCoordinator: forgotPasswordCoordinator)
     }
     
+    var forgotPasswordCoordinator: IForgotPasswordCoordinator {
+        ForgotPasswordCoordinator()
+    }
+
     // MARK: ModuleBuilders
     
-    var startModuleBuilder: IStartModuleBuilder {
-        StartModuleBuilder(authService: servicesAssembly.authService)
+    var startModuleBuilder: IAuthModuleBuilder {
+        AuthModuleBuilder(authService: servicesAssembly.authService)
+    }
+    
+    var loginModuleBuilder: ILoginModuleBuilder {
+        LoginModuleBuilder(loginService: servicesAssembly.loginService)
     }
 }
