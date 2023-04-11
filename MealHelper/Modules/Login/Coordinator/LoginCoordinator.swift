@@ -28,11 +28,12 @@ final class LoginCoordinator: ILoginCoordinator, LoginPresenterOutput {
     
     func createFlow() -> UIViewController {
         let viewController = moduleBuilder.build(output: self)
+        forgotPasswordCoordinator.transitionHandler = self.transitionHandler
         return viewController
     }
     
     func openForgotPasswordScreen() {
-        let viewController = ForgotPasswordViewController()
+        let viewController = forgotPasswordCoordinator.createFlow()
         transitionHandler?.pushViewController(viewController, animated: true)
     }
 }

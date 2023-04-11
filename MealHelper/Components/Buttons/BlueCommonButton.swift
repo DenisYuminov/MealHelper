@@ -14,6 +14,7 @@ final class BlueCommonButton: UIButton {
         setTitleColor(.white, for: .normal)
         backgroundColor = .systemBlue
         layer.cornerRadius = 15
+        titleLabel?.font = UIFont.systemFont(ofSize: 20, weight: .bold)
     }
     
     required init?(coder: NSCoder) {

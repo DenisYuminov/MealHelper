@@ -24,6 +24,12 @@
 		9286A7E529E485E7003C7414 /* LoginService.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9286A7E429E485E7003C7414 /* LoginService.swift */; };
 		9286A7E929E48A35003C7414 /* ForgotPasswordCoordinator.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9286A7E829E48A35003C7414 /* ForgotPasswordCoordinator.swift */; };
 		9286A7EC29E48AA2003C7414 /* ForgotPasswordViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9286A7EB29E48AA2003C7414 /* ForgotPasswordViewController.swift */; };
+		9286A7EF29E55CC4003C7414 /* ForgotPasswordPresenter.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9286A7EE29E55CC4003C7414 /* ForgotPasswordPresenter.swift */; };
+		9286A7F129E55CD0003C7414 /* ForgotPasswordViewIO.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9286A7F029E55CD0003C7414 /* ForgotPasswordViewIO.swift */; };
+		9286A7F429E55E18003C7414 /* ForgotPasswordService.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9286A7F329E55E18003C7414 /* ForgotPasswordService.swift */; };
+		9286A7F629E55F72003C7414 /* ForgotPasswordModuleBuilder.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9286A7F529E55F72003C7414 /* ForgotPasswordModuleBuilder.swift */; };
+		9286A7FA29E5AA28003C7414 /* MainTabBarCoordinator.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9286A7F929E5AA28003C7414 /* MainTabBarCoordinator.swift */; };
+		9286A7FD29E5AA97003C7414 /* MainTabBarViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9286A7FC29E5AA97003C7414 /* MainTabBarViewController.swift */; };
 		975375C729DF25DC004A0EC8 /* UIStackView+Extensions.swift in Sources */ = {isa = PBXBuildFile; fileRef = 975375C629DF25DC004A0EC8 /* UIStackView+Extensions.swift */; };
 		975375C929DF2BD2004A0EC8 /* AuthCoordinator.swift in Sources */ = {isa = PBXBuildFile; fileRef = 975375C829DF2BD2004A0EC8 /* AuthCoordinator.swift */; };
 		975375CB29DF2E16004A0EC8 /* LoginCoordinator.swift in Sources */ = {isa = PBXBuildFile; fileRef = 975375CA29DF2E16004A0EC8 /* LoginCoordinator.swift */; };
@@ -55,6 +61,12 @@
 		9286A7E429E485E7003C7414 /* LoginService.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LoginService.swift; sourceTree = "<group>"; };
 		9286A7E829E48A35003C7414 /* ForgotPasswordCoordinator.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ForgotPasswordCoordinator.swift; sourceTree = "<group>"; };
 		9286A7EB29E48AA2003C7414 /* ForgotPasswordViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ForgotPasswordViewController.swift; sourceTree = "<group>"; };
+		9286A7EE29E55CC4003C7414 /* ForgotPasswordPresenter.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ForgotPasswordPresenter.swift; sourceTree = "<group>"; };
+		9286A7F029E55CD0003C7414 /* ForgotPasswordViewIO.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ForgotPasswordViewIO.swift; sourceTree = "<group>"; };
+		9286A7F329E55E18003C7414 /* ForgotPasswordService.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ForgotPasswordService.swift; sourceTree = "<group>"; };
+		9286A7F529E55F72003C7414 /* ForgotPasswordModuleBuilder.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ForgotPasswordModuleBuilder.swift; sourceTree = "<group>"; };
+		9286A7F929E5AA28003C7414 /* MainTabBarCoordinator.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MainTabBarCoordinator.swift; sourceTree = "<group>"; };
+		9286A7FC29E5AA97003C7414 /* MainTabBarViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MainTabBarViewController.swift; sourceTree = "<group>"; };
 		975375C629DF25DC004A0EC8 /* UIStackView+Extensions.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "UIStackView+Extensions.swift"; sourceTree = "<group>"; };
 		975375C829DF2BD2004A0EC8 /* AuthCoordinator.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AuthCoordinator.swift; sourceTree = "<group>"; };
 		975375CA29DF2E16004A0EC8 /* LoginCoordinator.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LoginCoordinator.swift; sourceTree = "<group>"; };
@@ -118,6 +130,7 @@
 		9226DBC829DECD640078A630 /* Modules */ = {
 			isa = PBXGroup;
 			children = (
+				9286A7F729E5A9F9003C7414 /* Main */,
 				9286A7E629E48A0C003C7414 /* ForgotPassword */,
 				9226DBD529DEE10C0078A630 /* Login */,
 				9226DBC929DECD7A0078A630 /* Start */,
@@ -209,7 +222,9 @@
 			isa = PBXGroup;
 			children = (
 				9286A7E729E48A1C003C7414 /* Coordinator */,
+				9286A7ED29E55C9E003C7414 /* Presenter */,
 				9286A7EA29E48A8A003C7414 /* View */,
+				9286A7F529E55F72003C7414 /* ForgotPasswordModuleBuilder.swift */,
 			);
 			path = ForgotPassword;
 			sourceTree = "<group>";
@@ -226,6 +241,48 @@
 			isa = PBXGroup;
 			children = (
 				9286A7EB29E48AA2003C7414 /* ForgotPasswordViewController.swift */,
+				9286A7F029E55CD0003C7414 /* ForgotPasswordViewIO.swift */,
+			);
+			path = View;
+			sourceTree = "<group>";
+		};
+		9286A7ED29E55C9E003C7414 /* Presenter */ = {
+			isa = PBXGroup;
+			children = (
+				9286A7EE29E55CC4003C7414 /* ForgotPasswordPresenter.swift */,
+			);
+			path = Presenter;
+			sourceTree = "<group>";
+		};
+		9286A7F229E55E06003C7414 /* ForgotPassword */ = {
+			isa = PBXGroup;
+			children = (
+				9286A7F329E55E18003C7414 /* ForgotPasswordService.swift */,
+			);
+			path = ForgotPassword;
+			sourceTree = "<group>";
+		};
+		9286A7F729E5A9F9003C7414 /* Main */ = {
+			isa = PBXGroup;
+			children = (
+				9286A7FB29E5AA77003C7414 /* View */,
+				9286A7F829E5AA0A003C7414 /* Coordinator */,
+			);
+			path = Main;
+			sourceTree = "<group>";
+		};
+		9286A7F829E5AA0A003C7414 /* Coordinator */ = {
+			isa = PBXGroup;
+			children = (
+				9286A7F929E5AA28003C7414 /* MainTabBarCoordinator.swift */,
+			);
+			path = Coordinator;
+			sourceTree = "<group>";
+		};
+		9286A7FB29E5AA77003C7414 /* View */ = {
+			isa = PBXGroup;
+			children = (
+				9286A7FC29E5AA97003C7414 /* MainTabBarViewController.swift */,
 			);
 			path = View;
 			sourceTree = "<group>";
@@ -241,6 +298,7 @@
 		975375CC29DF3377004A0EC8 /* Services */ = {
 			isa = PBXGroup;
 			children = (
+				9286A7F229E55E06003C7414 /* ForgotPassword */,
 				9286A7E329E485D4003C7414 /* LoginService */,
 				975375CD29DF338A004A0EC8 /* AuthService */,
 			);
@@ -434,21 +492,27 @@
 				9286A7EC29E48AA2003C7414 /* ForgotPasswordViewController.swift in Sources */,
 				975375C729DF25DC004A0EC8 /* UIStackView+Extensions.swift in Sources */,
 				9286A7E929E48A35003C7414 /* ForgotPasswordCoordinator.swift in Sources */,
+				9286A7EF29E55CC4003C7414 /* ForgotPasswordPresenter.swift in Sources */,
 				9226DB9529D4CCD50078A630 /* AuthViewController.swift in Sources */,
+				9286A7FD29E5AA97003C7414 /* MainTabBarViewController.swift in Sources */,
 				975375D129DF3585004A0EC8 /* AppPresentationAssembly.swift in Sources */,
 				9286A7E029E46DA4003C7414 /* LoginPresenter.swift in Sources */,
 				975375C929DF2BD2004A0EC8 /* AuthCoordinator.swift in Sources */,
 				9226DBCD29DECDB80078A630 /* AuthPresenter.swift in Sources */,
 				9226DBD429DEDAAB0078A630 /* AuthModuleBuilder.swift in Sources */,
+				9286A7F429E55E18003C7414 /* ForgotPasswordService.swift in Sources */,
 				975375CF29DF339B004A0EC8 /* AuthService.swift in Sources */,
 				975375CB29DF2E16004A0EC8 /* LoginCoordinator.swift in Sources */,
 				9226DB9129D4CCD50078A630 /* AppDelegate.swift in Sources */,
 				9226DBCF29DECE370078A630 /* AuthViewIO.swift in Sources */,
 				975375D329DF3628004A0EC8 /* AppServicesAssembly.swift in Sources */,
+				9286A7F629E55F72003C7414 /* ForgotPasswordModuleBuilder.swift in Sources */,
 				9286A7E529E485E7003C7414 /* LoginService.swift in Sources */,
 				9286A7E229E4846C003C7414 /* LoginModuleBuilder.swift in Sources */,
 				9226DB9B29D4CCD50078A630 /* MealHelper.xcdatamodeld in Sources */,
+				9286A7F129E55CD0003C7414 /* ForgotPasswordViewIO.swift in Sources */,
 				9286A7D929E44632003C7414 /* LoginViewIO.swift in Sources */,
+				9286A7FA29E5AA28003C7414 /* MainTabBarCoordinator.swift in Sources */,
 				9226DB9329D4CCD50078A630 /* SceneDelegate.swift in Sources */,
 				975375D829E01773004A0EC8 /* BlueCommonButton.swift in Sources */,
 				9226DBD129DECFF40078A630 /* AppCoordinator.swift in Sources */,

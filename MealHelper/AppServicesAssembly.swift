@@ -9,6 +9,7 @@ import Foundation
 protocol IAppServicesAssembly: AnyObject {
     var authService: IAuthService { get }
     var loginService: ILoginService { get }
+    var forgotPasswordService: IForgotPasswordService { get }
 }
 
 final class AppServicesAssembly: IAppServicesAssembly {
@@ -17,5 +18,8 @@ final class AppServicesAssembly: IAppServicesAssembly {
     }
     var loginService: ILoginService {
         LoginService()
+    }
+    var forgotPasswordService: IForgotPasswordService {
+        ForgotPasswordService()
     }
 }

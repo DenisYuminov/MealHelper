@@ -94,6 +94,7 @@ final class LoginViewController: UIViewController {
             make.centerY.equalToSuperview().offset(120)
             make.width.equalToSuperview().multipliedBy(0.75)
         }
+        
         [mailTextField, passwordTextField, signInButton].forEach { elem in
             elem.snp.makeConstraints { make in
                 make.height.equalTo(50)

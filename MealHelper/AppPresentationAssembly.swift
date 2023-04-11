@@ -15,6 +15,7 @@ protocol IAppPresentationAssembly: AnyObject {
     // ModuleBuilders
     var startModuleBuilder: IAuthModuleBuilder { get }
     var loginModuleBuilder: ILoginModuleBuilder { get }
+    var forgotModuleBuilder: ForgotPasswordModuleBuilder { get }
 }
 
 final class AppPresentationAssembly: IAppPresentationAssembly {
@@ -38,8 +39,9 @@ final class AppPresentationAssembly: IAppPresentationAssembly {
     }
     
     var forgotPasswordCoordinator: IForgotPasswordCoordinator {
-        ForgotPasswordCoordinator()
+        ForgotPasswordCoordinator(moduleBuilder: forgotModuleBuilder)
     }
+    
 
     // MARK: ModuleBuilders
     
@@ -49,5 +51,8 @@ final class AppPresentationAssembly: IAppPresentationAssembly {
     
     var loginModuleBuilder: ILoginModuleBuilder {
         LoginModuleBuilder(loginService: servicesAssembly.loginService)
+    }
+    var forgotModuleBuilder: ForgotPasswordModuleBuilder {
+        ForgotPasswordModuleBuilder(forgotPasswordService: servicesAssembly.forgotPasswordService)
     }
 }

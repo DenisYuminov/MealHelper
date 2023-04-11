@@ -17,8 +17,9 @@ final class GrayCommonTextField: UITextField {
         layer.cornerRadius = 10
         layer.borderColor = UIColor.lightGray.cgColor
         placeholder = title
-        textColor = .lightGray
-        tintColor = .lightGray
+        textColor = .black
+        tintColor = .systemGray6
+        backgroundColor = .systemGray5
     }
     
     required init?(coder: NSCoder) {
