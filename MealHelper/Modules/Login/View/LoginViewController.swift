@@ -9,7 +9,12 @@ import UIKit
 final class LoginViewController: UIViewController {
     // Dependencies
     private let output: LoginViewOutput
+    
     // UI
+    private lazy var logoStackView: UIStackView = {
+        let container = LogoStackView()
+        return container
+    }()
     private lazy var signInStackView: UIStackView = {
         let container = UIStackView()
         container.backgroundColor = .clear
@@ -25,10 +30,7 @@ final class LoginViewController: UIViewController {
         return container
     }()
     private lazy var titleLabel: UILabel = {
-        let label = UILabel()
-        label.text = "Sign In"
-        label.textAlignment = .center
-        label.font = UIFont.systemFont(ofSize: 32)
+        let label = TitleLabel(title: "Sign In")
         return label
     }()
     private lazy var forgotPasswordButton: UIButton = {
@@ -68,10 +70,15 @@ final class LoginViewController: UIViewController {
         setupUI()
     }
     
+    override func viewWillAppear(_ animated: Bool) {
+        passwordTextField.text = ""
+        mailTextField.text = ""
+    }
+    
     // MARK: Private
     
     private func setupUI() {
-        view.backgroundColor = .white
+        view.backgroundColor = .systemGray6
         
         titleStackView.addArrangedSubview(titleLabel)
         
@@ -83,7 +90,14 @@ final class LoginViewController: UIViewController {
             signInButton
         ])
         
+        view.addSubview(logoStackView)
         view.addSubview(signInStackView)
+        
+        logoStackView.snp.makeConstraints { make in
+            make.centerX.equalToSuperview()
+            make.centerY.equalToSuperview().offset(-150)
+            make.width.equalToSuperview().multipliedBy(0.9)
+        }
         
         titleStackView.snp.makeConstraints { make in
             make.centerX.equalToSuperview()
@@ -91,7 +105,7 @@ final class LoginViewController: UIViewController {
         
         signInStackView.snp.makeConstraints { make in
             make.centerX.equalToSuperview()
-            make.centerY.equalToSuperview().offset(120)
+            make.centerY.equalToSuperview().offset(180)
             make.width.equalToSuperview().multipliedBy(0.75)
         }
         

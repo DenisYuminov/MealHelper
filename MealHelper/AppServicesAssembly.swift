@@ -10,6 +10,7 @@ protocol IAppServicesAssembly: AnyObject {
     var authService: IAuthService { get }
     var loginService: ILoginService { get }
     var forgotPasswordService: IForgotPasswordService { get }
+    var createAccountservice: ICreateAccountService { get }
 }
 
 final class AppServicesAssembly: IAppServicesAssembly {
@@ -21,5 +22,8 @@ final class AppServicesAssembly: IAppServicesAssembly {
     }
     var forgotPasswordService: IForgotPasswordService {
         ForgotPasswordService()
+    }
+    var createAccountservice: ICreateAccountService {
+        CreateAccountService()
     }
 }

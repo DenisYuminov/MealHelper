@@ -7,10 +7,10 @@
 import Foundation
 
 protocol ILoginService: AnyObject {
-    func doSomeWork()
+    func login()
 }
 
 final class LoginService: ILoginService {
-    func doSomeWork() {
+    func login() {
     }
 }

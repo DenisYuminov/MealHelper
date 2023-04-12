@@ -12,9 +12,13 @@ final class AuthViewController: UIViewController {
     private let output: AuthViewOutput
     
     // UI
+    private lazy var logoStackView: UIStackView = {
+        let container = LogoStackView()
+        return container
+    }()
     private lazy var buttonStackView: UIStackView = {
         let container = UIStackView()
-        container.backgroundColor = .white
+        container.backgroundColor = .clear
         container.layer.cornerRadius = 10
         container.axis = .vertical
         container.spacing = 20
@@ -54,24 +58,30 @@ final class AuthViewController: UIViewController {
     override func viewDidLoad() {
         super.viewDidLoad()
         setupUI()
-        self.title = "Start"
     }
     
     // MARK: Private
     
     private func setupUI() {
-        view.backgroundColor = .white
+        view.backgroundColor = .systemGray6
         
         buttonStackView.addArrangedSubviews([loginButton, signupButton, continueButton])
 
         view.addSubview(buttonStackView)
+        view.addSubview(logoStackView)
+        
+        logoStackView.snp.makeConstraints { make in
+            make.centerX.equalToSuperview()
+            make.centerY.equalToSuperview().offset(-150)
+            make.width.equalToSuperview().multipliedBy(0.9)
+        }
 
         buttonStackView.snp.makeConstraints { make in
             make.centerX.equalToSuperview()
             make.centerY.equalToSuperview().offset(150)
             make.width.equalToSuperview().multipliedBy(0.75)
         }
-        [loginButton, signupButton, continueButton].forEach { button in
+        [loginButton, signupButton].forEach { button in
             button.snp.makeConstraints { make in
                 make.height.equalTo(50)
             }

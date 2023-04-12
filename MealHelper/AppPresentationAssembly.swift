@@ -12,13 +12,16 @@ protocol IAppPresentationAssembly: AnyObject {
     var authCoordinator: IAuthCoordinator { get }
     var loginCoordinator: ILoginCoordinator { get }
     var forgotPasswordCoordinator: IForgotPasswordCoordinator { get }
+    var createAccountCoordinator: ICreateAccountCoordinator { get }
     // ModuleBuilders
     var startModuleBuilder: IAuthModuleBuilder { get }
     var loginModuleBuilder: ILoginModuleBuilder { get }
-    var forgotModuleBuilder: ForgotPasswordModuleBuilder { get }
+    var forgotModuleBuilder: IForgotPasswordModuleBuilder { get }
+    var createAccountModuleBuilder: ICreateAccountModuleBuilder { get }
 }
 
 final class AppPresentationAssembly: IAppPresentationAssembly {
+
     // Dependencies
     private let servicesAssembly: IAppServicesAssembly
     
@@ -31,7 +34,7 @@ final class AppPresentationAssembly: IAppPresentationAssembly {
     // MARK: Coordinators
         
     var authCoordinator: IAuthCoordinator {
-        AuthCoordinator(moduleBuilder: startModuleBuilder, loginCoordinator: loginCoordinator)
+        AuthCoordinator(moduleBuilder: startModuleBuilder, loginCoordinator: loginCoordinator, createAccountCoordinator: createAccountCoordinator)
     }
     
     var loginCoordinator: ILoginCoordinator {
@@ -42,7 +45,10 @@ final class AppPresentationAssembly: IAppPresentationAssembly {
         ForgotPasswordCoordinator(moduleBuilder: forgotModuleBuilder)
     }
     
-
+    var createAccountCoordinator: ICreateAccountCoordinator {
+        CreateAccountCoordinator(moduleBuilder: createAccountModuleBuilder)
+    }
+    
     // MARK: ModuleBuilders
     
     var startModuleBuilder: IAuthModuleBuilder {
@@ -52,7 +58,11 @@ final class AppPresentationAssembly: IAppPresentationAssembly {
     var loginModuleBuilder: ILoginModuleBuilder {
         LoginModuleBuilder(loginService: servicesAssembly.loginService)
     }
-    var forgotModuleBuilder: ForgotPasswordModuleBuilder {
+    var forgotModuleBuilder: IForgotPasswordModuleBuilder {
         ForgotPasswordModuleBuilder(forgotPasswordService: servicesAssembly.forgotPasswordService)
     }
+    var createAccountModuleBuilder: ICreateAccountModuleBuilder {
+        CreateAccountModuleBuilder(createAccountService: servicesAssembly.createAccountservice)
+    }
+    
 }

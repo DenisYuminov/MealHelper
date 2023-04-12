@@ -14,15 +14,20 @@ final class AuthCoordinator: IAuthCoordinator, AuthPresenterOutput {
     // Dependencies
     private let moduleBuilder: IAuthModuleBuilder
     private let loginCoordinator: ILoginCoordinator
+    private let createAccountCoordinator: ICreateAccountCoordinator
     
     // Properties
     private weak var transitionHandler: UINavigationController?
     
     // MARK: Init
     
-    init(moduleBuilder: IAuthModuleBuilder, loginCoordinator: ILoginCoordinator) {
+    init(moduleBuilder: IAuthModuleBuilder,
+         loginCoordinator: ILoginCoordinator,
+         createAccountCoordinator: ICreateAccountCoordinator
+    ) {
         self.moduleBuilder = moduleBuilder
         self.loginCoordinator = loginCoordinator
+        self.createAccountCoordinator = createAccountCoordinator
     }
     
     // MARK: IAuthCoordinator
@@ -32,6 +37,7 @@ final class AuthCoordinator: IAuthCoordinator, AuthPresenterOutput {
         let navigationController = UINavigationController(rootViewController: viewController)
         self.transitionHandler = navigationController
         loginCoordinator.transitionHandler = navigationController
+        createAccountCoordinator.transitionHandler = navigationController
         return navigationController
     }
     
@@ -39,6 +45,11 @@ final class AuthCoordinator: IAuthCoordinator, AuthPresenterOutput {
     
     func openLoginScreen() {
         let viewController = loginCoordinator.createFlow()
+        transitionHandler?.pushViewController(viewController, animated: true)
+    }
+    
+    func openCreateAccountScreen() {
+        let viewController = createAccountCoordinator.createFlow()
         transitionHandler?.pushViewController(viewController, animated: true)
     }
 }

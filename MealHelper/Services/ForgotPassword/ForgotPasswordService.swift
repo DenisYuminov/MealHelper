@@ -7,10 +7,10 @@
 import Foundation
 
 protocol IForgotPasswordService: AnyObject {
-    func doSomeWork()
+    func sendNewPassword()
 }
 
 final class ForgotPasswordService: IForgotPasswordService {
-    func doSomeWork() {
+    func sendNewPassword() {
     }
 }

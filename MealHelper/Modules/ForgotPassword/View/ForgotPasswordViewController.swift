@@ -12,10 +12,7 @@ class ForgotPasswordViewController: UIViewController {
     private let output: ForgotPasswordViewOutput
     // UI
     private lazy var titleLabel: UILabel = {
-        let label = UILabel()
-        label.text = "Password recovery"
-        label.textAlignment = .center
-        label.font = UIFont.systemFont(ofSize: 32)
+        let label = TitleLabel(title: "Password recovery")
         return label
     }()
     private lazy var subTitleLabel: UILabel = {
@@ -35,9 +32,24 @@ class ForgotPasswordViewController: UIViewController {
         button.addTarget(self, action: #selector(onConfirmButtonClicked), for: .touchUpInside)
         return button
     }()
+    private lazy var imageView: UIImageView = {
+        let image = UIImage(systemName: "lock.circle")
+        let imageView = UIImageView(image: image)
+        imageView.tintColor = .black
+        imageView.contentMode = .scaleAspectFit
+        imageView.widthAnchor.constraint(equalToConstant: 200).isActive = true
+        imageView.heightAnchor.constraint(equalToConstant: 200).isActive = true
+        return imageView
+    }()
+    private lazy var imageStackView: UIStackView = {
+        let container = UIStackView()
+        container.backgroundColor = .clear
+        container.axis = .vertical
+        return container
+    }()
     private lazy var confirmStackView: UIStackView = {
         let container = UIStackView()
-        container.backgroundColor = .white
+        container.backgroundColor = .clear
         container.layer.cornerRadius = 10
         container.axis = .vertical
         container.spacing = 30
@@ -59,7 +71,7 @@ class ForgotPasswordViewController: UIViewController {
     }
     // MARK: private
     private func setupUI() {
-        view.backgroundColor = .white
+        view.backgroundColor = .systemGray6
         
         confirmStackView.addArrangedSubviews([
             titleLabel,
@@ -67,8 +79,15 @@ class ForgotPasswordViewController: UIViewController {
             mailTextField,
             confirmButton
         ])
+        imageStackView.addArrangedSubview(imageView)
         
+        view.addSubview(imageStackView)
         view.addSubview(confirmStackView)
+        imageStackView.snp.makeConstraints { make in
+            make.centerX.equalToSuperview()
+            make.centerY.equalToSuperview().offset(-150)
+            make.width.equalToSuperview().multipliedBy(0.7)
+        }
         
         confirmStackView.snp.makeConstraints { make in
             make.centerX.equalToSuperview()
