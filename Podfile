@@ -8,5 +8,6 @@ target 'MealHelper' do
   # Pods for MealHelper
   pod 'SnapKit', '~> 5.0.0'
   pod 'SwiftLint', '~> 0.46.2'
+  pod 'SwiftGen', '~> 6.0'
 
 end

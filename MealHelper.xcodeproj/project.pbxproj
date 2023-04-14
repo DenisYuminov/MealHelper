@@ -36,8 +36,14 @@
 		9286A80929E6C83B003C7414 /* CreateAccountPresenter.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9286A80829E6C83B003C7414 /* CreateAccountPresenter.swift */; };
 		9286A80C29E6C93B003C7414 /* CreateAccountService.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9286A80B29E6C93B003C7414 /* CreateAccountService.swift */; };
 		9286A80E29E6CA30003C7414 /* CreateAccountCoordinator.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9286A80D29E6CA30003C7414 /* CreateAccountCoordinator.swift */; };
-		9286A81129E6F499003C7414 /* logoStackView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9286A81029E6F499003C7414 /* logoStackView.swift */; };
+		9286A81129E6F499003C7414 /* LogoStackView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9286A81029E6F499003C7414 /* LogoStackView.swift */; };
 		9286A81429E6FABD003C7414 /* TitleLabel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9286A81329E6FABD003C7414 /* TitleLabel.swift */; };
+		972A8C5829E7CAB50074B644 /* Images.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 972A8C5729E7CAB50074B644 /* Images.xcassets */; };
+		972A8C5A29E7CAC20074B644 /* Colors.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 972A8C5929E7CAC20074B644 /* Colors.xcassets */; };
+		972A8C6029E7D5900074B644 /* Strings+Generated.swift in Sources */ = {isa = PBXBuildFile; fileRef = 972A8C5E29E7D58F0074B644 /* Strings+Generated.swift */; };
+		972A8C6129E7D5900074B644 /* XCAssets+Generated.swift in Sources */ = {isa = PBXBuildFile; fileRef = 972A8C5F29E7D58F0074B644 /* XCAssets+Generated.swift */; };
+		972A8C7B29E9447D0074B644 /* Localizable.strings in Resources */ = {isa = PBXBuildFile; fileRef = 972A8C7D29E9447D0074B644 /* Localizable.strings */; };
+		972A8C8229E9531A0074B644 /* LogoLabel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 972A8C8129E9531A0074B644 /* LogoLabel.swift */; };
 		975375C729DF25DC004A0EC8 /* UIStackView+Extensions.swift in Sources */ = {isa = PBXBuildFile; fileRef = 975375C629DF25DC004A0EC8 /* UIStackView+Extensions.swift */; };
 		975375C929DF2BD2004A0EC8 /* AuthCoordinator.swift in Sources */ = {isa = PBXBuildFile; fileRef = 975375C829DF2BD2004A0EC8 /* AuthCoordinator.swift */; };
 		975375CB29DF2E16004A0EC8 /* LoginCoordinator.swift in Sources */ = {isa = PBXBuildFile; fileRef = 975375CA29DF2E16004A0EC8 /* LoginCoordinator.swift */; };
@@ -81,8 +87,15 @@
 		9286A80829E6C83B003C7414 /* CreateAccountPresenter.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CreateAccountPresenter.swift; sourceTree = "<group>"; };
 		9286A80B29E6C93B003C7414 /* CreateAccountService.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CreateAccountService.swift; sourceTree = "<group>"; };
 		9286A80D29E6CA30003C7414 /* CreateAccountCoordinator.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CreateAccountCoordinator.swift; sourceTree = "<group>"; };
-		9286A81029E6F499003C7414 /* logoStackView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = logoStackView.swift; sourceTree = "<group>"; };
+		9286A81029E6F499003C7414 /* LogoStackView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LogoStackView.swift; sourceTree = "<group>"; };
 		9286A81329E6FABD003C7414 /* TitleLabel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TitleLabel.swift; sourceTree = "<group>"; };
+		972A8C5729E7CAB50074B644 /* Images.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Images.xcassets; sourceTree = "<group>"; };
+		972A8C5929E7CAC20074B644 /* Colors.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Colors.xcassets; sourceTree = "<group>"; };
+		972A8C5E29E7D58F0074B644 /* Strings+Generated.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = "Strings+Generated.swift"; sourceTree = "<group>"; };
+		972A8C5F29E7D58F0074B644 /* XCAssets+Generated.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = "XCAssets+Generated.swift"; sourceTree = "<group>"; };
+		972A8C7C29E9447D0074B644 /* en */ = {isa = PBXFileReference; lastKnownFileType = text.plist.strings; name = en; path = en.lproj/Localizable.strings; sourceTree = "<group>"; };
+		972A8C7E29E944980074B644 /* ru */ = {isa = PBXFileReference; lastKnownFileType = text.plist.strings; name = ru; path = ru.lproj/Localizable.strings; sourceTree = "<group>"; };
+		972A8C8129E9531A0074B644 /* LogoLabel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LogoLabel.swift; sourceTree = "<group>"; };
 		975375C629DF25DC004A0EC8 /* UIStackView+Extensions.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "UIStackView+Extensions.swift"; sourceTree = "<group>"; };
 		975375C829DF2BD2004A0EC8 /* AuthCoordinator.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AuthCoordinator.swift; sourceTree = "<group>"; };
 		975375CA29DF2E16004A0EC8 /* LoginCoordinator.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LoginCoordinator.swift; sourceTree = "<group>"; };
@@ -127,6 +140,8 @@
 		9226DB8F29D4CCD50078A630 /* MealHelper */ = {
 			isa = PBXGroup;
 			children = (
+				972A8C5D29E7D58F0074B644 /* Generated */,
+				972A8C5629E7CAA70074B644 /* Resources */,
 				975375D529E01757004A0EC8 /* Components */,
 				975375C529DF25B1004A0EC8 /* Extensions */,
 				975375CC29DF3377004A0EC8 /* Services */,
@@ -146,11 +161,8 @@
 		9226DBC829DECD640078A630 /* Modules */ = {
 			isa = PBXGroup;
 			children = (
-				9286A7FE29E6C6A7003C7414 /* CreateAccount */,
+				972A8C8329E957150074B644 /* Entrance */,
 				9286A7F729E5A9F9003C7414 /* Main */,
-				9286A7E629E48A0C003C7414 /* ForgotPassword */,
-				9226DBD529DEE10C0078A630 /* Login */,
-				9226DBC929DECD7A0078A630 /* Auth */,
 			);
 			path = Modules;
 			sourceTree = "<group>";
@@ -203,12 +215,12 @@
 			path = View;
 			sourceTree = "<group>";
 		};
-		9286A7DA29E4527C003C7414 /* TextField */ = {
+		9286A7DA29E4527C003C7414 /* TextFields */ = {
 			isa = PBXGroup;
 			children = (
 				9286A7DB29E452A5003C7414 /* GrayCommonTextField.swift */,
 			);
-			path = TextField;
+			path = TextFields;
 			sourceTree = "<group>";
 		};
 		9286A7DD29E46D59003C7414 /* Coordinator */ = {
@@ -348,20 +360,51 @@
 			path = CreateAccount;
 			sourceTree = "<group>";
 		};
-		9286A80F29E6F481003C7414 /* StackView */ = {
+		9286A80F29E6F481003C7414 /* StackViews */ = {
 			isa = PBXGroup;
 			children = (
-				9286A81029E6F499003C7414 /* logoStackView.swift */,
+				9286A81029E6F499003C7414 /* LogoStackView.swift */,
 			);
-			path = StackView;
+			path = StackViews;
 			sourceTree = "<group>";
 		};
-		9286A81229E6FAAE003C7414 /* Label */ = {
+		9286A81229E6FAAE003C7414 /* Labels */ = {
 			isa = PBXGroup;
 			children = (
 				9286A81329E6FABD003C7414 /* TitleLabel.swift */,
+				972A8C8129E9531A0074B644 /* LogoLabel.swift */,
 			);
-			path = Label;
+			path = Labels;
+			sourceTree = "<group>";
+		};
+		972A8C5629E7CAA70074B644 /* Resources */ = {
+			isa = PBXGroup;
+			children = (
+				972A8C5729E7CAB50074B644 /* Images.xcassets */,
+				972A8C5929E7CAC20074B644 /* Colors.xcassets */,
+				972A8C7D29E9447D0074B644 /* Localizable.strings */,
+			);
+			path = Resources;
+			sourceTree = "<group>";
+		};
+		972A8C5D29E7D58F0074B644 /* Generated */ = {
+			isa = PBXGroup;
+			children = (
+				972A8C5E29E7D58F0074B644 /* Strings+Generated.swift */,
+				972A8C5F29E7D58F0074B644 /* XCAssets+Generated.swift */,
+			);
+			path = Generated;
+			sourceTree = "<group>";
+		};
+		972A8C8329E957150074B644 /* Entrance */ = {
+			isa = PBXGroup;
+			children = (
+				9226DBC929DECD7A0078A630 /* Auth */,
+				9226DBD529DEE10C0078A630 /* Login */,
+				9286A7E629E48A0C003C7414 /* ForgotPassword */,
+				9286A7FE29E6C6A7003C7414 /* CreateAccount */,
+			);
+			path = Entrance;
 			sourceTree = "<group>";
 		};
 		975375C529DF25B1004A0EC8 /* Extensions */ = {
@@ -402,9 +445,9 @@
 		975375D529E01757004A0EC8 /* Components */ = {
 			isa = PBXGroup;
 			children = (
-				9286A81229E6FAAE003C7414 /* Label */,
-				9286A80F29E6F481003C7414 /* StackView */,
-				9286A7DA29E4527C003C7414 /* TextField */,
+				9286A81229E6FAAE003C7414 /* Labels */,
+				9286A80F29E6F481003C7414 /* StackViews */,
+				9286A7DA29E4527C003C7414 /* TextFields */,
 				975375D629E01764004A0EC8 /* Buttons */,
 			);
 			path = Components;
@@ -443,6 +486,7 @@
 			buildConfigurationList = 9226DBA429D4CCD50078A630 /* Build configuration list for PBXNativeTarget "MealHelper" */;
 			buildPhases = (
 				2EBC6556E6275ED23BF2C3AE /* [CP] Check Pods Manifest.lock */,
+				972A8C5329E7C9880074B644 /* SwiftGen */,
 				9226DB8929D4CCD50078A630 /* Sources */,
 				9226DB8A29D4CCD50078A630 /* Frameworks */,
 				9226DB8B29D4CCD50078A630 /* Resources */,
@@ -480,6 +524,7 @@
 			knownRegions = (
 				en,
 				Base,
+				ru,
 			);
 			mainGroup = 9226DB8429D4CCD50078A630;
 			productRefGroup = 9226DB8E29D4CCD50078A630 /* Products */;
@@ -496,6 +541,9 @@
 			isa = PBXResourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				972A8C5A29E7CAC20074B644 /* Colors.xcassets in Resources */,
+				972A8C7B29E9447D0074B644 /* Localizable.strings in Resources */,
+				972A8C5829E7CAB50074B644 /* Images.xcassets in Resources */,
 				9226DBA029D4CCD50078A630 /* LaunchScreen.storyboard in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
@@ -561,6 +609,25 @@
 			shellPath = /bin/sh;
 			shellScript = "${PODS_ROOT}/SwiftLint/swiftlint\n";
 		};
+		972A8C5329E7C9880074B644 /* SwiftGen */ = {
+			isa = PBXShellScriptBuildPhase;
+			alwaysOutOfDate = 1;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			inputFileListPaths = (
+			);
+			inputPaths = (
+			);
+			name = SwiftGen;
+			outputFileListPaths = (
+			);
+			outputPaths = (
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+			shellPath = /bin/sh;
+			shellScript = "if [[ -f \"${PODS_ROOT}/SwiftGen/bin/swiftgen\" ]]; then\n  \"${PODS_ROOT}/SwiftGen/bin/swiftgen\"\nelse\n  echo \"warning: SwiftGen is not installed. Run 'pod install --repo-update' to install it.\"\nfi\n";
+		};
 /* End PBXShellScriptBuildPhase section */
 
 /* Begin PBXSourcesBuildPhase section */
@@ -568,11 +635,12 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				972A8C6129E7D5900074B644 /* XCAssets+Generated.swift in Sources */,
 				9226DBD729DEE1220078A630 /* LoginViewController.swift in Sources */,
 				9286A7EC29E48AA2003C7414 /* ForgotPasswordViewController.swift in Sources */,
 				975375C729DF25DC004A0EC8 /* UIStackView+Extensions.swift in Sources */,
 				9286A7E929E48A35003C7414 /* ForgotPasswordCoordinator.swift in Sources */,
-				9286A81129E6F499003C7414 /* logoStackView.swift in Sources */,
+				9286A81129E6F499003C7414 /* LogoStackView.swift in Sources */,
 				9286A7EF29E55CC4003C7414 /* ForgotPasswordPresenter.swift in Sources */,
 				9226DB9529D4CCD50078A630 /* AuthViewController.swift in Sources */,
 				9286A7FD29E5AA97003C7414 /* MainTabBarViewController.swift in Sources */,
@@ -586,8 +654,10 @@
 				9286A7F429E55E18003C7414 /* ForgotPasswordService.swift in Sources */,
 				975375CF29DF339B004A0EC8 /* AuthService.swift in Sources */,
 				975375CB29DF2E16004A0EC8 /* LoginCoordinator.swift in Sources */,
+				972A8C8229E9531A0074B644 /* LogoLabel.swift in Sources */,
 				9226DB9129D4CCD50078A630 /* AppDelegate.swift in Sources */,
 				9286A80929E6C83B003C7414 /* CreateAccountPresenter.swift in Sources */,
+				972A8C6029E7D5900074B644 /* Strings+Generated.swift in Sources */,
 				9226DBCF29DECE370078A630 /* AuthViewIO.swift in Sources */,
 				975375D329DF3628004A0EC8 /* AppServicesAssembly.swift in Sources */,
 				9286A80C29E6C93B003C7414 /* CreateAccountService.swift in Sources */,
@@ -617,6 +687,15 @@
 				9226DB9F29D4CCD50078A630 /* Base */,
 			);
 			name = LaunchScreen.storyboard;
+			sourceTree = "<group>";
+		};
+		972A8C7D29E9447D0074B644 /* Localizable.strings */ = {
+			isa = PBXVariantGroup;
+			children = (
+				972A8C7C29E9447D0074B644 /* en */,
+				972A8C7E29E944980074B644 /* ru */,
+			);
+			name = Localizable.strings;
 			sourceTree = "<group>";
 		};
 /* End PBXVariantGroup section */

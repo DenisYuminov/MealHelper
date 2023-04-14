@@ -1,0 +1,9 @@
+// Общее
+"application.name" = "Meal Helper";
+
+// Авторизация
+"signIn.navigation.title" = "Sign in";
+"signIn.email.placeholder" = "Email";
+"signIn.password.placeholder" = "Password";
+"signIn.forgotPassword.button.title" = "Forgot password?";
+"signIn.button.title" = "Sign in";
