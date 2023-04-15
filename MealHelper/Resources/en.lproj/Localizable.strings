@@ -1,9 +1,30 @@
 // Общее
 "application.name" = "Meal Helper";
 
+// стартовый экран
+"continue.button.title" = "Continue without profile";
 // Авторизация
 "signIn.navigation.title" = "Sign in";
 "signIn.email.placeholder" = "Email";
 "signIn.password.placeholder" = "Password";
 "signIn.forgotPassword.button.title" = "Forgot password?";
 "signIn.button.title" = "Sign in";
+
+
+//Регистрация
+"createAccount.button.title" = "Create Account";
+"createAccount.username.title" = "Username";
+"createAccount.username.placeholder" = "Enter your username";
+"createAccount.email.title" = "Mail";
+"createAccount.email.placeholder" = "Enter your mail";
+"createAccount.password.placeholder" = "Enter your password";
+"createAccount.password.title" = "Password";
+"createAccount.confirmPassword.placeholder" = "Confirm your password";
+"createAccount.confirmPassword.title" = "Confirm password";
+"createAccount.navigation.title" = "Create Account";
+
+//Забыл пароль
+"forgotPassword.button.title" = "Confirm";
+"forgotPassword.navigation.title" = "Password recovery";
+"forgotPassword.info.title" = "Enter your e-mail to receive new password";
+"forgotPassword.mail.placeholder" = "Enter your mail";

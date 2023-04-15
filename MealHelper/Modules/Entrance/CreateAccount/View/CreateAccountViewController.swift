@@ -39,48 +39,48 @@ final class CreateAccountViewController: UIViewController {
         return container
     }()
     private lazy var titleLabel: UILabel = {
-        let label = TitleLabel(title: "Create Account")
+        let label = TitleLabel(title: L10n.CreateAccount.Navigation.title)
         label.font = UIFont.systemFont(ofSize: 32)
         return label
     }()
     private lazy var usernameTextField: UITextField = {
-        let textfield = GrayCommonTextField(title: "Enter your Username")
+        let textfield = GrayCommonTextField(title: L10n.CreateAccount.Username.placeholder)
         return textfield
     }()
     private lazy var mailTextField: UITextField = {
-        let textfield = GrayCommonTextField(title: "Enter your mail")
+        let textfield = GrayCommonTextField(title: L10n.CreateAccount.Email.placeholder)
         return textfield
     }()
     private lazy var passwordTextField: UITextField = {
-        let textfield = GrayCommonTextField(title: "Enter your password")
+        let textfield = GrayCommonTextField(title: L10n.CreateAccount.Password.placeholder)
         return textfield
     }()
     private lazy var passwordConfirmField: UITextField = {
-        let textfield = GrayCommonTextField(title: "Confirm your password")
+        let textfield = GrayCommonTextField(title: L10n.CreateAccount.ConfirmPassword.placeholder)
         return textfield
     }()
     private lazy var usernameLabel: UILabel = {
-        let label = LogoLabel(title: "Username", size: 17)
+        let label = LogoLabel(title: L10n.CreateAccount.Username.title, size: 17)
         label.textAlignment = .left
         return label
     }()
     private lazy var mailLabel: UILabel = {
-        let label = LogoLabel(title: "Mail", size: 17)
+        let label = LogoLabel(title: L10n.CreateAccount.Email.title, size: 17)
         label.textAlignment = .left
         return label
     }()
     private lazy var passwordLabel: UILabel = {
-        let label = LogoLabel(title: "Password", size: 17)
+        let label = LogoLabel(title: L10n.CreateAccount.Password.title, size: 17)
         label.textAlignment = .left
         return label
     }()
     private lazy var passwordConfirmLabel: UILabel = {
-        let label = LogoLabel(title: "Confirm password", size: 17)
+        let label = LogoLabel(title: L10n.CreateAccount.ConfirmPassword.title, size: 17)
         label.textAlignment = .left
         return label
     }()
     private lazy var createAccountButton: UIButton = {
-        let button = BlueCommonButton(title: "Create Account")
+        let button = BlueCommonButton(title: L10n.CreateAccount.Button.title)
         return button
     }()
     

@@ -26,18 +26,18 @@ final class AuthViewController: UIViewController {
         return container
     }()
     private lazy var loginButton: UIButton = {
-        let button = BlueCommonButton(title: "Sign in")
+        let button = BlueCommonButton(title: L10n.SignIn.Button.title)
         button.addTarget(self, action: #selector(onLoginButtonClicked), for: .touchUpInside)
         return button
     }()
     private lazy var signupButton: UIButton = {
-        let button = BlueCommonButton(title: "Create account")
+        let button = BlueCommonButton(title: L10n.CreateAccount.Button.title)
         button.addTarget(self, action: #selector(onSignupButtonClicked), for: .touchUpInside)
         return button
     }()
     private lazy var continueButton: UIButton = {
         let button = UIButton()
-        button.setTitle("Continue without profile", for: .normal)
+        button.setTitle(L10n.Continue.Button.title, for: .normal)
         button.setTitleColor(.systemBlue, for: .normal)
         button.addTarget(self, action: #selector(onContinueButtonClicked), for: .touchUpInside)
         return button

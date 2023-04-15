@@ -12,23 +12,25 @@ final class ForgotPasswordViewController: UIViewController {
     private let output: ForgotPasswordViewOutput
     // UI
     private lazy var titleLabel: UILabel = {
-        let label = TitleLabel(title: "Password recovery")
+        let label = TitleLabel(title: L10n.ForgotPassword.Navigation.title)
+        label.font = UIFont.systemFont(ofSize: 28)
+        label.numberOfLines = 2
         return label
     }()
     private lazy var subTitleLabel: UILabel = {
         let label = UILabel()
-        label.text = "Enter your e-mail to receive new password"
+        label.text = L10n.ForgotPassword.Info.title
         label.numberOfLines = 2
         label.textAlignment = .center
         label.font = UIFont.systemFont(ofSize: 20)
         return label
     }()
     private lazy var mailTextField: UITextField = {
-        let textfield = GrayCommonTextField(title: "Enter your mail")
+        let textfield = GrayCommonTextField(title: L10n.ForgotPassword.Mail.placeholder)
         return textfield
     }()
     private lazy var confirmButton: UIButton = {
-        let button = BlueCommonButton(title: "Confirm")
+        let button = BlueCommonButton(title: L10n.ForgotPassword.Button.title)
         button.addTarget(self, action: #selector(onConfirmButtonClicked), for: .touchUpInside)
         return button
     }()
