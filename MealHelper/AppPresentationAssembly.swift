@@ -13,6 +13,7 @@ protocol IAppPresentationAssembly: AnyObject {
     var loginCoordinator: ILoginCoordinator { get }
     var forgotPasswordCoordinator: IForgotPasswordCoordinator { get }
     var createAccountCoordinator: ICreateAccountCoordinator { get }
+    
     // ModuleBuilders
     var startModuleBuilder: IAuthModuleBuilder { get }
     var loginModuleBuilder: ILoginModuleBuilder { get }
@@ -21,7 +22,6 @@ protocol IAppPresentationAssembly: AnyObject {
 }
 
 final class AppPresentationAssembly: IAppPresentationAssembly {
-
     // Dependencies
     private let servicesAssembly: IAppServicesAssembly
     
@@ -34,7 +34,11 @@ final class AppPresentationAssembly: IAppPresentationAssembly {
     // MARK: Coordinators
         
     var authCoordinator: IAuthCoordinator {
-        AuthCoordinator(moduleBuilder: startModuleBuilder, loginCoordinator: loginCoordinator, createAccountCoordinator: createAccountCoordinator)
+        AuthCoordinator(
+            moduleBuilder: startModuleBuilder,
+            loginCoordinator: loginCoordinator,
+            createAccountCoordinator: createAccountCoordinator
+        )
     }
     
     var loginCoordinator: ILoginCoordinator {
@@ -58,11 +62,12 @@ final class AppPresentationAssembly: IAppPresentationAssembly {
     var loginModuleBuilder: ILoginModuleBuilder {
         LoginModuleBuilder(loginService: servicesAssembly.loginService)
     }
+    
     var forgotModuleBuilder: IForgotPasswordModuleBuilder {
         ForgotPasswordModuleBuilder(forgotPasswordService: servicesAssembly.forgotPasswordService)
     }
-    var createAccountModuleBuilder: ICreateAccountModuleBuilder {
-        CreateAccountModuleBuilder(createAccountService: servicesAssembly.createAccountservice)
-    }
     
+    var createAccountModuleBuilder: ICreateAccountModuleBuilder {
+        CreateAccountModuleBuilder(createAccountService: servicesAssembly.createAccountService)
+    }
 }

@@ -4,11 +4,13 @@
 //
 //  Created by macbook Denis on 3/29/23.
 //
+
 import UIKit
 
 final class AppCoordinator {
     // Dependencies
     private let authCoordinator: IAuthCoordinator
+    
     // MARK: Init
     
     init(appPresentationAssembly: IAppPresentationAssembly) {

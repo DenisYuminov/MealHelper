@@ -7,8 +7,18 @@
 
 import UIKit
 
-class MainTabBarViewController: UIViewController {
+final class MainTabBarViewController: UIViewController {
     override func viewDidLoad() {
         super.viewDidLoad()
+    }
+    override func loadView() {
+        super.loadView()
+    }
+    override func didReceiveMemoryWarning() {
+        super.didReceiveMemoryWarning()
+    }
+    
+    override func viewWillAppear(_ animated: Bool) {
+        super.viewWillAppear(animated)
     }
 }
