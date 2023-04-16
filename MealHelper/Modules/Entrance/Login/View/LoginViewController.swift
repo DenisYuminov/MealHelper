@@ -27,8 +27,7 @@ final class LoginViewController: UIViewController {
             mailTextField,
             passwordTextField,
             forgotPasswordButton,
-            signInButton,
-            emptyView
+            signInButton
         ])
         container.backgroundColor = .clear
         container.layer.cornerRadius = .signInStackViewCornerRadius
@@ -69,9 +68,7 @@ final class LoginViewController: UIViewController {
         return stackView
     }()
     private lazy var scrollView = UIScrollView(frame: .zero)
-    // TODO: удалить emptyView после фикса скрола экрана при показанной клавиатуре
-    let emptyView = UIView()
-    
+
     // MARK: Init
     
     init(output: LoginViewOutput) {
@@ -96,10 +93,6 @@ final class LoginViewController: UIViewController {
     private func setupUI() {
         view.backgroundColor = .systemGray6
         view.addGestureRecognizer(UITapGestureRecognizer(target: self, action: #selector(hideKeyboard)))
-        
-        emptyView.snp.makeConstraints { make in
-            make.height.equalTo(300)
-        }
         
         view.addSubview(scrollView)
         scrollView.snp.makeConstraints { make in
@@ -157,13 +150,20 @@ final class LoginViewController: UIViewController {
         view.endEditing(true)
     }
     
-    @objc private func keyboardWillShow(notification: Notification) {
-        guard let keyboardFrame = notification.keyboardFrame else { return }
-        let height = keyboardFrame.height
-        print(">>>> keyboard height", height)
+    @objc func keyboardWillShow(notification: NSNotification) {
+        if let keyboardSize = (
+            notification.userInfo?[UIResponder.keyboardFrameEndUserInfoKey] as? NSValue
+        )?.cgRectValue {
+            let contentInsets = UIEdgeInsets(top: 0, left: 0, bottom: keyboardSize.height, right: 0)
+            scrollView.contentInset = contentInsets
+            scrollView.scrollIndicatorInsets = contentInsets
+        }
     }
-    
-    @objc private func keyboardWillHide(notification: Notification) {
+
+    @objc func keyboardWillHide(notification: NSNotification) {
+        let contentInsets = UIEdgeInsets.zero
+        scrollView.contentInset = contentInsets
+        scrollView.scrollIndicatorInsets = contentInsets
     }
 }
 
