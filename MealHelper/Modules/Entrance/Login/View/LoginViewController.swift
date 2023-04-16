@@ -58,6 +58,7 @@ final class LoginViewController: UIViewController {
     }()
     private lazy var signInButton: UIButton = {
         let button = BlueCommonButton(title: L10n.SignIn.Button.title)
+        button.addTarget(self, action: #selector(onSignInButtonClicked), for: .touchUpInside)
         return button
     }()
     private lazy var contentStackView: UIStackView = {
@@ -143,6 +144,10 @@ final class LoginViewController: UIViewController {
     }
     
     // MARK: Actions
+    
+    @objc private func onSignInButtonClicked() {
+        output.onSignInButtonClicked()
+    }
     
     @objc private func onForgotButtonClicked() {
         output.onForgotButtonClicked()

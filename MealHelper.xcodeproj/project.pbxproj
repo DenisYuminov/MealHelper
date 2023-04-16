@@ -17,6 +17,30 @@
 		9226DBD129DECFF40078A630 /* AppCoordinator.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9226DBD029DECFF40078A630 /* AppCoordinator.swift */; };
 		9226DBD429DEDAAB0078A630 /* AuthModuleBuilder.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9226DBD329DEDAAB0078A630 /* AuthModuleBuilder.swift */; };
 		9226DBD729DEE1220078A630 /* LoginViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9226DBD629DEE1220078A630 /* LoginViewController.swift */; };
+		9242704B29EC0F1C004525F5 /* TabBarViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9242704A29EC0F1C004525F5 /* TabBarViewController.swift */; };
+		9242705229EC134A004525F5 /* MainPresenter.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9242705129EC134A004525F5 /* MainPresenter.swift */; };
+		9242705529EC13A6004525F5 /* MainService.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9242705429EC13A6004525F5 /* MainService.swift */; };
+		9242705729EC13D1004525F5 /* MainViewIO.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9242705629EC13D1004525F5 /* MainViewIO.swift */; };
+		9242705929EC140D004525F5 /* MainModuleBuilder.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9242705829EC140D004525F5 /* MainModuleBuilder.swift */; };
+		9242705B29EC1D20004525F5 /* TabBarCoordinator.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9242705A29EC1D20004525F5 /* TabBarCoordinator.swift */; };
+		9242706029EC2457004525F5 /* LikesModuleBuilder.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9242705F29EC2457004525F5 /* LikesModuleBuilder.swift */; };
+		9242706229EC248C004525F5 /* LikesPresenter.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9242706129EC248C004525F5 /* LikesPresenter.swift */; };
+		9242706429EC24D8004525F5 /* LikesViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9242706329EC24D8004525F5 /* LikesViewController.swift */; };
+		9242706629EC2518004525F5 /* LikesViewIO.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9242706529EC2518004525F5 /* LikesViewIO.swift */; };
+		9242706A29EC25B7004525F5 /* LikesService.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9242706929EC25B7004525F5 /* LikesService.swift */; };
+		9242706C29EC262E004525F5 /* LikesCoordinator.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9242706B29EC262E004525F5 /* LikesCoordinator.swift */; };
+		9242707129EC282C004525F5 /* YourRecipesModuleBuilder.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9242707029EC282C004525F5 /* YourRecipesModuleBuilder.swift */; };
+		9242707329EC2845004525F5 /* YourRecipesViewIO.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9242707229EC2845004525F5 /* YourRecipesViewIO.swift */; };
+		9242707529EC285E004525F5 /* YourRecipesViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9242707429EC285E004525F5 /* YourRecipesViewController.swift */; };
+		9242707729EC28AA004525F5 /* YourRecipesPresenter.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9242707629EC28AA004525F5 /* YourRecipesPresenter.swift */; };
+		9242707A29EC2926004525F5 /* YourRecipesService.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9242707929EC2926004525F5 /* YourRecipesService.swift */; };
+		9242707C29EC295C004525F5 /* YourRecipesCoordinator.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9242707B29EC295C004525F5 /* YourRecipesCoordinator.swift */; };
+		9242708129EC2FAC004525F5 /* SettingsModuleBuilder.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9242708029EC2FAC004525F5 /* SettingsModuleBuilder.swift */; };
+		9242708329EC2FBB004525F5 /* SettingsViewIO.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9242708229EC2FBB004525F5 /* SettingsViewIO.swift */; };
+		9242708529EC301B004525F5 /* SettingsViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9242708429EC301B004525F5 /* SettingsViewController.swift */; };
+		9242708729EC3055004525F5 /* SettingsPresenter.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9242708629EC3055004525F5 /* SettingsPresenter.swift */; };
+		9242708A29EC30BF004525F5 /* SettingsService.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9242708929EC30BF004525F5 /* SettingsService.swift */; };
+		9242708C29EC30EE004525F5 /* SettingsCoordinator.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9242708B29EC30EE004525F5 /* SettingsCoordinator.swift */; };
 		9286A7D929E44632003C7414 /* LoginViewIO.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9286A7D829E44632003C7414 /* LoginViewIO.swift */; };
 		9286A7DC29E452A5003C7414 /* GrayCommonTextField.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9286A7DB29E452A5003C7414 /* GrayCommonTextField.swift */; };
 		9286A7E029E46DA4003C7414 /* LoginPresenter.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9286A7DF29E46DA4003C7414 /* LoginPresenter.swift */; };
@@ -28,8 +52,8 @@
 		9286A7F129E55CD0003C7414 /* ForgotPasswordViewIO.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9286A7F029E55CD0003C7414 /* ForgotPasswordViewIO.swift */; };
 		9286A7F429E55E18003C7414 /* ForgotPasswordService.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9286A7F329E55E18003C7414 /* ForgotPasswordService.swift */; };
 		9286A7F629E55F72003C7414 /* ForgotPasswordModuleBuilder.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9286A7F529E55F72003C7414 /* ForgotPasswordModuleBuilder.swift */; };
-		9286A7FA29E5AA28003C7414 /* MainTabBarCoordinator.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9286A7F929E5AA28003C7414 /* MainTabBarCoordinator.swift */; };
-		9286A7FD29E5AA97003C7414 /* MainTabBarViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9286A7FC29E5AA97003C7414 /* MainTabBarViewController.swift */; };
+		9286A7FA29E5AA28003C7414 /* MainCoordinator.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9286A7F929E5AA28003C7414 /* MainCoordinator.swift */; };
+		9286A7FD29E5AA97003C7414 /* MainViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9286A7FC29E5AA97003C7414 /* MainViewController.swift */; };
 		9286A80329E6C6EC003C7414 /* CreateAccountModuleBuilder.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9286A80229E6C6EC003C7414 /* CreateAccountModuleBuilder.swift */; };
 		9286A80529E6C727003C7414 /* CreateAccountViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9286A80429E6C727003C7414 /* CreateAccountViewController.swift */; };
 		9286A80729E6C744003C7414 /* CreateAccountViewIO.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9286A80629E6C744003C7414 /* CreateAccountViewIO.swift */; };
@@ -68,6 +92,30 @@
 		9226DBD029DECFF40078A630 /* AppCoordinator.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppCoordinator.swift; sourceTree = "<group>"; };
 		9226DBD329DEDAAB0078A630 /* AuthModuleBuilder.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AuthModuleBuilder.swift; sourceTree = "<group>"; };
 		9226DBD629DEE1220078A630 /* LoginViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LoginViewController.swift; sourceTree = "<group>"; };
+		9242704A29EC0F1C004525F5 /* TabBarViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TabBarViewController.swift; sourceTree = "<group>"; };
+		9242705129EC134A004525F5 /* MainPresenter.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MainPresenter.swift; sourceTree = "<group>"; };
+		9242705429EC13A6004525F5 /* MainService.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MainService.swift; sourceTree = "<group>"; };
+		9242705629EC13D1004525F5 /* MainViewIO.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MainViewIO.swift; sourceTree = "<group>"; };
+		9242705829EC140D004525F5 /* MainModuleBuilder.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MainModuleBuilder.swift; sourceTree = "<group>"; };
+		9242705A29EC1D20004525F5 /* TabBarCoordinator.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TabBarCoordinator.swift; sourceTree = "<group>"; };
+		9242705F29EC2457004525F5 /* LikesModuleBuilder.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LikesModuleBuilder.swift; sourceTree = "<group>"; };
+		9242706129EC248C004525F5 /* LikesPresenter.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LikesPresenter.swift; sourceTree = "<group>"; };
+		9242706329EC24D8004525F5 /* LikesViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LikesViewController.swift; sourceTree = "<group>"; };
+		9242706529EC2518004525F5 /* LikesViewIO.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LikesViewIO.swift; sourceTree = "<group>"; };
+		9242706929EC25B7004525F5 /* LikesService.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LikesService.swift; sourceTree = "<group>"; };
+		9242706B29EC262E004525F5 /* LikesCoordinator.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LikesCoordinator.swift; sourceTree = "<group>"; };
+		9242707029EC282C004525F5 /* YourRecipesModuleBuilder.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = YourRecipesModuleBuilder.swift; sourceTree = "<group>"; };
+		9242707229EC2845004525F5 /* YourRecipesViewIO.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = YourRecipesViewIO.swift; sourceTree = "<group>"; };
+		9242707429EC285E004525F5 /* YourRecipesViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = YourRecipesViewController.swift; sourceTree = "<group>"; };
+		9242707629EC28AA004525F5 /* YourRecipesPresenter.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = YourRecipesPresenter.swift; sourceTree = "<group>"; };
+		9242707929EC2926004525F5 /* YourRecipesService.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = YourRecipesService.swift; sourceTree = "<group>"; };
+		9242707B29EC295C004525F5 /* YourRecipesCoordinator.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = YourRecipesCoordinator.swift; sourceTree = "<group>"; };
+		9242708029EC2FAC004525F5 /* SettingsModuleBuilder.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SettingsModuleBuilder.swift; sourceTree = "<group>"; };
+		9242708229EC2FBB004525F5 /* SettingsViewIO.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SettingsViewIO.swift; sourceTree = "<group>"; };
+		9242708429EC301B004525F5 /* SettingsViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SettingsViewController.swift; sourceTree = "<group>"; };
+		9242708629EC3055004525F5 /* SettingsPresenter.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SettingsPresenter.swift; sourceTree = "<group>"; };
+		9242708929EC30BF004525F5 /* SettingsService.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SettingsService.swift; sourceTree = "<group>"; };
+		9242708B29EC30EE004525F5 /* SettingsCoordinator.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SettingsCoordinator.swift; sourceTree = "<group>"; };
 		9286A7D829E44632003C7414 /* LoginViewIO.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LoginViewIO.swift; sourceTree = "<group>"; };
 		9286A7DB29E452A5003C7414 /* GrayCommonTextField.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = GrayCommonTextField.swift; sourceTree = "<group>"; };
 		9286A7DF29E46DA4003C7414 /* LoginPresenter.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LoginPresenter.swift; sourceTree = "<group>"; };
@@ -79,8 +127,8 @@
 		9286A7F029E55CD0003C7414 /* ForgotPasswordViewIO.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ForgotPasswordViewIO.swift; sourceTree = "<group>"; };
 		9286A7F329E55E18003C7414 /* ForgotPasswordService.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ForgotPasswordService.swift; sourceTree = "<group>"; };
 		9286A7F529E55F72003C7414 /* ForgotPasswordModuleBuilder.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ForgotPasswordModuleBuilder.swift; sourceTree = "<group>"; };
-		9286A7F929E5AA28003C7414 /* MainTabBarCoordinator.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MainTabBarCoordinator.swift; sourceTree = "<group>"; };
-		9286A7FC29E5AA97003C7414 /* MainTabBarViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MainTabBarViewController.swift; sourceTree = "<group>"; };
+		9286A7F929E5AA28003C7414 /* MainCoordinator.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MainCoordinator.swift; sourceTree = "<group>"; };
+		9286A7FC29E5AA97003C7414 /* MainViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MainViewController.swift; sourceTree = "<group>"; };
 		9286A80229E6C6EC003C7414 /* CreateAccountModuleBuilder.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CreateAccountModuleBuilder.swift; sourceTree = "<group>"; };
 		9286A80429E6C727003C7414 /* CreateAccountViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CreateAccountViewController.swift; sourceTree = "<group>"; };
 		9286A80629E6C744003C7414 /* CreateAccountViewIO.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CreateAccountViewIO.swift; sourceTree = "<group>"; };
@@ -206,6 +254,182 @@
 			path = Login;
 			sourceTree = "<group>";
 		};
+		9242704929EC0909004525F5 /* TabBar */ = {
+			isa = PBXGroup;
+			children = (
+				9242708D29EC3326004525F5 /* Coordinator */,
+				9242704A29EC0F1C004525F5 /* TabBarViewController.swift */,
+			);
+			path = TabBar;
+			sourceTree = "<group>";
+		};
+		9242704C29EC1239004525F5 /* Main */ = {
+			isa = PBXGroup;
+			children = (
+				9286A7F829E5AA0A003C7414 /* Coordinator */,
+				9242705029EC1336004525F5 /* Presenter */,
+				9286A7FB29E5AA77003C7414 /* View */,
+				9242705829EC140D004525F5 /* MainModuleBuilder.swift */,
+			);
+			path = Main;
+			sourceTree = "<group>";
+		};
+		9242704D29EC123F004525F5 /* Likes */ = {
+			isa = PBXGroup;
+			children = (
+				9242705E29EC2437004525F5 /* Coordinator */,
+				9242705D29EC242E004525F5 /* Presenter */,
+				9242705C29EC2425004525F5 /* View */,
+				9242705F29EC2457004525F5 /* LikesModuleBuilder.swift */,
+			);
+			path = Likes;
+			sourceTree = "<group>";
+		};
+		9242704E29EC1245004525F5 /* Settings */ = {
+			isa = PBXGroup;
+			children = (
+				9242707F29EC2F6E004525F5 /* Coordinator */,
+				9242707E29EC2F62004525F5 /* Presenter */,
+				9242707D29EC2F5D004525F5 /* View */,
+				9242708029EC2FAC004525F5 /* SettingsModuleBuilder.swift */,
+			);
+			path = Settings;
+			sourceTree = "<group>";
+		};
+		9242704F29EC124B004525F5 /* YourRecipes */ = {
+			isa = PBXGroup;
+			children = (
+				9242706F29EC280B004525F5 /* Coordinator */,
+				9242706E29EC2805004525F5 /* Presenter */,
+				9242706D29EC27FC004525F5 /* View */,
+				9242707029EC282C004525F5 /* YourRecipesModuleBuilder.swift */,
+			);
+			path = YourRecipes;
+			sourceTree = "<group>";
+		};
+		9242705029EC1336004525F5 /* Presenter */ = {
+			isa = PBXGroup;
+			children = (
+				9242705129EC134A004525F5 /* MainPresenter.swift */,
+			);
+			path = Presenter;
+			sourceTree = "<group>";
+		};
+		9242705329EC1392004525F5 /* Main */ = {
+			isa = PBXGroup;
+			children = (
+				9242705429EC13A6004525F5 /* MainService.swift */,
+			);
+			path = Main;
+			sourceTree = "<group>";
+		};
+		9242705C29EC2425004525F5 /* View */ = {
+			isa = PBXGroup;
+			children = (
+				9242706329EC24D8004525F5 /* LikesViewController.swift */,
+				9242706529EC2518004525F5 /* LikesViewIO.swift */,
+			);
+			path = View;
+			sourceTree = "<group>";
+		};
+		9242705D29EC242E004525F5 /* Presenter */ = {
+			isa = PBXGroup;
+			children = (
+				9242706129EC248C004525F5 /* LikesPresenter.swift */,
+			);
+			path = Presenter;
+			sourceTree = "<group>";
+		};
+		9242705E29EC2437004525F5 /* Coordinator */ = {
+			isa = PBXGroup;
+			children = (
+				9242706B29EC262E004525F5 /* LikesCoordinator.swift */,
+			);
+			path = Coordinator;
+			sourceTree = "<group>";
+		};
+		9242706729EC25A4004525F5 /* Likes */ = {
+			isa = PBXGroup;
+			children = (
+				9242706929EC25B7004525F5 /* LikesService.swift */,
+			);
+			path = Likes;
+			sourceTree = "<group>";
+		};
+		9242706D29EC27FC004525F5 /* View */ = {
+			isa = PBXGroup;
+			children = (
+				9242707429EC285E004525F5 /* YourRecipesViewController.swift */,
+				9242707229EC2845004525F5 /* YourRecipesViewIO.swift */,
+			);
+			path = View;
+			sourceTree = "<group>";
+		};
+		9242706E29EC2805004525F5 /* Presenter */ = {
+			isa = PBXGroup;
+			children = (
+				9242707629EC28AA004525F5 /* YourRecipesPresenter.swift */,
+			);
+			path = Presenter;
+			sourceTree = "<group>";
+		};
+		9242706F29EC280B004525F5 /* Coordinator */ = {
+			isa = PBXGroup;
+			children = (
+				9242707B29EC295C004525F5 /* YourRecipesCoordinator.swift */,
+			);
+			path = Coordinator;
+			sourceTree = "<group>";
+		};
+		9242707829EC2914004525F5 /* YourRecipes */ = {
+			isa = PBXGroup;
+			children = (
+				9242707929EC2926004525F5 /* YourRecipesService.swift */,
+			);
+			path = YourRecipes;
+			sourceTree = "<group>";
+		};
+		9242707D29EC2F5D004525F5 /* View */ = {
+			isa = PBXGroup;
+			children = (
+				9242708229EC2FBB004525F5 /* SettingsViewIO.swift */,
+				9242708429EC301B004525F5 /* SettingsViewController.swift */,
+			);
+			path = View;
+			sourceTree = "<group>";
+		};
+		9242707E29EC2F62004525F5 /* Presenter */ = {
+			isa = PBXGroup;
+			children = (
+				9242708629EC3055004525F5 /* SettingsPresenter.swift */,
+			);
+			path = Presenter;
+			sourceTree = "<group>";
+		};
+		9242707F29EC2F6E004525F5 /* Coordinator */ = {
+			isa = PBXGroup;
+			children = (
+				9242708B29EC30EE004525F5 /* SettingsCoordinator.swift */,
+			);
+			path = Coordinator;
+			sourceTree = "<group>";
+		};
+		9242708829EC30B2004525F5 /* Settings */ = {
+			isa = PBXGroup;
+			children = (
+				9242708929EC30BF004525F5 /* SettingsService.swift */,
+			);
+			path = Settings;
+			sourceTree = "<group>";
+		};
+		9242708D29EC3326004525F5 /* Coordinator */ = {
+			isa = PBXGroup;
+			children = (
+				9242705A29EC1D20004525F5 /* TabBarCoordinator.swift */,
+			);
+			path = Coordinator;
+			sourceTree = "<group>";
+		};
 		9286A7D729E4461A003C7414 /* View */ = {
 			isa = PBXGroup;
 			children = (
@@ -294,8 +518,11 @@
 		9286A7F729E5A9F9003C7414 /* Main */ = {
 			isa = PBXGroup;
 			children = (
-				9286A7FB29E5AA77003C7414 /* View */,
-				9286A7F829E5AA0A003C7414 /* Coordinator */,
+				9242704929EC0909004525F5 /* TabBar */,
+				9242704C29EC1239004525F5 /* Main */,
+				9242704D29EC123F004525F5 /* Likes */,
+				9242704F29EC124B004525F5 /* YourRecipes */,
+				9242704E29EC1245004525F5 /* Settings */,
 			);
 			path = Main;
 			sourceTree = "<group>";
@@ -303,7 +530,7 @@
 		9286A7F829E5AA0A003C7414 /* Coordinator */ = {
 			isa = PBXGroup;
 			children = (
-				9286A7F929E5AA28003C7414 /* MainTabBarCoordinator.swift */,
+				9286A7F929E5AA28003C7414 /* MainCoordinator.swift */,
 			);
 			path = Coordinator;
 			sourceTree = "<group>";
@@ -311,7 +538,8 @@
 		9286A7FB29E5AA77003C7414 /* View */ = {
 			isa = PBXGroup;
 			children = (
-				9286A7FC29E5AA97003C7414 /* MainTabBarViewController.swift */,
+				9286A7FC29E5AA97003C7414 /* MainViewController.swift */,
+				9242705629EC13D1004525F5 /* MainViewIO.swift */,
 			);
 			path = View;
 			sourceTree = "<group>";
@@ -418,6 +646,10 @@
 		975375CC29DF3377004A0EC8 /* Services */ = {
 			isa = PBXGroup;
 			children = (
+				9242708829EC30B2004525F5 /* Settings */,
+				9242707829EC2914004525F5 /* YourRecipes */,
+				9242706729EC25A4004525F5 /* Likes */,
+				9242705329EC1392004525F5 /* Main */,
 				9286A80A29E6C920003C7414 /* CreateAccount */,
 				9286A7F229E55E06003C7414 /* ForgotPassword */,
 				9286A7E329E485D4003C7414 /* LoginService */,
@@ -636,44 +868,68 @@
 			buildActionMask = 2147483647;
 			files = (
 				972A8C6129E7D5900074B644 /* XCAssets+Generated.swift in Sources */,
+				9242707C29EC295C004525F5 /* YourRecipesCoordinator.swift in Sources */,
 				9226DBD729DEE1220078A630 /* LoginViewController.swift in Sources */,
 				9286A7EC29E48AA2003C7414 /* ForgotPasswordViewController.swift in Sources */,
 				975375C729DF25DC004A0EC8 /* UIStackView+Extensions.swift in Sources */,
+				9242705B29EC1D20004525F5 /* TabBarCoordinator.swift in Sources */,
+				9242706C29EC262E004525F5 /* LikesCoordinator.swift in Sources */,
 				9286A7E929E48A35003C7414 /* ForgotPasswordCoordinator.swift in Sources */,
 				9286A81129E6F499003C7414 /* LogoStackView.swift in Sources */,
+				9242708C29EC30EE004525F5 /* SettingsCoordinator.swift in Sources */,
 				9286A7EF29E55CC4003C7414 /* ForgotPasswordPresenter.swift in Sources */,
+				9242705729EC13D1004525F5 /* MainViewIO.swift in Sources */,
 				9226DB9529D4CCD50078A630 /* AuthViewController.swift in Sources */,
-				9286A7FD29E5AA97003C7414 /* MainTabBarViewController.swift in Sources */,
+				9286A7FD29E5AA97003C7414 /* MainViewController.swift in Sources */,
 				975375D129DF3585004A0EC8 /* AppPresentationAssembly.swift in Sources */,
 				9286A80729E6C744003C7414 /* CreateAccountViewIO.swift in Sources */,
 				9286A7E029E46DA4003C7414 /* LoginPresenter.swift in Sources */,
 				975375C929DF2BD2004A0EC8 /* AuthCoordinator.swift in Sources */,
+				9242706229EC248C004525F5 /* LikesPresenter.swift in Sources */,
+				9242706029EC2457004525F5 /* LikesModuleBuilder.swift in Sources */,
+				9242708329EC2FBB004525F5 /* SettingsViewIO.swift in Sources */,
 				9286A80529E6C727003C7414 /* CreateAccountViewController.swift in Sources */,
 				9226DBCD29DECDB80078A630 /* AuthPresenter.swift in Sources */,
 				9226DBD429DEDAAB0078A630 /* AuthModuleBuilder.swift in Sources */,
 				9286A7F429E55E18003C7414 /* ForgotPasswordService.swift in Sources */,
 				975375CF29DF339B004A0EC8 /* AuthService.swift in Sources */,
 				975375CB29DF2E16004A0EC8 /* LoginCoordinator.swift in Sources */,
+				9242705229EC134A004525F5 /* MainPresenter.swift in Sources */,
 				972A8C8229E9531A0074B644 /* LogoLabel.swift in Sources */,
+				9242708529EC301B004525F5 /* SettingsViewController.swift in Sources */,
 				9226DB9129D4CCD50078A630 /* AppDelegate.swift in Sources */,
+				9242707529EC285E004525F5 /* YourRecipesViewController.swift in Sources */,
+				9242707A29EC2926004525F5 /* YourRecipesService.swift in Sources */,
 				9286A80929E6C83B003C7414 /* CreateAccountPresenter.swift in Sources */,
 				972A8C6029E7D5900074B644 /* Strings+Generated.swift in Sources */,
+				9242706429EC24D8004525F5 /* LikesViewController.swift in Sources */,
 				9226DBCF29DECE370078A630 /* AuthViewIO.swift in Sources */,
 				975375D329DF3628004A0EC8 /* AppServicesAssembly.swift in Sources */,
 				9286A80C29E6C93B003C7414 /* CreateAccountService.swift in Sources */,
 				9286A7F629E55F72003C7414 /* ForgotPasswordModuleBuilder.swift in Sources */,
 				9286A7E529E485E7003C7414 /* LoginService.swift in Sources */,
+				9242708129EC2FAC004525F5 /* SettingsModuleBuilder.swift in Sources */,
 				9286A7E229E4846C003C7414 /* LoginModuleBuilder.swift in Sources */,
 				9226DB9B29D4CCD50078A630 /* MealHelper.xcdatamodeld in Sources */,
 				9286A80E29E6CA30003C7414 /* CreateAccountCoordinator.swift in Sources */,
+				9242704B29EC0F1C004525F5 /* TabBarViewController.swift in Sources */,
 				9286A81429E6FABD003C7414 /* TitleLabel.swift in Sources */,
+				9242705529EC13A6004525F5 /* MainService.swift in Sources */,
 				9286A80329E6C6EC003C7414 /* CreateAccountModuleBuilder.swift in Sources */,
+				9242707129EC282C004525F5 /* YourRecipesModuleBuilder.swift in Sources */,
 				9286A7F129E55CD0003C7414 /* ForgotPasswordViewIO.swift in Sources */,
 				9286A7D929E44632003C7414 /* LoginViewIO.swift in Sources */,
-				9286A7FA29E5AA28003C7414 /* MainTabBarCoordinator.swift in Sources */,
+				9286A7FA29E5AA28003C7414 /* MainCoordinator.swift in Sources */,
+				9242707729EC28AA004525F5 /* YourRecipesPresenter.swift in Sources */,
 				9226DB9329D4CCD50078A630 /* SceneDelegate.swift in Sources */,
+				9242708A29EC30BF004525F5 /* SettingsService.swift in Sources */,
+				9242706629EC2518004525F5 /* LikesViewIO.swift in Sources */,
+				9242708729EC3055004525F5 /* SettingsPresenter.swift in Sources */,
 				975375D829E01773004A0EC8 /* BlueCommonButton.swift in Sources */,
+				9242707329EC2845004525F5 /* YourRecipesViewIO.swift in Sources */,
 				9226DBD129DECFF40078A630 /* AppCoordinator.swift in Sources */,
+				9242706A29EC25B7004525F5 /* LikesService.swift in Sources */,
+				9242705929EC140D004525F5 /* MainModuleBuilder.swift in Sources */,
 				9286A7DC29E452A5003C7414 /* GrayCommonTextField.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;

@@ -13,12 +13,21 @@ protocol IAppPresentationAssembly: AnyObject {
     var loginCoordinator: ILoginCoordinator { get }
     var forgotPasswordCoordinator: IForgotPasswordCoordinator { get }
     var createAccountCoordinator: ICreateAccountCoordinator { get }
+    var mainTabBarCoordinator: IMainTabBarCoordinator { get }
+    var mainCoordinator: IMainCoordinator { get }
+    var likesCoordinator: ILikesCoordinator { get }
+    var yourRecipesCoordinator: IYourRecipesCoordinator { get }
+    var settingsCoordinator: ISettingsCoordinator { get }
     
     // ModuleBuilders
     var startModuleBuilder: IAuthModuleBuilder { get }
     var loginModuleBuilder: ILoginModuleBuilder { get }
     var forgotModuleBuilder: IForgotPasswordModuleBuilder { get }
     var createAccountModuleBuilder: ICreateAccountModuleBuilder { get }
+    var mainMuduleBuilder: IMainModuleBuilder { get }
+    var likesModuleBuilder: ILikesModuleBuilder { get }
+    var yourRecipesModuleBuilder: IYourRecipesModuleBuilder { get }
+    var settingsModuleBuilder: ISettingsModuleBuilder { get }
 }
 
 final class AppPresentationAssembly: IAppPresentationAssembly {
@@ -42,7 +51,11 @@ final class AppPresentationAssembly: IAppPresentationAssembly {
     }
     
     var loginCoordinator: ILoginCoordinator {
-        LoginCoordinator(moduleBuilder: loginModuleBuilder, forgotPasswordCoordinator: forgotPasswordCoordinator)
+        LoginCoordinator(
+            moduleBuilder: loginModuleBuilder,
+            forgotPasswordCoordinator: forgotPasswordCoordinator,
+            mainTabBarCoordinator: mainTabBarCoordinator
+        )
     }
     
     var forgotPasswordCoordinator: IForgotPasswordCoordinator {
@@ -53,6 +66,30 @@ final class AppPresentationAssembly: IAppPresentationAssembly {
         CreateAccountCoordinator(moduleBuilder: createAccountModuleBuilder)
     }
     
+    var mainTabBarCoordinator: IMainTabBarCoordinator {
+        MainTabBarCoordinator(
+            mainCoordinator: mainCoordinator,
+            likesCoordinator: likesCoordinator,
+            yourRecipesCoordinator: yourRecipesCoordinator,
+            settignsCoordinator: settingsCoordinator
+        )
+    }
+    
+    var mainCoordinator: IMainCoordinator {
+        MainCoordinator(moduleBuilder: mainMuduleBuilder)
+    }
+    
+    var likesCoordinator: ILikesCoordinator {
+        LikesCoordinator(moduleBuilder: likesModuleBuilder)
+    }
+    
+    var yourRecipesCoordinator: IYourRecipesCoordinator {
+        YourRecipesCoordinator(moduleBuilder: yourRecipesModuleBuilder)
+    }
+    
+    var settingsCoordinator: ISettingsCoordinator {
+        SettingsCoordinator(moduleBuilder: settingsModuleBuilder)
+    }
     // MARK: ModuleBuilders
     
     var startModuleBuilder: IAuthModuleBuilder {
@@ -69,5 +106,21 @@ final class AppPresentationAssembly: IAppPresentationAssembly {
     
     var createAccountModuleBuilder: ICreateAccountModuleBuilder {
         CreateAccountModuleBuilder(createAccountService: servicesAssembly.createAccountService)
+    }
+    
+    var mainMuduleBuilder: IMainModuleBuilder {
+        MainModuleBuilder(mainService: servicesAssembly.mainService)
+    }
+    
+    var likesModuleBuilder: ILikesModuleBuilder {
+        LikesModuleBuilder(likesService: servicesAssembly.likesService)
+    }
+    
+    var yourRecipesModuleBuilder: IYourRecipesModuleBuilder {
+        YourRecipesModuleBuilder(yourRecipesService: servicesAssembly.yourRecipesService)
+    }
+    
+    var settingsModuleBuilder: ISettingsModuleBuilder {
+        SettingsModuleBuilder(settingsService: servicesAssembly.settingsService)
     }
 }

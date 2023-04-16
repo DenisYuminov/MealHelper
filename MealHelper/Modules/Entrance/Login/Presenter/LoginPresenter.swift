@@ -9,6 +9,7 @@ import Foundation
 
 protocol LoginPresenterOutput: AnyObject {
     func openForgotPasswordScreen()
+    func openMainTabBar()
 }
 
 final class LoginPresenter {
@@ -27,6 +28,7 @@ final class LoginPresenter {
 
 extension LoginPresenter: LoginViewOutput {
     func onSignInButtonClicked() {
+        output.openMainTabBar()
     }
     
     func onForgotButtonClicked() {

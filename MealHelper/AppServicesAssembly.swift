@@ -12,6 +12,10 @@ protocol IAppServicesAssembly: AnyObject {
     var loginService: ILoginService { get }
     var forgotPasswordService: IForgotPasswordService { get }
     var createAccountService: ICreateAccountService { get }
+    var mainService: IMainService { get }
+    var likesService: ILikesService { get }
+    var yourRecipesService: IYourRecipesService { get }
+    var settingsService: ISettingsService { get }
 }
 
 final class AppServicesAssembly: IAppServicesAssembly {
@@ -29,5 +33,21 @@ final class AppServicesAssembly: IAppServicesAssembly {
     
     var createAccountService: ICreateAccountService {
         CreateAccountService()
+    }
+    
+    var mainService: IMainService {
+        MainService()
+    }
+    
+    var likesService: ILikesService {
+        LikesService()
+    }
+    
+    var yourRecipesService: IYourRecipesService {
+        YourRecipesService()
+    }
+    
+    var settingsService: ISettingsService {
+        SettingsService()
     }
 }
