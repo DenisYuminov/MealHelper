@@ -22,9 +22,10 @@ final class LoginCoordinator: ILoginCoordinator, LoginPresenterOutput {
     
     // MARK: Init
     
-    init(moduleBuilder: ILoginModuleBuilder,
-         forgotPasswordCoordinator: IForgotPasswordCoordinator,
-         mainTabBarCoordinator: IMainTabBarCoordinator
+    init(
+        moduleBuilder: ILoginModuleBuilder,
+        forgotPasswordCoordinator: IForgotPasswordCoordinator,
+        mainTabBarCoordinator: IMainTabBarCoordinator
     ) {
         self.moduleBuilder = moduleBuilder
         self.forgotPasswordCoordinator = forgotPasswordCoordinator

@@ -28,3 +28,16 @@
 "forgotPassword.navigation.title" = "Password recovery";
 "forgotPassword.info.title" = "Enter your e-mail to receive new password";
 "forgotPassword.mail.placeholder" = "Enter your mail";
+
+
+//главная
+"main.navigation.title" = "Main";
+
+//лайки
+"likes.navigation.title" = "Likes";
+
+// мои рецепты
+"yourRecipes.navigation.title" = "My recipes";
+
+// настойки
+"settings.navigation.title" = "Settings";

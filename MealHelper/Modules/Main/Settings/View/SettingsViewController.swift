@@ -8,7 +8,6 @@
 import UIKit
 
 class SettingsViewController: UIViewController {
-
     // Dependencies
     private let output: SettingsViewOutput
     

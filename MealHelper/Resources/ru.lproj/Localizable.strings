@@ -28,3 +28,14 @@
 "forgotPassword.info.title" = "Введите свою почту для отправки нового пароля";
 "forgotPassword.mail.placeholder" = "Почта";
 
+//главная
+"main.navigation.title" = "Главная";
+
+//лайки
+"likes.navigation.title" = "Нравится";
+
+// мои рецепты
+"yourRecipes.navigation.title" = "Мои рецепты";
+
+// настойки
+"settings.navigation.title" = "Настройки";
