@@ -137,7 +137,6 @@ final class LoginViewController: UIViewController {
     }
     
     // MARK: Actions
-    
     @objc private func onSignInButtonClicked() {
         output.onSignInButtonClicked()
     }

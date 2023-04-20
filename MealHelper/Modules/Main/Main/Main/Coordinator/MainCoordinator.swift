@@ -14,14 +14,16 @@ protocol IMainCoordinator: AnyObject {
 final class MainCoordinator: IMainCoordinator, MainPresenterOutput {
     // Dependencies
     private let moduleBuilder: IMainModuleBuilder
+    private let recipeCoordinator: IRecipeCoordinator
     
     // Properties
     private weak var transitionHandler: UINavigationController?
     
     // MARK: Init
     
-    init(moduleBuilder: IMainModuleBuilder) {
+    init(moduleBuilder: IMainModuleBuilder, reicpeCoordinator: IRecipeCoordinator) {
         self.moduleBuilder = moduleBuilder
+        self.recipeCoordinator = reicpeCoordinator
     }
     
     // MARK: IMainCoordinator
@@ -31,5 +33,11 @@ final class MainCoordinator: IMainCoordinator, MainPresenterOutput {
         let navigationController = UINavigationController(rootViewController: viewController)
         transitionHandler = navigationController
         return navigationController
+    }
+    
+    // MARK: MainPresenterOutput
+    func onRecipeCellCkicked(recipe: Recipe) {
+        let viewController = recipeCoordinator.createFlow()
+        transitionHandler?.pushViewController(viewController, animated: true)
     }
 }

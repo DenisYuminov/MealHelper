@@ -8,6 +8,7 @@
 import Foundation
 
 protocol MainPresenterOutput: AnyObject {
+    func onRecipeCellCkicked(recipe: Recipe)
 }
 
 final class MainPresenter {
@@ -25,4 +26,7 @@ final class MainPresenter {
 }
 
 extension MainPresenter: MainViewOutput {
+    func onRecipeCellCkicked(recipe: Recipe) {
+        output?.onRecipeCellCkicked(recipe: recipe)
+    }
 }
