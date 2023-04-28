@@ -1,23 +1,24 @@
 //
-//  MacronutrientsLabel.swift
+//  MethodLabel.swift
 //  MealHelper
 //
-//  Created by macbook Denis on 4/20/23.
+//  Created by macbook Denis on 4/26/23.
 //
 
 import UIKit
 
-final class MacronutrientsLabel: UILabel {
+final class MethodLabel: UILabel {
     init(title: String) {
         super.init(frame: .zero)
-        text = "\(title) g"
+        text = title
+        textAlignment = .left
+        font = UIFont.systemFont(ofSize: 20)
+        numberOfLines = 0
         backgroundColor = .systemGray5
         layer.cornerRadius = 10
         layer.borderWidth = 2
         layer.borderColor = UIColor.systemGray5.cgColor
-        textAlignment = .center
         clipsToBounds = true
-        font = UIFont.systemFont(ofSize: CGFloat(12))
     }
     
     required init?(coder: NSCoder) {

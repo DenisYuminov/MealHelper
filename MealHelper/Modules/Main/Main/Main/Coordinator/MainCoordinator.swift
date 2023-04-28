@@ -36,7 +36,7 @@ final class MainCoordinator: IMainCoordinator, MainPresenterOutput {
     }
     
     // MARK: MainPresenterOutput
-    func onRecipeCellCkicked(recipe: Recipe) {
+    func onRecipeCellCkicked(recipe: RecipeModel) {
         let viewController = recipeCoordinator.createFlow()
         transitionHandler?.pushViewController(viewController, animated: true)
     }

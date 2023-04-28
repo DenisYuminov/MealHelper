@@ -8,15 +8,18 @@
 import UIKit
 
 class RecipeCollectionViewCell: UICollectionViewCell {
+    // Dependencies
     static let reuseIdentifier: String = "RecipeCollectionViewCell"
 
+    // UI
+    
     private let titleLabel: UILabel = {
         let label = UILabel()
         label.font = UIFont.preferredFont(forTextStyle: .headline)
         label.textColor = .label
         return label
     }()
-    let subtitle: UILabel = {
+    private let subtitle: UILabel = {
         let label = UILabel()
         label.font = UIFont.preferredFont(forTextStyle: .subheadline)
         label.textColor = .secondaryLabel
@@ -24,7 +27,7 @@ class RecipeCollectionViewCell: UICollectionViewCell {
         label.font = UIFont.systemFont(ofSize: 12)
         return label
     }()
-    let ratingLabel: UILabel = {
+    private let ratingLabel: UILabel = {
         let label = UILabel()
         label.text = "Rating"
         label.font = UIFont.preferredFont(forTextStyle: .subheadline)
@@ -32,7 +35,7 @@ class RecipeCollectionViewCell: UICollectionViewCell {
         label.font = UIFont.systemFont(ofSize: 15)
         return label
     }()
-    let imageView: UIImageView = {
+    private let imageView: UIImageView = {
         let imageView = UIImageView()
         imageView.layer.cornerRadius = 10
         imageView.clipsToBounds = true
@@ -40,6 +43,8 @@ class RecipeCollectionViewCell: UICollectionViewCell {
         return imageView
     }()
 
+    // MARK: Init
+    
     override init(frame: CGRect) {
         super.init(frame: frame)
 
@@ -59,14 +64,16 @@ class RecipeCollectionViewCell: UICollectionViewCell {
             make.leading.trailing.top.equalTo(contentView)
         }
     }
+    
+    required init?(coder: NSCoder) {
+        fatalError("init(coder:) has not been implemented")
+    }
 
-    func configure(with recipe: Recipe) {
+    //
+    
+    func configure(with recipe: RecipeModel) {
         titleLabel.text = recipe.title
         subtitle.text = recipe.description
         imageView.image = UIImage(named: "testImage")
-    }
-
-    required init?(coder: NSCoder) {
-        fatalError("init(coder:) has not been implemented")
     }
 }

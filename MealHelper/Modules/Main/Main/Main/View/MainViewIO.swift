@@ -11,5 +11,5 @@ protocol MainViewInput: AnyObject {
 }
 
 protocol MainViewOutput: AnyObject {
-    func onRecipeCellCkicked(recipe: Recipe)
+    func onRecipeCellCkicked(recipe: RecipeModel)
 }

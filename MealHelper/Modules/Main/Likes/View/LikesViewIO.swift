@@ -11,4 +11,5 @@ protocol LikesViewInput: AnyObject {
 }
 
 protocol LikesViewOutput: AnyObject {
+    func didSelectRecipe(recipe: RecipeModel)
 }

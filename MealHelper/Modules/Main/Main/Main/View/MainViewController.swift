@@ -120,10 +120,6 @@ final class MainViewController: UIViewController {
         section.boundarySupplementaryItems = [header]
         return section
     }
-    // MARK: Actions
-       
-    @objc private func seeAllButtonClicked() {
-    }
 }
 
 // MARK: UICollectionViewDataSource

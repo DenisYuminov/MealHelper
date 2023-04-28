@@ -8,6 +8,8 @@
 import Foundation
 
 protocol LikesPresenterOutput: AnyObject {
+    
+    func didSelectRecipe(_ recipe: RecipeModel)
 }
 
 final class LikesPresenter {
@@ -22,7 +24,12 @@ final class LikesPresenter {
         self.output = output
         self.likesService = likesService
     }
+    
 }
 
 extension LikesPresenter: LikesViewOutput {
+    
+    func didSelectRecipe(recipe: RecipeModel) {
+        output?.didSelectRecipe(recipe)
+    }
 }

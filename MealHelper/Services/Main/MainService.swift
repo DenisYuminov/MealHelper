@@ -15,13 +15,13 @@ protocol IMainService: AnyObject {
 }
 final class MainService: IMainService {
     func getPopular() -> Category {
-        return Category.popular([Recipe]())
+        return Category.popular([RecipeModel]())
     }
     func getNew() -> Category {
-        return Category.new([Recipe]())
+        return Category.new([RecipeModel]())
     }
     func getEasy() -> Category {
-        return Category.easy([Recipe]())
+        return Category.easy([RecipeModel]())
     }
     func getData() -> [Category] {
         return []
@@ -31,7 +31,7 @@ final class MainService: IMainService {
 final class MockMainService: IMainService {
     let popular: Category = {
         .popular([
-            Recipe(
+            RecipeModel(
                 title: "Chicken Al Pastor",
                 description: "This chicken pastor features almost-charred pineapple and toasty spicy chicken that incredibly juicy!",
                 image: "testImage",
@@ -59,7 +59,7 @@ final class MockMainService: IMainService {
                     "Stir ¾ of the mozzarella and most of the basil thr"
                 ]
             ),
-            Recipe(
+            RecipeModel(
                 title: "Chicken Al Pastor",
                 description: "This chicken pastor features almost-charred pineapple and toasty spicy chicken that incredibly juicy!",
                 image: "testImage",
@@ -87,7 +87,7 @@ final class MockMainService: IMainService {
                     "Stir ¾ of the mozzarella and most of the basil thr"
                 ]
             ),
-            Recipe(
+            RecipeModel(
                 title: "Chicken Al Pastor",
                 description: "This chicken pastor features almost-charred pineapple and toasty spicy chicken that incredibly juicy!",
                 image: "testImage",
@@ -115,7 +115,7 @@ final class MockMainService: IMainService {
                     "Stir ¾ of the mozzarella and most of the basil thr"
                 ]
             ),
-            Recipe(
+            RecipeModel(
                 title: "Chicken Al Pastor",
                 description: "This chicken pastor features almost-charred pineapple and toasty spicy chicken that incredibly juicy!",
                 image: "testImage",
@@ -143,7 +143,7 @@ final class MockMainService: IMainService {
                     "Stir ¾ of the mozzarella and most of the basil thr"
                 ]
             ),
-            Recipe(
+            RecipeModel(
                 title: "Chicken Al Pastor",
                 description: "This chicken pastor features almost-charred pineapple and toasty spicy chicken that incredibly juicy!",
                 image: "testImage",
@@ -170,12 +170,18 @@ final class MockMainService: IMainService {
                     "Heat the oil in a medium pan over a medium heat. Fry the onion and garlic for 8-10 mins until soft. Add the chorizo and fry for 5 mins more.",
                     "Stir ¾ of the mozzarella and most of the basil thr"
                 ]
-            )
+            ), RecipeModel(title: "", description: "", image: "testImage", creator: "", timeToCook: 1, timeToPrepare: 1, kcal: 1, fat: 1, saturates: 1, protein: 1, ingredients: ["",""], method: ["s"])
+            , RecipeModel(title: "", description: "", image: "testImage", creator: "", timeToCook: 1, timeToPrepare: 1, kcal: 1, fat: 1, saturates: 1, protein: 1, ingredients: ["",""], method: ["s"])
+            , RecipeModel(title: "", description: "", image: "testImage", creator: "", timeToCook: 1, timeToPrepare: 1, kcal: 1, fat: 1, saturates: 1, protein: 1, ingredients: ["",""], method: ["s"])
+            , RecipeModel(title: "", description: "", image: "testImage", creator: "", timeToCook: 1, timeToPrepare: 1, kcal: 1, fat: 1, saturates: 1, protein: 1, ingredients: ["",""], method: ["s"])
+            , RecipeModel(title: "", description: "", image: "testImage", creator: "", timeToCook: 1, timeToPrepare: 1, kcal: 1, fat: 1, saturates: 1, protein: 1, ingredients: ["",""], method: ["s"])
+            , RecipeModel(title: "", description: "", image: "testImage", creator: "", timeToCook: 1, timeToPrepare: 1, kcal: 1, fat: 1, saturates: 1, protein: 1, ingredients: ["",""], method: ["s"])
+            , RecipeModel(title: "", description: "", image: "testImage", creator: "", timeToCook: 1, timeToPrepare: 1, kcal: 1, fat: 1, saturates: 1, protein: 1, ingredients: ["",""], method: ["s"])
         ])
     }()
     let new: Category = {
         .new([
-            Recipe(
+            RecipeModel(
                 title: "Chicken Al Pastor",
                 description: "This chicken pastor features almost-charred pineapple and toasty spicy chicken that incredibly juicy!",
                 image: "testImage",
@@ -203,7 +209,7 @@ final class MockMainService: IMainService {
                     "Stir ¾ of the mozzarella and most of the basil thr"
                 ]
             ),
-            Recipe(
+            RecipeModel(
                 title: "Chicken Al Pastor",
                 description: "This chicken pastor features almost-charred pineapple and toasty spicy chicken that incredibly juicy!",
                 image: "testImage",
@@ -231,7 +237,7 @@ final class MockMainService: IMainService {
                     "Stir ¾ of the mozzarella and most of the basil thr"
                 ]
             ),
-            Recipe(
+            RecipeModel(
                 title: "Chicken Al Pastor",
                 description: "This chicken pastor features almost-charred pineapple and toasty spicy chicken that incredibly juicy!",
                 image: "testImage",
@@ -258,7 +264,7 @@ final class MockMainService: IMainService {
                     "Heat the oil in a medium pan over a medium heat. Fry the onion and garlic for 8-10 mins until soft. Add the chorizo and fry for 5 mins more.",
                     "Stir ¾ of the mozzarella and most of the basil thr"
                 ]
-            ),Recipe(
+            ),RecipeModel(
                 title: "Chicken Al Pastor",
                 description: "This chicken pastor features almost-charred pineapple and toasty spicy chicken that incredibly juicy!",
                 image: "testImage",
@@ -285,12 +291,16 @@ final class MockMainService: IMainService {
                     "Heat the oil in a medium pan over a medium heat. Fry the onion and garlic for 8-10 mins until soft. Add the chorizo and fry for 5 mins more.",
                     "Stir ¾ of the mozzarella and most of the basil thr"
                 ]
-            )
+            ),RecipeModel(title: "", description: "", image: "testImage", creator: "", timeToCook: 1, timeToPrepare: 1, kcal: 1, fat: 1, saturates: 1, protein: 1, ingredients: ["",""], method: ["s"]),
+            RecipeModel(title: "", description: "", image: "testImage", creator: "", timeToCook: 1, timeToPrepare: 1, kcal: 1, fat: 1, saturates: 1, protein: 1, ingredients: ["",""], method: ["s"])
+            ,RecipeModel(title: "", description: "", image: "testImage", creator: "", timeToCook: 1, timeToPrepare: 1, kcal: 1, fat: 1, saturates: 1, protein: 1, ingredients: ["",""], method: ["s"])
+            ,RecipeModel(title: "", description: "", image: "testImage", creator: "", timeToCook: 1, timeToPrepare: 1, kcal: 1, fat: 1, saturates: 1, protein: 1, ingredients: ["",""], method: ["s"])
+            ,RecipeModel(title: "", description: "", image: "testImage", creator: "", timeToCook: 1, timeToPrepare: 1, kcal: 1, fat: 1, saturates: 1, protein: 1, ingredients: ["",""], method: ["s"])
         ])
     }()
     let easy: Category = {
         .easy([
-            Recipe(
+            RecipeModel(
                 title: "Chicken Al Pastor",
                 description: "This chicken pastor features almost-charred pineapple and toasty spicy chicken that incredibly juicy!",
                 image: "testImage",
@@ -318,7 +328,7 @@ final class MockMainService: IMainService {
                     "Stir ¾ of the mozzarella and most of the basil thr"
                 ]
             ),
-            Recipe(
+            RecipeModel(
                 title: "Chicken Al Pastor",
                 description: "This chicken pastor features almost-charred pineapple and toasty spicy chicken that incredibly juicy!",
                 image: "testImage",
@@ -346,7 +356,7 @@ final class MockMainService: IMainService {
                     "Stir ¾ of the mozzarella and most of the basil thr"
                 ]
             ),
-            Recipe(
+            RecipeModel(
                 title: "Chicken Al Pastor",
                 description: "This chicken pastor features almost-charred pineapple and toasty spicy chicken that incredibly juicy!",
                 image: "testImage",
@@ -373,7 +383,12 @@ final class MockMainService: IMainService {
                     "Heat the oil in a medium pan over a medium heat. Fry the onion and garlic for 8-10 mins until soft. Add the chorizo and fry for 5 mins more.",
                     "Stir ¾ of the mozzarella and most of the basil thr"
                 ]
-            )
+            ), RecipeModel(title: "", description: "", image: "testImage", creator: "", timeToCook: 1, timeToPrepare: 1, kcal: 1, fat: 1, saturates: 1, protein: 1, ingredients: ["",""], method: ["s"])
+            , RecipeModel(title: "", description: "", image: "testImage", creator: "", timeToCook: 1, timeToPrepare: 1, kcal: 1, fat: 1, saturates: 1, protein: 1, ingredients: ["",""], method: ["s"])
+            , RecipeModel(title: "", description: "", image: "testImage", creator: "", timeToCook: 1, timeToPrepare: 1, kcal: 1, fat: 1, saturates: 1, protein: 1, ingredients: ["",""], method: ["s"])
+            , RecipeModel(title: "", description: "", image: "testImage", creator: "", timeToCook: 1, timeToPrepare: 1, kcal: 1, fat: 1, saturates: 1, protein: 1, ingredients: ["",""], method: ["s"])
+            , RecipeModel(title: "", description: "", image: "testImage", creator: "", timeToCook: 1, timeToPrepare: 1, kcal: 1, fat: 1, saturates: 1, protein: 1, ingredients: ["",""], method: ["s"])
+            , RecipeModel(title: "", description: "", image: "testImage", creator: "", timeToCook: 1, timeToPrepare: 1, kcal: 1, fat: 1, saturates: 1, protein: 1, ingredients: ["",""], method: ["s"])
         ])
     }()
     func getPopular() -> Category {

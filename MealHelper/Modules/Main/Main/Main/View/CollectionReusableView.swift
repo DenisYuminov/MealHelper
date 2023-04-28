@@ -46,8 +46,8 @@ class CollectionReusableView: UICollectionReusableView {
         headerLabel.text = headerName
         
         button.setTitle("See All", for: .normal)
-            button.setTitleColor(.systemBlue, for: .normal)
-            button.addTarget(self, action: #selector(seeAllButtonClicked), for: .touchUpInside)
+        button.setTitleColor(.systemBlue, for: .normal)
+        button.addTarget(self, action: #selector(seeAllButtonClicked), for: .touchUpInside)
     }
     func setConstraint() {
         headerLabel.snp.makeConstraints { make in

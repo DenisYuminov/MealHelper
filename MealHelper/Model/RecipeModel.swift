@@ -1,5 +1,5 @@
 //
-//  Recipe.swift
+//  RecipeModel.swift
 //  MealHelper
 //
 //  Created by macbook Denis on 4/17/23.
@@ -7,7 +7,7 @@
 
 import UIKit
 
-struct Recipe: Decodable, Hashable {
+struct RecipeModel: Decodable, Hashable {
     let title: String
     let description: String
     let image: String
@@ -23,11 +23,11 @@ struct Recipe: Decodable, Hashable {
 }
 
 enum Category: Decodable, Hashable {
-    case new([Recipe])
-    case popular([Recipe])
-    case easy([Recipe])
+    case new([RecipeModel])
+    case popular([RecipeModel])
+    case easy([RecipeModel])
     
-    var items: [Recipe] {
+    var items: [RecipeModel] {
         switch self {
         case .new(let items), .popular(let items), .easy(let items):
             return items
