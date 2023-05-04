@@ -7,6 +7,10 @@
 
 import UIKit
 
+private extension CGFloat {
+    static let collectionViewLayerCornerRadius: CGFloat = 15
+}
+
 final class MainViewController: UIViewController {
     // Dependencies
     
@@ -82,10 +86,10 @@ final class MainViewController: UIViewController {
             forCellWithReuseIdentifier: RecipeCollectionViewCell.reuseIdentifier)
         
         Section.allCases.forEach {_ in
-            collectionView.layer.cornerRadius = 15
+            collectionView.layer.cornerRadius = .collectionViewLayerCornerRadius
             collectionView.backgroundColor = .clear
         }
-        collectionView.layer.cornerRadius = 15
+        collectionView.layer.cornerRadius = .collectionViewLayerCornerRadius
         collectionView.layer.masksToBounds = true
         collectionView.layoutIfNeeded()
         

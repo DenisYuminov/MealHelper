@@ -7,6 +7,15 @@
 
 import UIKit
 
+private extension CGFloat {
+    static let buttonStackViewCornerRadius: CGFloat = 10
+    static let buttonStackViewSpacing: CGFloat = 25
+    static let createAccountStackViewSpacing: CGFloat = 10
+    static let createAccountStackViewCornerRadius: CGFloat = 10
+    static let titleLabelFont: CGFloat = 32
+    static let commonLabelFont: CGFloat = 17
+}
+
 final class CreateAccountViewController: UIViewController {
     // Dependencies
     private let output: CreateAccountViewOutput
@@ -19,17 +28,17 @@ final class CreateAccountViewController: UIViewController {
     private lazy var createAccountStackView: UIStackView = {
         let container = UIStackView()
         container.backgroundColor = .clear
-        container.layer.cornerRadius = 8
+        container.layer.cornerRadius = .createAccountStackViewCornerRadius
         container.axis = .vertical
-        container.spacing = 8
+        container.spacing = .createAccountStackViewSpacing
         return container
     }()
     private lazy var buttonStackView: UIStackView = {
         let container = UIStackView()
         container.backgroundColor = .clear
-        container.layer.cornerRadius = 8
+        container.layer.cornerRadius = .buttonStackViewCornerRadius
         container.axis = .vertical
-        container.spacing = 25
+        container.spacing = .buttonStackViewSpacing
         return container
     }()
     private lazy var titleStackView: UIStackView = {
@@ -40,7 +49,7 @@ final class CreateAccountViewController: UIViewController {
     }()
     private lazy var titleLabel: UILabel = {
         let label = TitleLabel(title: L10n.CreateAccount.Navigation.title)
-        label.font = UIFont.systemFont(ofSize: 32)
+        label.font = UIFont.systemFont(ofSize: .titleLabelFont)
         return label
     }()
     private lazy var usernameTextField: UITextField = {
@@ -60,22 +69,22 @@ final class CreateAccountViewController: UIViewController {
         return textfield
     }()
     private lazy var usernameLabel: UILabel = {
-        let label = LogoLabel(title: L10n.CreateAccount.Username.title, size: 17)
+        let label = LogoLabel(title: L10n.CreateAccount.Username.title, size: .commonLabelFont)
         label.textAlignment = .left
         return label
     }()
     private lazy var mailLabel: UILabel = {
-        let label = LogoLabel(title: L10n.CreateAccount.Email.title, size: 17)
+        let label = LogoLabel(title: L10n.CreateAccount.Email.title, size: .commonLabelFont)
         label.textAlignment = .left
         return label
     }()
     private lazy var passwordLabel: UILabel = {
-        let label = LogoLabel(title: L10n.CreateAccount.Password.title, size: 17)
+        let label = LogoLabel(title: L10n.CreateAccount.Password.title, size: .commonLabelFont)
         label.textAlignment = .left
         return label
     }()
     private lazy var passwordConfirmLabel: UILabel = {
-        let label = LogoLabel(title: L10n.CreateAccount.ConfirmPassword.title, size: 17)
+        let label = LogoLabel(title: L10n.CreateAccount.ConfirmPassword.title, size: .commonLabelFont)
         label.textAlignment = .left
         return label
     }()

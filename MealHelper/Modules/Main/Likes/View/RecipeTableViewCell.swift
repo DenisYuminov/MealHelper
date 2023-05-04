@@ -7,6 +7,13 @@
 
 import UIKit
 
+private extension CGFloat {
+    static let subtitleLabelFont: CGFloat = 15
+    static let imageviewCornerRadius = 10
+    static let outerStackViewSpacing = 10
+}
+
+
 final class RecipeTableViewCell: UITableViewCell {
     static let reuseIdentifier: String = "RecipeTableViewCell"
     
@@ -23,17 +30,10 @@ final class RecipeTableViewCell: UITableViewCell {
         label.font = UIFont.preferredFont(forTextStyle: .subheadline)
         label.textColor = .secondaryLabel
         label.numberOfLines = 3
-        label.font = UIFont.systemFont(ofSize: 12)
+        label.font = UIFont.systemFont(ofSize: .subtitleLabelFont)
         return label
     }()
-    private lazy var ratingLabel: UILabel = {
-        let label = UILabel()
-        label.text = "Rating"
-        label.font = UIFont.preferredFont(forTextStyle: .subheadline)
-        label.textColor = .black
-        label.font = UIFont.systemFont(ofSize: 15)
-        return label
-    }()
+
     private lazy var likeButton: UIButton = {
         let button = UIButton()
         button.clipsToBounds = true
@@ -46,7 +46,7 @@ final class RecipeTableViewCell: UITableViewCell {
     }()
     private lazy var imageview: UIImageView = {
         let imageView = UIImageView()
-        imageView.layer.cornerRadius = 10
+        imageView.layer.cornerRadius = .imageviewCornerRadius
         imageView.clipsToBounds = true
         imageView.setContentHuggingPriority(.defaultHigh, for: .horizontal)
         return imageView
@@ -74,12 +74,12 @@ final class RecipeTableViewCell: UITableViewCell {
     }
     
     private func setup() {
-        let innerStackView = UIStackView(arrangedSubviews: [titleLabel, subtitle, ratingLabel])
+        let innerStackView = UIStackView(arrangedSubviews: [titleLabel, subtitle])
         innerStackView.axis = .vertical
 
         let outerStackView = UIStackView(arrangedSubviews: [imageview, innerStackView, likeButton])
         outerStackView.alignment = .center
-        outerStackView.spacing = 10
+        outerStackView.spacing = .outerStackViewSpacing
         contentView.addSubview(outerStackView)
         
         imageview.snp.makeConstraints { make in

@@ -10,6 +10,7 @@ import UIKit
 private extension CGFloat {
     static let signInStackViewCornerRadius: CGFloat = 10
     static let signInStackViewSpacing: CGFloat = 20
+    static let contentStackViewSpasing: CGFloat = 50
 }
 
 final class LoginViewController: UIViewController {
@@ -62,7 +63,7 @@ final class LoginViewController: UIViewController {
     }()
     private lazy var contentStackView: UIStackView = {
         let stackView = UIStackView(arrangedSubviews: [logoStackView, signInStackView])
-        stackView.spacing = 50
+        stackView.spacing = .contentStackViewSpasing
         stackView.axis = .vertical
         stackView.alignment = .center
         return stackView

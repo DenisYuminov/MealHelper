@@ -7,6 +7,13 @@
 
 import UIKit
 
+private extension CGFloat {
+    static let subTitleFont: CGFloat = 12
+    static let imageViewCornerRadius: CGFloat = 10
+    static let ratingLabelFont: CGFloat = 15
+    static let titleLabelFont: CGFloat = 32
+    static let outerStackViewSpacing: CGFloat = 10
+}
 class RecipeCollectionViewCell: UICollectionViewCell {
     // Dependencies
     static let reuseIdentifier: String = "RecipeCollectionViewCell"
@@ -24,7 +31,7 @@ class RecipeCollectionViewCell: UICollectionViewCell {
         label.font = UIFont.preferredFont(forTextStyle: .subheadline)
         label.textColor = .secondaryLabel
         label.numberOfLines = 3
-        label.font = UIFont.systemFont(ofSize: 12)
+        label.font = UIFont.systemFont(ofSize: .subTitleFont)
         return label
     }()
     private let ratingLabel: UILabel = {
@@ -32,12 +39,12 @@ class RecipeCollectionViewCell: UICollectionViewCell {
         label.text = "Rating"
         label.font = UIFont.preferredFont(forTextStyle: .subheadline)
         label.textColor = .black
-        label.font = UIFont.systemFont(ofSize: 15)
+        label.font = UIFont.systemFont(ofSize: .ratingLabelFont)
         return label
     }()
     private let imageView: UIImageView = {
         let imageView = UIImageView()
-        imageView.layer.cornerRadius = 10
+        imageView.layer.cornerRadius = .imageViewCornerRadius
         imageView.clipsToBounds = true
         imageView.setContentHuggingPriority(.defaultHigh, for: .horizontal)
         return imageView
@@ -54,7 +61,7 @@ class RecipeCollectionViewCell: UICollectionViewCell {
         let outerStackView = UIStackView(arrangedSubviews: [imageView, innerStackView])
         outerStackView.translatesAutoresizingMaskIntoConstraints = false
         outerStackView.alignment = .center
-        outerStackView.spacing = 10
+        outerStackView.spacing = .outerStackViewSpacing
         contentView.addSubview(outerStackView)
         
         imageView.snp.makeConstraints { make in

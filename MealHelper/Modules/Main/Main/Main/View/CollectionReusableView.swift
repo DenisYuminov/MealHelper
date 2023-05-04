@@ -7,12 +7,16 @@
 
 import UIKit
 
+private extension CGFloat {
+    static let collectionReusableViewFont: CGFloat = 25
+}
+
 class CollectionReusableView: UICollectionReusableView {
     private let headerLabel: UILabel = {
         let label = UILabel()
         label.text = "header"
         label.textAlignment = .left
-        label.font = UIFont.systemFont(ofSize: 25, weight: .bold)
+        label.font = UIFont.systemFont(ofSize: .collectionReusableViewFont, weight: .bold)
         label.textColor = .black
         label.translatesAutoresizingMaskIntoConstraints = false
             return label

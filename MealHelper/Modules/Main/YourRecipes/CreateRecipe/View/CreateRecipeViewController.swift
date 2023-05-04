@@ -7,6 +7,12 @@
 
 import UIKit
 
+private extension CGFloat {
+    static let horizontalStackViewSpacing: CGFloat = 20
+    static let imageStackViewSpacing: CGFloat = 100
+    static let contentStackView: CGFloat = 50
+}
+
 class CreateRecipeViewController: UIViewController {
     // Dependencies
     private let output: CreateRecipeViewOutput
@@ -57,25 +63,25 @@ class CreateRecipeViewController: UIViewController {
 
     private lazy var titleStackView: UIStackView = {
         let stackView = UIStackView(arrangedSubviews: [titleLabel, titleTextField])
-        stackView.spacing = 20
+        stackView.spacing = .horizontalStackViewSpacing
         stackView.alignment = .center
         return stackView
     }()
     private lazy var imageStackView: UIStackView = {
         let stackView = UIStackView(arrangedSubviews: [imageLabel, imageButton])
-        stackView.spacing = 100
+        stackView.spacing = .imageStackViewSpacing
         stackView.alignment = .center
         return stackView
     }()
     private lazy var timeToPrepareStackView: UIStackView = {
         let stackView = UIStackView(arrangedSubviews: [timetoprepareLabel, timetoprepareTextfield])
-        stackView.spacing = 20
+        stackView.spacing = .horizontalStackViewSpacing
         stackView.alignment = .center
         return stackView
     }()
     private lazy var timeToCookStackView: UIStackView = {
         let stackView = UIStackView(arrangedSubviews: [timetoCookLabel, timetoCookTextfield])
-        stackView.spacing = 20
+        stackView.spacing = .horizontalStackViewSpacing
         stackView.alignment = .center
         return stackView
     }()
@@ -116,7 +122,7 @@ class CreateRecipeViewController: UIViewController {
     private lazy var privateStackView = CommonHorizontalStackView(views: [privateLabel, toggleButton])
     private lazy var contentStackView: UIStackView = {
         let stackView = UIStackView()
-        stackView.spacing = 50
+        stackView.spacing = .contentStackView
         stackView.axis = .vertical
         stackView.alignment = .center
         return stackView

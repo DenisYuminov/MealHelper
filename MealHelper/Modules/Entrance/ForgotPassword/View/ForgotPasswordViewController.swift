@@ -7,13 +7,23 @@
 
 import UIKit
 
+private extension CGFloat {
+    static let titleLabelFont: CGFloat = 28
+    static let subTitleLabelFont: CGFloat = 20
+    
+    static let confirmStackViewCornerRadius: CGFloat = 10
+    static let confirmStackViewSpasing: CGFloat = 30
+
+
+}
+
 final class ForgotPasswordViewController: UIViewController {
     // Dependencies
     private let output: ForgotPasswordViewOutput
     // UI
     private lazy var titleLabel: UILabel = {
         let label = TitleLabel(title: L10n.ForgotPassword.Navigation.title)
-        label.font = UIFont.systemFont(ofSize: 28)
+        label.font = UIFont.systemFont(ofSize: .titleLabelFont)
         label.numberOfLines = 2
         return label
     }()
@@ -22,7 +32,7 @@ final class ForgotPasswordViewController: UIViewController {
         label.text = L10n.ForgotPassword.Info.title
         label.numberOfLines = 2
         label.textAlignment = .center
-        label.font = UIFont.systemFont(ofSize: 20)
+        label.font = UIFont.systemFont(ofSize: .subTitleLabelFont)
         return label
     }()
     private lazy var mailTextField: UITextField = {
@@ -52,9 +62,9 @@ final class ForgotPasswordViewController: UIViewController {
     private lazy var confirmStackView: UIStackView = {
         let container = UIStackView()
         container.backgroundColor = .clear
-        container.layer.cornerRadius = 10
+        container.layer.cornerRadius = .confirmStackViewCornerRadius
         container.axis = .vertical
-        container.spacing = 30
+        container.spacing = .confirmStackViewSpasing
         return container
     }()
     
