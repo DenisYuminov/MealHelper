@@ -9,8 +9,8 @@ import UIKit
 
 private extension CGFloat {
     static let subtitleLabelFont: CGFloat = 15
-    static let imageviewCornerRadius = 10
-    static let outerStackViewSpacing = 10
+    static let imageviewCornerRadius: CGFloat = 10
+    static let outerStackViewSpacing: CGFloat = 10
 }
 
 

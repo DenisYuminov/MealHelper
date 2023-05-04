@@ -88,6 +88,7 @@
 		92F4291A2A039291005C722A /* CommonHorizontalStackView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 92F429192A039291005C722A /* CommonHorizontalStackView.swift */; };
 		92F4291C2A03929F005C722A /* CommonVerticalStackVIew.swift in Sources */ = {isa = PBXBuildFile; fileRef = 92F4291B2A03929F005C722A /* CommonVerticalStackVIew.swift */; };
 		92F4291F2A03A157005C722A /* CommonGrayTextView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 92F4291E2A03A157005C722A /* CommonGrayTextView.swift */; };
+		92F429232A04467A005C722A /* SettingsTableViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 92F429222A04467A005C722A /* SettingsTableViewCell.swift */; };
 		972A8C5829E7CAB50074B644 /* Images.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 972A8C5729E7CAB50074B644 /* Images.xcassets */; };
 		972A8C5A29E7CAC20074B644 /* Colors.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 972A8C5929E7CAC20074B644 /* Colors.xcassets */; };
 		972A8C6029E7D5900074B644 /* Strings+Generated.swift in Sources */ = {isa = PBXBuildFile; fileRef = 972A8C5E29E7D58F0074B644 /* Strings+Generated.swift */; };
@@ -189,6 +190,7 @@
 		92F429192A039291005C722A /* CommonHorizontalStackView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CommonHorizontalStackView.swift; sourceTree = "<group>"; };
 		92F4291B2A03929F005C722A /* CommonVerticalStackVIew.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CommonVerticalStackVIew.swift; sourceTree = "<group>"; };
 		92F4291E2A03A157005C722A /* CommonGrayTextView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CommonGrayTextView.swift; sourceTree = "<group>"; };
+		92F429222A04467A005C722A /* SettingsTableViewCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SettingsTableViewCell.swift; sourceTree = "<group>"; };
 		972A8C5729E7CAB50074B644 /* Images.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Images.xcassets; sourceTree = "<group>"; };
 		972A8C5929E7CAC20074B644 /* Colors.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Colors.xcassets; sourceTree = "<group>"; };
 		972A8C5E29E7D58F0074B644 /* Strings+Generated.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = "Strings+Generated.swift"; sourceTree = "<group>"; };
@@ -445,6 +447,7 @@
 			children = (
 				9242708229EC2FBB004525F5 /* SettingsViewIO.swift */,
 				9242708429EC301B004525F5 /* SettingsViewController.swift */,
+				92F429222A04467A005C722A /* SettingsTableViewCell.swift */,
 			);
 			path = View;
 			sourceTree = "<group>";
@@ -1096,6 +1099,7 @@
 				92F4291F2A03A157005C722A /* CommonGrayTextView.swift in Sources */,
 				9286A7F429E55E18003C7414 /* ForgotPasswordService.swift in Sources */,
 				975375CF29DF339B004A0EC8 /* AuthService.swift in Sources */,
+				92F429232A04467A005C722A /* SettingsTableViewCell.swift in Sources */,
 				975375CB29DF2E16004A0EC8 /* LoginCoordinator.swift in Sources */,
 				924270B129F13ECB004525F5 /* RecipePresenter.swift in Sources */,
 				9242705229EC134A004525F5 /* MainPresenter.swift in Sources */,

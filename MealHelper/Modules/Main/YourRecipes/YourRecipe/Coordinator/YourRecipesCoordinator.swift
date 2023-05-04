@@ -15,15 +15,21 @@ final class YourRecipesCoordinator: IYourRecipesCoordinator, YourRecipesPresente
     // Dependencies
     private let moduleBuilder: IYourRecipesModuleBuilder
     private let createRecipeCoordinator: ICreateRecipeCoordinator
+    private let recipeCoordinator: IRecipeCoordinator
 
     // Properties
     private weak var transitionHandler: UINavigationController?
     
     // MARK: Init
     
-    init(moduleBuilder: IYourRecipesModuleBuilder, createRecipeCoordinator: ICreateRecipeCoordinator) {
+    init(
+        moduleBuilder: IYourRecipesModuleBuilder,
+        createRecipeCoordinator: ICreateRecipeCoordinator,
+        recipeCoordinator: IRecipeCoordinator
+    ) {
         self.moduleBuilder = moduleBuilder
         self.createRecipeCoordinator = createRecipeCoordinator
+        self.recipeCoordinator = recipeCoordinator
     }
     
     // MARK: IYourRecipesCoordinator
@@ -39,6 +45,10 @@ final class YourRecipesCoordinator: IYourRecipesCoordinator, YourRecipesPresente
 
     func createRecipeButtonClicked() {
         let viewController = createRecipeCoordinator.createFlow()
+        transitionHandler?.pushViewController(viewController, animated: true)
+    }
+    func didSelectRecipe(recipe: RecipeModel){
+        let viewController = recipeCoordinator.createFlow(recipe: recipe)
         transitionHandler?.pushViewController(viewController, animated: true)
     }
 }

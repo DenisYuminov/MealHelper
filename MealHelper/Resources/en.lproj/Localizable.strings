@@ -72,3 +72,11 @@
 
 // настойки
 "settings.navigation.title" = "Settings";
+"settings.ThemeCell.title" = "Theme";
+"settings.languageCell.title" = "Language";
+"settings.languageCell.subTitle" = "English";
+"settings.ThemeCell.title.light" = "Light";
+"settings.MailCell.title" = "Mail";
+"settings.PasswordCell.title" = "Change password";
+"settings.exit.title" = "Log Out";
+"settings.DeleteAccount.title" = "Delete account";

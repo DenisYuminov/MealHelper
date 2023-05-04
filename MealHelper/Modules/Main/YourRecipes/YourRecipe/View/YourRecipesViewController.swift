@@ -94,6 +94,9 @@ extension YourRecipesViewController: UITableViewDelegate, UITableViewDataSource 
     }
     
     func tableView(_ tableView: UITableView, didSelectRowAt indexPath: IndexPath) {
+        let recipe = recipes[indexPath.row]
+        output.didSelectRecipe(recipe: recipe)
+        tableView.deselectRow(at: indexPath, animated: true)
     }
     
     func tableView(

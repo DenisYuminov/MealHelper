@@ -8,7 +8,7 @@
 import UIKit
 
 protocol IRecipeModuleBuilder: AnyObject {
-    func build(output: RecipePresenterOutput?) -> UIViewController
+    func build(output: RecipePresenterOutput?, recipe: RecipeModel) -> UIViewController
 }
 
 final class RecipeModuleBuilder: IRecipeModuleBuilder {
@@ -23,9 +23,9 @@ final class RecipeModuleBuilder: IRecipeModuleBuilder {
     
     // MARK: IRecipeModuleBuilder
     
-    func build(output: RecipePresenterOutput?) -> UIViewController {
+    func build(output: RecipePresenterOutput?, recipe: RecipeModel) -> UIViewController {
         let presenter = RecipePresenter(output: output, recipeService: recipeService)
-        let view = RecipeViewController(output: presenter)
+        let view = RecipeViewController(output: presenter, recipe: recipe)
         presenter.view = view
         return view
     }

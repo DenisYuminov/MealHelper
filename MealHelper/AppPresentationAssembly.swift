@@ -87,13 +87,17 @@ final class AppPresentationAssembly: IAppPresentationAssembly {
     }
     
     var likesCoordinator: ILikesCoordinator {
-        LikesCoordinator(moduleBuilder: likesModuleBuilder)
+        LikesCoordinator(
+            moduleBuilder: likesModuleBuilder,
+            recipeCoordinator: recipeCoordinator
+        )
     }
     
     var yourRecipesCoordinator: IYourRecipesCoordinator {
         YourRecipesCoordinator(
             moduleBuilder: yourRecipesModuleBuilder,
-            createRecipeCoordinator: createRecipeCoordinator
+            createRecipeCoordinator: createRecipeCoordinator,
+            recipeCoordinator: recipeCoordinator
         )
     }
     

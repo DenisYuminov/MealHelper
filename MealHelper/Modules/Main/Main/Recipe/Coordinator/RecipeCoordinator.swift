@@ -8,7 +8,7 @@
 import UIKit
 
 protocol IRecipeCoordinator: AnyObject {
-    func createFlow() -> UIViewController
+    func createFlow(recipe: RecipeModel) -> UIViewController
 }
 
 final class RecipeCoordinator: IRecipeCoordinator, RecipePresenterOutput {
@@ -26,8 +26,8 @@ final class RecipeCoordinator: IRecipeCoordinator, RecipePresenterOutput {
     
     // MARK: IRecipeCoordinator
     
-    func createFlow() -> UIViewController {
-        let viewController = moduleBuilder.build(output: self)
+    func createFlow(recipe: RecipeModel) -> UIViewController {
+        let viewController = moduleBuilder.build(output: self, recipe: recipe)
         transitionHandler = viewController
         return viewController
     }

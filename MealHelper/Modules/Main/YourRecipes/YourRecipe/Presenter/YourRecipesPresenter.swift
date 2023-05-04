@@ -9,6 +9,7 @@ import Foundation
 
 protocol YourRecipesPresenterOutput: AnyObject {
     func createRecipeButtonClicked()
+    func didSelectRecipe(recipe: RecipeModel)
 }
 
 final class YourRecipesPresenter {
@@ -26,6 +27,10 @@ final class YourRecipesPresenter {
 }
 
 extension YourRecipesPresenter: YourRecipesViewOutput {
+    func didSelectRecipe(recipe: RecipeModel) {
+        output?.didSelectRecipe(recipe: recipe)
+    }
+    
     func onCreateRecipeButtonClicked() {
         output?.createRecipeButtonClicked()
     }
