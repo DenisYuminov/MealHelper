@@ -36,6 +36,38 @@
 
 // мои рецепты
 "yourRecipes.navigation.title" = "Мои рецепты";
+"yourRecipes.tableViewAction.title" = "Удалить";
+
+// создать рецепт
+"createRecipe.cancelButton.title" = "Отмена";
+"createRecipe.saveButton.title" = "Сохранить";
+"createRecipe.title.textField.title" = "Название";
+"createRecipe.title.textField.placeholder" = "Название";
+"createRecipe.image.title" = "Фото";
+"createRecipe.timeToPrepare.textField.title" = "Подготовка";
+"createRecipe.timeToPrepare.textField.placeholder" = "Время для подготовки";
+"createRecipe.TimeToCook.textField.title" = "Готовка";
+"createRecipe.TimeToCook.textField.placeholder" = "Время для готовки";
+"createRecipe.tagLabel.title" = "Выбирете тэги";
+"createRecipe.tagButton.title" = "Добавить";
+"createRecipe.tagTextField.placeholder" = "Тэг";
+"createRecipe.desription.Label.title" = "Описание";
+"createRecipe.desription.textField.placeholder" = "Описание";
+"createRecipe.caloriesLabel.title" = "Калории";
+"createRecipe.fatLabel.title" = "Жиры";
+"createRecipe.proteinLabel.title" = "Белки";
+"createRecipe.saturatesLabel.title" = "Кислоты";
+"createRecipe.caloriesTextField.placeholder" = "Введите количество калорий";
+"createRecipe.fatsTextField.placeholder" = "Введите количество жиров";
+"createRecipe.proteinsTextField.placeholder" = "Введите количество белков";
+"createRecipe.saturatesTextField.placeholder" = "Введите количество кислот";
+"createRecipe.addIngredientsButton.title" = "Добавить";
+"createRecipe.addMethodButton.title" = "Добавить";
+"createRecipe.ingridientTextView.placeholder" = "Введите ингредиенты";
+"createRecipe.ingredientsLabel.title" = "Ингредиенты";
+"createRecipe.methodLabel.title" = "Способ";
+"createRecipe.methodTextView.placeholder" = "Введите способ приготовления";
+"createRecipe.privateLabel.title" = "Публичный";
 
 // настойки
 "settings.navigation.title" = "Настройки";

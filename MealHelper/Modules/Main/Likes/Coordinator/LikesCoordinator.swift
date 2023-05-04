@@ -9,13 +9,9 @@ import UIKit
 
 protocol ILikesCoordinator: AnyObject {
     func createFlow() -> UIViewController
-    
 }
 
 final class LikesCoordinator: ILikesCoordinator, LikesPresenterOutput {
-
-    
-    
     // Dependencies
     private let moduleBuilder: ILikesModuleBuilder
     
@@ -38,6 +34,5 @@ final class LikesCoordinator: ILikesCoordinator, LikesPresenterOutput {
     }
     // MARK: LikesPresenterOutput
     func didSelectRecipe(_ recipe: RecipeModel) {
-        
     }
 }

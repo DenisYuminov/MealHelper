@@ -14,7 +14,7 @@ enum Section: Int, CaseIterable {
 }
 
 func category(for section: Section) -> Category {
-    let service = MockMainService()
+    let service = MainService()
     switch section {
     case .new:
         return service.getNew()

@@ -19,6 +19,7 @@ protocol IAppPresentationAssembly: AnyObject {
     var yourRecipesCoordinator: IYourRecipesCoordinator { get }
     var settingsCoordinator: ISettingsCoordinator { get }
     var recipeCoordinator: IRecipeCoordinator { get }
+    var createRecipeCoordinator: ICreateRecipeCoordinator { get }
     // ModuleBuilders
     var startModuleBuilder: IAuthModuleBuilder { get }
     var loginModuleBuilder: ILoginModuleBuilder { get }
@@ -29,6 +30,7 @@ protocol IAppPresentationAssembly: AnyObject {
     var yourRecipesModuleBuilder: IYourRecipesModuleBuilder { get }
     var settingsModuleBuilder: ISettingsModuleBuilder { get }
     var recipeModuleBuilder: IRecipeModuleBuilder { get }
+    var createRecipeModuleBuilder: ICreateRecipeModuleBuilder { get }
 }
 
 final class AppPresentationAssembly: IAppPresentationAssembly {    
@@ -89,11 +91,18 @@ final class AppPresentationAssembly: IAppPresentationAssembly {
     }
     
     var yourRecipesCoordinator: IYourRecipesCoordinator {
-        YourRecipesCoordinator(moduleBuilder: yourRecipesModuleBuilder)
+        YourRecipesCoordinator(
+            moduleBuilder: yourRecipesModuleBuilder,
+            createRecipeCoordinator: createRecipeCoordinator
+        )
     }
     
     var settingsCoordinator: ISettingsCoordinator {
         SettingsCoordinator(moduleBuilder: settingsModuleBuilder)
+    }
+    
+    var createRecipeCoordinator: ICreateRecipeCoordinator {
+        CreateRecipeCoordinator(moduleBuilder: createRecipeModuleBuilder)
     }
     // MARK: ModuleBuilders
     
@@ -131,5 +140,9 @@ final class AppPresentationAssembly: IAppPresentationAssembly {
     
     var recipeModuleBuilder: IRecipeModuleBuilder {
         RecipeModuleBuilder(recipeService: servicesAssembly.recipeService)
+    }
+    
+    var createRecipeModuleBuilder: ICreateRecipeModuleBuilder {
+        CreateRecipeModulebuilder(createRecipeService: servicesAssembly.createRecipeSerivce)
     }
 }

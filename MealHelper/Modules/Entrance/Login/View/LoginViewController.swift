@@ -98,7 +98,7 @@ final class LoginViewController: UIViewController {
         scrollView.snp.makeConstraints { make in
             make.top.equalToSuperview().inset(100)
             make.leading.trailing.equalToSuperview()
-            make.bottom.equalToSuperview().inset(120)
+            make.bottom.equalToSuperview().inset(50)
         }
         
         scrollView.addSubview(contentStackView)

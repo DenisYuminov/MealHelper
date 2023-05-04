@@ -14,14 +14,16 @@ protocol IYourRecipesCoordinator: AnyObject {
 final class YourRecipesCoordinator: IYourRecipesCoordinator, YourRecipesPresenterOutput {
     // Dependencies
     private let moduleBuilder: IYourRecipesModuleBuilder
-    
+    private let createRecipeCoordinator: ICreateRecipeCoordinator
+
     // Properties
     private weak var transitionHandler: UINavigationController?
     
     // MARK: Init
     
-    init(moduleBuilder: IYourRecipesModuleBuilder) {
+    init(moduleBuilder: IYourRecipesModuleBuilder, createRecipeCoordinator: ICreateRecipeCoordinator) {
         self.moduleBuilder = moduleBuilder
+        self.createRecipeCoordinator = createRecipeCoordinator
     }
     
     // MARK: IYourRecipesCoordinator
@@ -31,5 +33,12 @@ final class YourRecipesCoordinator: IYourRecipesCoordinator, YourRecipesPresente
         let navigationController = UINavigationController(rootViewController: viewController)
         transitionHandler = navigationController
         return navigationController
+    }
+    
+    // MARK: YourRecipePresenterOutput
+
+    func createRecipeButtonClicked() {
+        let viewController = createRecipeCoordinator.createFlow()
+        transitionHandler?.pushViewController(viewController, animated: true)
     }
 }

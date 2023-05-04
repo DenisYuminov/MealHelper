@@ -1,5 +1,5 @@
 //
-//  LikesViewController.swift
+//  YourRecipesViewController.swift
 //  MealHelper
 //
 //  Created by macbook Denis on 4/16/23.
@@ -7,9 +7,8 @@
 
 import UIKit
 
-class LikesViewController: UIViewController {
-    // Dependencies
-    private let output: LikesViewOutput
+class YourRecipesViewController: UIViewController {
+    private let output: YourRecipesViewOutput
     private var recipes: [RecipeModel] = []
     
     // UI
@@ -20,9 +19,10 @@ class LikesViewController: UIViewController {
         tableView.dataSource = self
         return tableView
     }()
+    private var addButton: UIBarButtonItem!
     // MARK: Init
 
-    init(output: LikesViewOutput) {
+    init(output: YourRecipesViewOutput) {
         self.output = output
         super.init(nibName: nil, bundle: nil)
     }
@@ -37,13 +37,22 @@ class LikesViewController: UIViewController {
         super.viewDidLoad()
         view.backgroundColor = .systemBackground
         view.addSubview(tableView)
-        title = L10n.Likes.Navigation.title
+        title = L10n.YourRecipes.Navigation.title
         setup()
     }
     
     // Private
     
     private func setup() {
+        addButton = UIBarButtonItem(
+                image: UIImage(systemName: "plus"),
+                landscapeImagePhone: nil,
+                style: .plain,
+                target: self,
+                action: #selector(addButtonTapped)
+            )
+        navigationItem.rightBarButtonItem = addButton
+
         tableView.translatesAutoresizingMaskIntoConstraints = false
         tableView.snp.makeConstraints { make in
             make.top.equalToSuperview().inset(120)
@@ -52,12 +61,18 @@ class LikesViewController: UIViewController {
             make.trailing.equalToSuperview()
         }
     }
+    
+    // MARK: Actions
+
+    @objc private func addButtonTapped() {
+        output.onCreateRecipeButtonClicked()
+    }
 }
 
-extension LikesViewController: LikesViewInput {
+extension YourRecipesViewController: YourRecipesViewInput {
 }
 
-extension LikesViewController: UITableViewDelegate, UITableViewDataSource {
+extension YourRecipesViewController: UITableViewDelegate, UITableViewDataSource {
     func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
         recipes.count
     }
@@ -79,8 +94,21 @@ extension LikesViewController: UITableViewDelegate, UITableViewDataSource {
     }
     
     func tableView(_ tableView: UITableView, didSelectRowAt indexPath: IndexPath) {
-        let recipe = recipes[indexPath.row]
-        output.didSelectRecipe(recipe: recipe)
-        tableView.deselectRow(at: indexPath, animated: true)
+    }
+    
+    func tableView(
+        _ tableView: UITableView,
+        trailingSwipeActionsConfigurationForRowAt indexPath: IndexPath
+    ) -> UISwipeActionsConfiguration? {
+        let deleteAction = UIContextualAction(
+            style: .destructive,
+            title: L10n.YourRecipes.TableViewAction.title
+        ) { [weak self] (_, _, completion) in
+            self?.recipes.remove(at: indexPath.row)
+            tableView.deleteRows(at: [indexPath], with: .automatic)
+            completion(true)
+        }
+        let configuration = UISwipeActionsConfiguration(actions: [deleteAction])
+        return configuration
     }
 }

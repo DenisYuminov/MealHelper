@@ -29,7 +29,6 @@
 "forgotPassword.info.title" = "Enter your e-mail to receive new password";
 "forgotPassword.mail.placeholder" = "Enter your mail";
 
-
 //главная
 "main.navigation.title" = "Main";
 
@@ -38,6 +37,38 @@
 
 // мои рецепты
 "yourRecipes.navigation.title" = "My recipes";
+"yourRecipes.tableViewAction.title" = "Delete";
+
+// создать рецепт
+"createRecipe.cancelButton.title" = "Cancel";
+"createRecipe.saveButton.title" = "Save";
+"createRecipe.title.textField.title" = "Title";
+"createRecipe.image.title" = "Choose the image";
+"createRecipe.title.textField.placeholder" = "Enter your title";
+"createRecipe.timeToPrepare.textField.title" = "Time to prepare";
+"createRecipe.timeToPrepare.textField.placeholder" = "Time to prepare";
+"createRecipe.TimeToCook.textField.title" = "Time to cook";
+"createRecipe.TimeToCook.textField.placeholder" = "Time to cook";
+"createRecipe.tagLabel.title" = "Choose tags";
+"createRecipe.tagButton.title" = "add tag";
+"createRecipe.tagTextField.placeholder" = "enter tag";
+"createRecipe.desription.Label.title" = "Description";
+"createRecipe.desription.textField.placeholder" = "Enter your description";
+"createRecipe.caloriesLabel.title" = "Calories";
+"createRecipe.fatLabel.title" = "Fats";
+"createRecipe.proteinLabel.title" = "Proteins";
+"createRecipe.saturatesLabel.title" = "Saturates";
+"createRecipe.caloriesTextField.placeholder" = "Enter amount of calories";
+"createRecipe.fatsTextField.placeholder" = "Enter amount of fats";
+"createRecipe.proteinsTextField.placeholder" = "Enter amount of proteins";
+"createRecipe.saturatesTextField.placeholder" = "Enter amount of saturated fats";
+"createRecipe.addIngredientsButton.title" = "Add ingridient";
+"createRecipe.addMethodButton.title" = "Add method";
+"createRecipe.ingridientTextView.placeholder" = "Enter your ingridients";
+"createRecipe.ingredientsLabel.title" = "Ingridients";
+"createRecipe.methodLabel.title" = "Method";
+"createRecipe.methodTextView.placeholder" = "ENther your method";
+"createRecipe.privateLabel.title" = "Public";
 
 // настойки
 "settings.navigation.title" = "Settings";

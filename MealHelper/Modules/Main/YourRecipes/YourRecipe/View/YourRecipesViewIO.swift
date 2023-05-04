@@ -11,4 +11,5 @@ protocol YourRecipesViewInput: AnyObject {
 }
 
 protocol YourRecipesViewOutput: AnyObject {
+    func onCreateRecipeButtonClicked()
 }

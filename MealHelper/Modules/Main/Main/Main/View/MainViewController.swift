@@ -11,7 +11,6 @@ final class MainViewController: UIViewController {
     // Dependencies
     
     private let output: MainViewOutput
-    var mainService = MockMainService()
     // UI
     private lazy var collectionView: UICollectionView = {
         let configuration = UICollectionViewCompositionalLayoutConfiguration()
@@ -133,11 +132,11 @@ extension MainViewController: UICollectionViewDataSource {
     ) -> Int {
         switch Section(rawValue: section) {
         case .new:
-            return 9
+            return 0
         case .popular:
-            return 9
+            return 0
         case .easy:
-            return 9
+            return 0
         case nil:
             return 0
         }
@@ -174,7 +173,7 @@ extension MainViewController: UICollectionViewDataSource {
             ) as? CollectionReusableView else {
                 fatalError("Could not dequeue CollectionReusableView")
             }
-            header.configureCell(headerName: mainService.getData()[indexPath.section].title)
+//            header.configureCell(headerName: MainService().getData()[indexPath.section].title)
             header.button.tag = indexPath.section
             return header
         default:

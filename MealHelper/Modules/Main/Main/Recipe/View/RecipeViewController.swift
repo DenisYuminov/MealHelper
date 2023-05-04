@@ -250,4 +250,3 @@ class RecipeViewController: UIViewController {
 
 extension RecipeViewController: RecipeViewInput {
 }
-

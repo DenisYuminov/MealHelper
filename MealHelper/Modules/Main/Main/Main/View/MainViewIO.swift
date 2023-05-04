@@ -12,4 +12,5 @@ protocol MainViewInput: AnyObject {
 
 protocol MainViewOutput: AnyObject {
     func onRecipeCellCkicked(recipe: RecipeModel)
+    func getData() -> [Category]
 }

@@ -26,6 +26,10 @@ final class MainPresenter {
 }
 
 extension MainPresenter: MainViewOutput {
+    func getData() -> [Category] {
+        return [Category]()
+    }
+    
     func onRecipeCellCkicked(recipe: RecipeModel) {
         output?.onRecipeCellCkicked(recipe: recipe)
     }
