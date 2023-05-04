@@ -12,6 +12,7 @@ private extension CGFloat {
     static let buttonStackViewSpacing: CGFloat = 25
     static let createAccountStackViewSpacing: CGFloat = 10
     static let createAccountStackViewCornerRadius: CGFloat = 10
+    static let contentStackViewSpasing: CGFloat = 50
     static let titleLabelFont: CGFloat = 32
     static let commonLabelFont: CGFloat = 17
 }
@@ -39,12 +40,6 @@ final class CreateAccountViewController: UIViewController {
         container.layer.cornerRadius = .buttonStackViewCornerRadius
         container.axis = .vertical
         container.spacing = .buttonStackViewSpacing
-        return container
-    }()
-    private lazy var titleStackView: UIStackView = {
-        let container = UIStackView()
-        container.backgroundColor = .clear
-        container.axis = .vertical
         return container
     }()
     private lazy var titleLabel: UILabel = {
@@ -93,6 +88,15 @@ final class CreateAccountViewController: UIViewController {
         return button
     }()
     
+    private lazy var contentStackView: UIStackView = {
+        let stackView = UIStackView(arrangedSubviews: [logoStackView, createAccountStackView])
+        stackView.spacing = .contentStackViewSpasing
+        stackView.axis = .vertical
+        stackView.alignment = .center
+        return stackView
+    }()
+    private lazy var scrollView = UIScrollView(frame: .zero)
+    
     // MARK: Init
     
     init(output: CreateAccountViewOutput) {
@@ -109,16 +113,29 @@ final class CreateAccountViewController: UIViewController {
     override func viewDidLoad() {
         super.viewDidLoad()
         setupUI()
+        addKeyboardObservers()
     }
     
     // MARK: Private
     
     private func setupUI() {
         view.backgroundColor = .systemGray6
-        view.addSubview(logoStackView)
+        view.addGestureRecognizer(UITapGestureRecognizer(target: self, action: #selector(hideKeyboard)))
+
+        view.addSubview(scrollView)
+        scrollView.snp.makeConstraints { make in
+            make.top.equalToSuperview()
+            make.leading.trailing.equalToSuperview()
+            make.bottom.equalToSuperview()
+        }
+        scrollView.addSubview(contentStackView)
+        
+        contentStackView.snp.makeConstraints { make in
+            make.edges.equalToSuperview()
+            make.width.equalToSuperview()
+        }
+        
         logoStackView.snp.makeConstraints { make in
-            make.centerX.equalToSuperview()
-            make.centerY.equalToSuperview().offset(-240)
             make.width.equalToSuperview().multipliedBy(0.9)
         }
         buttonStackView.addArrangedSubviews([
@@ -135,12 +152,8 @@ final class CreateAccountViewController: UIViewController {
             passwordTextField,
             passwordConfirmLabel,
             buttonStackView
-        ])
-        view.addSubview(createAccountStackView)
-        
+        ])        
         createAccountStackView.snp.makeConstraints { make in
-            make.centerX.equalToSuperview()
-            make.centerY.equalToSuperview().offset(120)
             make.width.equalToSuperview().multipliedBy(0.75)
         }
         [
@@ -154,6 +167,42 @@ final class CreateAccountViewController: UIViewController {
                 make.height.equalTo(50)
             }
         }
+    }
+    
+    private func addKeyboardObservers() {
+        NotificationCenter.default.addObserver(
+            self,
+            selector: #selector(keyboardWillShow),
+            name: UIResponder.keyboardWillShowNotification,
+            object: nil
+        )
+        NotificationCenter.default.addObserver(
+            self,
+            selector: #selector(keyboardWillHide),
+            name: UIResponder.keyboardWillHideNotification,
+            object: nil
+        )
+    }
+    
+    // MARK: Actions
+    
+    @objc private func hideKeyboard() {
+        view.endEditing(true)
+    }
+    @objc func keyboardWillShow(notification: NSNotification) {
+        if let keyboardSize = (
+            notification.userInfo?[UIResponder.keyboardFrameEndUserInfoKey] as? NSValue
+        )?.cgRectValue {
+            let contentInsets = UIEdgeInsets(top: 0, left: 0, bottom: keyboardSize.height, right: 0)
+            scrollView.contentInset = contentInsets
+            scrollView.scrollIndicatorInsets = contentInsets
+        }
+    }
+
+    @objc func keyboardWillHide(notification: NSNotification) {
+        let contentInsets = UIEdgeInsets.zero
+        scrollView.contentInset = contentInsets
+        scrollView.scrollIndicatorInsets = contentInsets
     }
 }
 

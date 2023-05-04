@@ -8,6 +8,7 @@
 import Foundation
 
 protocol SettingsPresenterOutput: AnyObject {
+    func openAuthScreen()
 }
 
 final class SettingsPresenter {
@@ -25,4 +26,7 @@ final class SettingsPresenter {
 }
 
 extension SettingsPresenter: SettingsViewOutput {
+    func onLogOutButtonClicked() {
+        output?.openAuthScreen()
+    }
 }

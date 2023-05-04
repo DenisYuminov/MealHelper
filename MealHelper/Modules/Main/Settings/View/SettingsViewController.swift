@@ -163,7 +163,7 @@ extension SettingsViewController: UITableViewDelegate, UITableViewDataSource {
         case 1:
             switch indexPath.row {
             case 0:
-                break
+                output.onLogOutButtonClicked()
             case 1:
                 break
             default:

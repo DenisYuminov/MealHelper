@@ -13,8 +13,6 @@ private extension CGFloat {
     
     static let confirmStackViewCornerRadius: CGFloat = 10
     static let confirmStackViewSpasing: CGFloat = 30
-
-
 }
 
 final class ForgotPasswordViewController: UIViewController {

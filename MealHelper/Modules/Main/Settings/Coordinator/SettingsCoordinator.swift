@@ -14,6 +14,7 @@ protocol ISettingsCoordinator: AnyObject {
 final class SettingsCoordinator: ISettingsCoordinator, SettingsPresenterOutput {
     // Dependencies
     private let moduleBuilder: ISettingsModuleBuilder
+    private weak var authCoordinator: IAuthCoordinator?
     
     // Properties
     private weak var transitionHandler: UINavigationController?
@@ -31,5 +32,10 @@ final class SettingsCoordinator: ISettingsCoordinator, SettingsPresenterOutput {
         let navigationController = UINavigationController(rootViewController: viewController)
         transitionHandler = navigationController
         return navigationController
+    }
+    
+    func openAuthScreen() {
+        guard let viewController = authCoordinator?.createFlow() else { return }
+        transitionHandler?.setViewControllers([viewController], animated: true)
     }
 }

@@ -89,6 +89,7 @@
 		92F4291C2A03929F005C722A /* CommonVerticalStackVIew.swift in Sources */ = {isa = PBXBuildFile; fileRef = 92F4291B2A03929F005C722A /* CommonVerticalStackVIew.swift */; };
 		92F4291F2A03A157005C722A /* CommonGrayTextView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 92F4291E2A03A157005C722A /* CommonGrayTextView.swift */; };
 		92F429232A04467A005C722A /* SettingsTableViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 92F429222A04467A005C722A /* SettingsTableViewCell.swift */; };
+		92F429252A05565B005C722A /* NSNotifcation+Extensions.swift in Sources */ = {isa = PBXBuildFile; fileRef = 92F429242A05565B005C722A /* NSNotifcation+Extensions.swift */; };
 		972A8C5829E7CAB50074B644 /* Images.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 972A8C5729E7CAB50074B644 /* Images.xcassets */; };
 		972A8C5A29E7CAC20074B644 /* Colors.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 972A8C5929E7CAC20074B644 /* Colors.xcassets */; };
 		972A8C6029E7D5900074B644 /* Strings+Generated.swift in Sources */ = {isa = PBXBuildFile; fileRef = 972A8C5E29E7D58F0074B644 /* Strings+Generated.swift */; };
@@ -191,6 +192,7 @@
 		92F4291B2A03929F005C722A /* CommonVerticalStackVIew.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CommonVerticalStackVIew.swift; sourceTree = "<group>"; };
 		92F4291E2A03A157005C722A /* CommonGrayTextView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CommonGrayTextView.swift; sourceTree = "<group>"; };
 		92F429222A04467A005C722A /* SettingsTableViewCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SettingsTableViewCell.swift; sourceTree = "<group>"; };
+		92F429242A05565B005C722A /* NSNotifcation+Extensions.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "NSNotifcation+Extensions.swift"; sourceTree = "<group>"; };
 		972A8C5729E7CAB50074B644 /* Images.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Images.xcassets; sourceTree = "<group>"; };
 		972A8C5929E7CAC20074B644 /* Colors.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Colors.xcassets; sourceTree = "<group>"; };
 		972A8C5E29E7D58F0074B644 /* Strings+Generated.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = "Strings+Generated.swift"; sourceTree = "<group>"; };
@@ -829,6 +831,7 @@
 			isa = PBXGroup;
 			children = (
 				975375C629DF25DC004A0EC8 /* UIStackView+Extensions.swift */,
+				92F429242A05565B005C722A /* NSNotifcation+Extensions.swift */,
 			);
 			path = Extensions;
 			sourceTree = "<group>";
@@ -1096,6 +1099,7 @@
 				924270B929F14016004525F5 /* RecipeModuleBuilder.swift in Sources */,
 				9226DBCD29DECDB80078A630 /* AuthPresenter.swift in Sources */,
 				9226DBD429DEDAAB0078A630 /* AuthModuleBuilder.swift in Sources */,
+				92F429252A05565B005C722A /* NSNotifcation+Extensions.swift in Sources */,
 				92F4291F2A03A157005C722A /* CommonGrayTextView.swift in Sources */,
 				9286A7F429E55E18003C7414 /* ForgotPasswordService.swift in Sources */,
 				975375CF29DF339B004A0EC8 /* AuthService.swift in Sources */,

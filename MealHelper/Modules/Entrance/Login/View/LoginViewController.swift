@@ -169,11 +169,3 @@ final class LoginViewController: UIViewController {
 
 extension LoginViewController: LoginViewInput {
 }
-
-// TODO: если этот экстеншн по итогу пригодится, то нужно его вынести в папку Extensions в отдельный файл
-extension Notification {
-    var keyboardFrame: CGRect? {
-        let value = userInfo?[UIResponder.keyboardFrameEndUserInfoKey] as? NSValue
-        return value?.cgRectValue
-    }
-}

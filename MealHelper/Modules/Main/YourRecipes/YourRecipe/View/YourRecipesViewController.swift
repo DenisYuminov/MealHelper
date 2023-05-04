@@ -45,12 +45,12 @@ class YourRecipesViewController: UIViewController {
     
     private func setup() {
         addButton = UIBarButtonItem(
-                image: UIImage(systemName: "plus"),
-                landscapeImagePhone: nil,
-                style: .plain,
-                target: self,
-                action: #selector(addButtonTapped)
-            )
+            image: UIImage(systemName: "plus"),
+            landscapeImagePhone: nil,
+            style: .plain,
+            target: self,
+            action: #selector(addButtonTapped)
+        )
         navigationItem.rightBarButtonItem = addButton
 
         tableView.translatesAutoresizingMaskIntoConstraints = false
