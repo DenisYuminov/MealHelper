@@ -15,13 +15,14 @@ final class MainViewController: UIViewController {
     // Dependencies
     
     private let output: MainViewOutput
+    private var recipes: [[RecipeModel]]
     // UI
     private lazy var collectionView: UICollectionView = {
         let configuration = UICollectionViewCompositionalLayoutConfiguration()
         let layout = UICollectionViewCompositionalLayout(
             sectionProvider: { [weak self] section, _ in
                 guard let self else { fatalError("Self is nil") }
-                guard let section = Section(rawValue: section) else {
+                guard let section = popularCellsSection() else {
                     fatalError("This section: (\(section)) does not exist")
                 }
                 
@@ -58,6 +59,7 @@ final class MainViewController: UIViewController {
         super.viewDidLoad()
         setup()
     }
+    
     // Private
     private func setup() {
         view.backgroundColor = .systemBackground
@@ -65,7 +67,7 @@ final class MainViewController: UIViewController {
         view.addSubview(collectionView)
         collectionView.translatesAutoresizingMaskIntoConstraints = false
         collectionView.snp.makeConstraints { make in
-            make.top.equalToSuperview().inset(120)
+            make.top.equalToSuperview()
             make.bottom.equalToSuperview()
             make.leading.equalToSuperview()
             make.trailing.equalToSuperview()
@@ -128,30 +130,20 @@ final class MainViewController: UIViewController {
 // MARK: UICollectionViewDataSource
 extension MainViewController: UICollectionViewDataSource {
     func numberOfSections(in collectionView: UICollectionView) -> Int {
-        Section.allCases.count
+        recipes.count
     }
 
     func collectionView(
         _ collectionView: UICollectionView, numberOfItemsInSection section: Int
     ) -> Int {
-        switch Section(rawValue: section) {
-        case .new:
-            return 0
-        case .popular:
-            return 0
-        case .easy:
-            return 0
-        case nil:
-            return 0
-        }
+        return 9
     }
     func collectionView(
         _ collectionView: UICollectionView,
         cellForItemAt indexPath: IndexPath
     ) -> UICollectionViewCell {
-        guard let section = Section(rawValue: indexPath.section) else { fatalError("No found Section") }
-        let category = category(for: section)
-        let recipe = category.items[indexPath.row]
+        let category = recipes[indexPath.section]
+        let recipe = category[indexPath.row]
         guard let cell = collectionView.dequeueReusableCell(
             withReuseIdentifier: RecipeCollectionViewCell.reuseIdentifier,
             for: indexPath
@@ -177,7 +169,7 @@ extension MainViewController: UICollectionViewDataSource {
             ) as? CollectionReusableView else {
                 fatalError("Could not dequeue CollectionReusableView")
             }
-//            header.configureCell(headerName: MainService().getData()[indexPath.section].title)
+            header.configureCell(headerName: recipes[indexPath.section])
             header.button.tag = indexPath.section
             return header
         default:
