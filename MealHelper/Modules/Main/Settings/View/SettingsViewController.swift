@@ -24,7 +24,7 @@ class SettingsViewController: UIViewController {
     }()
     private lazy var imageButton: UIButton = {
         let button = UIButton(type: .system)
-        button.setImage(UIImage(systemName: "camera"), for: .normal)
+        button.setImage(UIImage.camera, for: .normal)
         button.tintColor = .black
         button.backgroundColor = .systemGray5
         button.layer.cornerRadius = .buttenCornerRadius

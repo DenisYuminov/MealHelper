@@ -22,22 +22,3 @@ final class CommonGrayTextView: UITextView {
         fatalError("init(coder:) has not been implemented")
     }
 }
-
-extension UITextView: UITextViewDelegate {
-    func addPlaceholder(_ placeholder: String) {
-        let placeholderLabel = UILabel()
-        placeholderLabel.text = placeholder
-        placeholderLabel.font = self.font
-        placeholderLabel.sizeToFit()
-        self.addSubview(placeholderLabel)
-        placeholderLabel.textColor = UIColor.lightGray
-        placeholderLabel.isHidden = !self.text.isEmpty
-        self.delegate = self
-    }
-    
-    public func textViewDidChange(_ textView: UITextView) {
-        if let placeholderLabel = self.subviews.first(where: { $0 is UILabel }) as? UILabel {
-            placeholderLabel.isHidden = !textView.text.isEmpty
-        }
-    }
-}

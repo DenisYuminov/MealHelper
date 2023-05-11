@@ -28,8 +28,8 @@ final class YourRecipesModuleBuilder: IYourRecipesModuleBuilder {
         let view = YourRecipesViewController(output: presenter)
         view.tabBarItem = .init(
             title: L10n.YourRecipes.Navigation.title,
-            image: .init(systemName: "plus"),
-            selectedImage: .init(systemName: "plus.fill")
+            image: UIImage.plus,
+            selectedImage: UIImage.plusFill
         )
         presenter.view = view
         return view

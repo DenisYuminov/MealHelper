@@ -17,7 +17,7 @@ final class MacronutrientsLabel: UILabel {
         layer.borderColor = UIColor.systemGray5.cgColor
         textAlignment = .center
         clipsToBounds = true
-        font = UIFont.systemFont(ofSize: CGFloat(12))
+        font = UIFont.systemFont(ofSize: 12)
     }
     
     required init?(coder: NSCoder) {

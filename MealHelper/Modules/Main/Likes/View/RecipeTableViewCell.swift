@@ -13,7 +13,6 @@ private extension CGFloat {
     static let outerStackViewSpacing: CGFloat = 10
 }
 
-
 final class RecipeTableViewCell: UITableViewCell {
     static let reuseIdentifier: String = "RecipeTableViewCell"
     
@@ -38,7 +37,7 @@ final class RecipeTableViewCell: UITableViewCell {
         let button = UIButton()
         button.clipsToBounds = true
         button.tintColor = .red
-        button.setImage(UIImage(systemName: "heart.fill"), for: .normal)
+        button.setImage(UIImage.heartFill, for: .normal)
         button.backgroundColor = .clear
         button.imageView?.contentMode = .scaleAspectFill
         button.imageView?.frame = CGRect(x: 0, y: 0, width: 40, height: 40)
@@ -60,17 +59,6 @@ final class RecipeTableViewCell: UITableViewCell {
     
     required init?(coder: NSCoder) {
         fatalError("init(coder:) has not been implemented")
-    }
-
-    override func awakeFromNib() {
-        super.awakeFromNib()
-        // Initialization code
-    }
-
-    override func setSelected(_ selected: Bool, animated: Bool) {
-        super.setSelected(selected, animated: animated)
-
-        // Configure the view for the selected state
     }
     
     private func setup() {

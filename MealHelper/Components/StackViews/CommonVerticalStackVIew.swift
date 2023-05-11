@@ -10,7 +10,6 @@ import UIKit
 final class CommonVerticalStackVIew: UIStackView {
     init(views: [UIView]) {
         super.init(frame: .zero)
-        backgroundColor = .white
         spacing = 20
         axis = .vertical
         addArrangedSubviews(views)

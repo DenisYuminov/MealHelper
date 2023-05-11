@@ -10,6 +10,7 @@ import Foundation
 protocol AuthPresenterOutput: AnyObject {
     func openLoginScreen()
     func openCreateAccountScreen()
+    func openMainScreen()
 }
 
 final class AuthPresenter {
@@ -42,5 +43,6 @@ extension AuthPresenter: AuthViewOutput {
     }
     
     func onContinueButtonClicked() {
+        output.openMainScreen()
     }
 }

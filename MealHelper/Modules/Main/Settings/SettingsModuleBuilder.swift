@@ -28,8 +28,8 @@ final class SettingsModuleBuilder: ISettingsModuleBuilder {
         let view = SettingsViewController(output: presenter)
         view.tabBarItem = .init(
             title: L10n.Settings.Navigation.title,
-            image: .init(systemName: "gearshape"),
-            selectedImage: .init(systemName: "gearshape.fill")
+            image: UIImage.gearshape,
+            selectedImage: UIImage.gearshapeFill
         )
         presenter.view = view
         return view

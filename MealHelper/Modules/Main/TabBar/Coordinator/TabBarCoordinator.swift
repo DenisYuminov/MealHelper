@@ -8,7 +8,7 @@
 import UIKit
 
 protocol IMainTabBarCoordinator: AnyObject {
-    func createFlow() -> UIViewController
+    func createFlow(isAuth: Bool) -> UIViewController
 }
 
 class MainTabBarCoordinator: IMainTabBarCoordinator {
@@ -19,7 +19,7 @@ class MainTabBarCoordinator: IMainTabBarCoordinator {
     private let settignsCoordinator: ISettingsCoordinator
     
     // Properties
-    weak var tabBarController: UITabBarController?
+    private weak var tabBarController: UITabBarController?
     
     init(
         mainCoordinator: IMainCoordinator,
@@ -33,15 +33,23 @@ class MainTabBarCoordinator: IMainTabBarCoordinator {
         self.settignsCoordinator = settignsCoordinator
     }
         
-    func createFlow() -> UIViewController {
+    func createFlow(isAuth: Bool) -> UIViewController {
         let tabBarController = UITabBarController()
         self.tabBarController = tabBarController
-        tabBarController.viewControllers = [
-            mainCoordinator.createFlow(),
-            likesCoordinator.createFlow(),
-            yourRecipesCoordinator.createFlow(),
-            settignsCoordinator.createFlow()
-        ]
+        if !isAuth {
+            tabBarController.viewControllers = [
+                mainCoordinator.createFlow(),
+                likesCoordinator.createFlow(),
+                settignsCoordinator.createFlow()
+            ]
+        } else {
+            tabBarController.viewControllers = [
+                mainCoordinator.createFlow(),
+                likesCoordinator.createFlow(),
+                yourRecipesCoordinator.createFlow(),
+                settignsCoordinator.createFlow()
+            ]
+        }
         return tabBarController
     }
 }

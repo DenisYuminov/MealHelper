@@ -20,36 +20,5 @@ struct RecipeModel: Decodable, Hashable {
     let protein: Int
     let ingredients: [String]
     let method: [String]
-}
-
-enum Category: Decodable, Hashable {
-    case new([RecipeModel])
-    case popular([RecipeModel])
-    case easy([RecipeModel])
-    
-    var items: [RecipeModel] {
-        switch self {
-        case .new(let items), .popular(let items), .easy(let items):
-            return items
-        }
-    }
-    var count: Int {
-        items.count
-    }
-    var type: String {
-        switch self {
-        default:
-            return "SelfConfiguringCell"
-        }
-    }
-    var title: String {
-        switch self {
-        case .new(_):
-            return "New"
-        case .popular(_):
-            return "Popular"
-        case .easy(_):
-            return "Easy"
-        }
-    }
+    let tags: [String]
 }

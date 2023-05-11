@@ -10,9 +10,9 @@ import UIKit
 final class CommonHorizontalStackView: UIStackView {
     init(views: [UIView]) {
         super.init(frame: .zero)
-        backgroundColor = .white
         spacing = 120
         addArrangedSubviews(views)
+        alignment = .center
     }
     
     required init(coder: NSCoder) {

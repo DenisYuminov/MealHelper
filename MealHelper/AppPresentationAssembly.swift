@@ -33,7 +33,7 @@ protocol IAppPresentationAssembly: AnyObject {
     var createRecipeModuleBuilder: ICreateRecipeModuleBuilder { get }
 }
 
-final class AppPresentationAssembly: IAppPresentationAssembly {    
+final class AppPresentationAssembly: IAppPresentationAssembly {
     // Dependencies
     private let servicesAssembly: IAppServicesAssembly
     
@@ -49,7 +49,8 @@ final class AppPresentationAssembly: IAppPresentationAssembly {
         AuthCoordinator(
             moduleBuilder: startModuleBuilder,
             loginCoordinator: loginCoordinator,
-            createAccountCoordinator: createAccountCoordinator
+            createAccountCoordinator: createAccountCoordinator,
+            mainTabBarCoordinator: mainTabBarCoordinator
         )
     }
     
@@ -66,7 +67,10 @@ final class AppPresentationAssembly: IAppPresentationAssembly {
     }
     
     var createAccountCoordinator: ICreateAccountCoordinator {
-        CreateAccountCoordinator(moduleBuilder: createAccountModuleBuilder)
+        CreateAccountCoordinator(
+            moduleBuilder: createAccountModuleBuilder,
+            mainTabBarCoordinator: mainTabBarCoordinator
+        )
     }
     
     var mainTabBarCoordinator: IMainTabBarCoordinator {

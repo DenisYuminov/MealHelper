@@ -19,13 +19,13 @@ class RecipeViewController: UIViewController {
         container.spacing = 30
         return container
     }()
-    private lazy var infoStackView: UIStackView = {
-        let container = UIStackView()
-        container.backgroundColor = .clear
-        container.axis = .vertical
-        container.spacing = 10
-        return container
-    }()
+    private lazy var infoStackView: UIStackView = CommonHorizontalStackView(
+        views: [
+            creatorLabel,
+            timeToCookLabel,
+            timeToPreparelabel
+        ]
+    )
     private lazy var infoAndImageStackView: UIStackView = {
         let container = UIStackView()
         container.backgroundColor = .clear
@@ -38,7 +38,6 @@ class RecipeViewController: UIViewController {
         container.backgroundColor = .clear
         container.spacing = 10
         container.distribution = .fillEqually
-
         return container
     }()
     private lazy var ingridientsStackView: UIStackView = {
@@ -76,21 +75,15 @@ class RecipeViewController: UIViewController {
         imageView.setContentHuggingPriority(.defaultHigh, for: .horizontal)
         return imageView
     }()
-    private lazy var creatorLabel: UILabel = {
-        let label = UILabel()
-        label.text = "by \(recipe.creator)"
-        return label
-    }()
-    private lazy var timeToCookLabel: UILabel = {
-        let label = UILabel()
-        label.text = "Cook: \(recipe.timeToPrepare)"
-        return label
-    }()
-    private lazy var timeToPreparelabel: UILabel = {
-        let label = UILabel()
-        label.text = "Prepare: \(recipe.timeToCook)"
-        return label
-    }()
+    private lazy var creatorLabel: UILabel = CommonCreateLabel(
+        title: "\(L10n.Recipe.AuthorLabel.title) \(recipe.creator)"
+    )
+    private lazy var timeToCookLabel: UILabel = CommonCreateLabel(
+        title: "\(L10n.Recipe.CookLabel.title): \(recipe.timeToPrepare)"
+    )
+    private lazy var timeToPreparelabel: UILabel = CommonCreateLabel(
+        title: "\(L10n.Recipe.PrepareLabel.title): \(recipe.timeToCook)"
+    )
     private lazy var descriptionView: UILabel = {
         let textview = UILabel()
         textview.text = recipe.description
@@ -101,28 +94,22 @@ class RecipeViewController: UIViewController {
     private lazy var likeLabel: UILabel = {
         let label = UILabel()
         label.textAlignment = .center
-        label.text = "Do you like this recipe?"
+        label.text = L10n.Recipe.LikeLabel.title
         return label
     }()
     private lazy var likeButton: UIButton = {
         let button = UIButton()
-        button.setImage(UIImage(systemName: "heart"), for: .normal)
+        button.setImage(UIImage.heart, for: .normal)
         button.imageView?.tintColor = .black
         button.frame = CGRect(x: 0, y: 0, width: 60, height: 60)
         return button
     }()
-    private lazy var kcalLabel = MacronutrientsLabel(title: "kcal \(recipe.kcal)")
-    private lazy var fatLabel = MacronutrientsLabel(title: "fat \(recipe.fat)")
-    private lazy var saturatesLabel = MacronutrientsLabel(title: "saturates \(recipe.saturates)")
-    private lazy var proteinLabel = MacronutrientsLabel(title: "protein \(recipe.protein)")
-    private lazy var ingridientTitleLabel: UILabel = {
-        let label = TitleLabel(title: "Ingridients")
-        return label
-    }()
-    private lazy var methodTitleLabel: UILabel = {
-        let label = TitleLabel(title: "Method")
-        return label
-    }()
+    private lazy var kcalLabel = MacronutrientsLabel(title: "\(L10n.Recipe.Kcal.title) \(recipe.kcal)")
+    private lazy var fatLabel = MacronutrientsLabel(title: "\(L10n.Recipe.Fat.title) \(recipe.fat)")
+    private lazy var saturatesLabel = MacronutrientsLabel(title: "\(L10n.Recipe.Saturates.title) \(recipe.saturates)")
+    private lazy var proteinLabel = MacronutrientsLabel(title: "\(L10n.Recipe.Protein.title) \(recipe.protein)")
+    private lazy var ingridientTitleLabel: UILabel = TitleLabel(title: L10n.Recipe.Ingridients.title)
+    private lazy var methodTitleLabel: UILabel = TitleLabel(title: L10n.Recipe.Method.title)
     private lazy var scrollView = UIScrollView(frame: .zero)
     // MARK: Init
     init(output: RecipeViewOutput, recipe: RecipeModel) {
@@ -147,12 +134,6 @@ class RecipeViewController: UIViewController {
     
     func setupUI() {
         scrollView.addSubview(recipeStackView)
-        infoStackView.addArrangedSubviews([
-            creatorLabel,
-            timeToCookLabel,
-            timeToPreparelabel
-        ])
-        
         infoAndImageStackView.addArrangedSubviews([
             imageView,
             infoStackView
@@ -182,19 +163,11 @@ class RecipeViewController: UIViewController {
             make.height.equalTo(200)
         }
         scrollView.snp.makeConstraints { make in
-            make.top.equalToSuperview().inset(100)
             make.leading.trailing.equalToSuperview()
-            make.bottom.equalToSuperview().inset(80)
         }
         recipeStackView.snp.makeConstraints { make in
             make.edges.equalToSuperview()
             make.width.equalToSuperview()
-        }
-        [kcalLabel, fatLabel, saturatesLabel, proteinLabel].forEach { label in
-            label.snp.makeConstraints { make in
-                make.width.equalTo(60)
-                make.height.equalTo(30)
-            }
         }
         for label in recipe.ingredients {
             let ingridientLabel = IngridentLabel(title: " \(label)")

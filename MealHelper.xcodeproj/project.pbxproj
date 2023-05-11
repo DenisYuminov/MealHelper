@@ -17,7 +17,6 @@
 		9226DBD129DECFF40078A630 /* AppCoordinator.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9226DBD029DECFF40078A630 /* AppCoordinator.swift */; };
 		9226DBD429DEDAAB0078A630 /* AuthModuleBuilder.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9226DBD329DEDAAB0078A630 /* AuthModuleBuilder.swift */; };
 		9226DBD729DEE1220078A630 /* LoginViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9226DBD629DEE1220078A630 /* LoginViewController.swift */; };
-		9242704B29EC0F1C004525F5 /* TabBarViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9242704A29EC0F1C004525F5 /* TabBarViewController.swift */; };
 		9242705229EC134A004525F5 /* MainPresenter.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9242705129EC134A004525F5 /* MainPresenter.swift */; };
 		9242705529EC13A6004525F5 /* MainService.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9242705429EC13A6004525F5 /* MainService.swift */; };
 		9242705729EC13D1004525F5 /* MainViewIO.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9242705629EC13D1004525F5 /* MainViewIO.swift */; };
@@ -43,9 +42,7 @@
 		9242708C29EC30EE004525F5 /* SettingsCoordinator.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9242708B29EC30EE004525F5 /* SettingsCoordinator.swift */; };
 		9242709B29EDD9DE004525F5 /* RecipeCollectionViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9242709A29EDD9DE004525F5 /* RecipeCollectionViewCell.swift */; };
 		9242709E29EDDA12004525F5 /* RecipeModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9242709D29EDDA12004525F5 /* RecipeModel.swift */; };
-		924270A029EDDCE7004525F5 /* Section.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9242709F29EDDCE7004525F5 /* Section.swift */; };
 		924270A429F11902004525F5 /* CollectionReusableView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 924270A329F11902004525F5 /* CollectionReusableView.swift */; };
-		924270A629F13048004525F5 /* testImage in Resources */ = {isa = PBXBuildFile; fileRef = 924270A529F13048004525F5 /* testImage */; };
 		924270AB29F13E6F004525F5 /* RecipeViewIO.swift in Sources */ = {isa = PBXBuildFile; fileRef = 924270AA29F13E6F004525F5 /* RecipeViewIO.swift */; };
 		924270AD29F13EA6004525F5 /* RecipeViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 924270AC29F13EA6004525F5 /* RecipeViewController.swift */; };
 		924270B129F13ECB004525F5 /* RecipePresenter.swift in Sources */ = {isa = PBXBuildFile; fileRef = 924270B029F13ECB004525F5 /* RecipePresenter.swift */; };
@@ -77,6 +74,10 @@
 		9286A80E29E6CA30003C7414 /* CreateAccountCoordinator.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9286A80D29E6CA30003C7414 /* CreateAccountCoordinator.swift */; };
 		9286A81129E6F499003C7414 /* LogoStackView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9286A81029E6F499003C7414 /* LogoStackView.swift */; };
 		9286A81429E6FABD003C7414 /* TitleLabel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9286A81329E6FABD003C7414 /* TitleLabel.swift */; };
+		92C91FD92A0CF9BA00BE141E /* TextFieldLabel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 92C91FD82A0CF9BA00BE141E /* TextFieldLabel.swift */; };
+		92D733A92A0D02310041E254 /* UIEdgeInsets+Extensions.swift in Sources */ = {isa = PBXBuildFile; fileRef = 92D733A82A0D02310041E254 /* UIEdgeInsets+Extensions.swift */; };
+		92D733AB2A0D028A0041E254 /* UITextView+Extensions.swift in Sources */ = {isa = PBXBuildFile; fileRef = 92D733AA2A0D028A0041E254 /* UITextView+Extensions.swift */; };
+		92D733AD2A0D03FD0041E254 /* UIImage+Extension.swift in Sources */ = {isa = PBXBuildFile; fileRef = 92D733AC2A0D03FD0041E254 /* UIImage+Extension.swift */; };
 		92F429082A02EFD8005C722A /* CreateRecipeModulebuilder.swift in Sources */ = {isa = PBXBuildFile; fileRef = 92F429072A02EFD8005C722A /* CreateRecipeModulebuilder.swift */; };
 		92F4290A2A02EFF3005C722A /* CreateRecipeViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 92F429092A02EFF3005C722A /* CreateRecipeViewController.swift */; };
 		92F4290C2A02F006005C722A /* CreateRecipeViewIO.swift in Sources */ = {isa = PBXBuildFile; fileRef = 92F4290B2A02F006005C722A /* CreateRecipeViewIO.swift */; };
@@ -89,7 +90,7 @@
 		92F4291C2A03929F005C722A /* CommonVerticalStackVIew.swift in Sources */ = {isa = PBXBuildFile; fileRef = 92F4291B2A03929F005C722A /* CommonVerticalStackVIew.swift */; };
 		92F4291F2A03A157005C722A /* CommonGrayTextView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 92F4291E2A03A157005C722A /* CommonGrayTextView.swift */; };
 		92F429232A04467A005C722A /* SettingsTableViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 92F429222A04467A005C722A /* SettingsTableViewCell.swift */; };
-		92F429252A05565B005C722A /* NSNotifcation+Extensions.swift in Sources */ = {isa = PBXBuildFile; fileRef = 92F429242A05565B005C722A /* NSNotifcation+Extensions.swift */; };
+		92F429252A05565B005C722A /* Notifcation+Extensions.swift in Sources */ = {isa = PBXBuildFile; fileRef = 92F429242A05565B005C722A /* Notifcation+Extensions.swift */; };
 		972A8C5829E7CAB50074B644 /* Images.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 972A8C5729E7CAB50074B644 /* Images.xcassets */; };
 		972A8C5A29E7CAC20074B644 /* Colors.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 972A8C5929E7CAC20074B644 /* Colors.xcassets */; };
 		972A8C6029E7D5900074B644 /* Strings+Generated.swift in Sources */ = {isa = PBXBuildFile; fileRef = 972A8C5E29E7D58F0074B644 /* Strings+Generated.swift */; };
@@ -120,7 +121,6 @@
 		9226DBD029DECFF40078A630 /* AppCoordinator.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppCoordinator.swift; sourceTree = "<group>"; };
 		9226DBD329DEDAAB0078A630 /* AuthModuleBuilder.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AuthModuleBuilder.swift; sourceTree = "<group>"; };
 		9226DBD629DEE1220078A630 /* LoginViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LoginViewController.swift; sourceTree = "<group>"; };
-		9242704A29EC0F1C004525F5 /* TabBarViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TabBarViewController.swift; sourceTree = "<group>"; };
 		9242705129EC134A004525F5 /* MainPresenter.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MainPresenter.swift; sourceTree = "<group>"; };
 		9242705429EC13A6004525F5 /* MainService.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MainService.swift; sourceTree = "<group>"; };
 		9242705629EC13D1004525F5 /* MainViewIO.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MainViewIO.swift; sourceTree = "<group>"; };
@@ -146,9 +146,7 @@
 		9242708B29EC30EE004525F5 /* SettingsCoordinator.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SettingsCoordinator.swift; sourceTree = "<group>"; };
 		9242709A29EDD9DE004525F5 /* RecipeCollectionViewCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = RecipeCollectionViewCell.swift; sourceTree = "<group>"; };
 		9242709D29EDDA12004525F5 /* RecipeModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = RecipeModel.swift; sourceTree = "<group>"; };
-		9242709F29EDDCE7004525F5 /* Section.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Section.swift; sourceTree = "<group>"; };
 		924270A329F11902004525F5 /* CollectionReusableView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CollectionReusableView.swift; sourceTree = "<group>"; };
-		924270A529F13048004525F5 /* testImage */ = {isa = PBXFileReference; lastKnownFileType = file; name = testImage; path = ../../../../../Downloads/testImage; sourceTree = "<group>"; };
 		924270AA29F13E6F004525F5 /* RecipeViewIO.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = RecipeViewIO.swift; sourceTree = "<group>"; };
 		924270AC29F13EA6004525F5 /* RecipeViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = RecipeViewController.swift; sourceTree = "<group>"; };
 		924270B029F13ECB004525F5 /* RecipePresenter.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = RecipePresenter.swift; sourceTree = "<group>"; };
@@ -180,6 +178,10 @@
 		9286A80D29E6CA30003C7414 /* CreateAccountCoordinator.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CreateAccountCoordinator.swift; sourceTree = "<group>"; };
 		9286A81029E6F499003C7414 /* LogoStackView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LogoStackView.swift; sourceTree = "<group>"; };
 		9286A81329E6FABD003C7414 /* TitleLabel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TitleLabel.swift; sourceTree = "<group>"; };
+		92C91FD82A0CF9BA00BE141E /* TextFieldLabel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TextFieldLabel.swift; sourceTree = "<group>"; };
+		92D733A82A0D02310041E254 /* UIEdgeInsets+Extensions.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "UIEdgeInsets+Extensions.swift"; sourceTree = "<group>"; };
+		92D733AA2A0D028A0041E254 /* UITextView+Extensions.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "UITextView+Extensions.swift"; sourceTree = "<group>"; };
+		92D733AC2A0D03FD0041E254 /* UIImage+Extension.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "UIImage+Extension.swift"; sourceTree = "<group>"; };
 		92F429072A02EFD8005C722A /* CreateRecipeModulebuilder.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CreateRecipeModulebuilder.swift; sourceTree = "<group>"; };
 		92F429092A02EFF3005C722A /* CreateRecipeViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CreateRecipeViewController.swift; sourceTree = "<group>"; };
 		92F4290B2A02F006005C722A /* CreateRecipeViewIO.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CreateRecipeViewIO.swift; sourceTree = "<group>"; };
@@ -192,7 +194,7 @@
 		92F4291B2A03929F005C722A /* CommonVerticalStackVIew.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CommonVerticalStackVIew.swift; sourceTree = "<group>"; };
 		92F4291E2A03A157005C722A /* CommonGrayTextView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CommonGrayTextView.swift; sourceTree = "<group>"; };
 		92F429222A04467A005C722A /* SettingsTableViewCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SettingsTableViewCell.swift; sourceTree = "<group>"; };
-		92F429242A05565B005C722A /* NSNotifcation+Extensions.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "NSNotifcation+Extensions.swift"; sourceTree = "<group>"; };
+		92F429242A05565B005C722A /* Notifcation+Extensions.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "Notifcation+Extensions.swift"; sourceTree = "<group>"; };
 		972A8C5729E7CAB50074B644 /* Images.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Images.xcassets; sourceTree = "<group>"; };
 		972A8C5929E7CAC20074B644 /* Colors.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Colors.xcassets; sourceTree = "<group>"; };
 		972A8C5E29E7D58F0074B644 /* Strings+Generated.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = "Strings+Generated.swift"; sourceTree = "<group>"; };
@@ -266,7 +268,6 @@
 		9226DBC829DECD640078A630 /* Modules */ = {
 			isa = PBXGroup;
 			children = (
-				924270A529F13048004525F5 /* testImage */,
 				972A8C8329E957150074B644 /* Entrance */,
 				9286A7F729E5A9F9003C7414 /* Main */,
 			);
@@ -316,7 +317,6 @@
 			isa = PBXGroup;
 			children = (
 				9242708D29EC3326004525F5 /* Coordinator */,
-				9242704A29EC0F1C004525F5 /* TabBarViewController.swift */,
 			);
 			path = TabBar;
 			sourceTree = "<group>";
@@ -490,7 +490,6 @@
 			isa = PBXGroup;
 			children = (
 				9242709D29EDDA12004525F5 /* RecipeModel.swift */,
-				9242709F29EDDCE7004525F5 /* Section.swift */,
 			);
 			path = Model;
 			sourceTree = "<group>";
@@ -730,6 +729,7 @@
 				924270BC29F186F1004525F5 /* IngridentLabel.swift */,
 				924270C629FA87B9004525F5 /* MethodLabel.swift */,
 				92F429162A030313005C722A /* CommonCreateLabel.swift */,
+				92C91FD82A0CF9BA00BE141E /* TextFieldLabel.swift */,
 			);
 			path = Labels;
 			sourceTree = "<group>";
@@ -831,7 +831,10 @@
 			isa = PBXGroup;
 			children = (
 				975375C629DF25DC004A0EC8 /* UIStackView+Extensions.swift */,
-				92F429242A05565B005C722A /* NSNotifcation+Extensions.swift */,
+				92F429242A05565B005C722A /* Notifcation+Extensions.swift */,
+				92D733A82A0D02310041E254 /* UIEdgeInsets+Extensions.swift */,
+				92D733AA2A0D028A0041E254 /* UITextView+Extensions.swift */,
+				92D733AC2A0D03FD0041E254 /* UIImage+Extension.swift */,
 			);
 			path = Extensions;
 			sourceTree = "<group>";
@@ -970,7 +973,6 @@
 			buildActionMask = 2147483647;
 			files = (
 				972A8C5A29E7CAC20074B644 /* Colors.xcassets in Resources */,
-				924270A629F13048004525F5 /* testImage in Resources */,
 				972A8C7B29E9447D0074B644 /* Localizable.strings in Resources */,
 				972A8C5829E7CAB50074B644 /* Images.xcassets in Resources */,
 				9226DBA029D4CCD50078A630 /* LaunchScreen.storyboard in Resources */,
@@ -1070,6 +1072,7 @@
 				9226DBD729DEE1220078A630 /* LoginViewController.swift in Sources */,
 				924270F829FB9B3A004525F5 /* RecipeTableViewCell.swift in Sources */,
 				924270C729FA87B9004525F5 /* MethodLabel.swift in Sources */,
+				92D733A92A0D02310041E254 /* UIEdgeInsets+Extensions.swift in Sources */,
 				9286A7EC29E48AA2003C7414 /* ForgotPasswordViewController.swift in Sources */,
 				975375C729DF25DC004A0EC8 /* UIStackView+Extensions.swift in Sources */,
 				9242705B29EC1D20004525F5 /* TabBarCoordinator.swift in Sources */,
@@ -1082,6 +1085,7 @@
 				9286A7EF29E55CC4003C7414 /* ForgotPasswordPresenter.swift in Sources */,
 				924270B729F13FA9004525F5 /* RecipeCoordinator.swift in Sources */,
 				92F429172A030313005C722A /* CommonCreateLabel.swift in Sources */,
+				92D733AD2A0D03FD0041E254 /* UIImage+Extension.swift in Sources */,
 				9242705729EC13D1004525F5 /* MainViewIO.swift in Sources */,
 				9226DB9529D4CCD50078A630 /* AuthViewController.swift in Sources */,
 				924270A429F11902004525F5 /* CollectionReusableView.swift in Sources */,
@@ -1099,10 +1103,11 @@
 				924270B929F14016004525F5 /* RecipeModuleBuilder.swift in Sources */,
 				9226DBCD29DECDB80078A630 /* AuthPresenter.swift in Sources */,
 				9226DBD429DEDAAB0078A630 /* AuthModuleBuilder.swift in Sources */,
-				92F429252A05565B005C722A /* NSNotifcation+Extensions.swift in Sources */,
+				92F429252A05565B005C722A /* Notifcation+Extensions.swift in Sources */,
 				92F4291F2A03A157005C722A /* CommonGrayTextView.swift in Sources */,
 				9286A7F429E55E18003C7414 /* ForgotPasswordService.swift in Sources */,
 				975375CF29DF339B004A0EC8 /* AuthService.swift in Sources */,
+				92D733AB2A0D028A0041E254 /* UITextView+Extensions.swift in Sources */,
 				92F429232A04467A005C722A /* SettingsTableViewCell.swift in Sources */,
 				975375CB29DF2E16004A0EC8 /* LoginCoordinator.swift in Sources */,
 				924270B129F13ECB004525F5 /* RecipePresenter.swift in Sources */,
@@ -1117,7 +1122,6 @@
 				9286A80929E6C83B003C7414 /* CreateAccountPresenter.swift in Sources */,
 				924270BB29F1733B004525F5 /* MacronutrientsLabel.swift in Sources */,
 				972A8C6029E7D5900074B644 /* Strings+Generated.swift in Sources */,
-				924270A029EDDCE7004525F5 /* Section.swift in Sources */,
 				9242706429EC24D8004525F5 /* LikesViewController.swift in Sources */,
 				9226DBCF29DECE370078A630 /* AuthViewIO.swift in Sources */,
 				92F429152A02FF7E005C722A /* CommonCreateTextField.swift in Sources */,
@@ -1131,7 +1135,6 @@
 				9286A7E229E4846C003C7414 /* LoginModuleBuilder.swift in Sources */,
 				9226DB9B29D4CCD50078A630 /* MealHelper.xcdatamodeld in Sources */,
 				9286A80E29E6CA30003C7414 /* CreateAccountCoordinator.swift in Sources */,
-				9242704B29EC0F1C004525F5 /* TabBarViewController.swift in Sources */,
 				92F4290A2A02EFF3005C722A /* CreateRecipeViewController.swift in Sources */,
 				9286A81429E6FABD003C7414 /* TitleLabel.swift in Sources */,
 				9242705529EC13A6004525F5 /* MainService.swift in Sources */,
@@ -1149,6 +1152,7 @@
 				9242706629EC2518004525F5 /* LikesViewIO.swift in Sources */,
 				9242708729EC3055004525F5 /* SettingsPresenter.swift in Sources */,
 				975375D829E01773004A0EC8 /* BlueCommonButton.swift in Sources */,
+				92C91FD92A0CF9BA00BE141E /* TextFieldLabel.swift in Sources */,
 				9242707329EC2845004525F5 /* YourRecipesViewIO.swift in Sources */,
 				9226DBD129DECFF40078A630 /* AppCoordinator.swift in Sources */,
 				9242706A29EC25B7004525F5 /* LikesService.swift in Sources */,

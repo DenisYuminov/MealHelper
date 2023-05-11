@@ -11,7 +11,6 @@ import SnapKit
 private extension CGFloat {
     static let buttonStackViewCornerRadius: CGFloat = 10
     static let buttonStackViewSpacing: CGFloat = 20
-    
 }
 
 final class AuthViewController: UIViewController {

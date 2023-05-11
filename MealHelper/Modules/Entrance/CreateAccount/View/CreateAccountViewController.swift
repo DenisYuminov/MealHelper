@@ -14,7 +14,6 @@ private extension CGFloat {
     static let createAccountStackViewCornerRadius: CGFloat = 10
     static let contentStackViewSpasing: CGFloat = 50
     static let titleLabelFont: CGFloat = 32
-    static let commonLabelFont: CGFloat = 17
 }
 
 final class CreateAccountViewController: UIViewController {
@@ -63,28 +62,13 @@ final class CreateAccountViewController: UIViewController {
         let textfield = GrayCommonTextField(title: L10n.CreateAccount.ConfirmPassword.placeholder)
         return textfield
     }()
-    private lazy var usernameLabel: UILabel = {
-        let label = LogoLabel(title: L10n.CreateAccount.Username.title, size: .commonLabelFont)
-        label.textAlignment = .left
-        return label
-    }()
-    private lazy var mailLabel: UILabel = {
-        let label = LogoLabel(title: L10n.CreateAccount.Email.title, size: .commonLabelFont)
-        label.textAlignment = .left
-        return label
-    }()
-    private lazy var passwordLabel: UILabel = {
-        let label = LogoLabel(title: L10n.CreateAccount.Password.title, size: .commonLabelFont)
-        label.textAlignment = .left
-        return label
-    }()
-    private lazy var passwordConfirmLabel: UILabel = {
-        let label = LogoLabel(title: L10n.CreateAccount.ConfirmPassword.title, size: .commonLabelFont)
-        label.textAlignment = .left
-        return label
-    }()
+    private lazy var usernameLabel: UILabel = TextFieldLabel(title: L10n.CreateAccount.Username.title)
+    private lazy var mailLabel: UILabel = TextFieldLabel(title: L10n.CreateAccount.Email.title)
+    private lazy var passwordLabel: UILabel = TextFieldLabel(title: L10n.CreateAccount.Password.title)
+    private lazy var passwordConfirmLabel: UILabel = TextFieldLabel(title: L10n.CreateAccount.ConfirmPassword.title)
     private lazy var createAccountButton: UIButton = {
         let button = BlueCommonButton(title: L10n.CreateAccount.Button.title)
+        button.addTarget(self, action: #selector(onCreateButtonClicked), for: .touchUpInside)
         return button
     }()
     
@@ -119,7 +103,6 @@ final class CreateAccountViewController: UIViewController {
     // MARK: Private
     
     private func setupUI() {
-        view.backgroundColor = .systemGray6
         view.addGestureRecognizer(UITapGestureRecognizer(target: self, action: #selector(hideKeyboard)))
 
         view.addSubview(scrollView)
@@ -185,21 +168,23 @@ final class CreateAccountViewController: UIViewController {
     }
     
     // MARK: Actions
+    @objc private func onCreateButtonClicked() {
+        output.onCreateButtonClicked()
+    }
     
     @objc private func hideKeyboard() {
         view.endEditing(true)
     }
-    @objc func keyboardWillShow(notification: NSNotification) {
-        if let keyboardSize = (
-            notification.userInfo?[UIResponder.keyboardFrameEndUserInfoKey] as? NSValue
-        )?.cgRectValue {
-            let contentInsets = UIEdgeInsets(top: 0, left: 0, bottom: keyboardSize.height, right: 0)
+    
+    @objc func keyboardWillShow(notification: Notification) {
+        if let keyboardFrame = notification.keyboardFrame {
+            let contentInsets = UIEdgeInsets(top: 0, left: 0, bottom: keyboardFrame.height, right: 0)
             scrollView.contentInset = contentInsets
             scrollView.scrollIndicatorInsets = contentInsets
         }
     }
 
-    @objc func keyboardWillHide(notification: NSNotification) {
+    @objc func keyboardWillHide(notification: Notification) {
         let contentInsets = UIEdgeInsets.zero
         scrollView.contentInset = contentInsets
         scrollView.scrollIndicatorInsets = contentInsets

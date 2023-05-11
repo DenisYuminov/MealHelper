@@ -28,8 +28,8 @@ final class LikesModuleBuilder: ILikesModuleBuilder {
         let view = LikesViewController(output: presenter)
         view.tabBarItem = .init(
             title: L10n.Likes.Navigation.title,
-            image: .init(systemName: "heart"),
-            selectedImage: .init(systemName: "heart.fill")
+            image: UIImage.heart,
+            selectedImage: UIImage.heartFill
         )
         presenter.view = view
         return view

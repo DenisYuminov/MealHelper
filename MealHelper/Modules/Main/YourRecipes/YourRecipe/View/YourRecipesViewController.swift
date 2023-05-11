@@ -19,9 +19,8 @@ class YourRecipesViewController: UIViewController {
         tableView.dataSource = self
         return tableView
     }()
-    private var addButton: UIBarButtonItem!
+    
     // MARK: Init
-
     init(output: YourRecipesViewOutput) {
         self.output = output
         super.init(nibName: nil, bundle: nil)
@@ -44,8 +43,8 @@ class YourRecipesViewController: UIViewController {
     // Private
     
     private func setup() {
-        addButton = UIBarButtonItem(
-            image: UIImage(systemName: "plus"),
+        let addButton = UIBarButtonItem(
+            image: UIImage.plus,
             landscapeImagePhone: nil,
             style: .plain,
             target: self,

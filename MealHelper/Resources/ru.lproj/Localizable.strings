@@ -1,7 +1,6 @@
 // Общее
 "application.name" = "Meal Helper";
 
-
 // Авторизация
 "continue.button.title" = "Войти без авторизации";
 "signIn.navigation.title" = "Авторизация";
@@ -80,3 +79,14 @@
 "settings.exit.title" = "Выйти";
 "settings.DeleteAccount.title" = "Удалить аккаунт";
 
+// рецепт
+"recipe.authorLabel.title" = "автор";
+"recipe.prepareLabel.title" = "Подготовка";
+"recipe.cookLabel.title" = "Приготовление";
+"recipe.likeLabel.title" = "Вам понравился этот рецепт?";
+"recipe.kcal.title" = "ккал";
+"recipe.fat.title" = "жиры";
+"recipe.saturates.title" = "кислоты";
+"recipe.protein.title" = "белок";
+"recipe.Ingridients.title" = "Ингридиенты";
+"recipe.Method.title" = "Метод";

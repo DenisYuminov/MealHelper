@@ -47,7 +47,7 @@ final class LoginCoordinator: ILoginCoordinator, LoginPresenterOutput {
         transitionHandler?.navigationController?.pushViewController(viewController, animated: true)
     }
     func openMainTabBar() {
-        let viewController = mainTabBarCoordinator.createFlow()
+        let viewController = mainTabBarCoordinator.createFlow(isAuth: true)
         transitionHandler?.navigationController?.setViewControllers([viewController], animated: true)
     }
 }

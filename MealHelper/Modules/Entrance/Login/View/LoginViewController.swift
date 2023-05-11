@@ -150,17 +150,15 @@ final class LoginViewController: UIViewController {
         view.endEditing(true)
     }
     
-    @objc func keyboardWillShow(notification: NSNotification) {
-        if let keyboardSize = (
-            notification.userInfo?[UIResponder.keyboardFrameEndUserInfoKey] as? NSValue
-        )?.cgRectValue {
-            let contentInsets = UIEdgeInsets(top: 0, left: 0, bottom: keyboardSize.height, right: 0)
+    @objc func keyboardWillShow(notification: Notification) {
+        if let keyboardFrame = notification.keyboardFrame {
+            let contentInsets = UIEdgeInsets(top: 0, left: 0, bottom: keyboardFrame.height, right: 0)
             scrollView.contentInset = contentInsets
             scrollView.scrollIndicatorInsets = contentInsets
         }
     }
 
-    @objc func keyboardWillHide(notification: NSNotification) {
+    @objc func keyboardWillHide(notification: Notification) {
         let contentInsets = UIEdgeInsets.zero
         scrollView.contentInset = contentInsets
         scrollView.scrollIndicatorInsets = contentInsets

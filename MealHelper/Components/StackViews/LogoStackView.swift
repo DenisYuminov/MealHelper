@@ -10,7 +10,6 @@ import UIKit
 final class LogoStackView: UIStackView {
     init() {
         super.init(frame: .zero)
-        backgroundColor = .white
         layer.cornerRadius = 15
         axis = .vertical
         layer.borderWidth = 1

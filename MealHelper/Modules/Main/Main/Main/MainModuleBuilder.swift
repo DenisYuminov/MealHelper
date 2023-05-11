@@ -28,8 +28,8 @@ final class MainModuleBuilder: IMainModuleBuilder {
         let view = MainViewController(output: presenter)
         view.tabBarItem = .init(
             title: L10n.Main.Navigation.title,
-            image: .init(systemName: "fork.knife.circle"),
-            selectedImage: .init(systemName: "fork.knife.circle.fill")
+            image: UIImage.forkKnifeCircle,
+            selectedImage: UIImage.forkKnifeCircleFill
         )
         presenter.view = view
         return view

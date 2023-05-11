@@ -14,13 +14,16 @@ protocol ICreateAccountCoordinator: AnyObject {
 final class CreateAccountCoordinator: ICreateAccountCoordinator, CreateAccountPresenterOutput {
     // Dependencies
     private let moduleBuilder: ICreateAccountModuleBuilder
+    private let mainTabBarCoordinator: IMainTabBarCoordinator
+    
     // Properties
     private weak var transitionHandler: UIViewController?
     
     // MARK: Init
     
-    init(moduleBuilder: ICreateAccountModuleBuilder) {
+    init(moduleBuilder: ICreateAccountModuleBuilder, mainTabBarCoordinator: IMainTabBarCoordinator) {
         self.moduleBuilder = moduleBuilder
+        self.mainTabBarCoordinator = mainTabBarCoordinator
     }
     
     // MARK: ICreateAccountCoordinator
@@ -34,5 +37,7 @@ final class CreateAccountCoordinator: ICreateAccountCoordinator, CreateAccountPr
     // MARK: CreateAccountPresenterOutput
 
     func onCreateButtonClicked() {
+        let viewController = mainTabBarCoordinator.createFlow(isAuth: true)
+        transitionHandler?.navigationController?.setViewControllers([viewController], animated: true)
     }
 }

@@ -7,10 +7,6 @@
 
 import UIKit
 
-private extension UIEdgeInsets {
-    static let padding = UIEdgeInsets(top: 0, left: 10, bottom: 0, right: 10)
-}
-
 final class CommonCreateTextField: UITextField {
     init(title: String?) {
         super.init(frame: .zero)

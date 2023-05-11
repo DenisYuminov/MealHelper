@@ -16,6 +16,7 @@ final class AuthCoordinator: IAuthCoordinator, AuthPresenterOutput {
     private let moduleBuilder: IAuthModuleBuilder
     private let loginCoordinator: ILoginCoordinator
     private let createAccountCoordinator: ICreateAccountCoordinator
+    private let mainTabBarCoordinator: IMainTabBarCoordinator
     
     // Properties
     private weak var transitionHandler: UINavigationController?
@@ -25,11 +26,13 @@ final class AuthCoordinator: IAuthCoordinator, AuthPresenterOutput {
     init(
         moduleBuilder: IAuthModuleBuilder,
         loginCoordinator: ILoginCoordinator,
-        createAccountCoordinator: ICreateAccountCoordinator
+        createAccountCoordinator: ICreateAccountCoordinator,
+        mainTabBarCoordinator: IMainTabBarCoordinator
     ) {
         self.moduleBuilder = moduleBuilder
         self.loginCoordinator = loginCoordinator
         self.createAccountCoordinator = createAccountCoordinator
+        self.mainTabBarCoordinator = mainTabBarCoordinator
     }
     
     // MARK: IAuthCoordinator
@@ -51,5 +54,10 @@ final class AuthCoordinator: IAuthCoordinator, AuthPresenterOutput {
     func openCreateAccountScreen() {
         let viewController = createAccountCoordinator.createFlow()
         transitionHandler?.pushViewController(viewController, animated: true)
+    }
+    
+    func openMainScreen() {
+        let viewController = mainTabBarCoordinator.createFlow(isAuth: false)
+        transitionHandler?.setViewControllers([viewController], animated: true)
     }
 }

@@ -1,15 +1,13 @@
 // Общее
 "application.name" = "Meal Helper";
 
-// стартовый экран
-"continue.button.title" = "Continue without profile";
 // Авторизация
+"continue.button.title" = "Continue without profile";
 "signIn.navigation.title" = "Sign in";
 "signIn.email.placeholder" = "Email";
 "signIn.password.placeholder" = "Password";
 "signIn.forgotPassword.button.title" = "Forgot password?";
 "signIn.button.title" = "Sign in";
-
 
 //Регистрация
 "createAccount.button.title" = "Create Account";
@@ -80,3 +78,15 @@
 "settings.PasswordCell.title" = "Change password";
 "settings.exit.title" = "Log Out";
 "settings.DeleteAccount.title" = "Delete account";
+
+// рецепт
+"recipe.authorLabel.title" = "by";
+"recipe.prepareLabel.title" = "Prepare";
+"recipe.cookLabel.title" = "Cook";
+"recipe.likeLabel.title" = "Do you like this recipe?";
+"recipe.kcal.title" = "kcal";
+"recipe.fat.title" = "fat";
+"recipe.saturates.title" = "saturates";
+"recipe.protein.title" = "protein";
+"recipe.Ingridients.title" = "Ingridients";
+"recipe.Method.title" = "Method";

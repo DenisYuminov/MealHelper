@@ -1,5 +1,5 @@
 //
-//  NSNotifcation+Extensions.swift
+//  Notifcation+Extensions.swift
 //  MealHelper
 //
 //  Created by macbook Denis on 5/5/23.
