@@ -23,9 +23,16 @@ final class LikesPresenter {
         self.output = output
         self.likesService = likesService
     }
+    
 }
 
+// MARK: - LikesViewOutput
 extension LikesPresenter: LikesViewOutput {
+    func viewDidLoad() {
+        let recipes = [RecipeModel]()
+        view?.getRecipes(recipes)
+    }
+    
     func didSelectRecipe(recipe: RecipeModel) {
         output?.didSelectRecipe(recipe)
     }

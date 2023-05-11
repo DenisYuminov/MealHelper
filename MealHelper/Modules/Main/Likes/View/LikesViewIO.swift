@@ -8,8 +8,10 @@
 import Foundation
 
 protocol LikesViewInput: AnyObject {
+    func getRecipes(_ recipes: [RecipeModel])
 }
 
 protocol LikesViewOutput: AnyObject {
     func didSelectRecipe(recipe: RecipeModel)
+    func viewDidLoad()
 }

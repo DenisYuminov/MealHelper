@@ -39,10 +39,10 @@ class LikesViewController: UIViewController {
         view.addSubview(tableView)
         title = L10n.Likes.Navigation.title
         setup()
+        output.viewDidLoad()
     }
     
     // Private
-    
     private func setup() {
         tableView.translatesAutoresizingMaskIntoConstraints = false
         tableView.snp.makeConstraints { make in
@@ -55,6 +55,10 @@ class LikesViewController: UIViewController {
 }
 
 extension LikesViewController: LikesViewInput {
+    func getRecipes(_ recipes: [RecipeModel]) {
+        self.recipes = recipes
+        tableView.reloadData()
+    }
 }
 
 extension LikesViewController: UITableViewDelegate, UITableViewDataSource {
