@@ -29,6 +29,10 @@
 
 //главная
 "main.navigation.title" = "Main";
+"main.seeAllButton.title" = "See All";
+"main.category.new" = "New";
+"main.category.popular" = "Popular";
+"main.category.easy" = "Easy";
 
 //лайки
 "likes.navigation.title" = "Likes";
@@ -43,10 +47,10 @@
 "createRecipe.title.textField.title" = "Title";
 "createRecipe.image.title" = "Choose the image";
 "createRecipe.title.textField.placeholder" = "Enter your title";
-"createRecipe.timeToPrepare.textField.title" = "Time to prepare";
-"createRecipe.timeToPrepare.textField.placeholder" = "Time to prepare";
-"createRecipe.TimeToCook.textField.title" = "Time to cook";
-"createRecipe.TimeToCook.textField.placeholder" = "Time to cook";
+"createRecipe.Prepare.textField.title" = "Time to prepare";
+"createRecipe.Prepare.textField.placeholder" = "Time to prepare";
+"createRecipe.Cook.textField.title" = "Time to cook";
+"createRecipe.Cook.textField.placeholder" = "Time to cook";
 "createRecipe.tagLabel.title" = "Choose tags";
 "createRecipe.tagButton.title" = "add tag";
 "createRecipe.tagTextField.placeholder" = "enter tag";
@@ -90,3 +94,5 @@
 "recipe.protein.title" = "protein";
 "recipe.Ingridients.title" = "Ingridients";
 "recipe.Method.title" = "Method";
+"recipe.Method.step" = "STEP";
+

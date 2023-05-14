@@ -29,6 +29,10 @@
 
 //главная
 "main.navigation.title" = "Главная";
+"main.seeAllButton.title" = "Все";
+"main.category.new" = "Новые";
+"main.category.popular" = "Популярные";
+"main.category.easy" = "Легко готовить";
 
 //лайки
 "likes.navigation.title" = "Нравится";
@@ -43,10 +47,10 @@
 "createRecipe.title.textField.title" = "Название";
 "createRecipe.title.textField.placeholder" = "Название";
 "createRecipe.image.title" = "Фото";
-"createRecipe.timeToPrepare.textField.title" = "Подготовка";
-"createRecipe.timeToPrepare.textField.placeholder" = "Время для подготовки";
-"createRecipe.TimeToCook.textField.title" = "Готовка";
-"createRecipe.TimeToCook.textField.placeholder" = "Время для готовки";
+"createRecipe.Prepare.textField.title" = "Подготовка";
+"createRecipe.Prepare.textField.placeholder" = "Время для подготовки";
+"createRecipe.Cook.textField.title" = "Готовка";
+"createRecipe.Cook.textField.placeholder" = "Время для готовки";
 "createRecipe.tagLabel.title" = "Выбирете тэги";
 "createRecipe.tagButton.title" = "Добавить";
 "createRecipe.tagTextField.placeholder" = "Тэг";
@@ -84,9 +88,10 @@
 "recipe.prepareLabel.title" = "Подготовка";
 "recipe.cookLabel.title" = "Приготовление";
 "recipe.likeLabel.title" = "Вам понравился этот рецепт?";
-"recipe.kcal.title" = "ккал";
+"recipe.kcal.title" = "калории";
 "recipe.fat.title" = "жиры";
 "recipe.saturates.title" = "кислоты";
-"recipe.protein.title" = "белок";
+"recipe.protein.title" = "белки";
 "recipe.Ingridients.title" = "Ингридиенты";
 "recipe.Method.title" = "Метод";
+"recipe.Method.step" = "Шаг";

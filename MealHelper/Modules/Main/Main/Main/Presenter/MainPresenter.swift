@@ -8,7 +8,8 @@
 import Foundation
 
 protocol MainPresenterOutput: AnyObject {
-    func onRecipeCellCkicked(recipe: RecipeModel)
+    func onRecipeCellClicked(recipe: RecipeModel)
+    func onSeeAllButtonClicked(category: Section)
 }
 
 final class MainPresenter {
@@ -17,20 +18,35 @@ final class MainPresenter {
     private let output: MainPresenterOutput?
     private let mainService: IMainService
     
+    // Properties
+    var dataSource: [[RecipeModel]] = []
+
     // MARK: Init
     
     init(output: MainPresenterOutput?, mainService: IMainService) {
         self.output = output
         self.mainService = mainService
     }
+    
+    // MARK: Private
+    private func getData() {
+        let viewModels = mainService.getData()
+        self.dataSource += viewModels
+        self.view?.reloadData()
+    }
 }
 
+// MARK: - MainViewOutput
 extension MainPresenter: MainViewOutput {
-    func getData() -> [Category] {
-        return [Category]()
+    func onSeeAllButtonClicked(category: Section) {
+        output?.onSeeAllButtonClicked(category: category)
+    }
+    
+    func viewDidLoad() {
+        getData()
     }
     
     func onRecipeCellCkicked(recipe: RecipeModel) {
-        output?.onRecipeCellCkicked(recipe: recipe)
+        output?.onRecipeCellClicked(recipe: recipe)
     }
 }

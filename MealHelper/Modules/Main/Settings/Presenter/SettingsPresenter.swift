@@ -25,6 +25,8 @@ final class SettingsPresenter {
     }
 }
 
+// MARK: SettingsViewOutput
+
 extension SettingsPresenter: SettingsViewOutput {
     func onLogOutButtonClicked() {
         output?.openAuthScreen()

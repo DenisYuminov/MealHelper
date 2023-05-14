@@ -17,7 +17,6 @@ final class RecipeTableViewCell: UITableViewCell {
     static let reuseIdentifier: String = "RecipeTableViewCell"
     
     // UI
-    
     private lazy var titleLabel: UILabel = {
         let label = UILabel()
         label.font = UIFont.preferredFont(forTextStyle: .headline)
@@ -26,13 +25,11 @@ final class RecipeTableViewCell: UITableViewCell {
     }()
     private lazy var subtitle: UILabel = {
         let label = UILabel()
-        label.font = UIFont.preferredFont(forTextStyle: .subheadline)
         label.textColor = .secondaryLabel
         label.numberOfLines = 3
         label.font = UIFont.systemFont(ofSize: .subtitleLabelFont)
         return label
     }()
-
     private lazy var likeButton: UIButton = {
         let button = UIButton()
         button.clipsToBounds = true
@@ -43,12 +40,23 @@ final class RecipeTableViewCell: UITableViewCell {
         button.imageView?.frame = CGRect(x: 0, y: 0, width: 40, height: 40)
         return button
     }()
-    private lazy var imageview: UIImageView = {
+    private lazy var myImageView: UIImageView = {
         let imageView = UIImageView()
         imageView.layer.cornerRadius = .imageviewCornerRadius
         imageView.clipsToBounds = true
         imageView.setContentHuggingPriority(.defaultHigh, for: .horizontal)
         return imageView
+    }()
+    private lazy var innerStackView: UIStackView = {
+        let stackView = UIStackView(arrangedSubviews: [titleLabel, subtitle])
+        stackView.axis = .vertical
+        return stackView
+    }()
+    private lazy var outerStackView: UIStackView = {
+        let stackView = UIStackView(arrangedSubviews: [myImageView, innerStackView, likeButton])
+        stackView.alignment = .center
+        stackView.spacing = .outerStackViewSpacing
+        return stackView
     }()
     // MARK: Init
     
@@ -61,16 +69,11 @@ final class RecipeTableViewCell: UITableViewCell {
         fatalError("init(coder:) has not been implemented")
     }
     
+    // MARK: Private
     private func setup() {
-        let innerStackView = UIStackView(arrangedSubviews: [titleLabel, subtitle])
-        innerStackView.axis = .vertical
-
-        let outerStackView = UIStackView(arrangedSubviews: [imageview, innerStackView, likeButton])
-        outerStackView.alignment = .center
-        outerStackView.spacing = .outerStackViewSpacing
         contentView.addSubview(outerStackView)
         
-        imageview.snp.makeConstraints { make in
+        myImageView.snp.makeConstraints { make in
             make.width.height.equalTo(80)
         }
         outerStackView.snp.makeConstraints { make in
@@ -80,10 +83,18 @@ final class RecipeTableViewCell: UITableViewCell {
             make.width.height.equalTo(40)
         }
     }
+}
+
+extension RecipeTableViewCell {
+    struct Model {
+        let titleLabel: String
+        let subTitle: String
+        let imageUrl: String
+    }
     
-    func configureCell(with recipe: RecipeModel) {
-        titleLabel.text = recipe.title
-        subtitle.text = recipe.description
-        imageview.image = UIImage(named: "testImage")
+    func configure(with model: RecipeModel) {
+        titleLabel.text = model.title
+        subtitle.text = model.description
+        myImageView.image = UIImage(named: model.image)
     }
 }

@@ -17,6 +17,9 @@ final class LikesPresenter {
     private let output: LikesPresenterOutput?
     private let likesService: ILikesService
     
+    // Properties
+    var dataSource: [RecipeModel] = []
+
     // MARK: Init
     
     init(output: LikesPresenterOutput?, likesService: ILikesService) {
@@ -24,13 +27,18 @@ final class LikesPresenter {
         self.likesService = likesService
     }
     
+    // Private
+    private func getData() {
+        let viewModels = likesService.likes()
+        self.dataSource += viewModels
+        self.view?.reloadData()
+    }
 }
 
 // MARK: - LikesViewOutput
 extension LikesPresenter: LikesViewOutput {
     func viewDidLoad() {
-        let recipes = [RecipeModel]()
-        view?.getRecipes(recipes)
+        getData()
     }
     
     func didSelectRecipe(recipe: RecipeModel) {

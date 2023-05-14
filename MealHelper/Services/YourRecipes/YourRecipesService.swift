@@ -8,10 +8,11 @@
 import Foundation
 
 protocol IYourRecipesService: AnyObject {
-    func yourRecipes()
+    func yourRecipes() -> [RecipeModel]
 }
 
 final class YourRecipesService: IYourRecipesService {
-    func yourRecipes() {
+    func yourRecipes() -> [RecipeModel] {
+        return [RecipeModel]()
     }
 }

@@ -13,34 +13,39 @@ private extension CGFloat {
     static let contentStackView: CGFloat = 50
 }
 
-class CreateRecipeViewController: UIViewController {
+final class CreateRecipeViewController: UIViewController {
     // Dependencies
     private let output: CreateRecipeViewOutput
     
     // UI
+    private lazy var ingridientHStackView = CommonHorizontalStackView(views: [ingredientsLabel, addIngredientsButton])
+    private lazy var ingridientStackView = CommonVerticalStackView(views: [ingridientHStackView, ingridientTextView])
+    private lazy var methodHStackView = CommonHorizontalStackView(views: [methodLabel, addMethodButton])
+    private lazy var methodStackView = CommonVerticalStackView(views: [methodHStackView, methodTextView])
+    private lazy var privateStackView = CommonHorizontalStackView(views: [privateLabel, toggleButton])
+    private lazy var tagHstackView = CommonHorizontalStackView(views: [tagLabel, tagButton])
+    private lazy var tagVstackView = CommonVerticalStackView(views: [tagHstackView, tagTextField])
+    private lazy var descriptionStackView = CommonVerticalStackView(views: [descriptionLabel, descriptionTextView])
+    private lazy var caloriesStackView = CommonHorizontalStackView(views: [caloriesLabel, caloriesTextField])
+    private lazy var proteinsStackView = CommonHorizontalStackView(views: [proteinsLabel, proteinsTextField])
+    private lazy var fatsStackView = CommonHorizontalStackView(views: [fatsLabel, fatsTextField])
+    private lazy var saturatesStackView = CommonHorizontalStackView(views: [saturatesLabel, saturatesTextField])
+    private lazy var titleStackView: UIStackView = InfoAndImageStackView(views: [titleLabel, titleTextField])
+    private lazy var imageStackView: UIStackView = {
+        let stackView = UIStackView(arrangedSubviews: [imageLabel, imageButton])
+        stackView.spacing = .imageStackViewSpacing
+        return stackView
+    }()
+    private lazy var timeToPrepareStackView = InfoAndImageStackView(views: [timetoprepareLabel, prepareTextfield])
+    private lazy var timeToCookStackView = InfoAndImageStackView(views: [timetoCookLabel, cookTextfield])
     private lazy var titleTextField = CommonCreateTextField(title: L10n.CreateRecipe.Title.TextField.placeholder)
     private lazy var titleLabel = CommonCreateLabel(title: L10n.CreateRecipe.Title.TextField.title)
-    private lazy var imageButton: UIButton = {
-        let button = UIButton()
-        button.setImage(UIImage.photoOnRectangle, for: .normal)
-        button.imageView?.backgroundColor = .systemGray5
-        button.layer.borderWidth = 2
-        button.layer.cornerRadius = 10
-        button.imageView?.tintColor = .white
-        button.clipsToBounds = true
-        button.imageView?.contentMode = .scaleAspectFill
-        button.backgroundColor = .systemGray5
-        return button
-    }()
+    private lazy var imageButton = CreateImageButton()
     private lazy var imageLabel = CommonCreateLabel(title: L10n.CreateRecipe.Image.title)
-    private lazy var timetoprepareLabel = CommonCreateLabel(title: L10n.CreateRecipe.TimeToPrepare.TextField.title)
-    private lazy var timetoprepareTextfield = CommonCreateTextField(
-        title: L10n.CreateRecipe.TimeToPrepare.TextField.placeholder
-    )
-    private lazy var timetoCookLabel = CommonCreateLabel(title: L10n.CreateRecipe.TimeToCook.TextField.title)
-    private lazy var timetoCookTextfield = CommonCreateTextField(
-        title: L10n.CreateRecipe.TimeToCook.TextField.placeholder
-    )
+    private lazy var timetoprepareLabel = CommonCreateLabel(title: L10n.CreateRecipe.Prepare.TextField.title)
+    private lazy var prepareTextfield = CommonCreateTextField(title: L10n.CreateRecipe.Prepare.TextField.placeholder)
+    private lazy var timetoCookLabel = CommonCreateLabel(title: L10n.CreateRecipe.Cook.TextField.title)
+    private lazy var cookTextfield = CommonCreateTextField(title: L10n.CreateRecipe.Cook.TextField.placeholder)
     private lazy var tagLabel = CommonCreateLabel(title: L10n.CreateRecipe.TagLabel.title)
     private lazy var tagButton = BlueCommonButton(title: L10n.CreateRecipe.TagButton.title)
     private lazy var tagTextField = GrayCommonTextField(title: L10n.CreateRecipe.TagTextField.placeholder)
@@ -66,6 +71,16 @@ class CreateRecipeViewController: UIViewController {
         toggle.isOn = true
         return toggle
     }()
+    private lazy var cancelButton: UIBarButtonItem = {
+        let button = UIBarButtonItem(
+            title: L10n.CreateRecipe.CancelButton.title,
+            style: .plain,
+            target: self,
+            action: #selector(cancelButtonTapped)
+        )
+        button.tintColor = .red
+        return button
+    }()
     private lazy var saveButton: UIButton = {
         let button = BlueCommonButton(title: L10n.CreateRecipe.SaveButton.title)
         button.addTarget(self, action: #selector(saveButtonTapped), for: .touchUpInside)
@@ -90,50 +105,26 @@ class CreateRecipeViewController: UIViewController {
         super.viewDidLoad()
         view.backgroundColor = .systemBackground
         view.addSubview(scrollView)
-        setupStackViews()
         setup()
+        addKeyboardObservers()
     }
     
-    // Private
-    private func setupStackViews() {
-        lazy var titleStackView: UIStackView = {
-            let stackView = UIStackView(arrangedSubviews: [titleLabel, titleTextField])
-            stackView.spacing = .horizontalStackViewSpacing
-            return stackView
-        }()
-        lazy var imageStackView: UIStackView = {
-            let stackView = UIStackView(arrangedSubviews: [imageLabel, imageButton])
-            stackView.spacing = .imageStackViewSpacing
-            return stackView
-        }()
-        lazy var timeToPrepareStackView: UIStackView = {
-            let stackView = UIStackView(arrangedSubviews: [timetoprepareLabel, timetoprepareTextfield])
-            stackView.spacing = .horizontalStackViewSpacing
-            return stackView
-        }()
-        lazy var timeToCookStackView: UIStackView = {
-            let stackView = UIStackView(arrangedSubviews: [timetoCookLabel, timetoCookTextfield])
-            stackView.spacing = .horizontalStackViewSpacing
-            return stackView
-        }()
-        lazy var tagHstackView = CommonHorizontalStackView(views: [tagLabel, tagButton])
-        lazy var tagVstackView = CommonVerticalStackVIew(views: [tagHstackView, tagTextField])
-        lazy var descriptionStackView = CommonVerticalStackVIew(views: [descriptionLabel, descriptionTextView])
-        lazy var caloriesStackView = CommonHorizontalStackView(views: [caloriesLabel, caloriesTextField])
-        lazy var proteinsStackView = CommonHorizontalStackView(views: [proteinsLabel, proteinsTextField])
-        lazy var fatsStackView = CommonHorizontalStackView(views: [fatsLabel, fatsTextField])
-        lazy var saturatesStackView = CommonHorizontalStackView(views: [saturatesLabel, saturatesTextField])
-        lazy var elementsStackView = CommonVerticalStackVIew(views: [
+    // MARK: Private
+    
+    private func setup() {
+        navigationItem.leftBarButtonItem = cancelButton
+        view.addGestureRecognizer(UITapGestureRecognizer(target: self, action: #selector(hideKeyboard)))
+        scrollView.snp.makeConstraints { make in
+            make.top.equalToSuperview().inset(100)
+            make.leading.trailing.equalToSuperview()
+            make.bottom.equalToSuperview().inset(50)
+        }
+        lazy var elementsStackView = CommonVerticalStackView(views: [
             caloriesStackView,
             proteinsStackView,
             fatsStackView,
             saturatesStackView
         ])
-        lazy var ingridientHStackView = CommonHorizontalStackView(views: [ingredientsLabel, addIngredientsButton])
-        lazy var ingridientStackView = CommonVerticalStackVIew(views: [ingridientHStackView, ingridientTextView])
-        lazy var methodHStackView = CommonHorizontalStackView(views: [methodLabel, addMethodButton])
-        lazy var methodStackView = CommonVerticalStackVIew(views: [methodHStackView, methodTextView])
-        lazy var privateStackView = CommonHorizontalStackView(views: [privateLabel, toggleButton])
         lazy var contentStackView: UIStackView = {
             let stackView = UIStackView()
             stackView.spacing = .contentStackView
@@ -168,23 +159,6 @@ class CreateRecipeViewController: UIViewController {
                 make.width.equalToSuperview().multipliedBy(0.9)
             }
         }
-    }
-    
-    private func setup() {
-        scrollView.snp.makeConstraints { make in
-            make.top.equalToSuperview().inset(100)
-            make.leading.trailing.equalToSuperview()
-            make.bottom.equalToSuperview().inset(50)
-        }
-        let cancelButton = UIBarButtonItem(
-            title: L10n.CreateRecipe.CancelButton.title,
-            style: .plain,
-            target: self,
-            action: #selector(cancelButtonTapped)
-        )
-        cancelButton.tintColor = .red
-        navigationItem.leftBarButtonItem = cancelButton
-        
         [caloriesTextField, proteinsTextField, fatsTextField, saturatesTextField].forEach { textfield in
             textfield.textAlignment = .right
         }
@@ -213,8 +187,41 @@ class CreateRecipeViewController: UIViewController {
         }
     }
     
+    private func addKeyboardObservers() {
+        NotificationCenter.default.addObserver(
+            self,
+            selector: #selector(keyboardWillShow),
+            name: UIResponder.keyboardWillShowNotification,
+            object: nil
+        )
+        NotificationCenter.default.addObserver(
+            self,
+            selector: #selector(keyboardWillHide),
+            name: UIResponder.keyboardWillHideNotification,
+            object: nil
+        )
+    }
+    
     // MARK: Actions
+    
+    @objc private func hideKeyboard() {
+        view.endEditing(true)
+    }
+    
+    @objc func keyboardWillShow(notification: Notification) {
+        if let keyboardFrame = notification.keyboardFrame {
+            let contentInsets = UIEdgeInsets(top: 0, left: 0, bottom: keyboardFrame.height, right: 0)
+            scrollView.contentInset = contentInsets
+            scrollView.scrollIndicatorInsets = contentInsets
+        }
+    }
 
+    @objc func keyboardWillHide(notification: Notification) {
+        let contentInsets = UIEdgeInsets.zero
+        scrollView.contentInset = contentInsets
+        scrollView.scrollIndicatorInsets = contentInsets
+    }
+    
     @objc private func cancelButtonTapped() {
         output.onCancelRecipeButtonClicked()
     }
@@ -223,6 +230,8 @@ class CreateRecipeViewController: UIViewController {
         output.onSaveRecipeButtonClicked()
     }
 }
+
+// MARK: CreateRecipeViewInput
 
 extension CreateRecipeViewController: CreateRecipeViewInput {
 }

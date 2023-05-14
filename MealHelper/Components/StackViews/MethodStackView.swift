@@ -1,17 +1,18 @@
 //
-//  CommonVerticalStackView.swift
+//  MethodStackView.swift
 //  MealHelper
 //
-//  Created by macbook Denis on 5/4/23.
+//  Created by macbook Denis on 5/14/23.
 //
 
 import UIKit
 
-final class CommonVerticalStackView: UIStackView {
+final class MethodStackView: UIStackView {
     init(views: [UIView]) {
         super.init(frame: .zero)
-        spacing = 20
+        backgroundColor = .clear
         axis = .vertical
+        spacing = 10
         addArrangedSubviews(views)
     }
     

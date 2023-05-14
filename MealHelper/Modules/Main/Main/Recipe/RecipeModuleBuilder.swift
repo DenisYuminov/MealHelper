@@ -24,8 +24,8 @@ final class RecipeModuleBuilder: IRecipeModuleBuilder {
     // MARK: IRecipeModuleBuilder
     
     func build(output: RecipePresenterOutput?, recipe: RecipeModel) -> UIViewController {
-        let presenter = RecipePresenter(output: output, recipeService: recipeService)
-        let view = RecipeViewController(output: presenter, recipe: recipe)
+        let presenter = RecipePresenter(output: output, recipeService: recipeService, recipe: recipe)
+        let view = RecipeViewController(output: presenter)
         presenter.view = view
         return view
     }

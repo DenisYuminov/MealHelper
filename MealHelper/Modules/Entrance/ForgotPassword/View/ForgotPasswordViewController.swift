@@ -18,6 +18,7 @@ private extension CGFloat {
 final class ForgotPasswordViewController: UIViewController {
     // Dependencies
     private let output: ForgotPasswordViewOutput
+    
     // UI
     private lazy var titleLabel: UILabel = {
         let label = TitleLabel(title: L10n.ForgotPassword.Navigation.title)
@@ -179,5 +180,6 @@ final class ForgotPasswordViewController: UIViewController {
     }
 }
 
+// MARK: ForgotPasswordViewInput
 extension ForgotPasswordViewController: ForgotPasswordViewInput {
 }

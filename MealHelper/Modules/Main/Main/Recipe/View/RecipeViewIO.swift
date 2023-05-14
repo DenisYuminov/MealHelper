@@ -11,4 +11,5 @@ protocol RecipeViewInput: AnyObject {
 }
 
 protocol RecipeViewOutput: AnyObject {
+    var recipe: RecipeModel { get }
 }

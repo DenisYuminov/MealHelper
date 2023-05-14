@@ -1,5 +1,5 @@
 //
-//  CollectionReusableView.swift
+//  CollectionHeaderView.swift
 //  MealHelper
 //
 //  Created by macbook Denis on 4/20/23.
@@ -7,22 +7,29 @@
 
 import UIKit
 
-private extension CGFloat {
-    static let collectionReusableViewFont: CGFloat = 25
+protocol CollectionHeaderViewDelegate: AnyObject {
+    func seeAllButtonClicked(inSection section: Int)
 }
 
-class CollectionReusableView: UICollectionReusableView {
-    private let headerLabel: UILabel = {
+private extension CGFloat {
+    static let collectionHeaderViewFont: CGFloat = 25
+}
+
+class CollectionHeaderView: UICollectionReusableView {
+    static let reuseIdentifier: String = "CollectionHeaderView"
+    weak var delegate: CollectionHeaderViewDelegate?
+
+    private lazy var headerLabel: UILabel = {
         let label = UILabel()
         label.text = "header"
         label.textAlignment = .left
-        label.font = UIFont.systemFont(ofSize: .collectionReusableViewFont, weight: .bold)
+        label.font = UIFont.systemFont(ofSize: .collectionHeaderViewFont, weight: .bold)
         label.textColor = .black
-        label.translatesAutoresizingMaskIntoConstraints = false
-            return label
-        }()
-    let button = UIButton(type: .system)
+        return label
+    }()
+    lazy var button = UIButton(type: .system)
     
+    // MARK: Init
     override init(frame: CGRect) {
         super.init(frame: frame)
         setupView()
@@ -36,7 +43,8 @@ class CollectionReusableView: UICollectionReusableView {
         setConstraint()
     }
     
-    func setupView() {
+    // Private
+    private func setupView() {
         backgroundColor = .white
         addSubview(headerLabel)
         
@@ -49,18 +57,17 @@ class CollectionReusableView: UICollectionReusableView {
     func configureCell(headerName: String) {
         headerLabel.text = headerName
         
-        button.setTitle("See All", for: .normal)
+        button.setTitle(L10n.Main.SeeAllButton.title, for: .normal)
         button.setTitleColor(.systemBlue, for: .normal)
         button.addTarget(self, action: #selector(seeAllButtonClicked), for: .touchUpInside)
     }
-    func setConstraint() {
+    private func setConstraint() {
         headerLabel.snp.makeConstraints { make in
             make.leading.equalToSuperview().offset(15)
         }
     }
     
     @objc private func seeAllButtonClicked(sender: UIButton) {
-        let section = sender.tag
-        print("See All button clicked in section \(section)")
+        delegate?.seeAllButtonClicked(inSection: sender.tag)
     }
 }

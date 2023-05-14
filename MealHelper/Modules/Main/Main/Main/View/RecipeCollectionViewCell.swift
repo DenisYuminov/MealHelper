@@ -14,19 +14,19 @@ private extension CGFloat {
     static let titleLabelFont: CGFloat = 32
     static let outerStackViewSpacing: CGFloat = 10
 }
-class RecipeCollectionViewCell: UICollectionViewCell {
+
+final class RecipeCollectionViewCell: UICollectionViewCell {
     // Dependencies
     static let reuseIdentifier: String = "RecipeCollectionViewCell"
 
     // UI
-    
-    private let titleLabel: UILabel = {
+    private lazy var titleLabel: UILabel = {
         let label = UILabel()
         label.font = UIFont.preferredFont(forTextStyle: .headline)
         label.textColor = .label
         return label
     }()
-    private let subtitle: UILabel = {
+    private lazy var subtitle: UILabel = {
         let label = UILabel()
         label.font = UIFont.preferredFont(forTextStyle: .subheadline)
         label.textColor = .secondaryLabel
@@ -34,34 +34,35 @@ class RecipeCollectionViewCell: UICollectionViewCell {
         label.font = UIFont.systemFont(ofSize: .subTitleFont)
         return label
     }()
-    private let ratingLabel: UILabel = {
+    private lazy var ratingLabel: UILabel = {
         let label = UILabel()
         label.text = "Rating"
-        label.font = UIFont.preferredFont(forTextStyle: .subheadline)
         label.textColor = .black
         label.font = UIFont.systemFont(ofSize: .ratingLabelFont)
         return label
     }()
-    private let imageView: UIImageView = {
+    private lazy var imageView: UIImageView = {
         let imageView = UIImageView()
         imageView.layer.cornerRadius = .imageViewCornerRadius
         imageView.clipsToBounds = true
         imageView.setContentHuggingPriority(.defaultHigh, for: .horizontal)
         return imageView
     }()
-
+    private lazy var innerStackView: UIStackView = {
+        let stackView = UIStackView(arrangedSubviews: [titleLabel, subtitle, ratingLabel])
+        stackView.axis = .vertical
+        return stackView
+    }()
+    private lazy var outerStackView: UIStackView = {
+        let stackView = UIStackView(arrangedSubviews: [imageView, innerStackView])
+        stackView.alignment = .center
+        stackView.spacing = .outerStackViewSpacing
+        return stackView
+    }()
     // MARK: Init
     
     override init(frame: CGRect) {
         super.init(frame: frame)
-
-        let innerStackView = UIStackView(arrangedSubviews: [titleLabel, subtitle, ratingLabel])
-        innerStackView.axis = .vertical
-
-        let outerStackView = UIStackView(arrangedSubviews: [imageView, innerStackView])
-        outerStackView.translatesAutoresizingMaskIntoConstraints = false
-        outerStackView.alignment = .center
-        outerStackView.spacing = .outerStackViewSpacing
         contentView.addSubview(outerStackView)
         
         imageView.snp.makeConstraints { make in
@@ -69,18 +70,25 @@ class RecipeCollectionViewCell: UICollectionViewCell {
         }
         outerStackView.snp.makeConstraints { make in
             make.leading.trailing.top.equalTo(contentView)
+            make.centerX.equalToSuperview()
         }
     }
     
     required init?(coder: NSCoder) {
         fatalError("init(coder:) has not been implemented")
     }
+}
 
-    //
+extension RecipeCollectionViewCell {
+    struct Model {
+        let titleLabel: String
+        let subTitle: String
+        let imageUrl: String
+    }
     
-    func configure(with recipe: RecipeModel) {
-        titleLabel.text = recipe.title
-        subtitle.text = recipe.description
-        imageView.image = UIImage(named: "testImage")
+    func configure(with model: RecipeModel) {
+        titleLabel.text = model.title
+        subtitle.text = model.description
+        imageView.image = UIImage(named: model.image)
     }
 }

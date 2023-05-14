@@ -1,17 +1,18 @@
 //
-//  CommonVerticalStackView.swift
+//  LikeStackView.swift
 //  MealHelper
 //
-//  Created by macbook Denis on 5/4/23.
+//  Created by macbook Denis on 5/14/23.
 //
 
 import UIKit
 
-final class CommonVerticalStackView: UIStackView {
+final class LikeStackView: UIStackView {
     init(views: [UIView]) {
         super.init(frame: .zero)
-        spacing = 20
-        axis = .vertical
+        backgroundColor = .clear
+        spacing = 5
+        distribution = .fillProportionally
         addArrangedSubviews(views)
     }
     

@@ -25,6 +25,8 @@ final class CreateRecipePresenter {
     }
 }
 
+// MARK: RecipeTableViewCell
+
 extension CreateRecipePresenter: CreateRecipeViewOutput {
     func onCancelRecipeButtonClicked() {
         output?.showYOurRecipe()

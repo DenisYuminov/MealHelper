@@ -1,16 +1,19 @@
 //
-//  LikesViewController.swift
+//  CategoryViewController.swift
 //  MealHelper
 //
-//  Created by macbook Denis on 4/16/23.
+//  Created by macbook Denis on 5/13/23.
 //
 
 import UIKit
 
-final class LikesViewController: UIViewController {
+final class CategoryViewController: UIViewController {
     // Dependencies
-    private let output: LikesViewOutput
+    private let output: CategoryViewOutput
     
+    // Properties
+    private var category: Section
+
     // UI
     private lazy var tableView: UITableView = {
         let tableView = UITableView()
@@ -21,29 +24,30 @@ final class LikesViewController: UIViewController {
     }()
     
     // MARK: Init
-
-    init(output: LikesViewOutput) {
+    
+    init(output: CategoryViewOutput, category: Section) {
         self.output = output
+        self.category = category
         super.init(nibName: nil, bundle: nil)
     }
     
     required init?(coder: NSCoder) {
         fatalError("init(coder:) has not been implemented")
     }
-    
     // MARK: Lifecycle
     
     override func viewDidLoad() {
         super.viewDidLoad()
-        view.backgroundColor = .systemBackground
-        view.addSubview(tableView)
-        title = L10n.Likes.Navigation.title
         setup()
         output.viewDidLoad()
     }
     
     // MARK: Private
+    
     private func setup() {
+        view.addSubview(tableView)
+        view.backgroundColor = .systemBackground
+        self.title = category.title
         tableView.snp.makeConstraints { make in
             make.top.equalToSuperview().inset(120)
             make.bottom.equalToSuperview()
@@ -53,17 +57,17 @@ final class LikesViewController: UIViewController {
     }
 }
 
-// MARK: LikesViewInput
+// MARK: UITableViewDelegate
 
-extension LikesViewController: LikesViewInput {
-    func reloadData() {
-        tableView.reloadData()
+extension CategoryViewController: UITableViewDelegate {
+    func tableView(_ tableView: UITableView, heightForRowAt indexPath: IndexPath) -> CGFloat {
+        return 80
     }
 }
 
-// MARK: UITableViewDelegate, UITableViewDataSource
+// MARK: UITableViewDataSource
 
-extension LikesViewController: UITableViewDelegate, UITableViewDataSource {
+extension CategoryViewController: UITableViewDataSource {
     func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
         output.dataSource.count
     }
@@ -75,18 +79,17 @@ extension LikesViewController: UITableViewDelegate, UITableViewDataSource {
         ) as? RecipeTableViewCell else {
             fatalError("Failed to dequeue RecipeTableViewCell.")
         }
+        
         let recipe = output.dataSource[indexPath.row]
         cell.configure(with: recipe)
         return cell
     }
-    
-    func tableView(_ tableView: UITableView, heightForRowAt indexPath: IndexPath) -> CGFloat {
-        return 90
-    }
-    
-    func tableView(_ tableView: UITableView, didSelectRowAt indexPath: IndexPath) {
-        let recipe = output.dataSource[indexPath.row]
-        output.didSelectRecipe(recipe: recipe)
-        tableView.deselectRow(at: indexPath, animated: true)
+}
+
+// MARK: CategoryViewInput
+
+extension CategoryViewController: CategoryViewInput {
+    func reloadData() {
+        tableView.reloadData()
     }
 }

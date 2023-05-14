@@ -18,13 +18,25 @@ final class YourRecipesPresenter {
     private let output: YourRecipesPresenterOutput?
     private let yourRecipesService: IYourRecipesService
     
+    // Properties
+    var dataSource: [RecipeModel] = []
+
     // MARK: Init
     
     init(output: YourRecipesPresenterOutput?, yourRecipesService: IYourRecipesService) {
         self.output = output
         self.yourRecipesService = yourRecipesService
     }
+    
+    // Private
+    private func getData() {
+        let viewModels = yourRecipesService.yourRecipes()
+        self.dataSource += viewModels
+        self.view?.reloadData()
+    }
 }
+
+// MARK: YourRecipesViewOutput
 
 extension YourRecipesPresenter: YourRecipesViewOutput {
     func didSelectRecipe(recipe: RecipeModel) {
@@ -33,5 +45,9 @@ extension YourRecipesPresenter: YourRecipesViewOutput {
     
     func onCreateRecipeButtonClicked() {
         output?.createRecipeButtonClicked()
+    }
+    
+    func viewDidLoad() {
+        getData()
     }
 }

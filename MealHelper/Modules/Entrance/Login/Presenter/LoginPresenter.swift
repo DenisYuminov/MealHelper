@@ -26,6 +26,8 @@ final class LoginPresenter {
     }
 }
 
+// MARK: LoginViewOutput
+
 extension LoginPresenter: LoginViewOutput {
     func onSignInButtonClicked() {
         output.openMainTabBar()

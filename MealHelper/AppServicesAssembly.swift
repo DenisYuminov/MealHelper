@@ -18,6 +18,7 @@ protocol IAppServicesAssembly: AnyObject {
     var settingsService: ISettingsService { get }
     var recipeService: IRecipeService { get }
     var createRecipeSerivce: ICreateRecipeService { get }
+    var categorySerivce: ICategoryService { get }
 }
 
 final class AppServicesAssembly: IAppServicesAssembly {
@@ -59,5 +60,9 @@ final class AppServicesAssembly: IAppServicesAssembly {
     
     var createRecipeSerivce: ICreateRecipeService {
         CreateRecipeService()
+    }
+    
+    var categorySerivce: ICategoryService {
+        CategoryService()
     }
 }

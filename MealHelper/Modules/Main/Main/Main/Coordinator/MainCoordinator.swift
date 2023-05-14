@@ -15,15 +15,21 @@ final class MainCoordinator: IMainCoordinator, MainPresenterOutput {
     // Dependencies
     private let moduleBuilder: IMainModuleBuilder
     private let recipeCoordinator: IRecipeCoordinator
+    private let categoryCoordinator: ICategoryCoordinator
     
     // Properties
     private weak var transitionHandler: UINavigationController?
     
     // MARK: Init
     
-    init(moduleBuilder: IMainModuleBuilder, reicpeCoordinator: IRecipeCoordinator) {
+    init(
+        moduleBuilder: IMainModuleBuilder,
+        reicpeCoordinator: IRecipeCoordinator,
+        categoryCoordinator: ICategoryCoordinator
+    ) {
         self.moduleBuilder = moduleBuilder
         self.recipeCoordinator = reicpeCoordinator
+        self.categoryCoordinator = categoryCoordinator
     }
     
     // MARK: IMainCoordinator
@@ -36,8 +42,13 @@ final class MainCoordinator: IMainCoordinator, MainPresenterOutput {
     }
     
     // MARK: MainPresenterOutput
-    func onRecipeCellCkicked(recipe: RecipeModel) {
+    func onRecipeCellClicked(recipe: RecipeModel) {
         let viewController = recipeCoordinator.createFlow(recipe: recipe)
+        transitionHandler?.pushViewController(viewController, animated: true)
+    }
+    
+    func onSeeAllButtonClicked(category: Section) {
+        let viewController = categoryCoordinator.createFlow(category: category)
         transitionHandler?.pushViewController(viewController, animated: true)
     }
 }

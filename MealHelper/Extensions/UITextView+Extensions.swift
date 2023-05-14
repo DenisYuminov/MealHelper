@@ -14,8 +14,10 @@ extension UITextView {
         placeholderLabel.font = self.font
         placeholderLabel.sizeToFit()
         self.addSubview(placeholderLabel)
+        let inset = UIEdgeInsets(top: 10, left: 10, bottom: 10, right: 10)
         placeholderLabel.textColor = UIColor.lightGray
         placeholderLabel.isHidden = !self.text.isEmpty
+        self.textContainerInset = inset
     }
     
     public func textViewDidChange(_ textView: UITextView) {

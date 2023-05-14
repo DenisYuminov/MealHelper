@@ -105,6 +105,7 @@ final class CreateAccountViewController: UIViewController {
     private func setupUI() {
         view.addGestureRecognizer(UITapGestureRecognizer(target: self, action: #selector(hideKeyboard)))
 
+        view.backgroundColor = .systemBackground
         view.addSubview(scrollView)
         scrollView.snp.makeConstraints { make in
             make.top.equalToSuperview()
@@ -168,6 +169,7 @@ final class CreateAccountViewController: UIViewController {
     }
     
     // MARK: Actions
+    
     @objc private func onCreateButtonClicked() {
         output.onCreateButtonClicked()
     }
@@ -190,6 +192,9 @@ final class CreateAccountViewController: UIViewController {
         scrollView.scrollIndicatorInsets = contentInsets
     }
 }
+
+
+// MARK: CreateAccountViewInput
 
 extension CreateAccountViewController: CreateAccountViewInput {
 }

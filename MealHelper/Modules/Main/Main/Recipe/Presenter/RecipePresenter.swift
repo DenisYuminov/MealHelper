@@ -15,14 +15,18 @@ final class RecipePresenter {
     weak var view: RecipeViewInput?
     private let output: RecipePresenterOutput?
     private let recipeService: IRecipeService
+    let recipe: RecipeModel
     
     // MARK: Init
     
-    init(output: RecipePresenterOutput?, recipeService: IRecipeService) {
+    init(output: RecipePresenterOutput?, recipeService: IRecipeService, recipe: RecipeModel) {
         self.output = output
         self.recipeService = recipeService
+        self.recipe = recipe
     }
 }
+
+// MARK: RecipeViewOutput
 
 extension RecipePresenter: RecipeViewOutput {
 }

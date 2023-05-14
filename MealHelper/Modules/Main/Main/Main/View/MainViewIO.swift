@@ -8,9 +8,12 @@
 import Foundation
 
 protocol MainViewInput: AnyObject {
+    func reloadData()
 }
 
 protocol MainViewOutput: AnyObject {
+    var dataSource: [[RecipeModel]] { get }
     func onRecipeCellCkicked(recipe: RecipeModel)
-    func getData() -> [Category]
+    func viewDidLoad()
+    func onSeeAllButtonClicked(category: Section)
 }

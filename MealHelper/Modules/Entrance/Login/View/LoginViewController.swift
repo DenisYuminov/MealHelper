@@ -138,6 +138,7 @@ final class LoginViewController: UIViewController {
     }
     
     // MARK: Actions
+    
     @objc private func onSignInButtonClicked() {
         output.onSignInButtonClicked()
     }
@@ -164,6 +165,8 @@ final class LoginViewController: UIViewController {
         scrollView.scrollIndicatorInsets = contentInsets
     }
 }
+
+// MARK: LoginViewInput
 
 extension LoginViewController: LoginViewInput {
 }

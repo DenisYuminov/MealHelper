@@ -1,17 +1,17 @@
 //
-//  CommonVerticalStackView.swift
+//  InfoAndImageStackView.swift
 //  MealHelper
 //
-//  Created by macbook Denis on 5/4/23.
+//  Created by macbook Denis on 5/14/23.
 //
 
 import UIKit
 
-final class CommonVerticalStackView: UIStackView {
+final class InfoAndImageStackView: UIStackView {
     init(views: [UIView]) {
         super.init(frame: .zero)
+        backgroundColor = .clear
         spacing = 20
-        axis = .vertical
         addArrangedSubviews(views)
     }
     

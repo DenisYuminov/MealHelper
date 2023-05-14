@@ -1,17 +1,19 @@
 //
-//  CommonVerticalStackView.swift
+//  MacronutrientsStackView.swift
 //  MealHelper
 //
-//  Created by macbook Denis on 5/4/23.
+//  Created by macbook Denis on 5/14/23.
 //
 
 import UIKit
 
-final class CommonVerticalStackView: UIStackView {
+final class MacronutrientsStackView: UIStackView {
     init(views: [UIView]) {
         super.init(frame: .zero)
-        spacing = 20
-        axis = .vertical
+        backgroundColor = .clear
+        spacing = 10
+        axis = .horizontal
+        distribution = .fillProportionally
         addArrangedSubviews(views)
     }
     

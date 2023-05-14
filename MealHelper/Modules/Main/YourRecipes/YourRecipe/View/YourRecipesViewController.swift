@@ -7,9 +7,8 @@
 
 import UIKit
 
-class YourRecipesViewController: UIViewController {
+final class YourRecipesViewController: UIViewController {
     private let output: YourRecipesViewOutput
-    private var recipes: [RecipeModel] = []
     
     // UI
     private lazy var tableView: UITableView = {
@@ -40,7 +39,7 @@ class YourRecipesViewController: UIViewController {
         setup()
     }
     
-    // Private
+    // MARK: Private
     
     private func setup() {
         let addButton = UIBarButtonItem(
@@ -68,12 +67,19 @@ class YourRecipesViewController: UIViewController {
     }
 }
 
+// MARK: YourRecipesViewInput
+
 extension YourRecipesViewController: YourRecipesViewInput {
+    func reloadData() {
+        tableView.reloadData()
+    }
 }
+
+// MARK: UITableViewDelegate, UITableViewDataSource
 
 extension YourRecipesViewController: UITableViewDelegate, UITableViewDataSource {
     func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
-        recipes.count
+        output.dataSource.count
     }
     
     func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
@@ -83,8 +89,8 @@ extension YourRecipesViewController: UITableViewDelegate, UITableViewDataSource 
         ) as? RecipeTableViewCell else {
             fatalError("Failed to dequeue RecipeTableViewCell.")
         }
-        let recipe = recipes[indexPath.row]
-        cell.configureCell(with: recipe)
+        let recipe = output.dataSource[indexPath.row]
+        cell.configure(with: recipe)
         return cell
     }
     
@@ -93,7 +99,7 @@ extension YourRecipesViewController: UITableViewDelegate, UITableViewDataSource 
     }
     
     func tableView(_ tableView: UITableView, didSelectRowAt indexPath: IndexPath) {
-        let recipe = recipes[indexPath.row]
+        let recipe = output.dataSource[indexPath.row]
         output.didSelectRecipe(recipe: recipe)
         tableView.deselectRow(at: indexPath, animated: true)
     }
@@ -103,10 +109,10 @@ extension YourRecipesViewController: UITableViewDelegate, UITableViewDataSource 
         trailingSwipeActionsConfigurationForRowAt indexPath: IndexPath
     ) -> UISwipeActionsConfiguration? {
         let deleteAction = UIContextualAction(
-            style: .destructive,
+            style: .normal,
             title: L10n.YourRecipes.TableViewAction.title
         ) { [weak self] (_, _, completion) in
-            self?.recipes.remove(at: indexPath.row)
+            self?.output.dataSource.remove(at: indexPath.row)
             tableView.deleteRows(at: [indexPath], with: .automatic)
             completion(true)
         }

@@ -20,6 +20,7 @@ protocol IAppPresentationAssembly: AnyObject {
     var settingsCoordinator: ISettingsCoordinator { get }
     var recipeCoordinator: IRecipeCoordinator { get }
     var createRecipeCoordinator: ICreateRecipeCoordinator { get }
+    var categoryCoordinator: ICategoryCoordinator { get }
     // ModuleBuilders
     var startModuleBuilder: IAuthModuleBuilder { get }
     var loginModuleBuilder: ILoginModuleBuilder { get }
@@ -31,6 +32,7 @@ protocol IAppPresentationAssembly: AnyObject {
     var settingsModuleBuilder: ISettingsModuleBuilder { get }
     var recipeModuleBuilder: IRecipeModuleBuilder { get }
     var createRecipeModuleBuilder: ICreateRecipeModuleBuilder { get }
+    var categoryModuleBuilder: ICategoryModuleBuilder { get }
 }
 
 final class AppPresentationAssembly: IAppPresentationAssembly {
@@ -87,7 +89,11 @@ final class AppPresentationAssembly: IAppPresentationAssembly {
     }
     
     var mainCoordinator: IMainCoordinator {
-        MainCoordinator(moduleBuilder: mainMuduleBuilder, reicpeCoordinator: recipeCoordinator)
+        MainCoordinator(
+            moduleBuilder: mainMuduleBuilder,
+            reicpeCoordinator: recipeCoordinator,
+            categoryCoordinator: categoryCoordinator
+        )
     }
     
     var likesCoordinator: ILikesCoordinator {
@@ -111,6 +117,10 @@ final class AppPresentationAssembly: IAppPresentationAssembly {
     
     var createRecipeCoordinator: ICreateRecipeCoordinator {
         CreateRecipeCoordinator(moduleBuilder: createRecipeModuleBuilder)
+    }
+    
+    var categoryCoordinator: ICategoryCoordinator {
+        CategoryCoordinator(moduleBuilder: categoryModuleBuilder, recipeCoordinator: recipeCoordinator)
     }
     // MARK: ModuleBuilders
     
@@ -152,5 +162,9 @@ final class AppPresentationAssembly: IAppPresentationAssembly {
     
     var createRecipeModuleBuilder: ICreateRecipeModuleBuilder {
         CreateRecipeModulebuilder(createRecipeService: servicesAssembly.createRecipeSerivce)
+    }
+    
+    var categoryModuleBuilder: ICategoryModuleBuilder {
+        CategoryModuleBuilder(categoryService: servicesAssembly.categorySerivce)
     }
 }
