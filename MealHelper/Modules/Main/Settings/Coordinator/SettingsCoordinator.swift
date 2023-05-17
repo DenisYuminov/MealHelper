@@ -14,18 +14,23 @@ protocol ISettingsCoordinator: AnyObject {
 final class SettingsCoordinator: ISettingsCoordinator, SettingsPresenterOutput {
     // Dependencies
     private let moduleBuilder: ISettingsModuleBuilder
-    private weak var authCoordinator: IAuthCoordinator?
+    private var authCoordinator: IAuthCoordinator?
+    private let authCoordinatorClosure: (() -> IAuthCoordinator)
     
     // Properties
     private weak var transitionHandler: UINavigationController?
     
     // MARK: Init
     
-    init(moduleBuilder: ISettingsModuleBuilder) {
+    init(
+        moduleBuilder: ISettingsModuleBuilder,
+        authCoordinatorClosure: @escaping (() -> IAuthCoordinator)
+    ) {
         self.moduleBuilder = moduleBuilder
+        self.authCoordinatorClosure = authCoordinatorClosure
     }
     
-    // MARK: IMainCoordinator
+    // MARK: ISettingsCoordinator
     
     func createFlow() -> UIViewController {
         let viewController = moduleBuilder.build(output: self)
@@ -34,7 +39,12 @@ final class SettingsCoordinator: ISettingsCoordinator, SettingsPresenterOutput {
         return navigationController
     }
     
+    // MARK: SettingsPresenterOutput
+    
     func openAuthScreen() {
+        if authCoordinator == nil {
+            authCoordinator = authCoordinatorClosure()
+        }
         guard let viewController = authCoordinator?.createFlow() else { return }
         transitionHandler?.setViewControllers([viewController], animated: true)
     }

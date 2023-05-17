@@ -28,7 +28,6 @@ final class RecipeCollectionViewCell: UICollectionViewCell {
     }()
     private lazy var subtitle: UILabel = {
         let label = UILabel()
-        label.font = UIFont.preferredFont(forTextStyle: .subheadline)
         label.textColor = .secondaryLabel
         label.numberOfLines = 3
         label.font = UIFont.systemFont(ofSize: .subTitleFont)

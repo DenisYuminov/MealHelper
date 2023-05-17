@@ -136,9 +136,9 @@ final class RecipeViewController: UIViewController {
     private func setupUI() {
         view.addSubview(scrollView)
         scrollView.snp.makeConstraints { make in
-            make.top.equalToSuperview().inset(100)
+            make.top.equalToSuperview()
             make.leading.trailing.equalToSuperview()
-            make.bottom.equalToSuperview().inset(50)
+            make.bottom.equalToSuperview()
         }
         recipeStackView.addArrangedSubviews([
             infoAndImageStackView,

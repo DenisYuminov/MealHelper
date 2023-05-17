@@ -38,7 +38,7 @@ final class MainViewController: UIViewController {
         let layout = UICollectionViewCompositionalLayout(
             sectionProvider: { [weak self] section, _ in
                 guard let self = self else { fatalError("Self is nil") }
-                return self.cellsSection(for: section)
+                return CategoryCollectionLayoutSection(for: section)
             },
             configuration: configuration
         )
@@ -93,37 +93,6 @@ final class MainViewController: UIViewController {
             make.bottom.equalToSuperview()
             make.leading.equalToSuperview()
             make.trailing.equalToSuperview()
-        }
-    }
-
-    private func cellsSection(for section: Int) -> NSCollectionLayoutSection {
-        switch Section(rawValue: section) {
-        case .popular, .new, .easy:
-            let item = NSCollectionLayoutItem(
-                layoutSize: NSCollectionLayoutSize(
-                    widthDimension: .fractionalWidth(1),
-                    heightDimension: .fractionalHeight(0.33)
-                )
-            )
-            let group = NSCollectionLayoutGroup.vertical(
-                layoutSize: NSCollectionLayoutSize(
-                    widthDimension: .fractionalWidth(0.93),
-                    heightDimension: .absolute(320)
-                ),
-                repeatingSubitem: item,
-                count: 3
-            )
-            let section = NSCollectionLayoutSection(group: group)
-            let header = NSCollectionLayoutBoundarySupplementaryItem(
-                layoutSize: .init(widthDimension: .fractionalWidth(1), heightDimension: .fractionalHeight(0.05)),
-                elementKind: UICollectionView.elementKindSectionHeader,
-                alignment: .top
-            )
-            section.orthogonalScrollingBehavior = .groupPaging
-            section.boundarySupplementaryItems = [header]
-            return section
-        default:
-            fatalError("This section: (\(section)) does not exist")
         }
     }
 }

@@ -44,6 +44,7 @@ final class SettingsViewController: UIViewController {
     private lazy var logOutButton: UIButton = {
         let button = SettingButton(title: L10n.Settings.Exit.title)
         button.setTitleColor(.systemBlue, for: .normal)
+        button.addTarget(self, action: #selector(logOutButtonClicked), for: .touchUpInside)
         return button
     }()
     private lazy var settingStackView: UIStackView = {
@@ -69,6 +70,7 @@ final class SettingsViewController: UIViewController {
         stackView.spacing = 70
         return stackView
     }()
+    
     // MARK: Init
 
     init(output: SettingsViewOutput) {
@@ -106,6 +108,12 @@ final class SettingsViewController: UIViewController {
         imageButton.snp.makeConstraints { make in
             make.width.height.equalTo(120)
         }
+    }
+    
+    // MARK: Actions
+    
+    @objc private func logOutButtonClicked() {
+        output.onLogOutButtonClicked()
     }
 }
 

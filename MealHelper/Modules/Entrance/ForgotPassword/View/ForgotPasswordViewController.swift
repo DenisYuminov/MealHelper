@@ -165,7 +165,7 @@ final class ForgotPasswordViewController: UIViewController {
         view.endEditing(true)
     }
     
-    @objc func keyboardWillShow(notification: Notification) {
+    @objc private func keyboardWillShow(notification: Notification) {
         if let keyboardFrame = notification.keyboardFrame {
             let contentInsets = UIEdgeInsets(top: 0, left: 0, bottom: keyboardFrame.height, right: 0)
             scrollView.contentInset = contentInsets
@@ -173,7 +173,7 @@ final class ForgotPasswordViewController: UIViewController {
         }
     }
 
-    @objc func keyboardWillHide(notification: Notification) {
+    @objc private func keyboardWillHide(notification: Notification) {
         let contentInsets = UIEdgeInsets.zero
         scrollView.contentInset = contentInsets
         scrollView.scrollIndicatorInsets = contentInsets

@@ -112,7 +112,10 @@ final class AppPresentationAssembly: IAppPresentationAssembly {
     }
     
     var settingsCoordinator: ISettingsCoordinator {
-        SettingsCoordinator(moduleBuilder: settingsModuleBuilder)
+        SettingsCoordinator(
+            moduleBuilder: settingsModuleBuilder,
+            authCoordinatorClosure: { self.authCoordinator }
+        )
     }
     
     var createRecipeCoordinator: ICreateRecipeCoordinator {
