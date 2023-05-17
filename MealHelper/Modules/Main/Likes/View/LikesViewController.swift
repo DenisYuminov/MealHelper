@@ -43,6 +43,7 @@ final class LikesViewController: UIViewController {
     }
     
     // MARK: Private
+    
     private func setup() {
         tableView.snp.makeConstraints { make in
             make.top.equalToSuperview().inset(120)

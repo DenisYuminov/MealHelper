@@ -30,6 +30,7 @@ class CollectionHeaderView: UICollectionReusableView {
     lazy var button = UIButton(type: .system)
     
     // MARK: Init
+    
     override init(frame: CGRect) {
         super.init(frame: frame)
         setupView()
@@ -43,16 +44,16 @@ class CollectionHeaderView: UICollectionReusableView {
         setConstraint()
     }
     
-    // Private
+    // MARK: Private
     private func setupView() {
         backgroundColor = .white
         addSubview(headerLabel)
         
         addSubview(button)
-            button.snp.makeConstraints { make in
-                make.trailing.equalToSuperview().offset(-16)
-                make.centerY.equalToSuperview()
-            }
+        button.snp.makeConstraints { make in
+            make.trailing.equalToSuperview().offset(-16)
+            make.centerY.equalToSuperview()
+        }
     }
     func configureCell(headerName: String) {
         headerLabel.text = headerName

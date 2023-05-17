@@ -17,15 +17,8 @@ final class CommonGrayTextView: UITextView {
         layer.cornerRadius = 10
         layer.borderColor = UIColor.systemGray5.cgColor
         font = UIFont.systemFont(ofSize: 16)
-
-        placeholderLabel.text = title
-        placeholderLabel.font = font
-        placeholderLabel.textColor = UIColor.lightGray
-        placeholderLabel.sizeToFit()
-        addSubview(placeholderLabel)
-
-        textContainerInset = UIEdgeInsets(top: 10, left: 20, bottom: 10, right: 20)
-
+        textContainerInset = UIEdgeInsets(top: 10, left: 10, bottom: 10, right: 10)
+        addPlaceholder(title)
         NotificationCenter.default.addObserver(
             self,
             selector: #selector(textDidChange(_:)),
@@ -38,12 +31,7 @@ final class CommonGrayTextView: UITextView {
         fatalError("init(coder:) has not been implemented")
     }
 
-    override func layoutSubviews() {
-        super.layoutSubviews()
-        placeholderLabel.frame.origin = CGPoint(x: textContainerInset.left + 5, y: textContainerInset.top)
-    }
-
     @objc private func textDidChange(_ notification: Notification) {
-        placeholderLabel.isHidden = !text.isEmpty
+        self.textViewDidChange(self)
     }
 }
