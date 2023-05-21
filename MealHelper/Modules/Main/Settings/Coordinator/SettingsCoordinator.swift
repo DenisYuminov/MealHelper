@@ -46,6 +46,6 @@ final class SettingsCoordinator: ISettingsCoordinator, SettingsPresenterOutput {
             authCoordinator = authCoordinatorClosure()
         }
         guard let viewController = authCoordinator?.createFlow() else { return }
-        transitionHandler?.setViewControllers([viewController], animated: true)
+        transitionHandler?.tabBarController?.setViewControllers([viewController], animated: true)
     }
 }
