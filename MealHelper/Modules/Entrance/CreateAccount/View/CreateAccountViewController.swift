@@ -7,6 +7,15 @@
 
 import UIKit
 
+private extension CGFloat {
+    static let buttonStackViewCornerRadius: CGFloat = 10
+    static let buttonStackViewSpacing: CGFloat = 25
+    static let createAccountStackViewSpacing: CGFloat = 10
+    static let createAccountStackViewCornerRadius: CGFloat = 10
+    static let contentStackViewSpasing: CGFloat = 50
+    static let titleLabelFont: CGFloat = 32
+}
+
 final class CreateAccountViewController: UIViewController {
     // Dependencies
     private let output: CreateAccountViewOutput
@@ -19,28 +28,22 @@ final class CreateAccountViewController: UIViewController {
     private lazy var createAccountStackView: UIStackView = {
         let container = UIStackView()
         container.backgroundColor = .clear
-        container.layer.cornerRadius = 8
+        container.layer.cornerRadius = .createAccountStackViewCornerRadius
         container.axis = .vertical
-        container.spacing = 8
+        container.spacing = .createAccountStackViewSpacing
         return container
     }()
     private lazy var buttonStackView: UIStackView = {
         let container = UIStackView()
         container.backgroundColor = .clear
-        container.layer.cornerRadius = 8
+        container.layer.cornerRadius = .buttonStackViewCornerRadius
         container.axis = .vertical
-        container.spacing = 25
-        return container
-    }()
-    private lazy var titleStackView: UIStackView = {
-        let container = UIStackView()
-        container.backgroundColor = .clear
-        container.axis = .vertical
+        container.spacing = .buttonStackViewSpacing
         return container
     }()
     private lazy var titleLabel: UILabel = {
         let label = TitleLabel(title: L10n.CreateAccount.Navigation.title)
-        label.font = UIFont.systemFont(ofSize: 32)
+        label.font = UIFont.systemFont(ofSize: .titleLabelFont)
         return label
     }()
     private lazy var usernameTextField: UITextField = {
@@ -59,30 +62,24 @@ final class CreateAccountViewController: UIViewController {
         let textfield = GrayCommonTextField(title: L10n.CreateAccount.ConfirmPassword.placeholder)
         return textfield
     }()
-    private lazy var usernameLabel: UILabel = {
-        let label = LogoLabel(title: L10n.CreateAccount.Username.title, size: 17)
-        label.textAlignment = .left
-        return label
-    }()
-    private lazy var mailLabel: UILabel = {
-        let label = LogoLabel(title: L10n.CreateAccount.Email.title, size: 17)
-        label.textAlignment = .left
-        return label
-    }()
-    private lazy var passwordLabel: UILabel = {
-        let label = LogoLabel(title: L10n.CreateAccount.Password.title, size: 17)
-        label.textAlignment = .left
-        return label
-    }()
-    private lazy var passwordConfirmLabel: UILabel = {
-        let label = LogoLabel(title: L10n.CreateAccount.ConfirmPassword.title, size: 17)
-        label.textAlignment = .left
-        return label
-    }()
+    private lazy var usernameLabel: UILabel = TextFieldLabel(title: L10n.CreateAccount.Username.title)
+    private lazy var mailLabel: UILabel = TextFieldLabel(title: L10n.CreateAccount.Email.title)
+    private lazy var passwordLabel: UILabel = TextFieldLabel(title: L10n.CreateAccount.Password.title)
+    private lazy var passwordConfirmLabel: UILabel = TextFieldLabel(title: L10n.CreateAccount.ConfirmPassword.title)
     private lazy var createAccountButton: UIButton = {
         let button = BlueCommonButton(title: L10n.CreateAccount.Button.title)
+        button.addTarget(self, action: #selector(onCreateButtonClicked), for: .touchUpInside)
         return button
     }()
+    
+    private lazy var contentStackView: UIStackView = {
+        let stackView = UIStackView(arrangedSubviews: [logoStackView, createAccountStackView])
+        stackView.spacing = .contentStackViewSpasing
+        stackView.axis = .vertical
+        stackView.alignment = .center
+        return stackView
+    }()
+    private lazy var scrollView = UIScrollView(frame: .zero)
     
     // MARK: Init
     
@@ -100,16 +97,29 @@ final class CreateAccountViewController: UIViewController {
     override func viewDidLoad() {
         super.viewDidLoad()
         setupUI()
+        addKeyboardObservers()
     }
     
     // MARK: Private
     
     private func setupUI() {
-        view.backgroundColor = .systemGray6
-        view.addSubview(logoStackView)
+        view.addGestureRecognizer(UITapGestureRecognizer(target: self, action: #selector(hideKeyboard)))
+
+        view.backgroundColor = .systemBackground
+        view.addSubview(scrollView)
+        scrollView.snp.makeConstraints { make in
+            make.top.equalToSuperview()
+            make.leading.trailing.equalToSuperview()
+            make.bottom.equalToSuperview()
+        }
+        scrollView.addSubview(contentStackView)
+        
+        contentStackView.snp.makeConstraints { make in
+            make.edges.equalToSuperview()
+            make.width.equalToSuperview()
+        }
+        
         logoStackView.snp.makeConstraints { make in
-            make.centerX.equalToSuperview()
-            make.centerY.equalToSuperview().offset(-240)
             make.width.equalToSuperview().multipliedBy(0.9)
         }
         buttonStackView.addArrangedSubviews([
@@ -126,12 +136,8 @@ final class CreateAccountViewController: UIViewController {
             passwordTextField,
             passwordConfirmLabel,
             buttonStackView
-        ])
-        view.addSubview(createAccountStackView)
-        
+        ])        
         createAccountStackView.snp.makeConstraints { make in
-            make.centerX.equalToSuperview()
-            make.centerY.equalToSuperview().offset(120)
             make.width.equalToSuperview().multipliedBy(0.75)
         }
         [
@@ -146,7 +152,48 @@ final class CreateAccountViewController: UIViewController {
             }
         }
     }
+    
+    private func addKeyboardObservers() {
+        NotificationCenter.default.addObserver(
+            self,
+            selector: #selector(keyboardWillShow),
+            name: UIResponder.keyboardWillShowNotification,
+            object: nil
+        )
+        NotificationCenter.default.addObserver(
+            self,
+            selector: #selector(keyboardWillHide),
+            name: UIResponder.keyboardWillHideNotification,
+            object: nil
+        )
+    }
+    
+    // MARK: Actions
+    
+    @objc private func onCreateButtonClicked() {
+        output.onCreateButtonClicked()
+    }
+    
+    @objc private func hideKeyboard() {
+        view.endEditing(true)
+    }
+    
+    @objc private func keyboardWillShow(notification: Notification) {
+        if let keyboardFrame = notification.keyboardFrame {
+            let contentInsets = UIEdgeInsets(top: 0, left: 0, bottom: keyboardFrame.height, right: 0)
+            scrollView.contentInset = contentInsets
+            scrollView.scrollIndicatorInsets = contentInsets
+        }
+    }
+
+    @objc private func keyboardWillHide(notification: Notification) {
+        let contentInsets = UIEdgeInsets.zero
+        scrollView.contentInset = contentInsets
+        scrollView.scrollIndicatorInsets = contentInsets
+    }
 }
+
+// MARK: CreateAccountViewInput
 
 extension CreateAccountViewController: CreateAccountViewInput {
 }

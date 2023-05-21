@@ -25,6 +25,8 @@ final class CreateAccountPresenter {
     }
 }
 
+// MARK: CreateAccountViewOutput
+
 extension CreateAccountPresenter: CreateAccountViewOutput {
     func onCreateButtonClicked() {
         output?.onCreateButtonClicked()

@@ -10,6 +10,7 @@ import UIKit
 private extension CGFloat {
     static let signInStackViewCornerRadius: CGFloat = 10
     static let signInStackViewSpacing: CGFloat = 20
+    static let contentStackViewSpasing: CGFloat = 50
 }
 
 final class LoginViewController: UIViewController {
@@ -27,8 +28,7 @@ final class LoginViewController: UIViewController {
             mailTextField,
             passwordTextField,
             forgotPasswordButton,
-            signInButton,
-            emptyView
+            signInButton
         ])
         container.backgroundColor = .clear
         container.layer.cornerRadius = .signInStackViewCornerRadius
@@ -58,19 +58,18 @@ final class LoginViewController: UIViewController {
     }()
     private lazy var signInButton: UIButton = {
         let button = BlueCommonButton(title: L10n.SignIn.Button.title)
+        button.addTarget(self, action: #selector(onSignInButtonClicked), for: .touchUpInside)
         return button
     }()
     private lazy var contentStackView: UIStackView = {
         let stackView = UIStackView(arrangedSubviews: [logoStackView, signInStackView])
-        stackView.spacing = 50
+        stackView.spacing = .contentStackViewSpasing
         stackView.axis = .vertical
         stackView.alignment = .center
         return stackView
     }()
     private lazy var scrollView = UIScrollView(frame: .zero)
-    // TODO: удалить emptyView после фикса скрола экрана при показанной клавиатуре
-    let emptyView = UIView()
-    
+
     // MARK: Init
     
     init(output: LoginViewOutput) {
@@ -96,15 +95,11 @@ final class LoginViewController: UIViewController {
         view.backgroundColor = .systemGray6
         view.addGestureRecognizer(UITapGestureRecognizer(target: self, action: #selector(hideKeyboard)))
         
-        emptyView.snp.makeConstraints { make in
-            make.height.equalTo(300)
-        }
-        
         view.addSubview(scrollView)
         scrollView.snp.makeConstraints { make in
             make.top.equalToSuperview().inset(100)
             make.leading.trailing.equalToSuperview()
-            make.bottom.equalToSuperview().inset(120)
+            make.bottom.equalToSuperview().inset(50)
         }
         
         scrollView.addSubview(contentStackView)
@@ -144,6 +139,10 @@ final class LoginViewController: UIViewController {
     
     // MARK: Actions
     
+    @objc private func onSignInButtonClicked() {
+        output.onSignInButtonClicked()
+    }
+    
     @objc private func onForgotButtonClicked() {
         output.onForgotButtonClicked()
     }
@@ -153,22 +152,21 @@ final class LoginViewController: UIViewController {
     }
     
     @objc private func keyboardWillShow(notification: Notification) {
-        guard let keyboardFrame = notification.keyboardFrame else { return }
-        let height = keyboardFrame.height
-        print(">>>> keyboard height", height)
+        if let keyboardFrame = notification.keyboardFrame {
+            let contentInsets = UIEdgeInsets(top: 0, left: 0, bottom: keyboardFrame.height, right: 0)
+            scrollView.contentInset = contentInsets
+            scrollView.scrollIndicatorInsets = contentInsets
+        }
     }
-    
+
     @objc private func keyboardWillHide(notification: Notification) {
+        let contentInsets = UIEdgeInsets.zero
+        scrollView.contentInset = contentInsets
+        scrollView.scrollIndicatorInsets = contentInsets
     }
 }
+
+// MARK: LoginViewInput
 
 extension LoginViewController: LoginViewInput {
-}
-
-// TODO: если этот экстеншн по итогу пригодится, то нужно его вынести в папку Extensions в отдельный файл
-extension Notification {
-    var keyboardFrame: CGRect? {
-        let value = userInfo?[UIResponder.keyboardFrameEndUserInfoKey] as? NSValue
-        return value?.cgRectValue
-    }
 }

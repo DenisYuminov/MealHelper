@@ -8,6 +8,11 @@
 import UIKit
 import SnapKit
 
+private extension CGFloat {
+    static let buttonStackViewCornerRadius: CGFloat = 10
+    static let buttonStackViewSpacing: CGFloat = 20
+}
+
 final class AuthViewController: UIViewController {
     // Dependencies
     private let output: AuthViewOutput
@@ -20,9 +25,9 @@ final class AuthViewController: UIViewController {
     private lazy var buttonStackView: UIStackView = {
         let container = UIStackView()
         container.backgroundColor = .clear
-        container.layer.cornerRadius = 10
+        container.layer.cornerRadius = .buttonStackViewCornerRadius
         container.axis = .vertical
-        container.spacing = 20
+        container.spacing = .buttonStackViewSpacing
         return container
     }()
     private lazy var loginButton: UIButton = {

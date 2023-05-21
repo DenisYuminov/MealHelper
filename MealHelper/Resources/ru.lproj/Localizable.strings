@@ -1,7 +1,6 @@
 // Общее
 "application.name" = "Meal Helper";
 
-
 // Авторизация
 "continue.button.title" = "Войти без авторизации";
 "signIn.navigation.title" = "Авторизация";
@@ -28,3 +27,72 @@
 "forgotPassword.info.title" = "Введите свою почту для отправки нового пароля";
 "forgotPassword.mail.placeholder" = "Почта";
 
+//главная
+"main.navigation.title" = "Главная";
+"main.seeAllButton.title" = "Все";
+"main.category.new" = "Новые";
+"main.category.popular" = "Популярные";
+"main.category.easy" = "Легко готовить";
+
+//лайки
+"likes.navigation.title" = "Нравится";
+
+// мои рецепты
+"yourRecipes.navigation.title" = "Мои рецепты";
+"yourRecipes.tableViewAction.title" = "Удалить";
+
+// создать рецепт
+"createRecipe.cancelButton.title" = "Отмена";
+"createRecipe.saveButton.title" = "Сохранить";
+"createRecipe.title.textField.title" = "Название";
+"createRecipe.title.textField.placeholder" = "Название";
+"createRecipe.image.title" = "Фото";
+"createRecipe.Prepare.textField.title" = "Подготовка";
+"createRecipe.Prepare.textField.placeholder" = "Время для подготовки";
+"createRecipe.Cook.textField.title" = "Готовка";
+"createRecipe.Cook.textField.placeholder" = "Время для готовки";
+"createRecipe.tagLabel.title" = "Выбирете тэги";
+"createRecipe.tagButton.title" = "Добавить";
+"createRecipe.tagTextField.placeholder" = "Тэг";
+"createRecipe.desription.Label.title" = "Описание";
+"createRecipe.desription.textField.placeholder" = "Описание";
+"createRecipe.caloriesLabel.title" = "Калории";
+"createRecipe.fatLabel.title" = "Жиры";
+"createRecipe.proteinLabel.title" = "Белки";
+"createRecipe.saturatesLabel.title" = "Кислоты";
+"createRecipe.caloriesTextField.placeholder" = "Введите количество калорий";
+"createRecipe.fatsTextField.placeholder" = "Введите количество жиров";
+"createRecipe.proteinsTextField.placeholder" = "Введите количество белков";
+"createRecipe.saturatesTextField.placeholder" = "Введите количество кислот";
+"createRecipe.addIngredientsButton.title" = "Добавить";
+"createRecipe.addMethodButton.title" = "Добавить";
+"createRecipe.ingridientTextView.placeholder" = "Введите ингредиенты";
+"createRecipe.ingredientsLabel.title" = "Ингредиенты";
+"createRecipe.methodLabel.title" = "Способ";
+"createRecipe.methodTextView.placeholder" = "Введите способ приготовления";
+"createRecipe.privateLabel.title" = "Публичный";
+
+// настойки
+"settings.navigation.title" = "Настройки";
+"settings.ThemeCell.title" = "Тема";
+"settings.languageCell.title" = "Язык";
+"settings.languageCell.subTitle" = "Русский";
+"settings.ThemeCell.title.light" = "Светлая";
+"settings.MailCell.title" = "Почта";
+"settings.PasswordCell.title" = "Изменить пароль";
+"settings.exit.title" = "Выйти";
+"settings.DeleteAccount.title" = "Удалить аккаунт";
+
+// рецепт
+"recipe.authorLabel.title" = "автор";
+"recipe.prepareLabel.title" = "Подготовка";
+"recipe.cookLabel.title" = "Приготовление";
+"recipe.likeLabel.title" = "Вам понравился этот рецепт?";
+"recipe.kcal.title" = "калории";
+"recipe.fat.title" = "жиры";
+"recipe.saturates.title" = "кислоты";
+"recipe.protein.title" = "белки";
+"recipe.Ingridients.title" = "Ингридиенты";
+"recipe.Method.title" = "Метод";
+"recipe.Method.step" = "Шаг";
+"recipe.rating.title" = "Рейтинг";

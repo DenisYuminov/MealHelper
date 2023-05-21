@@ -16,40 +16,47 @@ final class AuthCoordinator: IAuthCoordinator, AuthPresenterOutput {
     private let moduleBuilder: IAuthModuleBuilder
     private let loginCoordinator: ILoginCoordinator
     private let createAccountCoordinator: ICreateAccountCoordinator
+    private let mainTabBarCoordinator: IMainTabBarCoordinator
     
     // Properties
-    private weak var transitionHandler: UINavigationController?
+    private weak var transitionHandler: UIViewController?
     
     // MARK: Init
     
     init(
         moduleBuilder: IAuthModuleBuilder,
         loginCoordinator: ILoginCoordinator,
-        createAccountCoordinator: ICreateAccountCoordinator
+        createAccountCoordinator: ICreateAccountCoordinator,
+        mainTabBarCoordinator: IMainTabBarCoordinator
     ) {
         self.moduleBuilder = moduleBuilder
         self.loginCoordinator = loginCoordinator
         self.createAccountCoordinator = createAccountCoordinator
+        self.mainTabBarCoordinator = mainTabBarCoordinator
     }
     
     // MARK: IAuthCoordinator
     
     func createFlow() -> UIViewController {
         let viewController = moduleBuilder.build(output: self)
-        let navigationController = UINavigationController(rootViewController: viewController)
-        transitionHandler = navigationController
-        return navigationController
+        transitionHandler = viewController
+        return viewController
     }
     
     // MARK: AuthPresenterOutput
     
     func openLoginScreen() {
         let viewController = loginCoordinator.createFlow()
-        transitionHandler?.pushViewController(viewController, animated: true)
+        transitionHandler?.navigationController?.pushViewController(viewController, animated: true)
     }
     
     func openCreateAccountScreen() {
         let viewController = createAccountCoordinator.createFlow()
-        transitionHandler?.pushViewController(viewController, animated: true)
+        transitionHandler?.navigationController?.pushViewController(viewController, animated: true)
+    }
+    
+    func openMainScreen() {
+        let viewController = mainTabBarCoordinator.createFlow(isAuth: false)
+        transitionHandler?.navigationController?.setViewControllers([viewController], animated: true)
     }
 }

@@ -12,7 +12,8 @@ final class TitleLabel: UILabel {
         super.init(frame: .zero)
         text = title
         textAlignment = .center
-        font = UIFont.systemFont(ofSize: 32)
+        font = UIFont.systemFont(ofSize: 28)
+        numberOfLines = 2
     }
     
     required init?(coder: NSCoder) {

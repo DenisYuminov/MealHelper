@@ -25,6 +25,8 @@ final class ForgotPasswordPresenter {
     }
 }
 
+// MARK: ForgotPasswordViewOutput
+
 extension ForgotPasswordPresenter: ForgotPasswordViewOutput {
     func onConfirmButtonClicked() {
         output?.onConfirmButtonClicked()

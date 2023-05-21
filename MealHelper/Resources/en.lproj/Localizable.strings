@@ -1,15 +1,13 @@
 // Общее
 "application.name" = "Meal Helper";
 
-// стартовый экран
-"continue.button.title" = "Continue without profile";
 // Авторизация
+"continue.button.title" = "Continue without profile";
 "signIn.navigation.title" = "Sign in";
 "signIn.email.placeholder" = "Email";
 "signIn.password.placeholder" = "Password";
 "signIn.forgotPassword.button.title" = "Forgot password?";
 "signIn.button.title" = "Sign in";
-
 
 //Регистрация
 "createAccount.button.title" = "Create Account";
@@ -28,3 +26,74 @@
 "forgotPassword.navigation.title" = "Password recovery";
 "forgotPassword.info.title" = "Enter your e-mail to receive new password";
 "forgotPassword.mail.placeholder" = "Enter your mail";
+
+//главная
+"main.navigation.title" = "Main";
+"main.seeAllButton.title" = "See All";
+"main.category.new" = "New";
+"main.category.popular" = "Popular";
+"main.category.easy" = "Easy";
+
+//лайки
+"likes.navigation.title" = "Likes";
+
+// мои рецепты
+"yourRecipes.navigation.title" = "My recipes";
+"yourRecipes.tableViewAction.title" = "Delete";
+
+// создать рецепт
+"createRecipe.cancelButton.title" = "Cancel";
+"createRecipe.saveButton.title" = "Save";
+"createRecipe.title.textField.title" = "Title";
+"createRecipe.image.title" = "Choose the image";
+"createRecipe.title.textField.placeholder" = "Enter your title";
+"createRecipe.Prepare.textField.title" = "Time to prepare";
+"createRecipe.Prepare.textField.placeholder" = "Time to prepare";
+"createRecipe.Cook.textField.title" = "Time to cook";
+"createRecipe.Cook.textField.placeholder" = "Time to cook";
+"createRecipe.tagLabel.title" = "Choose tags";
+"createRecipe.tagButton.title" = "add tag";
+"createRecipe.tagTextField.placeholder" = "enter tag";
+"createRecipe.desription.Label.title" = "Description";
+"createRecipe.desription.textField.placeholder" = "Enter your description";
+"createRecipe.caloriesLabel.title" = "Calories";
+"createRecipe.fatLabel.title" = "Fats";
+"createRecipe.proteinLabel.title" = "Proteins";
+"createRecipe.saturatesLabel.title" = "Saturates";
+"createRecipe.caloriesTextField.placeholder" = "Enter amount of calories";
+"createRecipe.fatsTextField.placeholder" = "Enter amount of fats";
+"createRecipe.proteinsTextField.placeholder" = "Enter amount of proteins";
+"createRecipe.saturatesTextField.placeholder" = "Enter amount of saturated fats";
+"createRecipe.addIngredientsButton.title" = "Add ingridient";
+"createRecipe.addMethodButton.title" = "Add method";
+"createRecipe.ingridientTextView.placeholder" = "Enter your ingridients";
+"createRecipe.ingredientsLabel.title" = "Ingridients";
+"createRecipe.methodLabel.title" = "Method";
+"createRecipe.methodTextView.placeholder" = "ENther your method";
+"createRecipe.privateLabel.title" = "Public";
+
+// настойки
+"settings.navigation.title" = "Settings";
+"settings.ThemeCell.title" = "Theme";
+"settings.languageCell.title" = "Language";
+"settings.languageCell.subTitle" = "English";
+"settings.ThemeCell.title.light" = "Light";
+"settings.MailCell.title" = "Mail";
+"settings.PasswordCell.title" = "Change password";
+"settings.exit.title" = "Log Out";
+"settings.DeleteAccount.title" = "Delete account";
+
+// рецепт
+"recipe.authorLabel.title" = "by";
+"recipe.prepareLabel.title" = "Prepare";
+"recipe.cookLabel.title" = "Cook";
+"recipe.likeLabel.title" = "Do you like this recipe?";
+"recipe.kcal.title" = "kcal";
+"recipe.fat.title" = "fat";
+"recipe.saturates.title" = "saturates";
+"recipe.protein.title" = "protein";
+"recipe.Ingridients.title" = "Ingridients";
+"recipe.Method.title" = "Method";
+"recipe.Method.step" = "STEP";
+"recipe.rating.title" = "Rating";
+

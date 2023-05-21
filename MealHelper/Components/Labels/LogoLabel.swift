@@ -8,11 +8,11 @@
 import UIKit
 
 final class LogoLabel: UILabel {
-    init(title: String, size: Int) {
+    init(title: String, size: CGFloat) {
         super.init(frame: .zero)
         text = title
         textAlignment = .center
-        font = UIFont.systemFont(ofSize: CGFloat(size))
+        font = UIFont.systemFont(ofSize: size)
     }
     
     required init?(coder: NSCoder) {
