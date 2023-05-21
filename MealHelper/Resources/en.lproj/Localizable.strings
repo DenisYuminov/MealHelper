@@ -95,4 +95,5 @@
 "recipe.Ingridients.title" = "Ingridients";
 "recipe.Method.title" = "Method";
 "recipe.Method.step" = "STEP";
+"recipe.rating.title" = "Rating";
 

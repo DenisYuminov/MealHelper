@@ -119,13 +119,13 @@ final class CreateRecipeViewController: UIViewController {
             make.leading.trailing.equalToSuperview()
             make.bottom.equalToSuperview().inset(50)
         }
-        lazy var elementsStackView = CommonVerticalStackView(views: [
+        let elementsStackView = CommonVerticalStackView(views: [
             caloriesStackView,
             proteinsStackView,
             fatsStackView,
             saturatesStackView
         ])
-        lazy var contentStackView: UIStackView = {
+        let contentStackView: UIStackView = {
             let stackView = UIStackView()
             stackView.spacing = .contentStackView
             stackView.axis = .vertical

@@ -95,3 +95,4 @@
 "recipe.Ingridients.title" = "Ингридиенты";
 "recipe.Method.title" = "Метод";
 "recipe.Method.step" = "Шаг";
+"recipe.rating.title" = "Рейтинг";

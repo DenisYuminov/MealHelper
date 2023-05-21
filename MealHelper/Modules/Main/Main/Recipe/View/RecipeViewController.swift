@@ -182,8 +182,7 @@ final class RecipeViewController: UIViewController {
             likeButton
         ])
         imageView.snp.makeConstraints { make in
-            make.width.equalTo(190)
-            make.height.equalTo(190)
+            make.width.height.equalTo(190)
         }
         likeStackView.snp.makeConstraints { make in
             make.leading.trailing.equalTo(recipeStackView).inset(10)

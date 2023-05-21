@@ -15,13 +15,12 @@ private extension CGFloat {
     static let collectionHeaderViewFont: CGFloat = 25
 }
 
-class CollectionHeaderView: UICollectionReusableView {
+final class CollectionHeaderView: UICollectionReusableView {
     static let reuseIdentifier: String = "CollectionHeaderView"
     weak var delegate: CollectionHeaderViewDelegate?
 
     private lazy var headerLabel: UILabel = {
         let label = UILabel()
-        label.text = "header"
         label.textAlignment = .left
         label.font = UIFont.systemFont(ofSize: .collectionHeaderViewFont, weight: .bold)
         label.textColor = .black

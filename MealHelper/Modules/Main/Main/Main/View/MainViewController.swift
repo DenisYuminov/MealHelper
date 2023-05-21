@@ -55,9 +55,7 @@ final class MainViewController: UIViewController {
     
         collectionView.layer.cornerRadius = .collectionViewLayerCornerRadius
         collectionView.backgroundColor = .clear
-        collectionView.layer.cornerRadius = .collectionViewLayerCornerRadius
         collectionView.layer.masksToBounds = true
-        collectionView.layoutIfNeeded()
         
         collectionView.dataSource = self
         collectionView.delegate = self
@@ -89,10 +87,7 @@ final class MainViewController: UIViewController {
         view.backgroundColor = .systemBackground
         view.addSubview(collectionView)
         collectionView.snp.makeConstraints { make in
-            make.top.equalToSuperview()
-            make.bottom.equalToSuperview()
-            make.leading.equalToSuperview()
-            make.trailing.equalToSuperview()
+            make.edges.equalToSuperview()
         }
     }
 }

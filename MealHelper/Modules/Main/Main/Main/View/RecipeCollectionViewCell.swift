@@ -35,7 +35,7 @@ final class RecipeCollectionViewCell: UICollectionViewCell {
     }()
     private lazy var ratingLabel: UILabel = {
         let label = UILabel()
-        label.text = "Rating"
+        label.text = L10n.Recipe.Rating.title
         label.textColor = .black
         label.font = UIFont.systemFont(ofSize: .ratingLabelFont)
         return label
