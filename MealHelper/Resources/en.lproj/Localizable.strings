@@ -8,6 +8,7 @@
 "signIn.password.placeholder" = "Password";
 "signIn.forgotPassword.button.title" = "Forgot password?";
 "signIn.button.title" = "Sign in";
+"signIn.error.title" = "Wrong mail or password";
 
 //Регистрация
 "createAccount.button.title" = "Create Account";
@@ -20,6 +21,10 @@
 "createAccount.confirmPassword.placeholder" = "Confirm your password";
 "createAccount.confirmPassword.title" = "Confirm password";
 "createAccount.navigation.title" = "Create Account";
+"createAccount.error.userAlreadyexists" = "This user already exists";
+"createAccount.error.title" = "Error";
+"createAccount.error.wrongPassword" = "your password don't match";
+
 
 //Забыл пароль
 "forgotPassword.button.title" = "Confirm";
@@ -82,6 +87,8 @@
 "settings.PasswordCell.title" = "Change password";
 "settings.exit.title" = "Log Out";
 "settings.DeleteAccount.title" = "Delete account";
+"settings.CreareAcciunt.title" = "Create account";
+"settings.sigIn.title" = "Sign In";
 
 // рецепт
 "recipe.authorLabel.title" = "by";

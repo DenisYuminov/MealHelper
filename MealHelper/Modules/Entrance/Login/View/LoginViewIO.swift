@@ -8,9 +8,10 @@
 import Foundation
 
 protocol LoginViewInput: AnyObject {
+    func showError(error: LoginError)
 }
 
 protocol LoginViewOutput: AnyObject {
-    func onSignInButtonClicked()
+    func onSignInButtonClicked(params: LoginParameters)
     func onForgotButtonClicked()
 }

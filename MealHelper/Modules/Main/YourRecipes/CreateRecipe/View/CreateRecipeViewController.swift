@@ -161,6 +161,7 @@ final class CreateRecipeViewController: UIViewController {
         }
         [caloriesTextField, proteinsTextField, fatsTextField, saturatesTextField].forEach { textfield in
             textfield.textAlignment = .right
+            textfield.keyboardType = .numberPad
         }
         imageButton.snp.makeConstraints { make in
             make.width.height.equalTo(150)

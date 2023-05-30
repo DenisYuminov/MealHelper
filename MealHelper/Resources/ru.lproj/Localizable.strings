@@ -8,6 +8,8 @@
 "signIn.password.placeholder" = "Пароль";
 "signIn.forgotPassword.button.title" = "Забыли пароль?";
 "signIn.button.title" = "Войти";
+"signIn.error.title" = "Неверный логин или пароль";
+
 
 //Создать аккаунт
 "createAccount.button.title" = "Создать аккаунт";
@@ -20,6 +22,10 @@
 "createAccount.confirmPassword.placeholder" = "Подтвердите пароль";
 "createAccount.confirmPassword.title" = "Введите пароль еще раз";
 "createAccount.navigation.title" = "Регистрация";
+"createAccount.error.userAlreadyexists" = "Такой пользователь уже существует";
+"createAccount.error.title" = "Ошибка";
+"createAccount.error.wrongPassword" = "Ваши пароли не совпадают";
+
 
 //Забыл пароль
 "forgotPassword.button.title" = "Подтвердить";
@@ -82,6 +88,9 @@
 "settings.PasswordCell.title" = "Изменить пароль";
 "settings.exit.title" = "Выйти";
 "settings.DeleteAccount.title" = "Удалить аккаунт";
+"settings.CreareAcciunt.title" = "Создать аккаунт";
+"settings.sigIn.title" = "Войти";
+
 
 // рецепт
 "recipe.authorLabel.title" = "автор";

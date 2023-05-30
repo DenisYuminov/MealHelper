@@ -41,6 +41,12 @@ final class SettingsViewController: UIViewController {
         button.setTitleColor(.systemRed, for: .normal)
         return button
     }()
+    private lazy var loginButton: UIButton = {
+        let button = SettingButton(title: L10n.Settings.SigIn.title)
+        button.setTitleColor(.systemBlue, for: .normal)
+        button.addTarget(self, action: #selector(signInButtonClicked), for: .touchUpInside)
+        return button
+    }()
     private lazy var logOutButton: UIButton = {
         let button = SettingButton(title: L10n.Settings.Exit.title)
         button.setTitleColor(.systemBlue, for: .normal)
@@ -64,7 +70,7 @@ final class SettingsViewController: UIViewController {
         return stackView
     }()
     private lazy var usernameAndImageStackView = CommonVerticalStackView(views: [imageButton, username])
-    private lazy var exitStackView = CommonVerticalStackView(views: [logOutButton, deleteAccountButton])
+    private lazy var exitStackView = CommonVerticalStackView(views: [])
     private lazy var contentStackView: UIStackView = {
         let stackView = CommonVerticalStackView(views: [ settingStackView, exitStackView])
         stackView.spacing = 70
@@ -91,12 +97,21 @@ final class SettingsViewController: UIViewController {
     }
     
     // MARK: Private
-    
     private func setup() {
         view.addSubview(usernameAndImageStackView)
         usernameAndImageStackView.snp.makeConstraints { make in
             make.top.equalTo(view.safeAreaLayoutGuide.snp.topMargin)
             make.centerX.equalToSuperview()
+        }
+        if !KeychainService.shared.isAuth() {
+            exitStackView.addArrangedSubviews([
+                loginButton
+            ])
+        } else {
+            exitStackView.addArrangedSubviews([
+                logOutButton,
+                deleteAccountButton
+            ])
         }
         view.addSubview(contentStackView)
         contentStackView.snp.makeConstraints { make in
@@ -114,6 +129,10 @@ final class SettingsViewController: UIViewController {
     
     @objc private func logOutButtonClicked() {
         output.onLogOutButtonClicked()
+    }
+    
+    @objc private func signInButtonClicked() {
+        output.onsignInButtonClicked()
     }
 }
 

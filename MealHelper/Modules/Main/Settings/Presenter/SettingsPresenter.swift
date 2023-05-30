@@ -29,6 +29,11 @@ final class SettingsPresenter {
 
 extension SettingsPresenter: SettingsViewOutput {
     func onLogOutButtonClicked() {
+        KeychainService.shared.deleteToken()
+        output?.openAuthScreen()
+    }
+    
+    func onsignInButtonClicked() {
         output?.openAuthScreen()
     }
 }

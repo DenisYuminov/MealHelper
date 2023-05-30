@@ -82,6 +82,10 @@
 		9286A80E29E6CA30003C7414 /* CreateAccountCoordinator.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9286A80D29E6CA30003C7414 /* CreateAccountCoordinator.swift */; };
 		9286A81129E6F499003C7414 /* LogoStackView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9286A81029E6F499003C7414 /* LogoStackView.swift */; };
 		9286A81429E6FABD003C7414 /* TitleLabel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9286A81329E6FABD003C7414 /* TitleLabel.swift */; };
+		929D52C52A235F8F00716A65 /* NetworkService.swift in Sources */ = {isa = PBXBuildFile; fileRef = 929D52C42A235F8F00716A65 /* NetworkService.swift */; };
+		929D52C82A24EE7700716A65 /* RegisterRequest.swift in Sources */ = {isa = PBXBuildFile; fileRef = 929D52C72A24EE7700716A65 /* RegisterRequest.swift */; };
+		929D52CA2A26664300716A65 /* LoginRequest.swift in Sources */ = {isa = PBXBuildFile; fileRef = 929D52C92A26664300716A65 /* LoginRequest.swift */; };
+		929D52CD2A26874900716A65 /* KeychainService.swift in Sources */ = {isa = PBXBuildFile; fileRef = 929D52CC2A26874900716A65 /* KeychainService.swift */; };
 		92C91FD92A0CF9BA00BE141E /* TextFieldLabel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 92C91FD82A0CF9BA00BE141E /* TextFieldLabel.swift */; };
 		92D733A92A0D02310041E254 /* UIEdgeInsets+Extensions.swift in Sources */ = {isa = PBXBuildFile; fileRef = 92D733A82A0D02310041E254 /* UIEdgeInsets+Extensions.swift */; };
 		92D733AB2A0D028A0041E254 /* UITextView+Extensions.swift in Sources */ = {isa = PBXBuildFile; fileRef = 92D733AA2A0D028A0041E254 /* UITextView+Extensions.swift */; };
@@ -199,6 +203,10 @@
 		9286A80D29E6CA30003C7414 /* CreateAccountCoordinator.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CreateAccountCoordinator.swift; sourceTree = "<group>"; };
 		9286A81029E6F499003C7414 /* LogoStackView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LogoStackView.swift; sourceTree = "<group>"; };
 		9286A81329E6FABD003C7414 /* TitleLabel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TitleLabel.swift; sourceTree = "<group>"; };
+		929D52C42A235F8F00716A65 /* NetworkService.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = NetworkService.swift; sourceTree = "<group>"; };
+		929D52C72A24EE7700716A65 /* RegisterRequest.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = RegisterRequest.swift; sourceTree = "<group>"; };
+		929D52C92A26664300716A65 /* LoginRequest.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LoginRequest.swift; sourceTree = "<group>"; };
+		929D52CC2A26874900716A65 /* KeychainService.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = KeychainService.swift; sourceTree = "<group>"; };
 		92C91FD82A0CF9BA00BE141E /* TextFieldLabel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TextFieldLabel.swift; sourceTree = "<group>"; };
 		92D733A82A0D02310041E254 /* UIEdgeInsets+Extensions.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "UIEdgeInsets+Extensions.swift"; sourceTree = "<group>"; };
 		92D733AA2A0D028A0041E254 /* UITextView+Extensions.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "UITextView+Extensions.swift"; sourceTree = "<group>"; };
@@ -251,6 +259,15 @@
 /* End PBXFrameworksBuildPhase section */
 
 /* Begin PBXGroup section */
+		9203C7142A22604E005831E6 /* NetworkService */ = {
+			isa = PBXGroup;
+			children = (
+				929D52C62A24EE5400716A65 /* AuthRequest */,
+				929D52C42A235F8F00716A65 /* NetworkService.swift */,
+			);
+			path = NetworkService;
+			sourceTree = "<group>";
+		};
 		9226DB8429D4CCD50078A630 = {
 			isa = PBXGroup;
 			children = (
@@ -396,12 +413,12 @@
 			path = Presenter;
 			sourceTree = "<group>";
 		};
-		9242705329EC1392004525F5 /* Main */ = {
+		9242705329EC1392004525F5 /* MainService */ = {
 			isa = PBXGroup;
 			children = (
 				9242705429EC13A6004525F5 /* MainService.swift */,
 			);
-			path = Main;
+			path = MainService;
 			sourceTree = "<group>";
 		};
 		9242705C29EC2425004525F5 /* View */ = {
@@ -430,12 +447,12 @@
 			path = Coordinator;
 			sourceTree = "<group>";
 		};
-		9242706729EC25A4004525F5 /* Likes */ = {
+		9242706729EC25A4004525F5 /* LikesService */ = {
 			isa = PBXGroup;
 			children = (
 				9242706929EC25B7004525F5 /* LikesService.swift */,
 			);
-			path = Likes;
+			path = LikesService;
 			sourceTree = "<group>";
 		};
 		9242706D29EC27FC004525F5 /* View */ = {
@@ -463,12 +480,12 @@
 			path = Coordinator;
 			sourceTree = "<group>";
 		};
-		9242707829EC2914004525F5 /* YourRecipes */ = {
+		9242707829EC2914004525F5 /* YourRecipesService */ = {
 			isa = PBXGroup;
 			children = (
 				9242707929EC2926004525F5 /* YourRecipesService.swift */,
 			);
-			path = YourRecipes;
+			path = YourRecipesService;
 			sourceTree = "<group>";
 		};
 		9242707D29EC2F5D004525F5 /* View */ = {
@@ -496,12 +513,12 @@
 			path = Coordinator;
 			sourceTree = "<group>";
 		};
-		9242708829EC30B2004525F5 /* Settings */ = {
+		9242708829EC30B2004525F5 /* SettingsService */ = {
 			isa = PBXGroup;
 			children = (
 				9242708929EC30BF004525F5 /* SettingsService.swift */,
 			);
-			path = Settings;
+			path = SettingsService;
 			sourceTree = "<group>";
 		};
 		9242708D29EC3326004525F5 /* Coordinator */ = {
@@ -567,12 +584,12 @@
 			path = Coordinator;
 			sourceTree = "<group>";
 		};
-		924270B229F13F32004525F5 /* Recipe */ = {
+		924270B229F13F32004525F5 /* RecipeService */ = {
 			isa = PBXGroup;
 			children = (
 				924270B429F13F46004525F5 /* RecipeService.swift */,
 			);
-			path = Recipe;
+			path = RecipeService;
 			sourceTree = "<group>";
 		};
 		92576B6D2A15453600EF0525 /* NSCollectionLayoutSection */ = {
@@ -619,12 +636,12 @@
 			path = Coordinator;
 			sourceTree = "<group>";
 		};
-		92753D452A1027DA001F8059 /* Category */ = {
+		92753D452A1027DA001F8059 /* CategoryService */ = {
 			isa = PBXGroup;
 			children = (
 				92753D462A1027F1001F8059 /* CategoryService.swift */,
 			);
-			path = Category;
+			path = CategoryService;
 			sourceTree = "<group>";
 		};
 		9286A7D729E4461A003C7414 /* View */ = {
@@ -705,12 +722,12 @@
 			path = Presenter;
 			sourceTree = "<group>";
 		};
-		9286A7F229E55E06003C7414 /* ForgotPassword */ = {
+		9286A7F229E55E06003C7414 /* ForgotPasswordService */ = {
 			isa = PBXGroup;
 			children = (
 				9286A7F329E55E18003C7414 /* ForgotPasswordService.swift */,
 			);
-			path = ForgotPassword;
+			path = ForgotPasswordService;
 			sourceTree = "<group>";
 		};
 		9286A7F729E5A9F9003C7414 /* Main */ = {
@@ -780,12 +797,12 @@
 			path = Presenter;
 			sourceTree = "<group>";
 		};
-		9286A80A29E6C920003C7414 /* CreateAccount */ = {
+		9286A80A29E6C920003C7414 /* CreateAccountService */ = {
 			isa = PBXGroup;
 			children = (
 				9286A80B29E6C93B003C7414 /* CreateAccountService.swift */,
 			);
-			path = CreateAccount;
+			path = CreateAccountService;
 			sourceTree = "<group>";
 		};
 		9286A80F29E6F481003C7414 /* StackViews */ = {
@@ -814,6 +831,23 @@
 				92C91FD82A0CF9BA00BE141E /* TextFieldLabel.swift */,
 			);
 			path = Labels;
+			sourceTree = "<group>";
+		};
+		929D52C62A24EE5400716A65 /* AuthRequest */ = {
+			isa = PBXGroup;
+			children = (
+				929D52C72A24EE7700716A65 /* RegisterRequest.swift */,
+				929D52C92A26664300716A65 /* LoginRequest.swift */,
+			);
+			path = AuthRequest;
+			sourceTree = "<group>";
+		};
+		929D52CB2A26871800716A65 /* KeychainService */ = {
+			isa = PBXGroup;
+			children = (
+				929D52CC2A26874900716A65 /* KeychainService.swift */,
+			);
+			path = KeychainService;
 			sourceTree = "<group>";
 		};
 		92E7FC4A2A1173A500202BE6 /* ImageView */ = {
@@ -871,12 +905,12 @@
 			path = Coordinator;
 			sourceTree = "<group>";
 		};
-		92F429112A02F1C8005C722A /* CreateRecipe */ = {
+		92F429112A02F1C8005C722A /* CreateRecipeService */ = {
 			isa = PBXGroup;
 			children = (
 				92F429122A02F1E2005C722A /* CreateRecipeService.swift */,
 			);
-			path = CreateRecipe;
+			path = CreateRecipeService;
 			sourceTree = "<group>";
 		};
 		92F4291D2A03A147005C722A /* TextView */ = {
@@ -932,15 +966,17 @@
 		975375CC29DF3377004A0EC8 /* Services */ = {
 			isa = PBXGroup;
 			children = (
-				92753D452A1027DA001F8059 /* Category */,
-				92F429112A02F1C8005C722A /* CreateRecipe */,
-				924270B229F13F32004525F5 /* Recipe */,
-				9242708829EC30B2004525F5 /* Settings */,
-				9242707829EC2914004525F5 /* YourRecipes */,
-				9242706729EC25A4004525F5 /* Likes */,
-				9242705329EC1392004525F5 /* Main */,
-				9286A80A29E6C920003C7414 /* CreateAccount */,
-				9286A7F229E55E06003C7414 /* ForgotPassword */,
+				929D52CB2A26871800716A65 /* KeychainService */,
+				9203C7142A22604E005831E6 /* NetworkService */,
+				92753D452A1027DA001F8059 /* CategoryService */,
+				92F429112A02F1C8005C722A /* CreateRecipeService */,
+				924270B229F13F32004525F5 /* RecipeService */,
+				9242708829EC30B2004525F5 /* SettingsService */,
+				9242707829EC2914004525F5 /* YourRecipesService */,
+				9242706729EC25A4004525F5 /* LikesService */,
+				9242705329EC1392004525F5 /* MainService */,
+				9286A80A29E6C920003C7414 /* CreateAccountService */,
+				9286A7F229E55E06003C7414 /* ForgotPasswordService */,
 				9286A7E329E485D4003C7414 /* LoginService */,
 				975375CD29DF338A004A0EC8 /* AuthService */,
 			);
@@ -1163,6 +1199,7 @@
 			files = (
 				972A8C6129E7D5900074B644 /* XCAssets+Generated.swift in Sources */,
 				92753D392A1001E3001F8059 /* CategoryModuleBuilder.swift in Sources */,
+				929D52C82A24EE7700716A65 /* RegisterRequest.swift in Sources */,
 				92F429132A02F1E2005C722A /* CreateRecipeService.swift in Sources */,
 				92753D472A1027F1001F8059 /* CategoryService.swift in Sources */,
 				9242707C29EC295C004525F5 /* YourRecipesCoordinator.swift in Sources */,
@@ -1225,6 +1262,7 @@
 				972A8C6029E7D5900074B644 /* Strings+Generated.swift in Sources */,
 				9242706429EC24D8004525F5 /* LikesViewController.swift in Sources */,
 				9226DBCF29DECE370078A630 /* AuthViewIO.swift in Sources */,
+				929D52C52A235F8F00716A65 /* NetworkService.swift in Sources */,
 				92F429152A02FF7E005C722A /* CommonCreateTextField.swift in Sources */,
 				975375D329DF3628004A0EC8 /* AppServicesAssembly.swift in Sources */,
 				9286A80C29E6C93B003C7414 /* CreateAccountService.swift in Sources */,
@@ -1235,6 +1273,7 @@
 				9286A7E529E485E7003C7414 /* LoginService.swift in Sources */,
 				9242708129EC2FAC004525F5 /* SettingsModuleBuilder.swift in Sources */,
 				92F4290C2A02F006005C722A /* CreateRecipeViewIO.swift in Sources */,
+				929D52CA2A26664300716A65 /* LoginRequest.swift in Sources */,
 				9286A7E229E4846C003C7414 /* LoginModuleBuilder.swift in Sources */,
 				9226DB9B29D4CCD50078A630 /* MealHelper.xcdatamodeld in Sources */,
 				9286A80E29E6CA30003C7414 /* CreateAccountCoordinator.swift in Sources */,
@@ -1261,6 +1300,7 @@
 				9242707329EC2845004525F5 /* YourRecipesViewIO.swift in Sources */,
 				9226DBD129DECFF40078A630 /* AppCoordinator.swift in Sources */,
 				9242706A29EC25B7004525F5 /* LikesService.swift in Sources */,
+				929D52CD2A26874900716A65 /* KeychainService.swift in Sources */,
 				9242705929EC140D004525F5 /* MainModuleBuilder.swift in Sources */,
 				9286A7DC29E452A5003C7414 /* GrayCommonTextField.swift in Sources */,
 				92E7FC4E2A11763F00202BE6 /* CreateImageButton.swift in Sources */,

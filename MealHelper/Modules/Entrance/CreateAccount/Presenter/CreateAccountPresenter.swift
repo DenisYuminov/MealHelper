@@ -28,7 +28,20 @@ final class CreateAccountPresenter {
 // MARK: CreateAccountViewOutput
 
 extension CreateAccountPresenter: CreateAccountViewOutput {
-    func onCreateButtonClicked() {
-        output?.onCreateButtonClicked()
+    func onCreateButtonClicked(params: RegisterParameters) {
+        createAccountService.createAccount(parameters: params) { result in
+            switch result {
+            case .success:
+                self.output?.onCreateButtonClicked()
+            case .failure(let error):
+                if case let NetworkError.statusCode(statusCode) = error {
+                    if statusCode == RegisterError.userAlreadyExists.statusCode {
+                        self.view?.showError(error: RegisterError.userAlreadyExists)
+                    }
+                } else {
+                    print("Error:", error)
+                }
+            }
+        }
     }
 }

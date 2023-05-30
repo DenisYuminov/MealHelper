@@ -12,4 +12,5 @@ protocol SettingsViewInput: AnyObject {
 
 protocol SettingsViewOutput: AnyObject {
     func onLogOutButtonClicked()
+    func onsignInButtonClicked()
 }
