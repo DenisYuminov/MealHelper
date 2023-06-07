@@ -105,7 +105,7 @@ final class CreateAccountViewController: UIViewController {
     private func setupUI() {
         view.addGestureRecognizer(UITapGestureRecognizer(target: self, action: #selector(hideKeyboard)))
 
-        view.backgroundColor = .systemBackground
+        view.backgroundColor = UIColor(asset: Asset.Colors.backgroundColor)
         view.addSubview(scrollView)
         scrollView.snp.makeConstraints { make in
             make.top.equalToSuperview()

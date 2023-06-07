@@ -35,6 +35,7 @@ extension LoginPresenter: LoginViewOutput {
             switch result {
             case .success(let value):
                 self.keychainService.saveToken(value.token)
+                let userId = self.keychainService.getUserId()
                 DispatchQueue.main.async {
                     self.output.openMainTabBar()
                 }

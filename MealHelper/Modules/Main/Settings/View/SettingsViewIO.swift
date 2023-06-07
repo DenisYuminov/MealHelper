@@ -8,9 +8,11 @@
 import Foundation
 
 protocol SettingsViewInput: AnyObject {
+    func displayUserInfo( userInfo: UserResponse)
 }
 
 protocol SettingsViewOutput: AnyObject {
     func onLogOutButtonClicked()
     func onsignInButtonClicked()
+    func viewDidLoad()
 }

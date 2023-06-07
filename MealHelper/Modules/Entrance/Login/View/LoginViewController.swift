@@ -92,7 +92,7 @@ final class LoginViewController: UIViewController {
     // MARK: Private
     
     private func setupUI() {
-        view.backgroundColor = .systemGray6
+        view.backgroundColor = UIColor(asset: Asset.Colors.backgroundColor)
         view.addGestureRecognizer(UITapGestureRecognizer(target: self, action: #selector(hideKeyboard)))
         
         view.addSubview(scrollView)

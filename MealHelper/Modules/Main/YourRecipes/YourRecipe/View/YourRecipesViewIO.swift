@@ -9,11 +9,13 @@ import Foundation
 
 protocol YourRecipesViewInput: AnyObject {
     func reloadData()
+    func showAlert(for indexPath: IndexPath, completion: @escaping () -> Void)
 }
 
 protocol YourRecipesViewOutput: AnyObject {
-    var dataSource: [RecipeModel] { get set }
+    var dataSource: [RecipeTableViewCellModel] { get set }
     func onCreateRecipeButtonClicked()
-    func didSelectRecipe(recipe: RecipeModel)
+    func didSelectRecipe(recipe: Int)
+    func deleteRecipe(recipeId: Int)
     func viewDidLoad()
 }

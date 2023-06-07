@@ -39,7 +39,7 @@ final class AppServicesAssembly: IAppServicesAssembly {
     }
     
     var mainService: IMainService {
-        MainService()
+        MainService(categoryService: categorySerivce)
     }
     
     var likesService: ILikesService {

@@ -15,7 +15,8 @@ private extension CGFloat {
 
 final class RecipeTableViewCell: UITableViewCell {
     static let reuseIdentifier: String = "RecipeTableViewCell"
-    
+    var isLike = false
+    var id = 0
     // UI
     private lazy var titleLabel: UILabel = {
         let label = UILabel()
@@ -34,10 +35,11 @@ final class RecipeTableViewCell: UITableViewCell {
         let button = UIButton()
         button.clipsToBounds = true
         button.tintColor = .red
-        button.setImage(UIImage.heartFill, for: .normal)
+        button.setImage(UIImage.heart, for: .normal)
         button.backgroundColor = .clear
         button.imageView?.contentMode = .scaleAspectFill
         button.imageView?.frame = CGRect(x: 0, y: 0, width: 40, height: 40)
+        button.addTarget(self, action: #selector(like), for: .touchUpInside)
         return button
     }()
     private lazy var myImageView: UIImageView = {
@@ -83,18 +85,42 @@ final class RecipeTableViewCell: UITableViewCell {
             make.width.height.equalTo(40)
         }
     }
+    
+    @objc private func like() {
+        guard let token = KeychainService.shared.retrieveToken() else { return }
+        LikeRecipeService.shared.like(
+            parameters: DeleteRecipeParameters(recipeId: id),
+            token: token
+        ) { result in
+            switch result {
+            case .success(let response):
+                print(response.status, response.message)
+            case .failure(let error):
+                print("like On cell error: \(error)")
+            }
+            if self.isLike {
+                self.isLike = false
+                self.likeButton.setImage(UIImage.heart, for: .normal)
+            } else {
+                self.isLike = true
+                self.likeButton.setImage(UIImage.heartFill, for: .normal)
+            }
+        }
+    }
 }
 
 extension RecipeTableViewCell {
-    struct Model {
-        let titleLabel: String
-        let subTitle: String
-        let imageUrl: String
-    }
-    
-    func configure(with model: RecipeModel) {
+    func configure(with model: RecipeTableViewCellModel) {
+        backgroundColor = UIColor(asset: Asset.Colors.backgroundColor)
+        tintColor = UIColor(asset: Asset.Colors.inputTextColor)
+        id = model.id
         titleLabel.text = model.title
         subtitle.text = model.description
         myImageView.image = UIImage(named: model.image)
+        if model.isLiked {
+            likeButton.setImage(UIImage.heartFill, for: .normal)
+        } else {
+            likeButton.setImage(UIImage.heart, for: .normal)
+        }
     }
 }

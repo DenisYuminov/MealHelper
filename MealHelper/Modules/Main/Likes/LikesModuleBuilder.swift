@@ -8,7 +8,7 @@
 import UIKit
 
 protocol ILikesModuleBuilder: AnyObject {
-    func build(output: LikesPresenterOutput?) -> UIViewController
+    func build(output: LikesPresenterOutput) -> UIViewController
 }
 
 final class LikesModuleBuilder: ILikesModuleBuilder {
@@ -23,7 +23,7 @@ final class LikesModuleBuilder: ILikesModuleBuilder {
     
     // MARK: ILikesModuleBuilder
     
-    func build(output: LikesPresenterOutput?) -> UIViewController {
+    func build(output: LikesPresenterOutput) -> UIViewController {
         let presenter = LikesPresenter(output: output, likesService: likesService)
         let view = LikesViewController(output: presenter)
         view.tabBarItem = .init(

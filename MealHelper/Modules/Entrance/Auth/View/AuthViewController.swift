@@ -69,7 +69,7 @@ final class AuthViewController: UIViewController {
     // MARK: Private
     
     private func setupUI() {
-        view.backgroundColor = .systemGray6
+        view.backgroundColor = UIColor(asset: Asset.Colors.backgroundColor)
         
         buttonStackView.addArrangedSubviews([loginButton, signupButton, continueButton])
 

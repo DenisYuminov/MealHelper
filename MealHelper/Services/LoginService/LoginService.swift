@@ -7,14 +7,6 @@
 
 import Foundation
 
-struct LoginResponse: Codable {
-    let token: String
-    
-    enum CodingKeys: String, CodingKey {
-        case token
-    }
-}
-
 protocol ILoginService: AnyObject {
     func login(
         parameters: LoginParameters, completion: @escaping (Result<LoginResponse, Error>) -> Void

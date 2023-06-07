@@ -12,7 +12,8 @@ protocol CategoryViewInput: AnyObject {
 }
 
 protocol CategoryViewOutput: AnyObject {
-    var dataSource: [RecipeModel] { get }
-    func onRecipeCellClicked(recipe: RecipeModel)
+    var category: Section { get }
+    var dataSource: [RecipeTableViewCellModel] { get }
+    func onRecipeCellClicked(recipeId: Int)
     func viewDidLoad()
 }

@@ -16,23 +16,26 @@ protocol INetworkService: AnyObject {
         completion: @escaping (Result<(T, Int), Error>
         ) -> Void
     )
-}
-
-enum NetworkError: Error {
-    case missingStatusCode
-    case statusCode(Int)
+    
+    func request<T: Codable>(
+        url: URLConvertible,
+        method: HTTPMethod,
+        parameters: Parameters,
+        completion: @escaping (Result<T, Error>
+        ) -> Void
+    )
 }
 
 final class NetworkService: INetworkService {
     static let shared: NetworkService = .init()
     
     // MARK: INetworkService
+    
     func request<T: Codable, P: Encodable>(
         url: URLConvertible,
         method: HTTPMethod,
         parameters: P?,
-        completion: @escaping (Result<(T, Int), Error>
-        ) -> Void
+        completion: @escaping (Result<(T, Int), Error>) -> Void
     ) {
         AF.request(
             url,
@@ -50,12 +53,30 @@ final class NetworkService: INetworkService {
                     completion(.failure(NetworkError.missingStatusCode))
                 }
             case .failure(let error):
-                if let afError = error as? AFError, let statusCode = afError.responseCode {
+                if let statusCode = error.responseCode {
                     completion(.failure(NetworkError.statusCode(statusCode)))
                 } else {
                     completion(.failure(error))
                 }
             }
         }
+    }
+    
+    func request<T: Codable>(
+        url: URLConvertible,
+        method: HTTPMethod,
+        parameters: Parameters,
+        completion: @escaping (Result<T, Error>) -> Void
+    ) {
+        AF.request(url, method: method, parameters: parameters, encoding: URLEncoding.default)
+            .validate()
+            .responseDecodable { (response: DataResponse<T, AFError>) in
+                switch response.result {
+                case .success(let value):
+                    completion(.success(value))
+                case .failure(let error):
+                    completion(.failure(error))
+                }
+            }
     }
 }

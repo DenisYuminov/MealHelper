@@ -71,7 +71,7 @@ final class AppPresentationAssembly: IAppPresentationAssembly {
     var createAccountCoordinator: ICreateAccountCoordinator {
         CreateAccountCoordinator(
             moduleBuilder: createAccountModuleBuilder,
-            mainTabBarCoordinator: mainTabBarCoordinator
+            loginCoordinator: loginCoordinator
         )
     }
     
@@ -85,7 +85,10 @@ final class AppPresentationAssembly: IAppPresentationAssembly {
     }
     
     var recipeCoordinator: IRecipeCoordinator {
-        RecipeCoordinator(moduleBuilder: recipeModuleBuilder)
+        RecipeCoordinator(
+            moduleBuilder: recipeModuleBuilder,
+            createRecipeCoordinator: createRecipeCoordinator
+        )
     }
     
     var mainCoordinator: IMainCoordinator {
@@ -164,7 +167,10 @@ final class AppPresentationAssembly: IAppPresentationAssembly {
     }
     
     var createRecipeModuleBuilder: ICreateRecipeModuleBuilder {
-        CreateRecipeModulebuilder(createRecipeService: servicesAssembly.createRecipeSerivce)
+        CreateRecipeModulebuilder(
+            createRecipeService: servicesAssembly.createRecipeSerivce,
+            recipeService: servicesAssembly.recipeService
+        )
     }
     
     var categoryModuleBuilder: ICategoryModuleBuilder {

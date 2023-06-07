@@ -33,10 +33,17 @@ final class YourRecipesViewController: UIViewController {
     
     override func viewDidLoad() {
         super.viewDidLoad()
-        view.backgroundColor = .systemBackground
+        view.backgroundColor = UIColor(asset: Asset.Colors.backgroundColor)
+        tableView.backgroundColor = UIColor(asset: Asset.Colors.backgroundColor)
         view.addSubview(tableView)
         title = L10n.YourRecipes.Navigation.title
+        output.viewDidLoad()
         setup()
+    }
+    
+    override func viewWillAppear(_ animated: Bool) {
+        super.viewWillAppear(animated)
+        output.viewDidLoad()
     }
     
     // MARK: Private
@@ -58,10 +65,18 @@ final class YourRecipesViewController: UIViewController {
             make.leading.equalToSuperview()
             make.trailing.equalToSuperview()
         }
+        let refreshControl = UIRefreshControl()
+        refreshControl.addTarget(self, action: #selector(refreshData), for: .valueChanged)
+        tableView.refreshControl = refreshControl
     }
     
     // MARK: Actions
-
+    
+    @objc private func refreshData() {
+        output.viewDidLoad()
+        tableView.refreshControl?.endRefreshing()
+    }
+    
     @objc private func addButtonTapped() {
         output.onCreateRecipeButtonClicked()
     }
@@ -72,6 +87,27 @@ final class YourRecipesViewController: UIViewController {
 extension YourRecipesViewController: YourRecipesViewInput {
     func reloadData() {
         tableView.reloadData()
+    }
+    
+    func showAlert(for indexPath: IndexPath, completion: @escaping () -> Void) {
+        let alertController = UIAlertController(
+            title: L10n.YourRecipes.Delete.Alert.title,
+            message: L10n.YourRecipes.Delete.Alert.message,
+            preferredStyle: .alert
+        )
+        
+        let cancelAction = UIAlertAction(title: L10n.CreateRecipe.CancelButton.title, style: .cancel)
+        alertController.addAction(cancelAction)
+        
+        let deleteConfirmAction = UIAlertAction(
+            title: L10n.YourRecipes.TableViewAction.title,
+            style: .destructive
+        ) { _ in
+            completion()
+        }
+        alertController.addAction(deleteConfirmAction)
+        
+        present(alertController, animated: true, completion: nil)
     }
 }
 
@@ -100,7 +136,7 @@ extension YourRecipesViewController: UITableViewDelegate, UITableViewDataSource 
     
     func tableView(_ tableView: UITableView, didSelectRowAt indexPath: IndexPath) {
         let recipe = output.dataSource[indexPath.row]
-        output.didSelectRecipe(recipe: recipe)
+        output.didSelectRecipe(recipe: recipe.id)
         tableView.deselectRow(at: indexPath, animated: true)
     }
     
@@ -112,10 +148,15 @@ extension YourRecipesViewController: UITableViewDelegate, UITableViewDataSource 
             style: .normal,
             title: L10n.YourRecipes.TableViewAction.title
         ) { [weak self] (_, _, completion) in
-            self?.output.dataSource.remove(at: indexPath.row)
-            tableView.deleteRows(at: [indexPath], with: .automatic)
+            self?.showAlert(for: indexPath) {
+                self?.output.deleteRecipe(recipeId: self?.output.dataSource[indexPath.row].id ?? 0)
+                self?.output.dataSource.remove(at: indexPath.row)
+                tableView.deleteRows(at: [indexPath], with: .automatic)
+            }
+            
             completion(true)
         }
+        
         let configuration = UISwipeActionsConfiguration(actions: [deleteAction])
         return configuration
     }

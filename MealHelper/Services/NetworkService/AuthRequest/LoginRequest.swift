@@ -7,6 +7,14 @@
 
 import Foundation
 
+struct LoginResponse: Codable {
+    let token: String
+    
+    enum CodingKeys: String, CodingKey {
+        case token
+    }
+}
+
 struct LoginParameters: Codable {
     let email: String
     let password: String

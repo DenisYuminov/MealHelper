@@ -48,9 +48,8 @@ final class KeychainService {
         var result: AnyObject?
         let status = SecItemCopyMatching(query as CFDictionary, &result)
         
-        if status == errSecSuccess,
-           let tokenData = result as? Data,
-           let token = String(data: tokenData, encoding: .utf8) {
+        if status == errSecSuccess, let tokenData = result as? Data,
+            let token = String(data: tokenData, encoding: .utf8) {
             return token
         }
         

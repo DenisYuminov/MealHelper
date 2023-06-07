@@ -7,9 +7,6 @@
 
 import Foundation
 
-struct RegisterResponse: Codable {
-}
-
 protocol ICreateAccountService: AnyObject {
     func createAccount(
         parameters: RegisterParameters,

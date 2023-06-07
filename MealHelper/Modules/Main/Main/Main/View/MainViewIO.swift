@@ -12,8 +12,8 @@ protocol MainViewInput: AnyObject {
 }
 
 protocol MainViewOutput: AnyObject {
-    var dataSource: [[RecipeModel]] { get }
-    func onRecipeCellCkicked(recipe: RecipeModel)
+    var dataSource: [[RecipeTableViewCellModel]] { get }
+    func onRecipeCellClicked(recipe: Int)
     func viewDidLoad()
     func onSeeAllButtonClicked(category: Section)
 }

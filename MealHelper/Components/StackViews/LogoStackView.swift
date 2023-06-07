@@ -14,6 +14,7 @@ final class LogoStackView: UIStackView {
         axis = .vertical
         layer.borderWidth = 1
         layer.borderColor = UIColor.systemGray5.cgColor
+        backgroundColor = UIColor(asset: Asset.Colors.logoBackgraundColor)
         addArrangedSubviews([
             LogoLabel(title: "👨🏾‍🌾", size: 150),
             LogoLabel(title: L10n.Application.name, size: 36)

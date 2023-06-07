@@ -7,6 +7,9 @@
 import Alamofire
 import Foundation
 
+struct RegisterResponse: Codable {
+}
+
 struct RegisterParameters: Codable {
     let email: String
     let password: String

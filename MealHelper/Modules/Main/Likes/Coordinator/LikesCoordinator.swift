@@ -35,8 +35,8 @@ final class LikesCoordinator: ILikesCoordinator, LikesPresenterOutput {
         return navigationController
     }
     // MARK: LikesPresenterOutput
-    func didSelectRecipe(_ recipe: RecipeModel) {
-        let viewController = recipeCoordinator.createFlow(recipe: recipe)
+    func didSelectRecipe(_ recipe: Int) {
+        let viewController = recipeCoordinator.createFlow(recipeId: recipe)
         transitionHandler?.pushViewController(viewController, animated: true)
     }
 }

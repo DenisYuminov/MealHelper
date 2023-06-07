@@ -14,9 +14,9 @@ private extension CGFloat {
 final class SettingsViewController: UIViewController {
     // Dependencies
     private let output: SettingsViewOutput
-    
+    var userInfo: UserResponse?
     // UI
-    private lazy var username = TitleLabel(title: "username")
+    private lazy var username = TitleLabel(title: L10n.Settings.Username.title)
     private lazy var imageButton: UIButton = {
         let button = UIButton(type: .system)
         button.setImage(UIImage.camera, for: .normal)
@@ -34,7 +34,7 @@ final class SettingsViewController: UIViewController {
     private lazy var languageLabel: UILabel = CommonCreateLabel(title: L10n.Settings.LanguageCell.title)
     private lazy var languageValueLabel: UILabel = CommonCreateLabel(title: L10n.Settings.LanguageCell.subTitle)
     private lazy var mailLabel: UILabel = CommonCreateLabel(title: L10n.Settings.MailCell.title)
-    private lazy var mailValueLabel = SettingButton(title: "example@mail.com")
+    private lazy var mailValueLabel = SettingButton(title: "")
     private lazy var passwordLabel = SettingButton(title: L10n.Settings.PasswordCell.title)
     private lazy var deleteAccountButton: UIButton = {
         let button = SettingButton(title: L10n.Settings.DeleteAccount.title)
@@ -58,22 +58,18 @@ final class SettingsViewController: UIViewController {
         themeStackView.distribution = .equalCentering
         let languageStackView = CommonHorizontalStackView(views: [languageLabel, languageValueLabel])
         languageStackView.distribution = .equalCentering
-        let mailStackView = CommonHorizontalStackView(views: [mailLabel, mailValueLabel])
-        mailStackView.distribution = .equalCentering
-
         let stackView = CommonVerticalStackView(views: [
             themeStackView,
-            languageStackView,
-            mailStackView,
-            passwordLabel
+            languageStackView
         ])
         return stackView
     }()
-    private lazy var usernameAndImageStackView = CommonVerticalStackView(views: [imageButton, username])
+    private lazy var mailStackView = CommonHorizontalStackView(views: [mailLabel, mailValueLabel])
+    private lazy var usernameAndImageStackView = UIStackView(arrangedSubviews: [username])
     private lazy var exitStackView = CommonVerticalStackView(views: [])
     private lazy var contentStackView: UIStackView = {
         let stackView = CommonVerticalStackView(views: [ settingStackView, exitStackView])
-        stackView.spacing = 70
+        stackView.spacing = 100
         return stackView
     }()
     
@@ -92,16 +88,26 @@ final class SettingsViewController: UIViewController {
     
     override func viewDidLoad() {
         super.viewDidLoad()
-        view.backgroundColor = .systemBackground
+        output.viewDidLoad()
         setup()
     }
     
     // MARK: Private
+    
     private func setup() {
         view.addSubview(usernameAndImageStackView)
+        view.backgroundColor = UIColor(asset: Asset.Colors.backgroundColor)
+
+        usernameAndImageStackView.alignment = .center
+        mailStackView.distribution = .equalCentering
+        
         usernameAndImageStackView.snp.makeConstraints { make in
-            make.top.equalTo(view.safeAreaLayoutGuide.snp.topMargin)
+            make.top.equalTo(view.safeAreaLayoutGuide.snp.topMargin).offset(100)
             make.centerX.equalToSuperview()
+            make.width.equalToSuperview()
+        }
+        username.snp.makeConstraints { make in
+            make.width.equalToSuperview()
         }
         if !KeychainService.shared.isAuth() {
             exitStackView.addArrangedSubviews([
@@ -112,10 +118,11 @@ final class SettingsViewController: UIViewController {
                 logOutButton,
                 deleteAccountButton
             ])
+            settingStackView.addArrangedSubviews([mailStackView])
         }
         view.addSubview(contentStackView)
         contentStackView.snp.makeConstraints { make in
-            make.top.equalTo(usernameAndImageStackView).offset(200)
+            make.top.equalTo(usernameAndImageStackView).offset(100)
             make.centerX.equalToSuperview()
             make.width.equalToSuperview().multipliedBy(0.9)
         }
@@ -139,4 +146,9 @@ final class SettingsViewController: UIViewController {
 // MARK: SettingsViewInput
 
 extension SettingsViewController: SettingsViewInput {
+    func displayUserInfo( userInfo: UserResponse) {
+        self.userInfo = userInfo
+        username.text = userInfo.username
+        mailValueLabel.setTitle(userInfo.email, for: .normal)
+    }
 }

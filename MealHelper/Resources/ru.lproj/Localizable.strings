@@ -46,6 +46,9 @@
 // мои рецепты
 "yourRecipes.navigation.title" = "Мои рецепты";
 "yourRecipes.tableViewAction.title" = "Удалить";
+"yourRecipes.Delete.alert.title" = "Удаление рецепта";
+"yourRecipes.Delete.alert.message" = "Вы действительно хотите удалить это рецепт?";
+
 
 // создать рецепт
 "createRecipe.cancelButton.title" = "Отмена";
@@ -90,9 +93,11 @@
 "settings.DeleteAccount.title" = "Удалить аккаунт";
 "settings.CreareAcciunt.title" = "Создать аккаунт";
 "settings.sigIn.title" = "Войти";
+"settings.username.title" = "Вы не авторизованы";
 
 
 // рецепт
+"recipe.editButton.title" = "Изменить";
 "recipe.authorLabel.title" = "автор";
 "recipe.prepareLabel.title" = "Подготовка";
 "recipe.cookLabel.title" = "Приготовление";
