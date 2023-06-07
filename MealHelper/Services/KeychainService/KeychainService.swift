@@ -84,6 +84,19 @@ final class KeychainService {
     }
     
     func isAuth() -> Bool {
-        return retrieveToken() != nil
+        if let token = retrieveToken() {
+            do {
+                let jwt = try decode(jwt: token)
+                let expirationDate = jwt.expiresAt
+                let currentDate = Date()
+                if let expirationDate = expirationDate, expirationDate < currentDate {
+                    return false
+                }
+                return true
+            } catch {
+                print("Failed to decode JWT token: \(error)")
+            }
+        }
+        return false
     }
 }
