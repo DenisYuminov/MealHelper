@@ -47,8 +47,8 @@ final class YourRecipesCoordinator: IYourRecipesCoordinator, YourRecipesPresente
         let viewController = createRecipeCoordinator.createFlow()
         transitionHandler?.pushViewController(viewController, animated: true)
     }
-    func didSelectRecipe(recipe: RecipeModel) {
-        let viewController = recipeCoordinator.createFlow(recipe: recipe)
+    func didSelectRecipe(recipe: Int) {
+        let viewController = recipeCoordinator.createFlow(recipeId: recipe)
         transitionHandler?.pushViewController(viewController, animated: true)
     }
 }

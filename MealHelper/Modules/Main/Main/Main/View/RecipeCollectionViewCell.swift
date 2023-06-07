@@ -33,13 +33,13 @@ final class RecipeCollectionViewCell: UICollectionViewCell {
         label.font = UIFont.systemFont(ofSize: .subTitleFont)
         return label
     }()
-    private lazy var ratingLabel: UILabel = {
-        let label = UILabel()
-        label.text = L10n.Recipe.Rating.title
-        label.textColor = .black
-        label.font = UIFont.systemFont(ofSize: .ratingLabelFont)
-        return label
-    }()
+//    private lazy var ratingLabel: UILabel = {
+//        let label = UILabel()
+//        label.text = L10n.Recipe.Rating.title
+//        label.textColor = .black
+//        label.font = UIFont.systemFont(ofSize: .ratingLabelFont)
+//        return label
+//    }()
     private lazy var imageView: UIImageView = {
         let imageView = UIImageView()
         imageView.layer.cornerRadius = .imageViewCornerRadius
@@ -48,7 +48,7 @@ final class RecipeCollectionViewCell: UICollectionViewCell {
         return imageView
     }()
     private lazy var innerStackView: UIStackView = {
-        let stackView = UIStackView(arrangedSubviews: [titleLabel, subtitle, ratingLabel])
+        let stackView = UIStackView(arrangedSubviews: [titleLabel, subtitle])
         stackView.axis = .vertical
         return stackView
     }()
@@ -85,7 +85,7 @@ extension RecipeCollectionViewCell {
         let imageUrl: String
     }
     
-    func configure(with model: RecipeModel) {
+    func configure(with model: RecipeTableViewCellModel) {
         titleLabel.text = model.title
         subtitle.text = model.description
         imageView.image = UIImage(named: model.image)

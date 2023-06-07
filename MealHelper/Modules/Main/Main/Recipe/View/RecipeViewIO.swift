@@ -8,8 +8,11 @@
 import Foundation
 
 protocol RecipeViewInput: AnyObject {
+    func showRecipe(recipe: RecipeModel, isUserRecipe: Bool)
 }
 
 protocol RecipeViewOutput: AnyObject {
-    var recipe: RecipeModel { get }
+    func viewDidLoad()
+    func editButtonClicked(_ recipeId: Int)
+    func like(recipeId: Int)
 }

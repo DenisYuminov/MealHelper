@@ -11,6 +11,11 @@ final class RecipeViewController: UIViewController {
     // Dependencies
     private let output: RecipeViewOutput
     
+    // Properties
+    private var recipe: RecipeModel?
+    private var isUserRecipe = false
+    var isLike = false
+
     // UI
     private lazy var recipeStackView = CommonVerticalStackView(views: [])
     private lazy var infoStackView: UIStackView = CommonVerticalStackView(views: [])
@@ -18,25 +23,26 @@ final class RecipeViewController: UIViewController {
     private lazy var macronutrientsStackView: UIStackView = MacronutrientsStackView(views: [])
     private lazy var methodStackView: UIStackView = MethodStackView(views: [])
     private lazy var likeStackView: UIStackView = LikeStackView(views: [])
-    private lazy var titleLabel: UILabel = TitleLabel(title: output.recipe.title)
-    private lazy var imageView: UIImageView = CommonImageView(imageUrl: output.recipe.image)
-    private lazy var creatorLabel: UILabel = {
-        let label = CommonCreateLabel(title: "\(L10n.Recipe.AuthorLabel.title) \(output.recipe.creator)")
-        label.numberOfLines = 2
-        return label
-    }()
+    private lazy var titleLabel: UILabel = TitleLabel(title: recipe?.title ?? "")
+    private lazy var imageView: UIImageView = CommonImageView(imageUrl: recipe?.image ?? "")
+//    private lazy var creatorLabel: UILabel = {
+//        let label = CommonCreateLabel(title: "\(L10n.Recipe.AuthorLabel.title) \(recipe?.creator)")
+//        label.numberOfLines = 2
+//        return label
+//    }()
     private lazy var timeToCookLabel: UILabel = CommonCreateLabel(
-        title: "\(L10n.Recipe.CookLabel.title): \(output.recipe.timeToPrepare)"
+        title: "\(L10n.Recipe.CookLabel.title): \( recipe?.timeToPrepare ?? "")"
     )
     private lazy var timeToPreparelabel: UILabel = CommonCreateLabel(
-        title: "\(L10n.Recipe.PrepareLabel.title): \(output.recipe.timeToCook)"
+        title: "\(L10n.Recipe.PrepareLabel.title): \( recipe?.timeToCook ?? "")"
     )
     private lazy var descriptionTextView: UITextView = {
         let textView = UITextView()
         textView.font = UIFont.systemFont(ofSize: 16) 
-        textView.text = output.recipe.description
+        textView.text = recipe?.description ?? ""
         textView.isEditable = false
-        textView.textColor = .gray
+        textView.textColor = UIColor(asset: Asset.Colors.descriptionColor)
+        textView.backgroundColor = UIColor(asset: Asset.Colors.logoBackgraundColor)
         textView.sizeToFit()
         textView.isScrollEnabled = false
         textView.showsVerticalScrollIndicator = false
@@ -45,14 +51,6 @@ final class RecipeViewController: UIViewController {
     private lazy var ingredientsTextView: UITextView = {
         let textView = UITextView()
         textView.font = UIFont.systemFont(ofSize: 17)
-        let ingredientsString = output.recipe.ingredients.joined(separator: "\n")
-        textView.isEditable = false
-        textView.backgroundColor = .systemGray5
-        textView.isScrollEnabled = false
-        textView.showsVerticalScrollIndicator = false
-        textView.sizeToFit()
-        textView.layer.cornerRadius = 10
-        textView.text = ingredientsString
         return textView
     }()
     private lazy var likeLabel: UILabel = {
@@ -64,23 +62,24 @@ final class RecipeViewController: UIViewController {
     }()
     private lazy var likeButton: UIButton = {
         let button = UIButton()
+        button.addTarget(self, action: #selector(like), for: .touchUpInside)
         button.setImage(UIImage.heart, for: .normal)
-        button.imageView?.tintColor = .black
+        button.imageView?.tintColor = .red
         button.imageView?.contentMode = .scaleAspectFit
         return button
     }()
-    private lazy var kcalLabel = MacronutrientsLabel(title: "\(L10n.Recipe.Kcal.title) \(output.recipe.kcal)")
-    private lazy var fatLabel = MacronutrientsLabel(title: "\(L10n.Recipe.Fat.title) \(output.recipe.fat)")
+    private lazy var kcalLabel = MacronutrientsLabel(title: "\(L10n.Recipe.Kcal.title) \(recipe?.kcal ?? 0)")
+    private lazy var fatLabel = MacronutrientsLabel(title: "\(L10n.Recipe.Fat.title) \(recipe?.fat ?? 0)")
     private lazy var saturatesLabel = MacronutrientsLabel(
-        title: "\(L10n.Recipe.Saturates.title) \(output.recipe.saturates)"
+        title: "\(L10n.Recipe.Saturates.title) \(recipe?.saturates ?? 0)"
     )
     private lazy var proteinLabel = MacronutrientsLabel(
-        title: "\(L10n.Recipe.Protein.title) \(output.recipe.protein)"
+        title: "\(L10n.Recipe.Protein.title) \(recipe?.protein ?? 0)"
     )
     private lazy var ingridientTitleLabel: UILabel = TitleLabel(title: L10n.Recipe.Ingridients.title)
     private lazy var methodTitleLabel: UILabel = TitleLabel(title: L10n.Recipe.Method.title)
     private lazy var scrollView = UIScrollView(frame: .zero)
-    
+
     // MARK: Init
     
     init(output: RecipeViewOutput) {
@@ -96,24 +95,36 @@ final class RecipeViewController: UIViewController {
     
     override func viewDidLoad() {
         super.viewDidLoad()
-        setupUI()
-        setupMethod()
-        view.backgroundColor = .systemBackground
+        output.viewDidLoad()
+        view.backgroundColor = UIColor(asset: Asset.Colors.logoBackgraundColor)
         title = titleLabel.text
     }
-    
+
     // MARK: Private
     
     private func setupMethod() {
-        output.recipe.method.enumerated().forEach { index, step in
-            addMethodStep(step: step, index: index)
+        recipe?.methods.enumerated().forEach { index, step in
+            addMethodStep(step: step.text, index: index + 1)
         }
+    }
+    private func setupIngredientsTextView() {
+        ingredientsTextView.font = UIFont.systemFont(ofSize: 17)
+        
+        let ingredientsString = recipe?.ingredients.map { $0.name }.joined(separator: "\n\n") ?? ""
+        
+        ingredientsTextView.isEditable = false
+        ingredientsTextView.backgroundColor = .systemGray5
+        ingredientsTextView.isScrollEnabled = false
+        ingredientsTextView.showsVerticalScrollIndicator = false
+        ingredientsTextView.sizeToFit()
+        ingredientsTextView.layer.cornerRadius = 10
+        ingredientsTextView.text = ingredientsString
     }
     private func addMethodStep(step: String, index: Int) {
         let stepLabel = UILabel()
-        stepLabel.text = "\(L10n.Recipe.Method.step) \(index + 1)"
+        stepLabel.text = "\(L10n.Recipe.Method.step) \(index )"
         stepLabel.font = UIFont.boldSystemFont(ofSize: 17)
-        
+
         let textView = UITextView()
         textView.text = step
         textView.font = UIFont.systemFont(ofSize: 17)
@@ -123,13 +134,13 @@ final class RecipeViewController: UIViewController {
         textView.isScrollEnabled = false
         textView.showsVerticalScrollIndicator = false
         textView.sizeToFit()
-        
+
         let stepStackView = UIStackView()
         stepStackView.axis = .vertical
         stepStackView.alignment = .leading
         stepStackView.spacing = 8
         stepStackView.addArrangedSubviews([stepLabel, textView])
-        
+
         methodStackView.addArrangedSubview(stepStackView)
     }
 
@@ -151,7 +162,6 @@ final class RecipeViewController: UIViewController {
             likeStackView
         ])
         infoStackView.addArrangedSubviews([
-            creatorLabel,
             timeToCookLabel,
             timeToPreparelabel
         ])
@@ -188,10 +198,59 @@ final class RecipeViewController: UIViewController {
             make.leading.trailing.equalTo(recipeStackView).inset(10)
             make.bottom.equalTo(scrollView).inset(50)
         }
+        
+        if isUserRecipe {
+            let barButtonItem = UIBarButtonItem(
+                title: L10n.Recipe.EditButton.title,
+                style: .plain,
+                target: self,
+                action: #selector(buttonTapped(_:)))
+            navigationItem.rightBarButtonItem = barButtonItem
+        }
+    }
+    
+    // MARK: Actions
+    
+    @objc private func buttonTapped(_ sender: UIBarButtonItem) {
+        output.editButtonClicked(recipe?.id ?? 0)
+    }
+    
+    @objc private func like() {
+        output.like(recipeId: recipe?.id ?? 0)
+        if isLike {
+            isLike = false
+            likeButton.setImage(UIImage.heart, for: .normal)
+        } else {
+            isLike = true
+            likeButton.setImage(UIImage.heartFill, for: .normal)
+        }
     }
 }
 
 // MARK: RecipeViewInput
 
 extension RecipeViewController: RecipeViewInput {
+    func showRecipe(recipe: RecipeModel, isUserRecipe: Bool) {
+        self.recipe = recipe
+        self.isUserRecipe = isUserRecipe
+        title = recipe.title
+        titleLabel.text = recipe.title
+        imageView.image = UIImage(named: recipe.image )
+        timeToCookLabel.text = "\(L10n.Recipe.CookLabel.title): \(recipe.timeToPrepare )"
+        timeToPreparelabel.text = "\(L10n.Recipe.PrepareLabel.title): \(recipe.timeToCook )"
+        descriptionTextView.text = recipe.description
+        kcalLabel.text = "\(L10n.Recipe.Kcal.title) \(recipe.kcal )"
+        fatLabel.text = "\(L10n.Recipe.Fat.title) \(recipe.fat )"
+        saturatesLabel.text = "\(L10n.Recipe.Saturates.title) \(recipe.saturates )"
+        proteinLabel.text = "\(L10n.Recipe.Protein.title) \(recipe.protein )"
+        isLike = recipe.isLike
+        if isLike {
+            likeButton.setImage(UIImage.heartFill, for: .normal)
+        } else {
+            likeButton.setImage(UIImage.heart, for: .normal)
+        }
+        setupMethod()
+        setupIngredientsTextView()
+        setupUI()
+    }
 }

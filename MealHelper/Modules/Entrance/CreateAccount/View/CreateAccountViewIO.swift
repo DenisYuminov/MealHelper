@@ -8,8 +8,9 @@
 import Foundation
 
 protocol CreateAccountViewInput: AnyObject {
+    func showError(error: RegisterError)
 }
 
 protocol CreateAccountViewOutput: AnyObject {
-    func onCreateButtonClicked()
+    func onCreateButtonClicked(params: RegisterParameters)
 }

@@ -17,6 +17,7 @@ final class LoginPresenter {
     weak var view: LoginViewInput?
     private let output: LoginPresenterOutput
     private let loginService: ILoginService
+    let keychainService = KeychainService.shared
     
     // MARK: Init
     
@@ -29,8 +30,27 @@ final class LoginPresenter {
 // MARK: LoginViewOutput
 
 extension LoginPresenter: LoginViewOutput {
-    func onSignInButtonClicked() {
-        output.openMainTabBar()
+    func onSignInButtonClicked(params: LoginParameters) {
+        loginService.login(parameters: params) { result in
+            switch result {
+            case .success(let value):
+                self.keychainService.saveToken(value.token)
+                let userId = self.keychainService.getUserId()
+                DispatchQueue.main.async {
+                    self.output.openMainTabBar()
+                }
+            case .failure(let error):
+                if case let NetworkError.statusCode(statusCode) = error {
+                    if statusCode == LoginError.wrongAuth.statusCode {
+                        DispatchQueue.main.async {
+                            self.view?.showError(error: LoginError.wrongAuth)
+                        }
+                    }
+                } else {
+                    print("Error:", error)
+                }
+            }
+        }
     }
     
     func onForgotButtonClicked() {

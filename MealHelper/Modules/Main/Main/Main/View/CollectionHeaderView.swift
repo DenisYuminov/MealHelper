@@ -23,7 +23,7 @@ final class CollectionHeaderView: UICollectionReusableView {
         let label = UILabel()
         label.textAlignment = .left
         label.font = UIFont.systemFont(ofSize: .collectionHeaderViewFont, weight: .bold)
-        label.textColor = .black
+        label.textColor = UIColor(asset: Asset.Colors.header)
         return label
     }()
     lazy var button = UIButton(type: .system)
@@ -45,7 +45,7 @@ final class CollectionHeaderView: UICollectionReusableView {
     
     // MARK: Private
     private func setupView() {
-        backgroundColor = .white
+        backgroundColor = UIColor(asset: Asset.Colors.backgroundColor)
         addSubview(headerLabel)
         
         addSubview(button)

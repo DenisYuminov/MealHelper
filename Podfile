@@ -9,5 +9,7 @@ target 'MealHelper' do
   pod 'SnapKit', '~> 5.0.0'
   pod 'SwiftLint', '~> 0.46.2'
   pod 'SwiftGen', '~> 6.0'
+  pod 'Alamofire'
+  pod 'JWTDecode'
 
 end

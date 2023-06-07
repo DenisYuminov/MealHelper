@@ -8,7 +8,7 @@
 import Foundation
 
 protocol MainPresenterOutput: AnyObject {
-    func onRecipeCellClicked(recipe: RecipeModel)
+    func onRecipeCellClicked(recipe: Int)
     func onSeeAllButtonClicked(category: Section)
 }
 
@@ -19,8 +19,8 @@ final class MainPresenter {
     private let mainService: IMainService
     
     // Properties
-    var dataSource: [[RecipeModel]] = []
-
+    var dataSource: [[RecipeTableViewCellModel]] = []
+    
     // MARK: Init
     
     init(output: MainPresenterOutput?, mainService: IMainService) {
@@ -29,14 +29,36 @@ final class MainPresenter {
     }
     
     // MARK: Private
+    
     private func getData() {
-        let viewModels = mainService.getData()
-        self.dataSource += viewModels
-        self.view?.reloadData()
+        mainService.getData { [weak self] result in
+            switch result {
+            case .success(let categoryData):
+                let categories = ["popular", "new", "easy"]
+                for category in categories {
+                    if let recipes = categoryData[category] {
+                        let viewModels = recipes.map { recipeCellResponse in
+                            return RecipeTableViewCellModel(
+                                id: recipeCellResponse.id,
+                                title: recipeCellResponse.title,
+                                description: recipeCellResponse.description,
+                                image: recipeCellResponse.image,
+                                isLiked: recipeCellResponse.isLiked
+                            )
+                        }
+                        self?.dataSource.append(viewModels)
+                    }
+                }
+                self?.view?.reloadData()
+            case .failure(let error):
+                print("MainPresenter\n", ">>>", "Error: \(error)")
+            }
+        }
     }
 }
 
 // MARK: - MainViewOutput
+
 extension MainPresenter: MainViewOutput {
     func onSeeAllButtonClicked(category: Section) {
         output?.onSeeAllButtonClicked(category: category)
@@ -46,7 +68,7 @@ extension MainPresenter: MainViewOutput {
         getData()
     }
     
-    func onRecipeCellCkicked(recipe: RecipeModel) {
+    func onRecipeCellClicked(recipe: Int) {
         output?.onRecipeCellClicked(recipe: recipe)
     }
 }

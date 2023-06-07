@@ -92,7 +92,7 @@ final class LoginViewController: UIViewController {
     // MARK: Private
     
     private func setupUI() {
-        view.backgroundColor = .systemGray6
+        view.backgroundColor = UIColor(asset: Asset.Colors.backgroundColor)
         view.addGestureRecognizer(UITapGestureRecognizer(target: self, action: #selector(hideKeyboard)))
         
         view.addSubview(scrollView)
@@ -140,7 +140,10 @@ final class LoginViewController: UIViewController {
     // MARK: Actions
     
     @objc private func onSignInButtonClicked() {
-        output.onSignInButtonClicked()
+        guard let mail = mailTextField.text else { return }
+        guard let password = passwordTextField.text else { return }
+        let parameters = LoginParameters(email: mail, password: password)
+        output.onSignInButtonClicked(params: parameters)
     }
     
     @objc private func onForgotButtonClicked() {
@@ -169,4 +172,12 @@ final class LoginViewController: UIViewController {
 // MARK: LoginViewInput
 
 extension LoginViewController: LoginViewInput {
+    func showError(error: LoginError) {
+        let alertController = UIAlertController(
+            title: L10n.CreateAccount.Error.title,
+            message: error.localizedDescription,
+            preferredStyle: .alert)
+        alertController.addAction(UIAlertAction(title: "OK", style: .default, handler: nil))
+        present(alertController, animated: true)
+    }
 }

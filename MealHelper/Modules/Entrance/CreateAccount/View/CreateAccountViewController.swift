@@ -12,7 +12,7 @@ private extension CGFloat {
     static let buttonStackViewSpacing: CGFloat = 25
     static let createAccountStackViewSpacing: CGFloat = 10
     static let createAccountStackViewCornerRadius: CGFloat = 10
-    static let contentStackViewSpasing: CGFloat = 50
+    static let contentStackViewSpasing: CGFloat = 40
     static let titleLabelFont: CGFloat = 32
 }
 
@@ -105,7 +105,7 @@ final class CreateAccountViewController: UIViewController {
     private func setupUI() {
         view.addGestureRecognizer(UITapGestureRecognizer(target: self, action: #selector(hideKeyboard)))
 
-        view.backgroundColor = .systemBackground
+        view.backgroundColor = UIColor(asset: Asset.Colors.backgroundColor)
         view.addSubview(scrollView)
         scrollView.snp.makeConstraints { make in
             make.top.equalToSuperview()
@@ -171,7 +171,16 @@ final class CreateAccountViewController: UIViewController {
     // MARK: Actions
     
     @objc private func onCreateButtonClicked() {
-        output.onCreateButtonClicked()
+        guard let password = passwordTextField.text else { return }
+        guard let confirmPassword = passwordConfirmField.text else { return }
+        if password == confirmPassword {
+            guard let mail = mailTextField.text else { return }
+            guard let username = usernameTextField.text else { return }
+            let params = RegisterParameters(email: mail, password: password, username: username, roleId: 0)
+            output.onCreateButtonClicked(params: params)
+        } else {
+            showError(error: RegisterError.wrongPasswords)
+        }
     }
     
     @objc private func hideKeyboard() {
@@ -196,4 +205,12 @@ final class CreateAccountViewController: UIViewController {
 // MARK: CreateAccountViewInput
 
 extension CreateAccountViewController: CreateAccountViewInput {
+    func showError(error: RegisterError) {
+        let alertController = UIAlertController(
+            title: L10n.CreateAccount.Error.title,
+            message: error.localizedDescription,
+            preferredStyle: .alert)
+        alertController.addAction(UIAlertAction(title: "OK", style: .default, handler: nil))
+        present(alertController, animated: true)
+    }
 }

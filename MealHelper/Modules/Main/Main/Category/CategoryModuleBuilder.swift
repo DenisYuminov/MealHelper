@@ -24,8 +24,8 @@ final class CategoryModuleBuilder: ICategoryModuleBuilder {
     // MARK: ICategoryModuleBuilder
     
     func build(output: CategoryPresenterOutput, category: Section) -> UIViewController {
-        let presenter = CategoryPresenter(output: output, categoryService: categoryService)
-        let view = CategoryViewController(output: presenter, category: category)
+        let presenter = CategoryPresenter(output: output, categoryService: categoryService, category: category)
+        let view = CategoryViewController(output: presenter)
         presenter.view = view
         return view
     }

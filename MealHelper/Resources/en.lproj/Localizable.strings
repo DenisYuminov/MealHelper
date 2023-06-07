@@ -8,6 +8,7 @@
 "signIn.password.placeholder" = "Password";
 "signIn.forgotPassword.button.title" = "Forgot password?";
 "signIn.button.title" = "Sign in";
+"signIn.error.title" = "Wrong mail or password";
 
 //Регистрация
 "createAccount.button.title" = "Create Account";
@@ -20,6 +21,10 @@
 "createAccount.confirmPassword.placeholder" = "Confirm your password";
 "createAccount.confirmPassword.title" = "Confirm password";
 "createAccount.navigation.title" = "Create Account";
+"createAccount.error.userAlreadyexists" = "This user already exists";
+"createAccount.error.title" = "Error";
+"createAccount.error.wrongPassword" = "your password don't match";
+
 
 //Забыл пароль
 "forgotPassword.button.title" = "Confirm";
@@ -40,6 +45,9 @@
 // мои рецепты
 "yourRecipes.navigation.title" = "My recipes";
 "yourRecipes.tableViewAction.title" = "Delete";
+"yourRecipes.Delete.alert.title" = "Delete Recipe";
+"yourRecipes.Delete.alert.message" = "Are you sure you want to delete this recipe?";
+
 
 // создать рецепт
 "createRecipe.cancelButton.title" = "Cancel";
@@ -82,8 +90,12 @@
 "settings.PasswordCell.title" = "Change password";
 "settings.exit.title" = "Log Out";
 "settings.DeleteAccount.title" = "Delete account";
+"settings.CreareAcciunt.title" = "Create account";
+"settings.sigIn.title" = "Sign In";
+
 
 // рецепт
+"recipe.editButton.title" = "Edit";
 "recipe.authorLabel.title" = "by";
 "recipe.prepareLabel.title" = "Prepare";
 "recipe.cookLabel.title" = "Cook";
@@ -96,4 +108,5 @@
 "recipe.Method.title" = "Method";
 "recipe.Method.step" = "STEP";
 "recipe.rating.title" = "Rating";
+"settings.username.title" = "Not authorized";
 

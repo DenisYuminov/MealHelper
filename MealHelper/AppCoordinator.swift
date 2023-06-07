@@ -29,7 +29,10 @@ final class AppCoordinator {
     // MARK: Internal
     
     func createRootViewController() {
-        let isAuth = false
+        var isAuth = false
+        if KeychainService.shared.isAuth() {
+            isAuth = true
+        }
         if isAuth {
             let viewController = mainTabBarCoordinator.createFlow(isAuth: isAuth)
             navigationContonroller.pushViewController(viewController, animated: true)

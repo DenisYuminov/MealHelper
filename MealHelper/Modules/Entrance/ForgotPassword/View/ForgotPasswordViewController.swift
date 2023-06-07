@@ -97,7 +97,7 @@ final class ForgotPasswordViewController: UIViewController {
     // MARK: Private
     
     private func setupUI() {
-        view.backgroundColor = .systemBackground
+        view.backgroundColor = UIColor(asset: Asset.Colors.backgroundColor)
         view.addGestureRecognizer(UITapGestureRecognizer(target: self, action: #selector(hideKeyboard)))
 
         view.addSubview(scrollView)

@@ -5,6 +5,7 @@ excluded:
   - /**/Generated
 
 disabled_rules:
+  - type_body_length
   - todo
   - trailing_whitespace
   - notification_center_detachment
@@ -88,3 +89,7 @@ private_over_fileprivate:
 
 vertical_whitespace:
   max_empty_lines: 1
+  
+file_length:
+  warning: 600
+

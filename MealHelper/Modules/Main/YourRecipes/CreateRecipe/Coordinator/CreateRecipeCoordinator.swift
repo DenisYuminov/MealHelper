@@ -8,7 +8,7 @@
 import UIKit
 
 protocol ICreateRecipeCoordinator: AnyObject {
-    func createFlow() -> UIViewController
+    func createFlow(recipeId: Int) -> UIViewController
 }
 
 final class CreateRecipeCoordinator: ICreateRecipeCoordinator, CreateRecipePresenterOutput {
@@ -26,8 +26,8 @@ final class CreateRecipeCoordinator: ICreateRecipeCoordinator, CreateRecipePrese
     
     // MARK: ICreateRecipeCoordinator
     
-    func createFlow() -> UIViewController {
-        let viewController = moduleBuilder.build(output: self)
+    func createFlow(recipeId: Int = 0) -> UIViewController {
+        let viewController = moduleBuilder.build(output: self, recipeId: recipeId)
         transitionHandler = viewController
         return viewController
     }
@@ -36,5 +36,11 @@ final class CreateRecipeCoordinator: ICreateRecipeCoordinator, CreateRecipePrese
 
     func showYOurRecipe() {
         transitionHandler?.navigationController?.popToRootViewController(animated: true)
+    }
+}
+
+extension ICreateRecipeCoordinator {
+    func createFlow() -> UIViewController {
+        return createFlow(recipeId: 0)
     }
 }

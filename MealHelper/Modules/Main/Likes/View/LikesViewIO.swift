@@ -12,7 +12,7 @@ protocol LikesViewInput: AnyObject {
 }
 
 protocol LikesViewOutput: AnyObject {
-    var dataSource: [RecipeModel] { get }
-    func didSelectRecipe(recipe: RecipeModel)
+    var dataSource: [RecipeTableViewCellModel] { get }
+    func didSelectRecipe(recipe: Int)
     func viewDidLoad()
 }

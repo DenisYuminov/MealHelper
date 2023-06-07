@@ -42,8 +42,8 @@ final class MainCoordinator: IMainCoordinator, MainPresenterOutput {
     }
     
     // MARK: MainPresenterOutput
-    func onRecipeCellClicked(recipe: RecipeModel) {
-        let viewController = recipeCoordinator.createFlow(recipe: recipe)
+    func onRecipeCellClicked(recipe: Int) {
+        let viewController = recipeCoordinator.createFlow(recipeId: recipe)
         transitionHandler?.pushViewController(viewController, animated: true)
     }
     

@@ -11,9 +11,6 @@ final class CategoryViewController: UIViewController {
     // Dependencies
     private let output: CategoryViewOutput
     
-    // Properties
-    private var category: Section
-
     // UI
     private lazy var tableView: UITableView = {
         let tableView = UITableView()
@@ -25,9 +22,8 @@ final class CategoryViewController: UIViewController {
     
     // MARK: Init
     
-    init(output: CategoryViewOutput, category: Section) {
+    init(output: CategoryViewOutput) {
         self.output = output
-        self.category = category
         super.init(nibName: nil, bundle: nil)
     }
     
@@ -43,18 +39,34 @@ final class CategoryViewController: UIViewController {
         output.viewDidLoad()
     }
     
+    override func viewWillAppear(_ animated: Bool) {
+        super.viewWillAppear(animated)
+        reloadData()
+    }
+    
     // MARK: Private
     
     private func setup() {
         view.addSubview(tableView)
-        view.backgroundColor = .systemBackground
-        self.title = category.title
+        view.backgroundColor = UIColor(asset: Asset.Colors.backgroundColor)
+        tableView.backgroundColor = UIColor(asset: Asset.Colors.backgroundColor)
+        self.title = output.category.title
         tableView.snp.makeConstraints { make in
             make.top.equalToSuperview().inset(120)
             make.bottom.equalToSuperview()
             make.leading.equalToSuperview()
             make.trailing.equalToSuperview()
         }
+        let refreshControl = UIRefreshControl()
+        refreshControl.addTarget(self, action: #selector(refreshData), for: .valueChanged)
+        tableView.refreshControl = refreshControl
+    }
+    
+    // MARK: Actions
+    
+    @objc private func refreshData() {
+        output.viewDidLoad()
+        tableView.refreshControl?.endRefreshing()
     }
 }
 
@@ -84,6 +96,12 @@ extension CategoryViewController: UITableViewDataSource {
         let recipe = output.dataSource[indexPath.row]
         cell.configure(with: recipe)
         return cell
+    }
+    
+    func tableView(_ tableView: UITableView, didSelectRowAt indexPath: IndexPath) {
+        let recipe = output.dataSource[indexPath.row]
+        output.onRecipeCellClicked(recipeId: recipe.id)
+        tableView.deselectRow(at: indexPath, animated: true)
     }
 }
 

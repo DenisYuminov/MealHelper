@@ -23,12 +23,33 @@ final class SettingsPresenter {
         self.output = output
         self.settingService = settingService
     }
+    
+    func getUserInfo() {
+        settingService.getUserInfo { result in
+            DispatchQueue.main.async {
+                switch result {
+                case .success(let userInfo):
+                    self.view?.displayUserInfo(userInfo: userInfo)
+                case .failure(let error):
+                    print(error)
+                }
+            }
+        }
+    }
 }
 
 // MARK: SettingsViewOutput
 
 extension SettingsPresenter: SettingsViewOutput {
     func onLogOutButtonClicked() {
+        KeychainService.shared.deleteToken()
         output?.openAuthScreen()
+    }
+    
+    func onsignInButtonClicked() {
+        output?.openAuthScreen()
+    }
+    func viewDidLoad() {
+        getUserInfo()
     }
 }

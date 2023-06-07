@@ -17,6 +17,7 @@ final class CommonCreateTextField: UITextField {
         textColor = .black
         backgroundColor = .clear
         borderStyle = .none
+        textColor = UIColor(asset: Asset.Colors.descriptionColor)
     }
     
     required init?(coder: NSCoder) {

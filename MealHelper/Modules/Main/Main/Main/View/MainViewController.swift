@@ -11,23 +11,6 @@ private extension CGFloat {
     static let collectionViewLayerCornerRadius: CGFloat = 15
 }
 
-enum Section: Int, CaseIterable {
-    case popular
-    case new
-    case easy
-    
-    var title: String {
-        switch self {
-        case .new:
-            return L10n.Main.Category.new
-        case .popular:
-            return L10n.Main.Category.popular
-        case .easy:
-            return L10n.Main.Category.easy
-        }
-    }
-}
-
 final class MainViewController: UIViewController {
     // Dependencies
     private let output: MainViewOutput
@@ -84,11 +67,22 @@ final class MainViewController: UIViewController {
     // MARK: Private
     
     private func setup() {
-        view.backgroundColor = .systemBackground
+        view.backgroundColor = UIColor(asset: Asset.Colors.backgroundColor)
+        collectionView.backgroundColor = UIColor(asset: Asset.Colors.backgroundColor)
         view.addSubview(collectionView)
         collectionView.snp.makeConstraints { make in
             make.edges.equalToSuperview()
         }
+        let refreshControl = UIRefreshControl()
+        refreshControl.addTarget(self, action: #selector(refreshData), for: .valueChanged)
+        collectionView.refreshControl = refreshControl
+    }
+    
+    // MARK: Actions
+    
+    @objc private func refreshData() {
+        output.viewDidLoad()
+        collectionView.refreshControl?.endRefreshing()
     }
 }
 
@@ -102,7 +96,7 @@ extension MainViewController: UICollectionViewDataSource {
     func collectionView(
         _ collectionView: UICollectionView, numberOfItemsInSection section: Int
     ) -> Int {
-        return 9
+        return 6
     }
     func collectionView(
         _ collectionView: UICollectionView,
@@ -127,21 +121,21 @@ extension MainViewController: UICollectionViewDataSource {
         at indexPath: IndexPath
     ) -> UICollectionReusableView {
         switch kind {
-            case UICollectionView.elementKindSectionHeader:
-                guard let header = collectionView.dequeueReusableSupplementaryView(
-                    ofKind: kind,
-                    withReuseIdentifier: CollectionHeaderView.reuseIdentifier,
-                    for: indexPath
-                ) as? CollectionHeaderView else {
-                    fatalError("Could not dequeue CollectionHeadereView")
-                }
-                let section = Section.allCases[indexPath.section]
-                header.delegate = self
-                header.configureCell(headerName: section.title)
-                header.button.tag = indexPath.section
-                return header
-            default:
-                return UICollectionReusableView()
+        case UICollectionView.elementKindSectionHeader:
+            guard let header = collectionView.dequeueReusableSupplementaryView(
+                ofKind: kind,
+                withReuseIdentifier: CollectionHeaderView.reuseIdentifier,
+                for: indexPath
+            ) as? CollectionHeaderView else {
+                fatalError("Could not dequeue CollectionHeaderView")
+            }
+            let section = Section.allCases[indexPath.section]
+            header.delegate = self
+            header.configureCell(headerName: section.title)
+            header.button.tag = indexPath.section
+            return header
+        default:
+            return UICollectionReusableView()
         }
     }
 }
@@ -151,7 +145,7 @@ extension MainViewController: UICollectionViewDataSource {
 extension MainViewController: UICollectionViewDelegate {
     func collectionView(_ collectionView: UICollectionView, didSelectItemAt indexPath: IndexPath) {
         let recipe = output.dataSource[indexPath.section][indexPath.row]
-        output.onRecipeCellCkicked(recipe: recipe)
+        output.onRecipeCellClicked(recipe: recipe.id)
     }
 }
 

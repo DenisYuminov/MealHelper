@@ -35,8 +35,8 @@ final class CategoryCoordinator: ICategoryCoordinator, CategoryPresenterOutput {
     }
     // MARK: CategoryPresenterOutput
     
-    func onRecipeCellClicked(recipe: RecipeModel) {
-        let viewController = recipeCoordinator.createFlow(recipe: recipe)
+    func onRecipeCellClicked(recipeId: Int) {
+        let viewController = recipeCoordinator.createFlow(recipeId: recipeId)
         transitionHandler?.navigationController?.pushViewController(viewController, animated: true)
     }
 }

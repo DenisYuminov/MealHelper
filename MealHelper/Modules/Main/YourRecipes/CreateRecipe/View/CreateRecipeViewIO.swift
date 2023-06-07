@@ -6,10 +6,13 @@
 //
 
 import Foundation
+import UIKit
 protocol CreateRecipeViewInput: AnyObject {
+    func editRecipe(recipe: RecipeModel)
 }
 
 protocol CreateRecipeViewOutput: AnyObject {
     func onCancelRecipeButtonClicked()
-    func onSaveRecipeButtonClicked()
+    func onSaveRecipeButtonClicked(recipe: RecipeModel, image: UIImage)
+    func viewDidLoad()
 }

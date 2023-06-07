@@ -35,22 +35,36 @@ final class LikesViewController: UIViewController {
     
     override func viewDidLoad() {
         super.viewDidLoad()
-        view.backgroundColor = .systemBackground
         view.addSubview(tableView)
         title = L10n.Likes.Navigation.title
         setup()
         output.viewDidLoad()
     }
     
+    override func viewWillAppear(_ animated: Bool) {
+        super.viewWillAppear(animated)
+        reloadData()
+    }
+    
     // MARK: Private
     
     private func setup() {
+        view.backgroundColor = UIColor(asset: Asset.Colors.backgroundColor)
+        tableView.backgroundColor = UIColor(asset: Asset.Colors.backgroundColor)
         tableView.snp.makeConstraints { make in
             make.top.equalToSuperview().inset(120)
             make.bottom.equalToSuperview()
             make.leading.equalToSuperview()
             make.trailing.equalToSuperview()
         }
+        let refreshControl = UIRefreshControl()
+        refreshControl.addTarget(self, action: #selector(refreshData), for: .valueChanged)
+        tableView.refreshControl = refreshControl
+    }
+    
+    @objc private func refreshData() {
+        output.viewDidLoad()
+        tableView.refreshControl?.endRefreshing()
     }
 }
 
@@ -86,7 +100,7 @@ extension LikesViewController: UITableViewDelegate, UITableViewDataSource {
     }
     
     func tableView(_ tableView: UITableView, didSelectRowAt indexPath: IndexPath) {
-        let recipe = output.dataSource[indexPath.row]
+        let recipe = output.dataSource[indexPath.row].id
         output.didSelectRecipe(recipe: recipe)
         tableView.deselectRow(at: indexPath, animated: true)
     }
